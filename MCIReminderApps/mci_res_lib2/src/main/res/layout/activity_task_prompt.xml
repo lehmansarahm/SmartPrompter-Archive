@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.TaskPromptActivity">
+
+    <TextView
+        android:id="@+id/alarmText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_gravity="top|center_horizontal"
+        android:textSize="34sp"
+        android:text="Alarm #1" />
+
+    <TextView
+        android:id="@+id/taskText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:textSize="34sp"
+        android:text="Time to drink water!  Press button below when you are on your way!" />
+
+    <Button
+        android:id="@+id/acknowledgeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="On my way!"
+        android:layout_gravity="bottom|center"
+        android:textSize="24sp" />
+
+</android.support.design.widget.CoordinatorLayout>

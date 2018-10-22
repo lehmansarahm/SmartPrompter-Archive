@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MCIReminderApps.iml" filepath="$PROJECT_DIR$/MCIReminderApps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/advancedv2/advancedv2.iml" filepath="$PROJECT_DIR$/advancedv2/advancedv2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mci_res_lib2/mci_res_lib2.iml" filepath="$PROJECT_DIR$/mci_res_lib2/mci_res_lib2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/simplev2/simplev2.iml" filepath="$PROJECT_DIR$/simplev2/simplev2.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.temple.mci_res_lib2">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <application>
+        <activity android:name=".activities.AlarmListActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".activities.TaskPromptActivity" />
+        <activity android:name=".activities.CompletionPromptActivity" />
+        <activity android:name=".activities.CompletionCameraActivity" />
+        <activity android:name=".activities.CompletionConfirmationActivity"
+            android:hardwareAccelerated="false"/>
+        <activity android:name=".activities.AlarmDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+    </application>
+
+</manifest>
