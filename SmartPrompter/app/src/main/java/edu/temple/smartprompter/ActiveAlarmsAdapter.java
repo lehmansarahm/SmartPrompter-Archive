@@ -7,16 +7,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class ActiveAlarmsAdapter extends RecyclerView.Adapter<AlarmViewHolder> {
 
-    private String[] mDataset;
+    private List<Alarm> mDataset;
 
-    // Provide a suitable constructor (depends on the kind of dataset)
-    public ActiveAlarmsAdapter(String[] myDataset) {
+    public ActiveAlarmsAdapter(List<Alarm> myDataset) {
         mDataset = myDataset;
     }
 
-    // Create new views (invoked by the layout manager)
     @Override
     public AlarmViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         TextView v = (TextView) LayoutInflater.from(parent.getContext())
@@ -25,24 +25,22 @@ public class ActiveAlarmsAdapter extends RecyclerView.Adapter<AlarmViewHolder> {
         return vh;
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(final AlarmViewHolder holder, int position) {
-        holder.mTextView.setText(mDataset[position]);
+        holder.mTextView.setText(mDataset.get(position).toString());
         holder.mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(holder.mContext,
-                        "Clicked: " + holder.mTextView.getText(),
+                        "CLICKED: " + holder.mTextView.getText(),
                         Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return mDataset.size();
     }
 
 }

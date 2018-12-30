@@ -1,6 +1,7 @@
 package edu.temple.smartprompter;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,12 +9,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import java.util.List;
 
 public class ActiveAlarmsFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+
+    private List<Alarm> mAlarmDataset = Alarm.getDefaults();
 
     public ActiveAlarmsFragment() {
         // Required empty public constructor
@@ -50,16 +56,21 @@ public class ActiveAlarmsFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        String[] myDataset = new String[] {
-                "12:00 PM 01/01/01",
-                "1:00 PM 01/01/01",
-                "2:00 PM 01/01/01",
-                "3:00 PM 01/01/01"
-        };
-
-        mAdapter = new ActiveAlarmsAdapter(myDataset);
+        mAdapter = new ActiveAlarmsAdapter(mAlarmDataset);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        FloatingActionButton fab = rootView.findViewById(R.id.add_alarm_button);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(),
+                        "Time to add a new alarm!",
+                        Toast.LENGTH_SHORT).show();
+                mAlarmDataset.add(new Alarm("01/01/19", "12:00 AM", "New Alarm"));
+                mAdapter.notifyItemInserted(mAlarmDataset.size() - 1);
+            }
+        });
 
         return rootView;
     }
