@@ -13,15 +13,19 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application>
+
         <activity android:name=".activities.AlarmListActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".activities.AlarmDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".activities.TaskPromptActivity" />
         <activity android:name=".activities.CompletionPromptActivity" />
         <activity android:name=".activities.CompletionCameraActivity" />
         <activity android:name=".activities.CompletionConfirmationActivity"
             android:hardwareAccelerated="false"/>
-        <activity android:name=".activities.AlarmDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+
     </application>
 
 </manifest>

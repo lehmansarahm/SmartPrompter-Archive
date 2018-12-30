@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_active_alarms"
+            android:icon="@drawable/baseline_alarm_black_18dp"
+            android:title="@string/nav_active_alarms" />
+        <item
+            android:id="@+id/nav_incomplete_alarms"
+            android:icon="@drawable/baseline_error_outline_black_18dp"
+            android:title="@string/nav_incomplete_alarms" />
+        <item
+            android:id="@+id/nav_complete_alarms"
+            android:icon="@drawable/baseline_check_circle_outline_black_18dp"
+            android:title="@string/nav_complete_alarms" />
+    </group>
+</menu>

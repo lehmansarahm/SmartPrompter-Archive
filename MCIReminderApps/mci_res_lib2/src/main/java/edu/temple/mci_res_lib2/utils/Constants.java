@@ -24,7 +24,7 @@ public class Constants {
     public static final int DEFAULT_ALARM_ID = -999;
     public static final boolean DEFAULT_PLAY_TONE = true;
 
-    public static final int NOTIFICATION_PLAY_TIME = 15000; // 15sec in milli's
+    public static final int NOTIFICATION_PLAY_TIME = 5000; // 15sec in milli's
 
     public static final int ACKNOWLEDGE_REMINDER_INTERVAL = 60000; // 60sec in milli's
     public static final int ACKNOWLEDGE_REMINDER_LIMIT = 3;
@@ -32,9 +32,9 @@ public class Constants {
     public static final int COMPLETION_REMINDER_INTERVAL = 5 * 60 * 1000; // 5min in milli's
     public static final int COMPLETION_REMINDER_LIMIT = 1;
 
-    public static int ALARM_WINDOW_FLAGS = (WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
-            + WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD|
-            + WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED|
-            + WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+    //public static int ALARM_WINDOW_FLAGS = (WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+    //        + WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD|
+    //        + WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED|
+    //        + WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
 }

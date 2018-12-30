@@ -2,6 +2,7 @@ package edu.temple.mci_res_lib2.activities;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -99,8 +100,18 @@ public class AlarmListActivity extends AppCompatActivity {
     }
 
     private boolean verifyAllPermissionsGranted() {
+        boolean permissionsAlreadyGranted;
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            Log.i(Constants.LOG_TAG, "App is currently executing on device running Android "
+                    + "API 22 or lower.  No need to check permissions.");
+            permissionsAlreadyGranted = true;
+        } else {
+            permissionsAlreadyGranted = (CAN_USE_CAMERA && CAN_USE_VIBRATE
+                    && CAN_READ_EXTERNAL && CAN_WRITE_EXTERNAL);
+        }
+
         // only populate the rest of the view if *ALL* permissions have been satisfied
-        if (CAN_USE_CAMERA && CAN_USE_VIBRATE && CAN_READ_EXTERNAL && CAN_WRITE_EXTERNAL) {
+        if (permissionsAlreadyGranted) {
             Log.i(Constants.LOG_TAG, "All permissions granted!  Populating Alarm List activity view...");
             Toolbar toolbar = findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);

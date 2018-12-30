@@ -29,7 +29,7 @@ public class CompletionPromptActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_completion_prompt);
-        getWindow().addFlags(Constants.ALARM_WINDOW_FLAGS);
+        // getWindow().addFlags(Constants.ALARM_WINDOW_FLAGS);
 
         completionText = findViewById(R.id.completionText);
         takePictureButton = findViewById(R.id.takePictureButton);
@@ -50,7 +50,7 @@ public class CompletionPromptActivity extends AppCompatActivity {
                 else {
                     // if user has reached their limit for completion reminders, then close down this window
                     // (alarm manager has already dumped alarm details to file)
-                    getWindow().clearFlags(Constants.ALARM_WINDOW_FLAGS);
+                    // getWindow().clearFlags(Constants.ALARM_WINDOW_FLAGS);
                     finish();
                 }
             }
@@ -69,9 +69,9 @@ public class CompletionPromptActivity extends AppCompatActivity {
         Log.i(Constants.LOG_TAG, "Completion prompt activity resumed with Alarm ID: " + alarmID);
 
         // a little extra logic to make sure the screen wakes up when an alarm is received
-        WindowManager.LayoutParams params = getWindow().getAttributes();
-        params.screenBrightness = 1;
-        getWindow().setAttributes(params);
+        // WindowManager.LayoutParams params = getWindow().getAttributes();
+        // params.screenBrightness = 1;
+        // getWindow().setAttributes(params);
     }
 
     private void populateTaskView(final int alarmID) {
