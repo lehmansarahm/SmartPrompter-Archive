@@ -1,4 +1,4 @@
-package edu.temple.smartprompter;
+package edu.temple.smartprompter.alarms;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

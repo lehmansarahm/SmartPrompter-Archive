@@ -1,4 +1,4 @@
-package edu.temple.smartprompter;
+package edu.temple.smartprompter.fragments;
 
 import android.app.Dialog;
 import android.app.TimePickerDialog;

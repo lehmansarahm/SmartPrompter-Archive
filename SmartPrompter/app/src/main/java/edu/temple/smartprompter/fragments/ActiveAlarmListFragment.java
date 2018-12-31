@@ -1,4 +1,4 @@
-package edu.temple.smartprompter;
+package edu.temple.smartprompter.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,7 +13,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Calendar;
+import edu.temple.smartprompter.adapters.ActiveAlarmsAdapter;
+import edu.temple.smartprompter.alarms.Alarm;
+import edu.temple.smartprompter.alarms.AlarmManager;
+import edu.temple.smartprompter.R;
 
 public class ActiveAlarmListFragment extends Fragment {
 
@@ -31,8 +34,6 @@ public class ActiveAlarmListFragment extends Fragment {
     public static ActiveAlarmListFragment newInstance(/* any parameters we require */) {
         ActiveAlarmListFragment fragment = new ActiveAlarmListFragment();
         Bundle args = new Bundle();
-        // args.putString(ARG_PARAM1, param1);
-        // args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -57,11 +58,6 @@ public class ActiveAlarmListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        /*if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }*/
     }
 
     @Override
@@ -96,7 +92,7 @@ public class ActiveAlarmListFragment extends Fragment {
                         .getLayoutManager();
                 layoutManager.scrollToPositionWithOffset(0, 0);
 
-                // show a toast so user knows to edit the record
+                // show a toast so user knows to edit the record, update list visibility
                 Toast.makeText(getActivity(), "New alarm created.  Click to edit.",
                         Toast.LENGTH_SHORT).show();
                 checkDatasetVisibility();

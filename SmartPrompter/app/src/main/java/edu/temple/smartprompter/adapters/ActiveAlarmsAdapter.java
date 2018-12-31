@@ -1,13 +1,19 @@
-package edu.temple.smartprompter;
+package edu.temple.smartprompter.adapters;
 
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.List;
+
+import edu.temple.smartprompter.alarms.Alarm;
+import edu.temple.smartprompter.alarms.AlarmViewHolder;
+import edu.temple.smartprompter.R;
+import edu.temple.smartprompter.util.Constants;
 
 public class ActiveAlarmsAdapter extends RecyclerView.Adapter<AlarmViewHolder> {
 
@@ -36,8 +42,13 @@ public class ActiveAlarmsAdapter extends RecyclerView.Adapter<AlarmViewHolder> {
 
     @Override
     public void onBindViewHolder(final AlarmViewHolder holder, final int position) {
+        Log.i(Constants.LOG_TAG, "Binding new line item view for alarm at position: "
+                + position);
+
         Alarm currentAlarm = mDataset.get(position);
-        if (currentAlarm.getStatus().equals(Alarm.STATUS.Active)) {
+        if (currentAlarm.getStatus().equals(Alarm.STATUS.Active.toString())) {
+            Log.d(Constants.LOG_TAG, "Alarm at position: " + position
+                    + " is active!  Updating line item background color.");
             holder.mTextView.setBackgroundColor(Color.GREEN);
         }
 

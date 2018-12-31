@@ -1,4 +1,4 @@
-package edu.temple.smartprompter;
+package edu.temple.smartprompter.alarms;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

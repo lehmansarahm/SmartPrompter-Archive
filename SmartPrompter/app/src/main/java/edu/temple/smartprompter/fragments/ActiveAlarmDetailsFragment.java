@@ -1,8 +1,9 @@
-package edu.temple.smartprompter;
+package edu.temple.smartprompter.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,11 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import edu.temple.smartprompter.alarms.Alarm;
+import edu.temple.smartprompter.alarms.AlarmManager;
+import edu.temple.smartprompter.R;
+import edu.temple.smartprompter.util.Constants;
 
 public class ActiveAlarmDetailsFragment extends Fragment {
 
@@ -48,22 +54,25 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         try {
             mChangeListener = (AlarmDetailChangeListener) context;
         } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString()
-                    + " must implement AlarmDetailChangeListener");
+            String error = context.toString() + " must implement AlarmDetailChangeListener";
+            Log.e(Constants.LOG_TAG, error, e);
+            throw new ClassCastException();
         }
 
         try {
             mDateListener = (DatePickerFragment.DatePickerListener) context;
         } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString()
-                    + " must implement DatePickerFragment.DatePickerListener");
+            String error = context.toString() + " must implement DatePickerListener";
+            Log.e(Constants.LOG_TAG, error, e);
+            throw new ClassCastException();
         }
 
         try {
             mTimeListener = (TimePickerFragment.TimePickerListener) context;
         } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString()
-                    + " must implement TimePickerFragment.TimePickerListener");
+            String error = context.toString() + " must implement TimePickerListener";
+            Log.e(Constants.LOG_TAG, error, e);
+            throw new ClassCastException();
         }
     }
 
@@ -100,6 +109,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         labelLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.i(Constants.LOG_TAG, "User clicked LABEL field for alarm: " + mPosition);
                 Toast.makeText(rootView.getContext(),
                         "LABEL CLICKED", Toast.LENGTH_SHORT).show();
                 // TODO - grab the label provided by the user, update the current alarm
@@ -116,8 +126,8 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         dateLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.i(Constants.LOG_TAG, "User clicked DATE field for alarm: " + mPosition);
                 mDateListener.onDatePickerRequested(mAlarm.getDate());
-                // TODO - grab the date the user selects, update the current alarm
             }
         });
 
@@ -131,8 +141,8 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         timeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.i(Constants.LOG_TAG, "User clicked TIME field for alarm: " + mPosition);
                 mTimeListener.onTimePickerRequested(mAlarm.getTime());
-                // TODO - grab the time the user selects, update the current alarm
             }
         });
 
@@ -146,6 +156,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         statusLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.i(Constants.LOG_TAG, "User clicked STATUS field for alarm: " + mPosition);
                 Toast.makeText(rootView.getContext(),
                         "STATUS CLICKED", Toast.LENGTH_SHORT).show();
                 // TODO - show a dialog with more info about this status code
@@ -157,21 +168,32 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         // ----------------------------------------------------------------------------
 
         Button activateDeactivateButton = rootView.findViewById(R.id.activate_deactivate_button);
+        if (!mAlarm.getStatus().equals(Alarm.STATUS.New.toString())) {
+            Log.i(Constants.LOG_TAG, "Alarm is active!  Toggle activate / deactivate button text.");
+            activateDeactivateButton.setText(R.string.button_deactivate);
+        }
+
         activateDeactivateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mAlarm.getStatus().equals(Alarm.STATUS.New)) {
-                    // alarm is not active yet ... pressing this button will schedule the
-                    // first reminder
+                Log.i(Constants.LOG_TAG, "User clicked ACTIVATE, DEACTIVATE button "
+                        + "for alarm: " + mPosition);
+                Log.d(Constants.LOG_TAG, "Current alarm status: " + mAlarm.getStatus());
+
+                if (mAlarm.getStatus().equals(Alarm.STATUS.New.toString())) {
+                    Log.i(Constants.LOG_TAG, "Alarm status is currently 'New'.  "
+                            + "Activating alarm and scheduling reminders.");
                     mAlarm.scheduleReminder();
                     mAlarm.setStatus(Alarm.STATUS.Active);
                 } else {
-                    // alarm was activated previously ... pressing this button will cancel
-                    // any scheduled reminders and reset the alarm status
+                    Log.i(Constants.LOG_TAG, "Alarm is already active.  Cancelling "
+                            + "currently scheduled reminders and resetting alarm status.");
                     mAlarm.cancelAllReminders();
                     mAlarm.setStatus(Alarm.STATUS.New);
                 }
 
+                // TODO - debug this button ... doesn't seem to be updating dataset
+                Log.d(Constants.LOG_TAG, "New alarm status: " + mAlarm.getStatus());
                 AlarmManager.mAlarmDataset.set(mPosition, mAlarm);
                 mChangeListener.onAlarmDetailsChanged();
             }

@@ -1,10 +1,12 @@
-package edu.temple.smartprompter;
+package edu.temple.smartprompter.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import edu.temple.smartprompter.R;
 
 public class IncompleteAlarmListFragment extends Fragment {
 

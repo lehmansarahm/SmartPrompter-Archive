@@ -1,6 +1,8 @@
-package edu.temple.smartprompter;
+package edu.temple.smartprompter.alarms;
 
 import java.util.List;
+
+import edu.temple.smartprompter.alarms.Alarm;
 
 public class AlarmManager {
 
