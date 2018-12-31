@@ -1,5 +1,6 @@
 package edu.temple.smartprompter;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +36,12 @@ public class ActiveAlarmsAdapter extends RecyclerView.Adapter<AlarmViewHolder> {
 
     @Override
     public void onBindViewHolder(final AlarmViewHolder holder, final int position) {
-        holder.mTextView.setText(mDataset.get(position).toString());
+        Alarm currentAlarm = mDataset.get(position);
+        if (currentAlarm.getStatus().equals(Alarm.STATUS.Active)) {
+            holder.mTextView.setBackgroundColor(Color.GREEN);
+        }
+
+        holder.mTextView.setText(currentAlarm.toString());
         holder.mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

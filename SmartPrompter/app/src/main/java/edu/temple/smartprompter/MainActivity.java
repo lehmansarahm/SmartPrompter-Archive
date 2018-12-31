@@ -16,7 +16,8 @@ public class MainActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener,
         ActiveAlarmsAdapter.AlarmDetailsListener,
         DatePickerFragment.DatePickerListener,
-        TimePickerFragment.TimePickerListener {
+        TimePickerFragment.TimePickerListener,
+        ActiveAlarmDetailsFragment.AlarmDetailChangeListener {
 
     private DrawerLayout mDrawerLayout;
 
@@ -30,8 +31,8 @@ public class MainActivity extends AppCompatActivity implements
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, mDrawerLayout, toolbar, R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close);
+                this, mDrawerLayout, toolbar, R.string.nav_drawer_open,
+                R.string.nav_drawer_close);
         mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -142,6 +143,21 @@ public class MainActivity extends AppCompatActivity implements
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.detach(aadf);
         ft.attach(aadf);
+        ft.commit();
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    @Override
+    public void onAlarmDetailsChanged() {
+        FragmentManager fm = getSupportFragmentManager();
+        fm.popBackStack(); // remove alarm details fragment from backstack
+
+        FragmentTransaction ft = fm.beginTransaction();
+        ActiveAlarmListFragment aaf = ActiveAlarmListFragment.newInstance();
+        ft.replace(R.id.fragment_container, aaf);
+        ft.addToBackStack(null);
         ft.commit();
     }
 

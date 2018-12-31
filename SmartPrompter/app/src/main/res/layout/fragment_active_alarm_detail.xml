@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="28sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 android:text="Label" />
 
@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="28sp"
+                android:textSize="24sp"
                 android:text="Label" />
 
             <TextView
@@ -55,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="28sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 android:text="Date" />
 
@@ -64,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="28sp"
+                android:textSize="24sp"
                 android:text="Date" />
 
             <TextView
@@ -88,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="28sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 android:text="Time" />
 
@@ -97,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="28sp"
+                android:textSize="24sp"
                 android:text="Time" />
 
             <TextView
@@ -121,7 +121,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="28sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 android:text="Status" />
 
@@ -130,8 +130,38 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="28sp"
+                android:textSize="24sp"
                 android:text="Status" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/line_break_single" />
+
+        </LinearLayout>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/activate_deactivate_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_activate" />
+
+            <Button
+                android:id="@+id/delete_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_delete" />
 
         </LinearLayout>
 

@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -20,6 +21,7 @@ public class ActiveAlarmListFragment extends Fragment {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
+    private TextView mEmptyView;
     private ActiveAlarmsAdapter.AlarmDetailsListener mListener;
 
     public ActiveAlarmListFragment() {
@@ -68,6 +70,7 @@ public class ActiveAlarmListFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_active_alarm_list, container,
                 false);
 
+        mEmptyView = rootView.findViewById(R.id.empty_view);
         mRecyclerView = rootView.findViewById(R.id.active_alarm_recycler);
         mRecyclerView.setHasFixedSize(true);
 
@@ -77,6 +80,8 @@ public class ActiveAlarmListFragment extends Fragment {
         mAdapter = new ActiveAlarmsAdapter(AlarmManager.mAlarmDataset, mListener);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        checkDatasetVisibility();
 
         FloatingActionButton fab = rootView.findViewById(R.id.add_alarm_button);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -94,10 +99,21 @@ public class ActiveAlarmListFragment extends Fragment {
                 // show a toast so user knows to edit the record
                 Toast.makeText(getActivity(), "New alarm created.  Click to edit.",
                         Toast.LENGTH_SHORT).show();
+                checkDatasetVisibility();
             }
         });
 
         return rootView;
+    }
+
+    private void checkDatasetVisibility() {
+        if (AlarmManager.mAlarmDataset.isEmpty()) {
+            mEmptyView.setVisibility(View.VISIBLE);
+            mRecyclerView.setVisibility(View.GONE);
+        } else {
+            mEmptyView.setVisibility(View.GONE);
+            mRecyclerView.setVisibility(View.VISIBLE);
+        }
     }
 
 }

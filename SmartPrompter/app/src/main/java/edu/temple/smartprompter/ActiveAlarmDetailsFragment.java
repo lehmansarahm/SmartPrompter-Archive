@@ -6,17 +6,26 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class ActiveAlarmDetailsFragment extends Fragment {
 
+    public interface AlarmDetailChangeListener {
+        void onAlarmDetailsChanged();
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
     private static final String BUNDLE_ARG_POSITION = "bundle_arg_position";
 
     private int mPosition;
     private Alarm mAlarm;
 
+    private AlarmDetailChangeListener mChangeListener;
     private DatePickerFragment.DatePickerListener mDateListener;
     private TimePickerFragment.TimePickerListener mTimeListener;
 
@@ -37,6 +46,13 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         super.onAttach(context);
 
         try {
+            mChangeListener = (AlarmDetailChangeListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString()
+                    + " must implement AlarmDetailChangeListener");
+        }
+
+        try {
             mDateListener = (DatePickerFragment.DatePickerListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString()
@@ -54,6 +70,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+        mChangeListener = null;
         mDateListener = null;
         mTimeListener = null;
     }
@@ -133,6 +150,40 @@ public class ActiveAlarmDetailsFragment extends Fragment {
                         "STATUS CLICKED", Toast.LENGTH_SHORT).show();
                 // TODO - show a dialog with more info about this status code
                 // (NOTE - status codes are not editable by the user)
+            }
+        });
+
+        // ----------------------------------------------------------------------------
+        // ----------------------------------------------------------------------------
+
+        Button activateDeactivateButton = rootView.findViewById(R.id.activate_deactivate_button);
+        activateDeactivateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mAlarm.getStatus().equals(Alarm.STATUS.New)) {
+                    // alarm is not active yet ... pressing this button will schedule the
+                    // first reminder
+                    mAlarm.scheduleReminder();
+                    mAlarm.setStatus(Alarm.STATUS.Active);
+                } else {
+                    // alarm was activated previously ... pressing this button will cancel
+                    // any scheduled reminders and reset the alarm status
+                    mAlarm.cancelAllReminders();
+                    mAlarm.setStatus(Alarm.STATUS.New);
+                }
+
+                AlarmManager.mAlarmDataset.set(mPosition, mAlarm);
+                mChangeListener.onAlarmDetailsChanged();
+            }
+        });
+
+        Button deleteButton = rootView.findViewById(R.id.delete_button);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAlarm.cancelAllReminders();
+                AlarmManager.mAlarmDataset.remove(mAlarm);
+                mChangeListener.onAlarmDetailsChanged();
             }
         });
 

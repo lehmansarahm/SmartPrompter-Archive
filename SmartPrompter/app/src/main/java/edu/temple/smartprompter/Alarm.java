@@ -12,6 +12,9 @@ public class Alarm {
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     private static final SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a");
 
+    // ----------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------
+
     private Calendar cal;
     private String label;
     private STATUS status;
@@ -29,6 +32,9 @@ public class Alarm {
         status = STATUS.New;
     }
 
+    // ----------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------
+
     public void updateDate(int y, int m, int d) {
         cal.set(Calendar.YEAR, y);
         cal.set(Calendar.MONTH, m);
@@ -45,6 +51,9 @@ public class Alarm {
 
     public String getDateString() { return dateFormat.format(cal.getTime()); }
 
+    // ----------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------
+
     public void updateTime(int h, int m) {
         cal.set(Calendar.HOUR_OF_DAY, h);
         cal.set(Calendar.MINUTE, m);
@@ -60,11 +69,30 @@ public class Alarm {
 
     public String getTimeString() { return timeFormat.format(cal.getTime()); }
 
+    // ----------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------
+
     public String getLabel() { return label; }
+
+    public void setStatus(STATUS newStatus) { status = newStatus; }
 
     public String getStatus() { return status.toString(); }
 
     public String toString() { return label; }
+
+    // ----------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------
+
+    public void scheduleReminder() {
+
+    }
+
+    public void cancelAllReminders() {
+        // TODO - fill out
+    }
+
+    // ----------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------
 
     public static Alarm getNewAlarm() {
         return new Alarm(12, 0, 2019, Calendar.JANUARY, 1,"New Alarm");
