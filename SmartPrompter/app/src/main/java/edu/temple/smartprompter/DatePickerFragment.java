@@ -2,6 +2,7 @@ package edu.temple.smartprompter;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.widget.DatePicker;
@@ -13,6 +14,7 @@ public class DatePickerFragment extends DialogFragment
 
     public interface DatePickerListener {
         void onDatePickerRequested(int[] date);
+        void onDatePicked(int year, int month, int day);
     }
 
     // --------------------------------------------------------------------------------------
@@ -24,6 +26,8 @@ public class DatePickerFragment extends DialogFragment
 
     private int mYear, mMonth, mDay;
 
+    private DatePickerListener mListener;
+
     public static DatePickerFragment newInstance(int[] date) {
         DatePickerFragment fragment = new DatePickerFragment();
         Bundle args = new Bundle();
@@ -32,6 +36,23 @@ public class DatePickerFragment extends DialogFragment
         args.putInt(BUNDLE_ARG_DAY, date[2]);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mListener = (DatePickerListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString()
+                    + " must implement DatePickerListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
     }
 
     @Override
@@ -53,6 +74,6 @@ public class DatePickerFragment extends DialogFragment
     }
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        // TODO - do something with the date chosen by the user
+        mListener.onDatePicked(year, month, day);
     }
 }

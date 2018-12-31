@@ -94,34 +94,55 @@ public class MainActivity extends AppCompatActivity implements
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
+    private ActiveAlarmDetailsFragment aadf;
+
     @Override
     public void onAlarmSelected(int position) {
+        AlarmManager.mCurrentAlarmIndex = position;
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
-        ActiveAlarmDetailsFragment aadf = ActiveAlarmDetailsFragment.newInstance(position);
+        aadf = ActiveAlarmDetailsFragment.newInstance(position);
         ft.replace(R.id.fragment_container, aadf);
         ft.addToBackStack(null);
         ft.commit();
     }
 
-    // --------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------
-
     @Override
     public void onDatePickerRequested(int[] date) {
         DialogFragment newFragment = DatePickerFragment.newInstance(date);
         newFragment.show(getSupportFragmentManager(), "datePicker");
-        // TODO - grab the date the user selects, update the current alarm
     }
 
-    // --------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------
+    @Override
+    public void onDatePicked(int year, int month, int day) {
+        int currentAlarmIndex = AlarmManager.mCurrentAlarmIndex;
+        Alarm currentAlarm = AlarmManager.mAlarmDataset.get(currentAlarmIndex);
+        currentAlarm.updateDate(year, month, day);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.detach(aadf);
+        ft.attach(aadf);
+        ft.commit();
+    }
 
     @Override
     public void onTimePickerRequested(int[] time) {
         DialogFragment newFragment = TimePickerFragment.newInstance(time);
         newFragment.show(getSupportFragmentManager(), "timePicker");
-        // TODO - grab the time the user selects, update the current alarm
+    }
+
+    @Override
+    public void onTimePicked(int hourOfDay, int minute) {
+        int currentAlarmIndex = AlarmManager.mCurrentAlarmIndex;
+        Alarm currentAlarm = AlarmManager.mAlarmDataset.get(currentAlarmIndex);
+        currentAlarm.updateTime(hourOfDay, minute);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.detach(aadf);
+        ft.attach(aadf);
+        ft.commit();
     }
 
 }

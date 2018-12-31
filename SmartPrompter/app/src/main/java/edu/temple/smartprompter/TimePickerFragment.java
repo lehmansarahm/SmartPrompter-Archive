@@ -2,6 +2,7 @@ package edu.temple.smartprompter;
 
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.text.format.DateFormat;
@@ -14,6 +15,7 @@ public class TimePickerFragment extends DialogFragment
 
     public interface TimePickerListener {
         void onTimePickerRequested(int[] time);
+        void onTimePicked(int hourOfDay, int minute);
     }
 
     // --------------------------------------------------------------------------------------
@@ -21,19 +23,36 @@ public class TimePickerFragment extends DialogFragment
 
     private static final String BUNDLE_ARG_HOUR = "bundle_arg_hour";
     private static final String BUNDLE_ARG_MINUTE = "bundle_arg_minute";
-    private static final String BUNDLE_ARG_24HR = "bundle_arg_24hr";
 
     private int mHour, mMinute;
     private boolean mIs24Hr;
+
+    private TimePickerListener mListener;
 
     public static TimePickerFragment newInstance(int[] time) {
         TimePickerFragment fragment = new TimePickerFragment();
         Bundle args = new Bundle();
         args.putInt(BUNDLE_ARG_HOUR, time[0]);
         args.putInt(BUNDLE_ARG_MINUTE, time[1]);
-        args.putInt(BUNDLE_ARG_24HR, time[2]);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mListener = (TimePickerListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString()
+                    + " must implement TimePickerListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
     }
 
     @Override
@@ -55,6 +74,6 @@ public class TimePickerFragment extends DialogFragment
     }
 
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-        // TODO - do something with the time chosen by the user
+        mListener.onTimePicked(hourOfDay, minute);
     }
 }

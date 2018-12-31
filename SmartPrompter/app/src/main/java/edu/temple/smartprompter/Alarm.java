@@ -29,6 +29,12 @@ public class Alarm {
         status = STATUS.New;
     }
 
+    public void updateDate(int y, int m, int d) {
+        cal.set(Calendar.YEAR, y);
+        cal.set(Calendar.MONTH, m);
+        cal.set(Calendar.DAY_OF_MONTH, d);
+    }
+
     public int[] getDate() {
         return new int[] {
                 cal.get(Calendar.YEAR),
@@ -38,6 +44,11 @@ public class Alarm {
     }
 
     public String getDateString() { return dateFormat.format(cal.getTime()); }
+
+    public void updateTime(int h, int m) {
+        cal.set(Calendar.HOUR_OF_DAY, h);
+        cal.set(Calendar.MINUTE, m);
+    }
 
     public int[] getTime() {
         return new int[] {
