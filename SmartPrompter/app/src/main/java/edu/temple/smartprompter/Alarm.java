@@ -5,13 +5,22 @@ import java.util.List;
 
 public class Alarm {
 
-    private String date, time, label;
+    private String date, time, label, status;
 
     public Alarm(String d, String t, String l) {
         date = d;
         time = t;
         label = l;
+        status = "New";
     }
+
+    public String getDate() { return date; }
+
+    public String getTime() { return time; }
+
+    public String getLabel() { return label; }
+
+    public String getStatus() { return status; }
 
     public String toString() {
         return label;

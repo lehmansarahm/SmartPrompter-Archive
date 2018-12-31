@@ -13,8 +13,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements
+        NavigationView.OnNavigationItemSelectedListener,
+        ActiveAlarmsAdapter.AlarmDetailsListener {
 
     private DrawerLayout mDrawerLayout;
 
@@ -96,6 +97,20 @@ public class MainActivity extends AppCompatActivity
         ft.addToBackStack(null);
         ft.commit();
         return true;
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    @Override
+    public void onAlarmSelected(int position) {
+        // TODO - user has selected an alarm from the list ... display the details fragment!
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ActiveAlarmDetailsFragment aadf = ActiveAlarmDetailsFragment.newInstance(position);
+        ft.replace(R.id.fragment_container, aadf);
+        ft.addToBackStack(null);
+        ft.commit();
     }
 
 }

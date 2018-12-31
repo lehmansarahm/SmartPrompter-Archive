@@ -11,10 +11,19 @@ import java.util.List;
 
 public class ActiveAlarmsAdapter extends RecyclerView.Adapter<AlarmViewHolder> {
 
-    private List<Alarm> mDataset;
+    public interface AlarmDetailsListener {
+        void onAlarmSelected(int position);
+    }
 
-    public ActiveAlarmsAdapter(List<Alarm> myDataset) {
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    private List<Alarm> mDataset;
+    private AlarmDetailsListener mListener;
+
+    public ActiveAlarmsAdapter(List<Alarm> myDataset, AlarmDetailsListener listener) {
         mDataset = myDataset;
+        mListener = listener;
     }
 
     @Override
@@ -26,14 +35,12 @@ public class ActiveAlarmsAdapter extends RecyclerView.Adapter<AlarmViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(final AlarmViewHolder holder, int position) {
+    public void onBindViewHolder(final AlarmViewHolder holder, final int position) {
         holder.mTextView.setText(mDataset.get(position).toString());
         holder.mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(holder.mContext,
-                        "CLICKED: " + holder.mTextView.getText(),
-                        Toast.LENGTH_SHORT).show();
+                mListener.onAlarmSelected(position);
             }
         });
     }

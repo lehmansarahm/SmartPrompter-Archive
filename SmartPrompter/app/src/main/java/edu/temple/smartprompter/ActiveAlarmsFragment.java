@@ -1,5 +1,6 @@
 package edu.temple.smartprompter;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -11,15 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import java.util.List;
-
 public class ActiveAlarmsFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    private List<Alarm> mAlarmDataset = Alarm.getDefaults();
+    private ActiveAlarmsAdapter.AlarmDetailsListener mListener;
 
     public ActiveAlarmsFragment() {
         // Required empty public constructor
@@ -32,6 +31,23 @@ public class ActiveAlarmsFragment extends Fragment {
         // args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mListener = (ActiveAlarmsAdapter.AlarmDetailsListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString()
+                    + " must implement ActiveAlarmsAdapter.AlarmDetailsListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
     }
 
     @Override
@@ -56,7 +72,7 @@ public class ActiveAlarmsFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new ActiveAlarmsAdapter(mAlarmDataset);
+        mAdapter = new ActiveAlarmsAdapter(AlarmManager.mAlarmDataset, mListener);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
@@ -64,11 +80,19 @@ public class ActiveAlarmsFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),
-                        "Time to add a new alarm!",
+                // insert a new alarm record at the top of the list
+                AlarmManager.mAlarmDataset.add(0,
+                        new Alarm("01/01/19", "12:00 AM", "New Alarm"));
+                mAdapter.notifyItemInserted(0);
+
+                // force the list view to return to the top
+                LinearLayoutManager layoutManager = (LinearLayoutManager) mRecyclerView
+                        .getLayoutManager();
+                layoutManager.scrollToPositionWithOffset(0, 0);
+
+                // show a toast so user knows to edit the record
+                Toast.makeText(getActivity(), "New alarm created.  Click to edit.",
                         Toast.LENGTH_SHORT).show();
-                mAlarmDataset.add(new Alarm("01/01/19", "12:00 AM", "New Alarm"));
-                mAdapter.notifyItemInserted(mAlarmDataset.size() - 1);
             }
         });
 
