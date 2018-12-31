@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-public class ActiveAlarmsFragment extends Fragment {
+public class ActiveAlarmListFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -20,12 +20,12 @@ public class ActiveAlarmsFragment extends Fragment {
 
     private ActiveAlarmsAdapter.AlarmDetailsListener mListener;
 
-    public ActiveAlarmsFragment() {
+    public ActiveAlarmListFragment() {
         // Required empty public constructor
     }
 
-    public static ActiveAlarmsFragment newInstance(/* any parameters we require */) {
-        ActiveAlarmsFragment fragment = new ActiveAlarmsFragment();
+    public static ActiveAlarmListFragment newInstance(/* any parameters we require */) {
+        ActiveAlarmListFragment fragment = new ActiveAlarmListFragment();
         Bundle args = new Bundle();
         // args.putString(ARG_PARAM1, param1);
         // args.putString(ARG_PARAM2, param2);
@@ -63,7 +63,7 @@ public class ActiveAlarmsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_active_alarms, container,
+        View rootView = inflater.inflate(R.layout.fragment_active_alarm_list, container,
                 false);
 
         mRecyclerView = rootView.findViewById(R.id.active_alarm_recycler);

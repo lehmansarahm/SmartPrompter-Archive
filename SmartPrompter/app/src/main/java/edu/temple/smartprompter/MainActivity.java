@@ -1,21 +1,22 @@
 package edu.temple.smartprompter;
 
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener,
-        ActiveAlarmsAdapter.AlarmDetailsListener {
+        ActiveAlarmsAdapter.AlarmDetailsListener,
+        DatePickerFragment.DatePickerListener,
+        TimePickerFragment.TimePickerListener {
 
     private DrawerLayout mDrawerLayout;
 
@@ -79,15 +80,15 @@ public class MainActivity extends AppCompatActivity implements
 
         switch (menuItem.getItemId()) {
             case R.id.nav_active_alarms:
-                ActiveAlarmsFragment aaf = ActiveAlarmsFragment.newInstance();
+                ActiveAlarmListFragment aaf = ActiveAlarmListFragment.newInstance();
                 ft.replace(R.id.fragment_container, aaf);
                 break;
             case R.id.nav_incomplete_alarms:
-                IncompleteAlarmsFragment iaf = IncompleteAlarmsFragment.newInstance();
+                IncompleteAlarmListFragment iaf = IncompleteAlarmListFragment.newInstance();
                 ft.replace(R.id.fragment_container, iaf);
                 break;
             case R.id.nav_complete_alarms:
-                CompleteAlarmsFragment caf = CompleteAlarmsFragment.newInstance();
+                CompleteAlarmListFragment caf = CompleteAlarmListFragment.newInstance();
                 ft.replace(R.id.fragment_container, caf);
                 break;
             default:
@@ -104,7 +105,6 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onAlarmSelected(int position) {
-        // TODO - user has selected an alarm from the list ... display the details fragment!
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ActiveAlarmDetailsFragment aadf = ActiveAlarmDetailsFragment.newInstance(position);
@@ -113,4 +113,24 @@ public class MainActivity extends AppCompatActivity implements
         ft.commit();
     }
 
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    @Override
+    public void onDatePickerRequested() {
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+        // TODO - grab the date the user selects, update the current alarm
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    @Override
+    public void onTimePickerRequested() {
+        DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "timePicker");
+        // TODO - grab the time the user selects, update the current alarm
+    }
+    
 }

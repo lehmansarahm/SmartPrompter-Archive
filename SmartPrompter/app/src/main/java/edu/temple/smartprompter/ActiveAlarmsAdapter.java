@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -29,7 +28,7 @@ public class ActiveAlarmsAdapter extends RecyclerView.Adapter<AlarmViewHolder> {
     @Override
     public AlarmViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         TextView v = (TextView) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.active_alarm_item, parent, false);
+                .inflate(R.layout.recycler_item_active_alarm, parent, false);
         AlarmViewHolder vh = new AlarmViewHolder(parent.getContext(), v);
         return vh;
     }

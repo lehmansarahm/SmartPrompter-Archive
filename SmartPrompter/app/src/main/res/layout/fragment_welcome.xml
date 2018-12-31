@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/double_line_break" />
+        android:text="@string/line_break_double" />
 
     <TextView
         android:layout_width="match_parent"

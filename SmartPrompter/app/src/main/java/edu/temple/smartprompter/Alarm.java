@@ -5,13 +5,16 @@ import java.util.List;
 
 public class Alarm {
 
-    private String date, time, label, status;
+    public enum STATUS { New, Active, Unacknowledged, Incomplete, Complete }
+
+    private String date, time, label;
+    private STATUS status;
 
     public Alarm(String d, String t, String l) {
         date = d;
         time = t;
         label = l;
-        status = "New";
+        status = STATUS.New;
     }
 
     public String getDate() { return date; }
@@ -20,7 +23,7 @@ public class Alarm {
 
     public String getLabel() { return label; }
 
-    public String getStatus() { return status; }
+    public String getStatus() { return status.toString(); }
 
     public String toString() {
         return label;

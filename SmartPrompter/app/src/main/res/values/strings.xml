@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">SmartPrompter</string>
-    <string name="double_line_break">\n\n</string>
+
+    <string name="line_break_single">\n</string>
+    <string name="line_break_double">\n\n</string>
 
     <string name="nav_active_alarms">Active Alarms</string>
     <string name="nav_complete_alarms">Complete Alarms</string>
