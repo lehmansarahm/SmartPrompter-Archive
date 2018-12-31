@@ -23,8 +23,21 @@
         android:id="@+id/add_alarm_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:src="@drawable/baseline_add_white_18dp"
-        android:layout_margin="16dp" />
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="@dimen/fab_margin_level_two"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:layout_marginStart="@dimen/fab_margin"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:src="@drawable/baseline_add_white_18dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/save_close_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/baseline_check_white_18dp" />
 
 </FrameLayout>

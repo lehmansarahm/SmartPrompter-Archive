@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import edu.temple.smartprompter.alarms.Alarm;
-import edu.temple.smartprompter.alarms.AlarmManager;
+import edu.temple.smartprompter.alarms.AlarmMaster;
 import edu.temple.smartprompter.R;
 import edu.temple.smartprompter.util.Constants;
 
@@ -89,7 +89,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mPosition = getArguments().getInt(BUNDLE_ARG_POSITION);
-            mAlarm = AlarmManager.mAlarmDataset.get(mPosition);
+            mAlarm = AlarmMaster.mAlarmDataset.get(mPosition);
         }
     }
 
@@ -113,6 +113,8 @@ public class ActiveAlarmDetailsFragment extends Fragment {
                 Toast.makeText(rootView.getContext(),
                         "LABEL CLICKED", Toast.LENGTH_SHORT).show();
                 // TODO - grab the label provided by the user, update the current alarm
+
+                // TODO - lock down editing privileges if alarm is already active
             }
         });
 
@@ -128,6 +130,8 @@ public class ActiveAlarmDetailsFragment extends Fragment {
             public void onClick(View view) {
                 Log.i(Constants.LOG_TAG, "User clicked DATE field for alarm: " + mPosition);
                 mDateListener.onDatePickerRequested(mAlarm.getDate());
+
+                // TODO - lock down editing privileges if alarm is already active
             }
         });
 
@@ -143,6 +147,8 @@ public class ActiveAlarmDetailsFragment extends Fragment {
             public void onClick(View view) {
                 Log.i(Constants.LOG_TAG, "User clicked TIME field for alarm: " + mPosition);
                 mTimeListener.onTimePickerRequested(mAlarm.getTime());
+
+                // TODO - lock down editing privileges if alarm is already active
             }
         });
 
@@ -161,6 +167,8 @@ public class ActiveAlarmDetailsFragment extends Fragment {
                         "STATUS CLICKED", Toast.LENGTH_SHORT).show();
                 // TODO - show a dialog with more info about this status code
                 // (NOTE - status codes are not editable by the user)
+
+                // TODO - lock down editing privileges if alarm is already active
             }
         });
 
@@ -183,7 +191,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
                 if (mAlarm.getStatus().equals(Alarm.STATUS.New.toString())) {
                     Log.i(Constants.LOG_TAG, "Alarm status is currently 'New'.  "
                             + "Activating alarm and scheduling reminders.");
-                    mAlarm.scheduleReminder();
+                    mAlarm.scheduleReminder(getActivity());
                     mAlarm.setStatus(Alarm.STATUS.Active);
                 } else {
                     Log.i(Constants.LOG_TAG, "Alarm is already active.  Cancelling "
@@ -192,9 +200,8 @@ public class ActiveAlarmDetailsFragment extends Fragment {
                     mAlarm.setStatus(Alarm.STATUS.New);
                 }
 
-                // TODO - debug this button ... doesn't seem to be updating dataset
                 Log.d(Constants.LOG_TAG, "New alarm status: " + mAlarm.getStatus());
-                AlarmManager.mAlarmDataset.set(mPosition, mAlarm);
+                AlarmMaster.mAlarmDataset.set(mPosition, mAlarm);
                 mChangeListener.onAlarmDetailsChanged();
             }
         });
@@ -204,7 +211,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 mAlarm.cancelAllReminders();
-                AlarmManager.mAlarmDataset.remove(mAlarm);
+                AlarmMaster.mAlarmDataset.remove(mAlarm);
                 mChangeListener.onAlarmDetailsChanged();
             }
         });

@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,17 +16,28 @@ import android.widget.Toast;
 
 import edu.temple.smartprompter.adapters.ActiveAlarmsAdapter;
 import edu.temple.smartprompter.alarms.Alarm;
-import edu.temple.smartprompter.alarms.AlarmManager;
+import edu.temple.smartprompter.alarms.AlarmMaster;
 import edu.temple.smartprompter.R;
+import edu.temple.smartprompter.util.Constants;
 
 public class ActiveAlarmListFragment extends Fragment {
+
+    public static final int NEW_ALARM_INSERTION_INDEX = 0;
+
+    public interface AlarmCreationListener {
+        void onAlarmCreated(int position);
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-
     private TextView mEmptyView;
-    private ActiveAlarmsAdapter.AlarmDetailsListener mListener;
+
+    private AlarmCreationListener mCreationListener;
+    private ActiveAlarmsAdapter.AlarmDetailsListener mDetailsListener;
 
     public ActiveAlarmListFragment() {
         // Required empty public constructor
@@ -38,22 +50,38 @@ public class ActiveAlarmListFragment extends Fragment {
         return fragment;
     }
 
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+
         try {
-            mListener = (ActiveAlarmsAdapter.AlarmDetailsListener) context;
+            mCreationListener = (AlarmCreationListener) context;
         } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString()
-                    + " must implement ActiveAlarmsAdapter.AlarmDetailsListener");
+            String error = context.toString() + " must implement AlarmCreationListener";
+            Log.e(Constants.LOG_TAG, error, e);
+            throw new ClassCastException();
+        }
+
+        try {
+            mDetailsListener = (ActiveAlarmsAdapter.AlarmDetailsListener) context;
+        } catch (ClassCastException e) {
+            String error = context.toString() + " must implement AlarmDetailsListener";
+            Log.e(Constants.LOG_TAG, error, e);
+            throw new ClassCastException();
         }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+        mDetailsListener = null;
     }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,37 +101,47 @@ public class ActiveAlarmListFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new ActiveAlarmsAdapter(AlarmManager.mAlarmDataset, mListener);
+        mAdapter = new ActiveAlarmsAdapter(AlarmMaster.mAlarmDataset, mDetailsListener);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         checkDatasetVisibility();
 
-        FloatingActionButton fab = rootView.findViewById(R.id.add_alarm_button);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton addAlarmButton = rootView.findViewById(R.id.add_alarm_button);
+        addAlarmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // insert a new alarm record at the top of the list
-                AlarmManager.mAlarmDataset.add(0, Alarm.getNewAlarm());
-                mAdapter.notifyItemInserted(0);
+                AlarmMaster.mAlarmDataset.add(NEW_ALARM_INSERTION_INDEX, Alarm.getNewAlarm());
+                mAdapter.notifyItemInserted(NEW_ALARM_INSERTION_INDEX);
 
                 // force the list view to return to the top
                 LinearLayoutManager layoutManager = (LinearLayoutManager) mRecyclerView
                         .getLayoutManager();
                 layoutManager.scrollToPositionWithOffset(0, 0);
 
-                // show a toast so user knows to edit the record, update list visibility
-                Toast.makeText(getActivity(), "New alarm created.  Click to edit.",
+                // let the parent activity know that an alarm was created
+                mCreationListener.onAlarmCreated(NEW_ALARM_INSERTION_INDEX);
+            }
+        });
+
+        FloatingActionButton saveCloseButton = rootView.findViewById(R.id.save_close_button);
+        saveCloseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Save-Close Button clicked!",
                         Toast.LENGTH_SHORT).show();
-                checkDatasetVisibility();
             }
         });
 
         return rootView;
     }
 
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
     private void checkDatasetVisibility() {
-        if (AlarmManager.mAlarmDataset.isEmpty()) {
+        if (AlarmMaster.mAlarmDataset.isEmpty()) {
             mEmptyView.setVisibility(View.VISIBLE);
             mRecyclerView.setVisibility(View.GONE);
         } else {

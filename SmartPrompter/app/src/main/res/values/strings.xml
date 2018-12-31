@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">SmartPrompter</string>
+    <string name="app_alarm_action">edu.temple.smartprompter.alarms</string>
 
     <string name="line_break_single">\n</string>
     <string name="line_break_double">\n\n</string>

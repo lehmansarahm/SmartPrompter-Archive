@@ -15,7 +15,7 @@ import android.view.MenuItem;
 
 import edu.temple.smartprompter.adapters.ActiveAlarmsAdapter;
 import edu.temple.smartprompter.alarms.Alarm;
-import edu.temple.smartprompter.alarms.AlarmManager;
+import edu.temple.smartprompter.alarms.AlarmMaster;
 import edu.temple.smartprompter.fragments.ActiveAlarmDetailsFragment;
 import edu.temple.smartprompter.fragments.ActiveAlarmListFragment;
 import edu.temple.smartprompter.fragments.CompleteAlarmListFragment;
@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity implements
         ActiveAlarmsAdapter.AlarmDetailsListener,
         DatePickerFragment.DatePickerListener,
         TimePickerFragment.TimePickerListener,
-        ActiveAlarmDetailsFragment.AlarmDetailChangeListener {
+        ActiveAlarmDetailsFragment.AlarmDetailChangeListener,
+        ActiveAlarmListFragment.AlarmCreationListener {
 
     private DrawerLayout mDrawerLayout;
 
@@ -115,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public void onAlarmSelected(int position) {
         Log.i(Constants.LOG_TAG, "User wants to view details of alarm at position: " + position);
-        AlarmManager.mCurrentAlarmIndex = position;
+        AlarmMaster.mCurrentAlarmIndex = position;
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
         aadf = ActiveAlarmDetailsFragment.newInstance(position);
@@ -137,10 +138,10 @@ public class MainActivity extends AppCompatActivity implements
         Log.i(Constants.LOG_TAG, "User selected the following date from the picker: "
                 + month + "/" + day + "/" + year);
         Log.i(Constants.LOG_TAG, "Updating selected date for current alarm: "
-                + AlarmManager.mCurrentAlarmIndex);
+                + AlarmMaster.mCurrentAlarmIndex);
 
-        int currentAlarmIndex = AlarmManager.mCurrentAlarmIndex;
-        Alarm currentAlarm = AlarmManager.mAlarmDataset.get(currentAlarmIndex);
+        int currentAlarmIndex = AlarmMaster.mCurrentAlarmIndex;
+        Alarm currentAlarm = AlarmMaster.mAlarmDataset.get(currentAlarmIndex);
         currentAlarm.updateDate(year, month, day);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -163,10 +164,10 @@ public class MainActivity extends AppCompatActivity implements
         Log.i(Constants.LOG_TAG, "User selected the following time from the picker: "
                 + hourOfDay + ":" + minute);
         Log.i(Constants.LOG_TAG, "Updating selected time for current alarm: "
-                + AlarmManager.mCurrentAlarmIndex);
+                + AlarmMaster.mCurrentAlarmIndex);
 
-        int currentAlarmIndex = AlarmManager.mCurrentAlarmIndex;
-        Alarm currentAlarm = AlarmManager.mAlarmDataset.get(currentAlarmIndex);
+        int currentAlarmIndex = AlarmMaster.mCurrentAlarmIndex;
+        Alarm currentAlarm = AlarmMaster.mAlarmDataset.get(currentAlarmIndex);
         currentAlarm.updateTime(hourOfDay, minute);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -193,6 +194,11 @@ public class MainActivity extends AppCompatActivity implements
         ft.replace(R.id.fragment_container, aaf);
         ft.addToBackStack(null);
         ft.commit();
+    }
+
+    @Override
+    public void onAlarmCreated(int position) {
+        onAlarmSelected(position);
     }
 
 }
