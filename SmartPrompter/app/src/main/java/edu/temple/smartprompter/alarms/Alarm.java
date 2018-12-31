@@ -4,7 +4,6 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.os.SystemClock;
 import android.util.Log;
 
 import java.text.SimpleDateFormat;
@@ -17,6 +16,7 @@ import edu.temple.smartprompter.util.Constants;
 
 public class Alarm {
 
+    public static final String INTENT_EXTRA_REQUEST_CODE = "intent_extra_request_code";
     public enum STATUS { New, Active, Unacknowledged, Incomplete, Complete }
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -34,6 +34,8 @@ public class Alarm {
         Calendar c = Calendar.getInstance();
         c.set(Calendar.HOUR_OF_DAY, h);
         c.set(Calendar.MINUTE, m);
+        c.set(Calendar.SECOND, 0);
+        c.set(Calendar.MILLISECOND, 0);
 
         cal = c;
         label = l;
@@ -104,6 +106,7 @@ public class Alarm {
         alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(context, AlarmReceiver.class);
         intent.setAction(context.getResources().getString(R.string.app_alarm_action));
+        intent.putExtra(INTENT_EXTRA_REQUEST_CODE, requestCode);
         alarmIntent = PendingIntent.getBroadcast(context, requestCode, intent, flags);
 
         Log.d(Constants.LOG_TAG, "Alarm will go off at time (millis): " + cal.getTimeInMillis());

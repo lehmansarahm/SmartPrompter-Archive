@@ -6,6 +6,12 @@ import edu.temple.smartprompter.alarms.Alarm;
 
 public class AlarmMaster {
 
+    /*
+
+        THIS WILL EVENTUALLY BE REPLACED BY SOME KIND OF PERMANENT STORAGE
+
+     */
+
     public static List<Alarm> mAlarmDataset = Alarm.getDefaults();
 
     public static int mCurrentAlarmIndex = -1;
