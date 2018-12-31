@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 public class ActiveAlarmListFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
@@ -81,8 +83,7 @@ public class ActiveAlarmListFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 // insert a new alarm record at the top of the list
-                AlarmManager.mAlarmDataset.add(0,
-                        new Alarm("01/01/19", "12:00 AM", "New Alarm"));
+                AlarmManager.mAlarmDataset.add(0, Alarm.getNewAlarm());
                 mAdapter.notifyItemInserted(0);
 
                 // force the list view to return to the top

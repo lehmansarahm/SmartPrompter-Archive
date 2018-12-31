@@ -93,13 +93,13 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         // ----------------------------------------------------------------------------
 
         TextView dateText = rootView.findViewById(R.id.date_text);
-        dateText.setText(mAlarm.getDate());
+        dateText.setText(mAlarm.getDateString());
 
         LinearLayout dateLayout = rootView.findViewById(R.id.date_layout);
         dateLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mDateListener.onDatePickerRequested();
+                mDateListener.onDatePickerRequested(mAlarm.getDate());
                 // TODO - grab the date the user selects, update the current alarm
             }
         });
@@ -108,13 +108,13 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         // ----------------------------------------------------------------------------
 
         TextView timeText = rootView.findViewById(R.id.time_text);
-        timeText.setText(mAlarm.getTime());
+        timeText.setText(mAlarm.getTimeString());
 
         LinearLayout timeLayout = rootView.findViewById(R.id.time_layout);
         timeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mTimeListener.onTimePickerRequested();
+                mTimeListener.onTimePickerRequested(mAlarm.getTime());
                 // TODO - grab the time the user selects, update the current alarm
             }
         });

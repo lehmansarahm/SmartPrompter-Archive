@@ -56,16 +56,7 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        /*if (id == R.id.action_settings) {
-            return true;
-        }*/
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -117,8 +108,8 @@ public class MainActivity extends AppCompatActivity implements
     // --------------------------------------------------------------------------------------
 
     @Override
-    public void onDatePickerRequested() {
-        DialogFragment newFragment = new DatePickerFragment();
+    public void onDatePickerRequested(int[] date) {
+        DialogFragment newFragment = DatePickerFragment.newInstance(date);
         newFragment.show(getSupportFragmentManager(), "datePicker");
         // TODO - grab the date the user selects, update the current alarm
     }
@@ -127,10 +118,10 @@ public class MainActivity extends AppCompatActivity implements
     // --------------------------------------------------------------------------------------
 
     @Override
-    public void onTimePickerRequested() {
-        DialogFragment newFragment = new TimePickerFragment();
+    public void onTimePickerRequested(int[] time) {
+        DialogFragment newFragment = TimePickerFragment.newInstance(time);
         newFragment.show(getSupportFragmentManager(), "timePicker");
         // TODO - grab the time the user selects, update the current alarm
     }
-    
+
 }
