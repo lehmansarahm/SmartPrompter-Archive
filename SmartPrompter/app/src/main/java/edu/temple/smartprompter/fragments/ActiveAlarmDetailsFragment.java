@@ -13,9 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import edu.temple.smartprompter.alarms.Alarm;
-import edu.temple.smartprompter.alarms.AlarmMaster;
+import edu.temple.smartprompter.alarms.SpAlarmManager;
 import edu.temple.smartprompter.R;
-import edu.temple.smartprompter.util.Constants;
+import edu.temple.smartprompter.utils.Constants;
 
 public class ActiveAlarmDetailsFragment extends Fragment {
 
@@ -89,7 +89,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mPosition = getArguments().getInt(BUNDLE_ARG_POSITION);
-            mAlarm = AlarmMaster.mAlarmDataset.get(mPosition);
+            mAlarm = SpAlarmManager.mAlarmDataset.get(mPosition);
         }
     }
 
@@ -201,7 +201,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
                 }
 
                 Log.d(Constants.LOG_TAG, "New alarm status: " + mAlarm.getStatus());
-                AlarmMaster.mAlarmDataset.set(mPosition, mAlarm);
+                SpAlarmManager.mAlarmDataset.set(mPosition, mAlarm);
                 mChangeListener.onAlarmDetailsChanged();
             }
         });
@@ -211,7 +211,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 mAlarm.cancelAllReminders();
-                AlarmMaster.mAlarmDataset.remove(mAlarm);
+                SpAlarmManager.mAlarmDataset.remove(mAlarm);
                 mChangeListener.onAlarmDetailsChanged();
             }
         });

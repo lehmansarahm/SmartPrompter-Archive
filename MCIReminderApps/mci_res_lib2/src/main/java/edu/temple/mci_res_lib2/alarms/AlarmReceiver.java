@@ -19,11 +19,11 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.i(Constants.LOG_TAG, "Alarm broadcast receiver activated!");
         if (intent != null) {
             int alarmID = intent.getIntExtra(INTENT_PARAM_ALARM_ID, DEFAULT_ALARM_ID);
             if (alarmID != DEFAULT_ALARM_ID) {
-                MCIAlarmManager.initAlarmList(context);
+                Log.i(Constants.LOG_TAG, "Alarm broadcast receiver activated for alarm ID: " + alarmID);
+                /*MCIAlarmManager.initAlarmList(context);
                 MCIAlarmManager.getExecModeFromSharedPrefs();
 
                 // cancel any prior alarms that we may have collided with
@@ -45,7 +45,7 @@ public class AlarmReceiver extends BroadcastReceiver {
                 Intent newIntent = MCIAlarmManager.getIntentForAlarmStatus(context, alarmID);
                 newIntent.putExtra(INTENT_PARAM_ALARM_ID, alarmID);
                 newIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                context.startActivity(newIntent);
+                context.startActivity(newIntent);*/
             }
             else Log.e(Constants.LOG_TAG, "RECEIVED ALARM ID FROM BROADCAST INTENT, BUT IT WAS INVALID.  CANNOT CONTINUE.");
         }

@@ -12,15 +12,17 @@ import java.util.Calendar;
 import java.util.List;
 
 import edu.temple.smartprompter.R;
-import edu.temple.smartprompter.util.Constants;
+import edu.temple.smartprompter.utils.Constants;
 
 public class Alarm {
 
     public static final String INTENT_EXTRA_REQUEST_CODE = "intent_extra_request_code";
-    public enum STATUS { New, Active, Unacknowledged, Incomplete, Complete }
+    public static final String INTENT_EXTRA_ORIG_TIME = "intent_extra_orig_time";
 
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    private static final SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a");
+    public static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+    public static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("hh:mm a");
+
+    public enum STATUS { New, Active, Unacknowledged, Incomplete, Complete }
 
     // ----------------------------------------------------------------------------
     // ----------------------------------------------------------------------------
@@ -60,7 +62,7 @@ public class Alarm {
         };
     }
 
-    public String getDateString() { return dateFormat.format(cal.getTime()); }
+    public String getDateString() { return DATE_FORMAT.format(cal.getTime()); }
 
     // ----------------------------------------------------------------------------
     // ----------------------------------------------------------------------------
@@ -78,7 +80,7 @@ public class Alarm {
         };
     }
 
-    public String getTimeString() { return timeFormat.format(cal.getTime()); }
+    public String getTimeString() { return TIME_FORMAT.format(cal.getTime()); }
 
     // ----------------------------------------------------------------------------
     // ----------------------------------------------------------------------------
@@ -96,17 +98,16 @@ public class Alarm {
 
     private AlarmManager alarmMgr;
     private PendingIntent alarmIntent;
-    private int requestCode = 0, flags = 0;
+    private int requestCode = 0, flags = PendingIntent.FLAG_CANCEL_CURRENT;
 
     public void scheduleReminder(Context context) {
-        if (requestCode == 0) requestCode = AlarmMaster.getNewRequestCode();
-        Log.i(Constants.LOG_TAG, "Scheduling new alarm reminder with request code: "
-                + requestCode);
-
+        if (requestCode == 0) requestCode = SpAlarmManager.getNewRequestCode();
         alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+
         Intent intent = new Intent(context, AlarmReceiver.class);
         intent.setAction(context.getResources().getString(R.string.app_alarm_action));
         intent.putExtra(INTENT_EXTRA_REQUEST_CODE, requestCode);
+        intent.putExtra(INTENT_EXTRA_ORIG_TIME, getTimeString());
         alarmIntent = PendingIntent.getBroadcast(context, requestCode, intent, flags);
 
         Log.d(Constants.LOG_TAG, "Alarm will go off at time (millis): " + cal.getTimeInMillis());
@@ -116,6 +117,8 @@ public class Alarm {
         double intervalSec = (intervalMillis / 1000.d);
         Log.d(Constants.LOG_TAG, "Alarm time interval (sec): " + intervalSec);
 
+        Log.e(Constants.LOG_TAG, "Scheduling new alarm reminder with request code: "
+                + requestCode + " \t\t for time: " + getTimeString());
         alarmMgr.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,
                 cal.getTimeInMillis(), alarmIntent);
     }

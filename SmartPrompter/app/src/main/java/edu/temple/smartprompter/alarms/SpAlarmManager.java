@@ -4,7 +4,7 @@ import java.util.List;
 
 import edu.temple.smartprompter.alarms.Alarm;
 
-public class AlarmMaster {
+public class SpAlarmManager {
 
     /*
 

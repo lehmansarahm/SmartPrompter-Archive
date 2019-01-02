@@ -15,7 +15,7 @@ import android.view.MenuItem;
 
 import edu.temple.smartprompter.adapters.ActiveAlarmsAdapter;
 import edu.temple.smartprompter.alarms.Alarm;
-import edu.temple.smartprompter.alarms.AlarmMaster;
+import edu.temple.smartprompter.alarms.SpAlarmManager;
 import edu.temple.smartprompter.fragments.ActiveAlarmDetailsFragment;
 import edu.temple.smartprompter.fragments.ActiveAlarmListFragment;
 import edu.temple.smartprompter.fragments.CompleteAlarmListFragment;
@@ -23,7 +23,7 @@ import edu.temple.smartprompter.fragments.DatePickerFragment;
 import edu.temple.smartprompter.fragments.IncompleteAlarmListFragment;
 import edu.temple.smartprompter.fragments.TimePickerFragment;
 import edu.temple.smartprompter.fragments.WelcomeFragment;
-import edu.temple.smartprompter.util.Constants;
+import edu.temple.smartprompter.utils.Constants;
 
 public class MainActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener,
@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.i(Constants.LOG_TAG, "Main Activity created!");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -57,6 +58,22 @@ public class MainActivity extends AppCompatActivity implements
         ft.replace(R.id.fragment_container, fragment);
         ft.commit();
     }
+
+    @Override
+    public void onPause() {
+        Log.i(Constants.LOG_TAG, "Main Activity paused!");
+        super.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.i(Constants.LOG_TAG, "Main Activity destroyed!");
+        // TODO - commit alarm data to persistent storage
+        super.onDestroy();
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
 
     @Override
     public void onBackPressed() {
@@ -116,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public void onAlarmSelected(int position) {
         Log.i(Constants.LOG_TAG, "User wants to view details of alarm at position: " + position);
-        AlarmMaster.mCurrentAlarmIndex = position;
+        SpAlarmManager.mCurrentAlarmIndex = position;
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
         aadf = ActiveAlarmDetailsFragment.newInstance(position);
@@ -138,10 +155,10 @@ public class MainActivity extends AppCompatActivity implements
         Log.i(Constants.LOG_TAG, "User selected the following date from the picker: "
                 + month + "/" + day + "/" + year);
         Log.i(Constants.LOG_TAG, "Updating selected date for current alarm: "
-                + AlarmMaster.mCurrentAlarmIndex);
+                + SpAlarmManager.mCurrentAlarmIndex);
 
-        int currentAlarmIndex = AlarmMaster.mCurrentAlarmIndex;
-        Alarm currentAlarm = AlarmMaster.mAlarmDataset.get(currentAlarmIndex);
+        int currentAlarmIndex = SpAlarmManager.mCurrentAlarmIndex;
+        Alarm currentAlarm = SpAlarmManager.mAlarmDataset.get(currentAlarmIndex);
         currentAlarm.updateDate(year, month, day);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -164,10 +181,10 @@ public class MainActivity extends AppCompatActivity implements
         Log.i(Constants.LOG_TAG, "User selected the following time from the picker: "
                 + hourOfDay + ":" + minute);
         Log.i(Constants.LOG_TAG, "Updating selected time for current alarm: "
-                + AlarmMaster.mCurrentAlarmIndex);
+                + SpAlarmManager.mCurrentAlarmIndex);
 
-        int currentAlarmIndex = AlarmMaster.mCurrentAlarmIndex;
-        Alarm currentAlarm = AlarmMaster.mAlarmDataset.get(currentAlarmIndex);
+        int currentAlarmIndex = SpAlarmManager.mCurrentAlarmIndex;
+        Alarm currentAlarm = SpAlarmManager.mAlarmDataset.get(currentAlarmIndex);
         currentAlarm.updateTime(hourOfDay, minute);
 
         FragmentManager fragmentManager = getSupportFragmentManager();

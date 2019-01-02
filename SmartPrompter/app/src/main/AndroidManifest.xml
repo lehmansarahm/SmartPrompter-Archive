@@ -23,6 +23,11 @@
             </intent-filter>
         </receiver>
 
+        <provider
+            android:name=".content.AlarmDbProvider"
+            android:authorities="@string/authority_alarms"
+            android:exported="true" />
+
     </application>
 
 </manifest>

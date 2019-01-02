@@ -16,9 +16,9 @@ import android.widget.Toast;
 
 import edu.temple.smartprompter.adapters.ActiveAlarmsAdapter;
 import edu.temple.smartprompter.alarms.Alarm;
-import edu.temple.smartprompter.alarms.AlarmMaster;
+import edu.temple.smartprompter.alarms.SpAlarmManager;
 import edu.temple.smartprompter.R;
-import edu.temple.smartprompter.util.Constants;
+import edu.temple.smartprompter.utils.Constants;
 
 public class ActiveAlarmListFragment extends Fragment {
 
@@ -101,7 +101,7 @@ public class ActiveAlarmListFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new ActiveAlarmsAdapter(AlarmMaster.mAlarmDataset, mDetailsListener);
+        mAdapter = new ActiveAlarmsAdapter(SpAlarmManager.mAlarmDataset, mDetailsListener);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
@@ -112,7 +112,7 @@ public class ActiveAlarmListFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 // insert a new alarm record at the top of the list
-                AlarmMaster.mAlarmDataset.add(NEW_ALARM_INSERTION_INDEX, Alarm.getNewAlarm());
+                SpAlarmManager.mAlarmDataset.add(NEW_ALARM_INSERTION_INDEX, Alarm.getNewAlarm());
                 mAdapter.notifyItemInserted(NEW_ALARM_INSERTION_INDEX);
 
                 // force the list view to return to the top
@@ -141,7 +141,7 @@ public class ActiveAlarmListFragment extends Fragment {
     // --------------------------------------------------------------------------------------
 
     private void checkDatasetVisibility() {
-        if (AlarmMaster.mAlarmDataset.isEmpty()) {
+        if (SpAlarmManager.mAlarmDataset.isEmpty()) {
             mEmptyView.setVisibility(View.VISIBLE);
             mRecyclerView.setVisibility(View.GONE);
         } else {

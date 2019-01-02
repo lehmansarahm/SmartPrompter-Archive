@@ -1,4 +1,4 @@
-package edu.temple.smartprompter.util;
+package edu.temple.smartprompter.utils;
 
 public class Constants {
 

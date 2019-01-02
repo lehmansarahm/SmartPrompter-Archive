@@ -13,7 +13,7 @@ import java.util.List;
 import edu.temple.smartprompter.alarms.Alarm;
 import edu.temple.smartprompter.alarms.AlarmViewHolder;
 import edu.temple.smartprompter.R;
-import edu.temple.smartprompter.util.Constants;
+import edu.temple.smartprompter.utils.Constants;
 
 public class ActiveAlarmsAdapter extends RecyclerView.Adapter<AlarmViewHolder> {
 
