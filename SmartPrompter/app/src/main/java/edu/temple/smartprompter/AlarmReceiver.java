@@ -8,7 +8,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.util.Log;
 
-import edu.temple.sp_res_lib.alarms.Alarm;
+import edu.temple.sp_res_lib.Alarm;
 
 public class AlarmReceiver extends BroadcastReceiver {
 

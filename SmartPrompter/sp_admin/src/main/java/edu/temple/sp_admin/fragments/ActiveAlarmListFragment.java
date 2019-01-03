@@ -17,8 +17,8 @@ import android.widget.Toast;
 import edu.temple.sp_admin.R;
 import edu.temple.sp_admin.adapters.ActiveAlarmsAdapter;
 
-import edu.temple.sp_res_lib.alarms.Alarm;
-import edu.temple.sp_res_lib.alarms.SpAlarmManager;
+import edu.temple.sp_res_lib.Alarm;
+import edu.temple.sp_res_lib.SpAlarmManager;
 import edu.temple.sp_res_lib.utils.Constants;
 
 public class ActiveAlarmListFragment extends Fragment {
@@ -39,6 +39,8 @@ public class ActiveAlarmListFragment extends Fragment {
 
     private AlarmCreationListener mCreationListener;
     private ActiveAlarmsAdapter.AlarmDetailsListener mDetailsListener;
+
+    private SpAlarmManager mAlarmMgr;
 
     public ActiveAlarmListFragment() {
         // Required empty public constructor
@@ -87,6 +89,7 @@ public class ActiveAlarmListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAlarmMgr = new SpAlarmManager(getActivity());
     }
 
     @Override
@@ -102,7 +105,7 @@ public class ActiveAlarmListFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new ActiveAlarmsAdapter(SpAlarmManager.mAlarmDataset, mDetailsListener);
+        mAdapter = new ActiveAlarmsAdapter(mAlarmMgr.getAll(), mDetailsListener);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
@@ -112,9 +115,8 @@ public class ActiveAlarmListFragment extends Fragment {
         addAlarmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // insert a new alarm record at the top of the list
-                SpAlarmManager.mAlarmDataset.add(NEW_ALARM_INSERTION_INDEX, Alarm.getNewAlarm());
-                mAdapter.notifyItemInserted(NEW_ALARM_INSERTION_INDEX);
+                Alarm alarm = mAlarmMgr.create();
+                mAdapter.notifyDataSetChanged(); // mAdapter.notifyItemInserted(newAlarmPosition);
 
                 // force the list view to return to the top
                 LinearLayoutManager layoutManager = (LinearLayoutManager) mRecyclerView
@@ -122,7 +124,7 @@ public class ActiveAlarmListFragment extends Fragment {
                 layoutManager.scrollToPositionWithOffset(0, 0);
 
                 // let the parent activity know that an alarm was created
-                mCreationListener.onAlarmCreated(NEW_ALARM_INSERTION_INDEX);
+                mCreationListener.onAlarmCreated(alarm.getID());
             }
         });
 
@@ -142,7 +144,7 @@ public class ActiveAlarmListFragment extends Fragment {
     // --------------------------------------------------------------------------------------
 
     private void checkDatasetVisibility() {
-        if (SpAlarmManager.mAlarmDataset.isEmpty()) {
+        if (!mAlarmMgr.areAlarmsAvailable()) {
             mEmptyView.setVisibility(View.VISIBLE);
             mRecyclerView.setVisibility(View.GONE);
         } else {

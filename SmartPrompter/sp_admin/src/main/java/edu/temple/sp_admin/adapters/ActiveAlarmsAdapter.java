@@ -1,5 +1,6 @@
 package edu.temple.sp_admin.adapters;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,12 +12,11 @@ import android.widget.TextView;
 import java.util.List;
 
 import edu.temple.sp_admin.R;
-import edu.temple.sp_admin.fragments.AlarmViewHolder;
 
-import edu.temple.sp_res_lib.alarms.Alarm;
+import edu.temple.sp_res_lib.Alarm;
 import edu.temple.sp_res_lib.utils.Constants;
 
-public class ActiveAlarmsAdapter extends RecyclerView.Adapter<AlarmViewHolder> {
+public class ActiveAlarmsAdapter extends RecyclerView.Adapter<ActiveAlarmsAdapter.AlarmViewHolder> {
 
     public interface AlarmDetailsListener {
         void onAlarmSelected(int position);
@@ -25,11 +25,29 @@ public class ActiveAlarmsAdapter extends RecyclerView.Adapter<AlarmViewHolder> {
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
-    private List<Alarm> mDataset;
+    class AlarmViewHolder extends RecyclerView.ViewHolder {
+
+        public Context mContext;
+        public TextView mTextView;
+
+        public AlarmViewHolder(Context ctx, TextView v) {
+            super(v);
+            mContext = ctx;
+            mTextView = v;
+        }
+
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    private List<Alarm> mAlarms;
     private AlarmDetailsListener mListener;
 
-    public ActiveAlarmsAdapter(List<Alarm> myDataset, AlarmDetailsListener listener) {
-        mDataset = myDataset;
+    public ActiveAlarmsAdapter(List<Alarm> alarms, AlarmDetailsListener listener) {
+        Log.i(Constants.LOG_TAG, "Initializing Active Alarms Adapter with: "
+                + alarms.size() + " records");
+        mAlarms = alarms;
         mListener = listener;
     }
 
@@ -46,8 +64,8 @@ public class ActiveAlarmsAdapter extends RecyclerView.Adapter<AlarmViewHolder> {
         Log.i(Constants.LOG_TAG, "Binding new line item view for alarm at position: "
                 + position);
 
-        Alarm currentAlarm = mDataset.get(position);
-        if (currentAlarm.getStatus().equals(Alarm.STATUS.Active.toString())) {
+        final Alarm currentAlarm = mAlarms.get(position);
+        if (currentAlarm.isActive()) {
             Log.d(Constants.LOG_TAG, "Alarm at position: " + position
                     + " is active!  Updating line item background color.");
             holder.mTextView.setBackgroundColor(Color.GREEN);
@@ -57,14 +75,16 @@ public class ActiveAlarmsAdapter extends RecyclerView.Adapter<AlarmViewHolder> {
         holder.mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mListener.onAlarmSelected(position);
+                Log.i(Constants.LOG_TAG, "User has clicked alarm at position: "
+                        + position + ", with ID: " + currentAlarm.getID());
+                mListener.onAlarmSelected(currentAlarm.getID());
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return mDataset.size();
+        return mAlarms.size();
     }
 
 }

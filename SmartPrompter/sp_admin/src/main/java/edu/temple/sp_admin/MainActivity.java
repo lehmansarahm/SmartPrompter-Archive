@@ -22,8 +22,8 @@ import edu.temple.sp_admin.fragments.IncompleteAlarmListFragment;
 import edu.temple.sp_admin.fragments.TimePickerFragment;
 import edu.temple.sp_admin.fragments.WelcomeFragment;
 import edu.temple.sp_admin.utils.Constants;
-import edu.temple.sp_res_lib.alarms.Alarm;
-import edu.temple.sp_res_lib.alarms.SpAlarmManager;
+import edu.temple.sp_res_lib.Alarm;
+import edu.temple.sp_res_lib.SpAlarmManager;
 
 public class MainActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener,
@@ -34,12 +34,14 @@ public class MainActivity extends AppCompatActivity implements
         ActiveAlarmListFragment.AlarmCreationListener {
 
     private DrawerLayout mDrawerLayout;
+    private SpAlarmManager mAlarmMgr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.i(Constants.LOG_TAG, "Main Activity created!");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mAlarmMgr = new SpAlarmManager(this);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -131,67 +133,64 @@ public class MainActivity extends AppCompatActivity implements
     private ActiveAlarmDetailsFragment aadf;
 
     @Override
-    public void onAlarmSelected(int position) {
-        Log.i(Constants.LOG_TAG, "User wants to view details of alarm at position: " + position);
-        SpAlarmManager.mCurrentAlarmIndex = position;
+    public void onAlarmSelected(int alarmID) {
+        Log.i(Constants.LOG_TAG, "User wants to view details of alarm ID: " + alarmID);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
-        aadf = ActiveAlarmDetailsFragment.newInstance(position);
+        aadf = ActiveAlarmDetailsFragment.newInstance(alarmID);
         ft.replace(R.id.fragment_container, aadf);
         ft.addToBackStack(null);
         ft.commit();
     }
 
     @Override
-    public void onDatePickerRequested(int[] date) {
+    public void onDatePickerRequested(int alarmID, int[] date) {
         Log.i(Constants.LOG_TAG, "User wants to view a date picker dialog with default date: "
                 + date[1] + "/" + date[2] + "/" + date[0]);
-        DialogFragment newFragment = DatePickerFragment.newInstance(date);
+        DialogFragment newFragment = DatePickerFragment.newInstance(alarmID, date);
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
     @Override
-    public void onDatePicked(int year, int month, int day) {
+    public void onDatePicked(int alarmID, int year, int month, int day) {
         Log.i(Constants.LOG_TAG, "User selected the following date from the picker: "
-                + month + "/" + day + "/" + year);
-        Log.i(Constants.LOG_TAG, "Updating selected date for current alarm: "
-                + SpAlarmManager.mCurrentAlarmIndex);
+                + month + "/" + day + "/" + year + " \t\t for current alarm: "
+                + alarmID);
+        aadf.updateDate(year, month, day);
 
-        int currentAlarmIndex = SpAlarmManager.mCurrentAlarmIndex;
-        Alarm currentAlarm = SpAlarmManager.mAlarmDataset.get(currentAlarmIndex);
+        /*Alarm currentAlarm = mAlarmMgr.get(alarmID);
         currentAlarm.updateDate(year, month, day);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.detach(aadf);
         ft.attach(aadf);
-        ft.commit();
+        ft.commit();*/
     }
 
     @Override
-    public void onTimePickerRequested(int[] time) {
+    public void onTimePickerRequested(int alarmID, int[] time) {
         Log.i(Constants.LOG_TAG, "User wants to view a time picker dialog with default time: "
                 + time[0] + ":" + time[1]);
-        DialogFragment newFragment = TimePickerFragment.newInstance(time);
+        DialogFragment newFragment = TimePickerFragment.newInstance(alarmID, time);
         newFragment.show(getSupportFragmentManager(), "timePicker");
     }
 
     @Override
-    public void onTimePicked(int hourOfDay, int minute) {
+    public void onTimePicked(int alarmID, int hourOfDay, int minute) {
         Log.i(Constants.LOG_TAG, "User selected the following time from the picker: "
-                + hourOfDay + ":" + minute);
-        Log.i(Constants.LOG_TAG, "Updating selected time for current alarm: "
-                + SpAlarmManager.mCurrentAlarmIndex);
+                + hourOfDay + ":" + minute + " \t\t for current alarm: "
+                + alarmID);
+        aadf.updateTime(hourOfDay, minute);
 
-        int currentAlarmIndex = SpAlarmManager.mCurrentAlarmIndex;
-        Alarm currentAlarm = SpAlarmManager.mAlarmDataset.get(currentAlarmIndex);
+        /*Alarm currentAlarm = mAlarmMgr.get(alarmID);
         currentAlarm.updateTime(hourOfDay, minute);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.detach(aadf);
         ft.attach(aadf);
-        ft.commit();
+        ft.commit();*/
     }
 
     // --------------------------------------------------------------------------------------

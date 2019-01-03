@@ -1,4 +1,4 @@
-package edu.temple.sp_res_lib.alarms;
+package edu.temple.sp_res_lib;
 
 import android.content.Context;
 import android.content.Intent;

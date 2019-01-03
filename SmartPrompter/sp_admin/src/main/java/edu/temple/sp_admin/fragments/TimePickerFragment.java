@@ -6,32 +6,36 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.widget.TimePicker;
 
-import java.util.Calendar;
+import edu.temple.sp_admin.utils.Constants;
 
 public class TimePickerFragment extends DialogFragment
         implements TimePickerDialog.OnTimeSetListener {
 
     public interface TimePickerListener {
-        void onTimePickerRequested(int[] time);
-        void onTimePicked(int hourOfDay, int minute);
+        void onTimePickerRequested(int alarmID, int[] time);
+        void onTimePicked(int alarmID, int hourOfDay, int minute);
     }
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
+    private static final String BUNDLE_ARG_ALARM_ID = "bundle_arg_alarm_id";
     private static final String BUNDLE_ARG_HOUR = "bundle_arg_hour";
     private static final String BUNDLE_ARG_MINUTE = "bundle_arg_minute";
 
+    private int mAlarmID;
     private int mHour, mMinute;
     private boolean mIs24Hr;
 
     private TimePickerListener mListener;
 
-    public static TimePickerFragment newInstance(int[] time) {
+    public static TimePickerFragment newInstance(int alarmID, int[] time) {
         TimePickerFragment fragment = new TimePickerFragment();
         Bundle args = new Bundle();
+        args.putInt(BUNDLE_ARG_ALARM_ID, alarmID);
         args.putInt(BUNDLE_ARG_HOUR, time[0]);
         args.putInt(BUNDLE_ARG_MINUTE, time[1]);
         fragment.setArguments(args);
@@ -57,23 +61,22 @@ public class TimePickerFragment extends DialogFragment
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        if (getArguments() != null) {
-            mHour = getArguments().getInt(BUNDLE_ARG_HOUR);
-            mMinute = getArguments().getInt(BUNDLE_ARG_MINUTE);
-            mIs24Hr = false;
-        } else {
-            // Use the current time as the default values for the picker
-            final Calendar c = Calendar.getInstance();
-            mHour = c.get(Calendar.HOUR_OF_DAY);
-            mMinute = c.get(Calendar.MINUTE);
-            mIs24Hr = DateFormat.is24HourFormat(getActivity());
+        if (getArguments() == null) {
+            Log.e(Constants.LOG_TAG, "Cannot initialize dialog without appropriate settings!");
+            return null;
         }
+
+        mAlarmID = getArguments().getInt(BUNDLE_ARG_ALARM_ID);
+        mHour = getArguments().getInt(BUNDLE_ARG_HOUR);
+        mMinute = getArguments().getInt(BUNDLE_ARG_MINUTE);
+        mIs24Hr = DateFormat.is24HourFormat(getActivity());
 
         // Create a new instance of TimePickerDialog and return it
         return new TimePickerDialog(getActivity(), this, mHour, mMinute, mIs24Hr);
     }
 
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-        mListener.onTimePicked(hourOfDay, minute);
+        mListener.onTimePicked(mAlarmID, hourOfDay, minute);
     }
+
 }
