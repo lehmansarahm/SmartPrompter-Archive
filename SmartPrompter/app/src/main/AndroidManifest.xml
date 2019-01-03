@@ -19,16 +19,13 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".alarms.AlarmReceiver">
+        <receiver
+            android:name=".AlarmReceiver"
+            android:exported="true">
             <intent-filter>
-                <action android:name="@string/app_alarm_action" />
+                <action android:name="@string/action_alarms" />
             </intent-filter>
         </receiver>
-
-        <provider
-            android:name=".content.AlarmDbProvider"
-            android:authorities="@string/authority_alarms"
-            android:exported="true" />
 
     </application>
 

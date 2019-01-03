@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">SmartPrompter Admin</string>
+
+    <string name="authority_alarms">edu.temple.smartprompter.alarms</string>
+
+    <string name="line_break_single">\n</string>
+    <string name="line_break_double">\n\n</string>
+
+    <string name="no_data_available">No records available.</string>
+
+    <string name="nav_active_alarms">Active Alarms</string>
+    <string name="nav_complete_alarms">Complete Alarms</string>
+    <string name="nav_incomplete_alarms">Incomplete Alarms</string>
+
+    <string name="nav_header_title">SmartPrompter</string>
+    <string name="nav_header_subtitle">Temple University</string>
+    <string name="nav_header_desc">Navigation Drawer</string>
+
+    <string name="nav_drawer_open">Open</string>
+    <string name="nav_drawer_close">Close</string>
+
+    <string name="welcome_intro">Welcome to SmartPrompter!</string>
+    <string name="welcome_instructions">Please use the menu in the upper left to review the current lists of alarms.</string>
+
+    <string name="button_activate">Activate</string>
+    <string name="button_deactivate">Deactivate</string>
+    <string name="button_delete">Delete</string>
+
+    <string name="placeholder_active_alarms">This will be the Active Alarms list.</string>
+    <string name="placeholder_complete_alarms">This will be the Complete Alarms list.</string>
+    <string name="placeholder_incomplete_alarms">This will be the Incomplete Alarms list.</string>
+
+    <string name="patient_app_namespace">edu.temple.smartprompter</string>
+    <string name="patient_app_alarm_receiver">edu.temple.smartprompter.AlarmReceiver</string>
 </resources>

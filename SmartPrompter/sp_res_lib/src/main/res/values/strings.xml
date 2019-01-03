@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SmartPrompter Resource Library</string>
+    <string name="action_alarms">edu.temple.smartprompter.alarms</string>
+    <string name="authority_alarms">edu.temple.smartprompter.alarms</string>
 </resources>
