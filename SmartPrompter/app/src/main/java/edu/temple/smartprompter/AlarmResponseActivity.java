@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import edu.temple.smartprompter.utils.Constants;
 import edu.temple.sp_res_lib.Alarm;
 import edu.temple.sp_res_lib.SpAlarmManager;
 

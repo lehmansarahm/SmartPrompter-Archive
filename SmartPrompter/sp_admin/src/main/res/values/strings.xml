@@ -31,5 +31,5 @@
     <string name="placeholder_incomplete_alarms">This will be the Incomplete Alarms list.</string>
 
     <string name="patient_app_namespace">edu.temple.smartprompter</string>
-    <string name="patient_app_alarm_receiver">edu.temple.smartprompter.AlarmReceiver</string>
+    <string name="patient_app_alarm_receiver">edu.temple.smartprompter.receivers.AlarmReceiver</string>
 </resources>

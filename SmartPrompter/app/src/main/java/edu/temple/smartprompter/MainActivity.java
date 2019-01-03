@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import edu.temple.smartprompter.adapters.AlarmListAdapter;
+import edu.temple.smartprompter.utils.Constants;
 import edu.temple.sp_res_lib.SpAlarmManager;
 
 public class MainActivity extends AppCompatActivity implements AlarmListAdapter.AlarmDetailsListener {

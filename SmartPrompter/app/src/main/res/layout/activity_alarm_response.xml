@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_gravity="center"
     tools:context=".AlarmResponseActivity">
 
     <TextView
-        android:text="THIS IS WHERE THE TASK COMPLETION INSTRUCTIONS WILL BE."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:text="@string/task_prompt" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/line_break_double" />
+
+    <Button
+        android:text="@string/task_button_on_my_way"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:text="@string/task_button_remind_me_later"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -1,4 +1,4 @@
-package edu.temple.smartprompter;
+package edu.temple.smartprompter.utils;
 
 public class Constants {
 
@@ -6,6 +6,7 @@ public class Constants {
 
     public static final String INTENT_EXTRA_ALARM_ID = "intent_extra_alarm_id";
     public static final String INTENT_EXTRA_ALARM_CURRENT_STATUS = "intent_extra_alarm_current_status";
+    public static final String INTENT_EXTRA_REMINDER_TYPE = "intent_extra_reminder_type";
 
     public static final int DEFAULT_ALARM_ID = -1;
 

@@ -20,7 +20,7 @@
         </activity>
 
         <receiver
-            android:name=".AlarmReceiver"
+            android:name=".receivers.AlarmReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="@string/action_alarms" />
@@ -28,7 +28,8 @@
         </receiver>
 
         <activity android:name=".AlarmDetailsActivity" />
-        <activity android:name=".AlarmResponseActivity"></activity>
+        <activity android:name=".AlarmResponseActivity" />
+        <activity android:name=".ReminderResponseActivity"></activity>
     </application>
 
 </manifest>

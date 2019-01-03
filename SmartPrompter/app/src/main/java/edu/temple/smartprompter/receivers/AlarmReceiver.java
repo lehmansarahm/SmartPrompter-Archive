@@ -1,4 +1,4 @@
-package edu.temple.smartprompter;
+package edu.temple.smartprompter.receivers;
 
 import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
@@ -14,6 +14,9 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 
+import edu.temple.smartprompter.AlarmResponseActivity;
+import edu.temple.smartprompter.utils.Constants;
+import edu.temple.smartprompter.R;
 import edu.temple.sp_res_lib.Alarm;
 import edu.temple.sp_res_lib.SpAlarmManager;
 

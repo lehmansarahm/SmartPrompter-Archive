@@ -10,4 +10,8 @@
     <string name="alarm_field_status">Status</string>
     <string name="alarm_field_date">Date</string>
     <string name="alarm_field_time">Time</string>
+
+    <string name="task_prompt">It\'s time to complete your task!</string>
+    <string name="task_button_on_my_way">On my way!</string>
+    <string name="task_button_remind_me_later">Remind me later</string>
 </resources>

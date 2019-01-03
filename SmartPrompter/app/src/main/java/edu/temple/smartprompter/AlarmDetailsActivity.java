@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import edu.temple.smartprompter.utils.Constants;
 import edu.temple.sp_res_lib.Alarm;
 import edu.temple.sp_res_lib.SpAlarmManager;
 
@@ -103,15 +104,22 @@ public class AlarmDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.i(Constants.LOG_TAG, "User clicked STATUS field for alarm ID: "
                         + mAlarm.getID());
-                new AlertDialog.Builder(AlarmDetailsActivity.this)
-                        .setTitle("Initiate Alarm Task")
-                        .setMessage("This alarm task is incomplete.  Would you like to resume task completion?")
-                        .setIcon(android.R.drawable.ic_dialog_alert)
-                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                                AlarmDetailsActivity.this.startActivity(intent);
-                            }})
-                        .setNegativeButton(android.R.string.no, null).show();
+                if (mAlarm.isActive()) {
+                    new AlertDialog.Builder(AlarmDetailsActivity.this)
+                            .setTitle("Initiate Alarm Task")
+                            .setMessage("This alarm task is incomplete.  Would you like to resume task completion?")
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    AlarmDetailsActivity.this.startActivity(intent);
+                                }
+                            })
+                            .setNegativeButton(android.R.string.no, null).show();
+                } else {
+                    Toast.makeText(AlarmDetailsActivity.this,
+                            "No outstanding tasks for this alarm.",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
