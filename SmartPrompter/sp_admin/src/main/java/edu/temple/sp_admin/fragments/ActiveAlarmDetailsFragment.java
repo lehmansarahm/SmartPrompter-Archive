@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -142,7 +141,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         labelLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(Constants.LOG_TAG, "User clicked LABEL field for alarm: " + mAlarm.getID());
+                Log.i(Constants.LOG_TAG, "User clicked LABEL field for alarm ID: " + mAlarm.getID());
                 Toast.makeText(rootView.getContext(),
                         "LABEL CLICKED", Toast.LENGTH_SHORT).show();
                 // TODO - grab the label provided by the user, update the current alarm
@@ -159,7 +158,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         dateLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(Constants.LOG_TAG, "User clicked DATE field for alarm: " + mAlarm.getID());
+                Log.i(Constants.LOG_TAG, "User clicked DATE field for alarm ID: " + mAlarm.getID());
                 mDateListener.onDatePickerRequested(mAlarm.getID(), mAlarm.getDate());
                 // TODO - lock down editing privileges if alarm is already active
             }
@@ -174,7 +173,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         timeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(Constants.LOG_TAG, "User clicked TIME field for alarm: " + mAlarm.getID());
+                Log.i(Constants.LOG_TAG, "User clicked TIME field for alarm ID: " + mAlarm.getID());
                 mTimeListener.onTimePickerRequested(mAlarm.getID(), mAlarm.getTime());
                 // TODO - lock down editing privileges if alarm is already active
             }
@@ -189,7 +188,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         statusLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(Constants.LOG_TAG, "User clicked STATUS field for alarm: " + mAlarm.getID());
+                Log.i(Constants.LOG_TAG, "User clicked STATUS field for alarm ID: " + mAlarm.getID());
                 Toast.makeText(rootView.getContext(),
                         "STATUS CLICKED", Toast.LENGTH_SHORT).show();
                 // TODO - show a dialog with more info about this status code
@@ -206,22 +205,31 @@ public class ActiveAlarmDetailsFragment extends Fragment {
             public void onClick(View view) {
                 mAlarmMgr.update(mAlarm);
                 mChangeListener.onAlarmDetailsChanged();
+
+                if (mAlarm.isActive()) {
+                    Log.e(Constants.LOG_TAG, "User has saved changes to an already-active alarm with ID: "
+                            + mAlarm.getID() + ". \t\t Cancelling and rescheduling related alarms.");
+                    mAlarmMgr.cancelAllReminders(mAlarm);
+                    mAlarmMgr.scheduleReminder(mAlarm, receiverNamespace, receiverClassName);
+                }
             }
         });
     }
 
     private void initActivateDeactivate(final View rootView) {
-        Button activateDeactivateButton = rootView.findViewById(R.id.activate_deactivate_button);
+        FloatingActionButton activateDeactivateButton =
+                rootView.findViewById(R.id.activate_deactivate_button);
         if (mAlarm.isActive()) {
             Log.i(Constants.LOG_TAG, "Alarm is active!  Toggle activate / deactivate button text.");
-            activateDeactivateButton.setText(R.string.button_deactivate);
+            activateDeactivateButton.setImageDrawable(getResources()
+                    .getDrawable(R.drawable.baseline_alarm_off_white_18dp, getContext().getTheme()));
         }
 
         activateDeactivateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.i(Constants.LOG_TAG, "User clicked ACTIVATE, DEACTIVATE button "
-                        + "for alarm: " + mAlarm.getID());
+                        + "for alarm ID: " + mAlarm.getID());
                 Log.d(Constants.LOG_TAG, "Current alarm status: " + mAlarm.getStatus());
 
                 if (mAlarm.isActive()) {
@@ -242,7 +250,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
     }
 
     private void initDelete(final View rootView) {
-        Button deleteButton = rootView.findViewById(R.id.delete_button);
+        FloatingActionButton deleteButton = rootView.findViewById(R.id.delete_button);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

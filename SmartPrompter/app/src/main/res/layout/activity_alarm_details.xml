@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.temple.sp_admin.fragments.ActiveAlarmDetailsFragment">
+    tools:context=".AlarmDetailsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +25,7 @@
                 android:gravity="center"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:text="Label" />
+                android:text="@string/alarm_field_label" />
 
             <TextView
                 android:id="@+id/label_text"
@@ -32,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="24sp"
-                android:text="Label" />
+                android:text="@string/alarm_field_label" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -57,7 +58,7 @@
                 android:gravity="center"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:text="Date" />
+                android:text="@string/alarm_field_date" />
 
             <TextView
                 android:id="@+id/date_text"
@@ -65,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="24sp"
-                android:text="Date" />
+                android:text="@string/alarm_field_date" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -90,7 +91,7 @@
                 android:gravity="center"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:text="Time" />
+                android:text="@string/alarm_field_time" />
 
             <TextView
                 android:id="@+id/time_text"
@@ -98,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="24sp"
-                android:text="Time" />
+                android:text="@string/alarm_field_time" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -123,7 +124,7 @@
                 android:gravity="center"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:text="Status" />
+                android:text="@string/alarm_field_status" />
 
             <TextView
                 android:id="@+id/status_text"
@@ -131,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="24sp"
-                android:text="Status" />
+                android:text="@string/alarm_field_status" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -143,38 +144,4 @@
 
     </LinearLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/delete_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginBottom="@dimen/fab_margin_level_three"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginLeft="@dimen/fab_margin"
-        android:layout_marginRight="@dimen/fab_margin"
-        android:layout_marginStart="@dimen/fab_margin"
-        android:layout_marginTop="@dimen/fab_margin"
-        android:src="@drawable/baseline_remove_white_18dp" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/activate_deactivate_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginBottom="@dimen/fab_margin_level_two"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginLeft="@dimen/fab_margin"
-        android:layout_marginRight="@dimen/fab_margin"
-        android:layout_marginStart="@dimen/fab_margin"
-        android:layout_marginTop="@dimen/fab_margin"
-        android:src="@drawable/baseline_alarm_on_white_18dp" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/save_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/baseline_check_white_18dp" />
-
-</FrameLayout>
+</android.support.constraint.ConstraintLayout>

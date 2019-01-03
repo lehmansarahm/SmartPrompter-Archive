@@ -23,8 +23,6 @@ import edu.temple.sp_res_lib.utils.Constants;
 
 public class ActiveAlarmListFragment extends Fragment {
 
-    public static final int NEW_ALARM_INSERTION_INDEX = 0;
-
     public interface AlarmCreationListener {
         void onAlarmCreated(int position);
     }

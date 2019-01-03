@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">SmartPrompter</string>
     <string name="action_alarms">edu.temple.smartprompter.alarms</string>
+    <string name="no_data_available">No records available.</string>
+
+    <string name="line_break_single">\n</string>
+    <string name="line_break_double">\n\n</string>
+
+    <string name="alarm_field_label">Label</string>
+    <string name="alarm_field_status">Status</string>
+    <string name="alarm_field_date">Date</string>
+    <string name="alarm_field_time">Time</string>
 </resources>

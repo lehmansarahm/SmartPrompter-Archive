@@ -1,6 +1,7 @@
-package edu.temple.sp_admin.adapters;
+package edu.temple.smartprompter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,12 +12,10 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import edu.temple.sp_admin.R;
-
 import edu.temple.sp_res_lib.Alarm;
 import edu.temple.sp_res_lib.utils.Constants;
 
-public class ActiveAlarmsAdapter extends RecyclerView.Adapter<ActiveAlarmsAdapter.AlarmViewHolder> {
+public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.AlarmViewHolder> {
 
     public interface AlarmDetailsListener {
         void onAlarmSelected(int alarmID);
@@ -44,7 +43,7 @@ public class ActiveAlarmsAdapter extends RecyclerView.Adapter<ActiveAlarmsAdapte
     private List<Alarm> mAlarms;
     private AlarmDetailsListener mListener;
 
-    public ActiveAlarmsAdapter(List<Alarm> alarms, AlarmDetailsListener listener) {
+    public AlarmListAdapter(List<Alarm> alarms, AlarmDetailsListener listener) {
         Log.i(Constants.LOG_TAG, "Initializing Active Alarms Adapter with: "
                 + alarms.size() + " records");
         mAlarms = alarms;
@@ -54,19 +53,19 @@ public class ActiveAlarmsAdapter extends RecyclerView.Adapter<ActiveAlarmsAdapte
     @Override
     public AlarmViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         TextView v = (TextView) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recycler_item_active_alarm, parent, false);
+                .inflate(R.layout.recycler_item_alarm, parent, false);
         AlarmViewHolder vh = new AlarmViewHolder(parent.getContext(), v);
         return vh;
     }
 
     @Override
     public void onBindViewHolder(final AlarmViewHolder holder, final int position) {
-        Log.i(Constants.LOG_TAG, "Binding new line item view for alarm at position: "
+        Log.i(edu.temple.sp_res_lib.utils.Constants.LOG_TAG, "Binding new line item view for alarm at position: "
                 + position);
 
         final Alarm currentAlarm = mAlarms.get(position);
         if (currentAlarm.isActive()) {
-            Log.d(Constants.LOG_TAG, "Alarm at position: " + position
+            Log.d(edu.temple.sp_res_lib.utils.Constants.LOG_TAG, "Alarm at position: " + position
                     + " is active!  Updating line item background color.");
             holder.mTextView.setBackgroundColor(Color.GREEN);
         }

@@ -13,7 +13,7 @@ import edu.temple.sp_res_lib.utils.Constants;
 
 public class Alarm {
 
-    public static final String INTENT_EXTRA_REQUEST_CODE = "intent_extra_request_code";
+    public static final String INTENT_EXTRA_ALARM_ID = "intent_extra_request_code";
     public static final String INTENT_EXTRA_ORIG_TIME = "intent_extra_orig_time";
 
     public static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
@@ -155,7 +155,7 @@ public class Alarm {
         baseIntent.setComponent(new ComponentName(receiverNamespace,receiverClassName));
         baseIntent.setAction(action);
 
-        baseIntent.putExtra(INTENT_EXTRA_REQUEST_CODE, ID);
+        baseIntent.putExtra(INTENT_EXTRA_ALARM_ID, ID);
         baseIntent.putExtra(INTENT_EXTRA_ORIG_TIME, getTimeString());
         baseIntent.addFlags(BASE_INTENT_FLAGS);
 

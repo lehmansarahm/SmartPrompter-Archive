@@ -22,7 +22,6 @@ import edu.temple.sp_admin.fragments.IncompleteAlarmListFragment;
 import edu.temple.sp_admin.fragments.TimePickerFragment;
 import edu.temple.sp_admin.fragments.WelcomeFragment;
 import edu.temple.sp_admin.utils.Constants;
-import edu.temple.sp_res_lib.Alarm;
 import edu.temple.sp_res_lib.SpAlarmManager;
 
 public class MainActivity extends AppCompatActivity implements
@@ -70,7 +69,6 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public void onDestroy() {
         Log.i(Constants.LOG_TAG, "Main Activity destroyed!");
-        // TODO - commit alarm data to persistent storage
         super.onDestroy();
     }
 
