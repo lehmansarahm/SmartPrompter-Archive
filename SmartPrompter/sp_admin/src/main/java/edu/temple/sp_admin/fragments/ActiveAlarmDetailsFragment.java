@@ -1,9 +1,12 @@
 package edu.temple.sp_admin.fragments;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +40,10 @@ public class ActiveAlarmDetailsFragment extends Fragment {
 
     private String receiverNamespace;
     private String receiverClassName;
+
+    private TextView dateText, timeText, statusText;
+
+    private boolean dirty = false;
 
     public ActiveAlarmDetailsFragment() {
         // required empty constructor
@@ -110,7 +117,6 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         initTime(rootView);
         initStatus(rootView);
         initSave(rootView);
-        initActivateDeactivate(rootView);
         initDelete(rootView);
         return rootView;
     }
@@ -118,16 +124,16 @@ public class ActiveAlarmDetailsFragment extends Fragment {
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
-    private TextView dateText, timeText;
-
     public void updateDate(int year, int month, int day) {
         mAlarm.updateDate(year, month, day);
         dateText.setText(mAlarm.getDateString());
+        dirty = true;
     }
 
     public void updateTime(int hour, int minute) {
         mAlarm.updateTime(hour, minute);
         timeText.setText(mAlarm.getTimeString());
+        dirty = true;
     }
 
     // --------------------------------------------------------------------------------------
@@ -181,19 +187,52 @@ public class ActiveAlarmDetailsFragment extends Fragment {
     }
 
     private void initStatus(final View rootView) {
-        TextView statusText = rootView.findViewById(R.id.status_text);
-        statusText.setText(mAlarm.getStatus());
+        statusText = rootView.findViewById(R.id.status_text);
+        toggleOnOffMode();
+
+        final Context context = getContext();
+        if (context == null) {
+            Log.e(Constants.LOG_TAG, "Can't initialize status toggle logic without a valid context.");
+            return;
+        }
 
         LinearLayout statusLayout = rootView.findViewById(R.id.status_layout);
         statusLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(Constants.LOG_TAG, "User clicked STATUS field for alarm ID: " + mAlarm.getID());
-                Toast.makeText(rootView.getContext(),
-                        "STATUS CLICKED", Toast.LENGTH_SHORT).show();
-                // TODO - show a dialog with more info about this status code
-                // (NOTE - status codes are not editable by the user)
-                // TODO - lock down editing privileges if alarm is already active
+                DialogInterface.OnClickListener statusChangeListener = new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        Log.i(Constants.LOG_TAG, "User clicked STATUS field for alarm ID: " + mAlarm.getID());
+                        Log.d(Constants.LOG_TAG, "Current alarm status: " + mAlarm.getStatus());
+
+                        if (mAlarm.isActive()) {
+                            Log.i(Constants.LOG_TAG, "Alarm is already active.  Cancelling "
+                                    + "currently scheduled reminders and resetting alarm status.");
+                            mAlarmMgr.cancelAllReminders(mAlarm);
+                        } else {
+                            Log.i(Constants.LOG_TAG, "Alarm status is currently inactive.  "
+                                    + "Activating alarm and scheduling reminders.");
+                            boolean success = mAlarmMgr.scheduleReminder(mAlarm,
+                                    receiverNamespace, receiverClassName);
+                            if (!success) {
+                                Toast.makeText(rootView.getContext(), "Please schedule an alarm in the future!",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        Log.d(Constants.LOG_TAG, "New alarm status: " + mAlarm.getStatus());
+                        toggleOnOffMode();
+                        mAlarmMgr.update(mAlarm);
+                        // mChangeListener.onAlarmDetailsChanged();
+                    }};
+
+                new AlertDialog.Builder(context)
+                        .setTitle("Toggle Alarm Status")
+                        .setMessage("You have chosen to toggle the status of the current alarm.  "
+                                + "Are you sure you want to continue?")
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton(android.R.string.yes, statusChangeListener)
+                        .setNegativeButton(android.R.string.no, null).show();
             }
         });
     }
@@ -204,47 +243,10 @@ public class ActiveAlarmDetailsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 mAlarmMgr.update(mAlarm);
-                mChangeListener.onAlarmDetailsChanged();
-
-                if (mAlarm.isActive()) {
-                    Log.e(Constants.LOG_TAG, "User has saved changes to an already-active alarm with ID: "
-                            + mAlarm.getID() + ". \t\t Cancelling and rescheduling related alarms.");
-                    mAlarmMgr.cancelAllReminders(mAlarm);
-                    mAlarmMgr.scheduleReminder(mAlarm, receiverNamespace, receiverClassName);
-                }
-            }
-        });
-    }
-
-    private void initActivateDeactivate(final View rootView) {
-        FloatingActionButton activateDeactivateButton =
-                rootView.findViewById(R.id.activate_deactivate_button);
-        if (mAlarm.isActive()) {
-            Log.i(Constants.LOG_TAG, "Alarm is active!  Toggle activate / deactivate button text.");
-            activateDeactivateButton.setImageDrawable(getResources()
-                    .getDrawable(R.drawable.baseline_alarm_off_white_18dp, getContext().getTheme()));
-        }
-
-        activateDeactivateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i(Constants.LOG_TAG, "User clicked ACTIVATE, DEACTIVATE button "
-                        + "for alarm ID: " + mAlarm.getID());
-                Log.d(Constants.LOG_TAG, "Current alarm status: " + mAlarm.getStatus());
-
-                if (mAlarm.isActive()) {
-                    Log.i(Constants.LOG_TAG, "Alarm is already active.  Cancelling "
-                            + "currently scheduled reminders and resetting alarm status.");
-                    mAlarmMgr.cancelAllReminders(mAlarm);
-                } else {
-                    Log.i(Constants.LOG_TAG, "Alarm status is currently inactive.  "
-                            + "Activating alarm and scheduling reminders.");
-                    mAlarmMgr.scheduleReminder(mAlarm, receiverNamespace, receiverClassName);
-                }
-
-                Log.d(Constants.LOG_TAG, "New alarm status: " + mAlarm.getStatus());
-                mAlarmMgr.update(mAlarm);
-                mChangeListener.onAlarmDetailsChanged();
+                // mChangeListener.onAlarmDetailsChanged();
+                Toast.makeText(rootView.getContext(), "Alarm changes saved!",
+                        Toast.LENGTH_SHORT).show();
+                dirty = false;
             }
         });
     }
@@ -259,6 +261,20 @@ public class ActiveAlarmDetailsFragment extends Fragment {
                 mChangeListener.onAlarmDetailsChanged();
             }
         });
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    private void toggleOnOffMode() {
+        if (mAlarm.isActive()) {
+            Log.i(Constants.LOG_TAG, "Alarm is active!  Setting button to 'off' mode.");
+            statusText.setBackgroundColor(Color.GREEN);
+        } else {
+            Log.i(Constants.LOG_TAG, "Alarm is inactive!  Setting button to 'on' mode.");
+            statusText.setBackgroundColor(Color.WHITE);
+        }
+        statusText.setText(mAlarm.getStatus());
     }
 
 }

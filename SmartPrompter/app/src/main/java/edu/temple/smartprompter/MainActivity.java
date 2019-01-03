@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements AlarmListAdapter.
     @Override
     public void onAlarmSelected(int alarmID) {
         Intent intent = new Intent(this, AlarmDetailsActivity.class);
-        intent.putExtra(AlarmDetailsActivity.INTENT_EXTRA_ALARM_ID, alarmID);
+        intent.putExtra(Constants.INTENT_EXTRA_ALARM_ID, alarmID);
         startActivity(intent);
     }
 

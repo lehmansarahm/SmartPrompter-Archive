@@ -72,7 +72,7 @@ public class SpAlarmManager {
     /*
             NOTE !!!  ADMIN APP IS RESPONSIBLE FOR PROVIDING ALARM RECEIVER DETAILS !!!
      */
-    public void scheduleReminder(Alarm alarm, String receiverNamespace, String receiverClassName) {
+    public boolean scheduleReminder(Alarm alarm, String receiverNamespace, String receiverClassName) {
         AlarmManager alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         String alarmAction = context.getResources().getString(R.string.action_alarms);
         alarm.updateAlarmIntentSettings(alarmAction, receiverNamespace, receiverClassName);
@@ -85,11 +85,17 @@ public class SpAlarmManager {
         double intervalSec = (intervalMillis / 1000.d);
         Log.d(Constants.LOG_TAG, "Alarm time interval (sec): " + intervalSec);
 
+        if (intervalSec <= 0) {
+            Log.e(Constants.LOG_TAG, "CANNOT SET AN ALARM FOR A TIME IN THE PAST.");
+            return false;
+        }
+
         Log.e(Constants.LOG_TAG, "Scheduling new alarm reminder with request code: "
                 + alarm.getID() + " \t\t for time: " + alarm.getTimeString());
         alarmMgr.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,
                 alarmTime, alarm.getAlarmIntent(context));
         alarm.updateStatus(Alarm.STATUS.Active);
+        return true;
     }
 
     public void cancelAllReminders(Alarm alarm) {

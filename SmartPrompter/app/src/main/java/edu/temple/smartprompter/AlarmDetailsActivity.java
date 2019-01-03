@@ -1,5 +1,8 @@
 package edu.temple.smartprompter;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,10 +16,6 @@ import edu.temple.sp_res_lib.SpAlarmManager;
 
 public class AlarmDetailsActivity extends AppCompatActivity {
 
-    public static final String INTENT_EXTRA_ALARM_ID = "intent_extra_alarm_id";
-
-    private static final int DEFAULT_ALARM_ID = -1;
-
     private SpAlarmManager mAlarmMgr;
     private Alarm mAlarm;
 
@@ -25,8 +24,9 @@ public class AlarmDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_details);
 
-        int alarmID = getIntent().getIntExtra(INTENT_EXTRA_ALARM_ID, DEFAULT_ALARM_ID);
-        if (alarmID == DEFAULT_ALARM_ID) {
+        int alarmID = getIntent().getIntExtra(Constants.INTENT_EXTRA_ALARM_ID,
+                Constants.DEFAULT_ALARM_ID);
+        if (alarmID == Constants.DEFAULT_ALARM_ID) {
             Log.e(Constants.LOG_TAG, "No alarm ID provided!");
             return;
         }
@@ -90,6 +90,10 @@ public class AlarmDetailsActivity extends AppCompatActivity {
     }
 
     private void initStatus() {
+        final Intent intent = new Intent(this, AlarmResponseActivity.class);
+        intent.putExtra(Constants.INTENT_EXTRA_ALARM_ID, mAlarm.getID());
+        intent.putExtra(Constants.INTENT_EXTRA_ALARM_CURRENT_STATUS, mAlarm.getStatus());
+
         TextView statusText = findViewById(R.id.status_text);
         statusText.setText(mAlarm.getStatus());
 
@@ -99,8 +103,15 @@ public class AlarmDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.i(Constants.LOG_TAG, "User clicked STATUS field for alarm ID: "
                         + mAlarm.getID());
-                Toast.makeText(AlarmDetailsActivity.this,
-                        "STATUS CLICKED", Toast.LENGTH_SHORT).show();
+                new AlertDialog.Builder(AlarmDetailsActivity.this)
+                        .setTitle("Initiate Alarm Task")
+                        .setMessage("This alarm task is incomplete.  Would you like to resume task completion?")
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                AlarmDetailsActivity.this.startActivity(intent);
+                            }})
+                        .setNegativeButton(android.R.string.no, null).show();
             }
         });
     }
