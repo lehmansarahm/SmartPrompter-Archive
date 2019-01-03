@@ -143,10 +143,10 @@ public class Alarm {
 
     public static List<Alarm> getDefaults() {
         List<Alarm> alarmList = new ArrayList<>();
-        alarmList.add(new Alarm(13, 0, "Default Alarm 1"));
-        alarmList.add(new Alarm(14, 0, "Default Alarm 2"));
-        alarmList.add(new Alarm(15, 0, "Default Alarm 3"));
-        alarmList.add(new Alarm(16, 0, "Default Alarm 4"));
+        // alarmList.add(new Alarm(13, 0, "Default Alarm 1"));
+        // alarmList.add(new Alarm(14, 0, "Default Alarm 2"));
+        // alarmList.add(new Alarm(15, 0, "Default Alarm 3"));
+        // alarmList.add(new Alarm(16, 0, "Default Alarm 4"));
         return alarmList;
     }
 
