@@ -30,7 +30,10 @@ public final class AlarmDbContract {
             // -----------------------------------------------------------------------
             AlarmEntry.COLUMN_ACTION,
             AlarmEntry.COLUMN_RECEIVER_NAMESPACE,
-            AlarmEntry.COLUMN_RECEIVER_CLASS_NAME
+            AlarmEntry.COLUMN_RECEIVER_CLASS_NAME,
+            // -----------------------------------------------------------------------
+            AlarmEntry.COLUMN_TIME_ACKNOWLEDGED,
+            AlarmEntry.COLUMN_TIME_COMPLETED
     };
 
     public static final class AlarmEntry implements BaseColumns {
@@ -56,6 +59,9 @@ public final class AlarmDbContract {
 
         public static final String COLUMN_HOUR_OF_DAY = "hourOfDay";
         public static final String COLUMN_MINUTE = "minute";
+
+        public static final String COLUMN_TIME_ACKNOWLEDGED = "timeAcknowledged";
+        public static final String COLUMN_TIME_COMPLETED = "timeCompleted";
 
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
                 .appendPath(TABLE_NAME)
@@ -112,6 +118,9 @@ public final class AlarmDbContract {
         values.put(AlarmEntry.COLUMN_RECEIVER_NAMESPACE, alarmIntentSettings[1]);
         values.put(AlarmEntry.COLUMN_RECEIVER_CLASS_NAME, alarmIntentSettings[2]);
 
+        values.put(AlarmEntry.COLUMN_TIME_ACKNOWLEDGED, alarm.getTimeAcknowledged());
+        values.put(AlarmEntry.COLUMN_TIME_COMPLETED, alarm.getTimeCompleted());
+
         return values;
     }
 
@@ -134,7 +143,10 @@ public final class AlarmDbContract {
                     // -----------------------------------------------------------------------
                     cursor.getString(cursor.getColumnIndex(AlarmEntry.COLUMN_ACTION)),
                     cursor.getString(cursor.getColumnIndex(AlarmEntry.COLUMN_RECEIVER_NAMESPACE)),
-                    cursor.getString(cursor.getColumnIndex(AlarmEntry.COLUMN_RECEIVER_CLASS_NAME))
+                    cursor.getString(cursor.getColumnIndex(AlarmEntry.COLUMN_RECEIVER_CLASS_NAME)),
+                    // -----------------------------------------------------------------------
+                    cursor.getString(cursor.getColumnIndex(AlarmEntry.COLUMN_TIME_ACKNOWLEDGED)),
+                    cursor.getString(cursor.getColumnIndex(AlarmEntry.COLUMN_TIME_COMPLETED))
             );
             alarms.add(alarm);
         }  while(cursor.moveToNext());

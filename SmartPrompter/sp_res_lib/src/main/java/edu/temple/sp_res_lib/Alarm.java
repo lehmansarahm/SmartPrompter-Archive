@@ -39,14 +39,23 @@ public class Alarm {
     private String receiverNamespace;
     private String receiverClassName;
 
+    private String timeAcknowledged;
+    private String timeCompleted;
+
     public Alarm(int ID, String label, String status, int year, int month, int day,
-                 int hour, int minute, String action, String namespace, String className) {
+                 int hour, int minute, String action, String namespace, String className,
+                 String timeAcknowledged, String timeCompleted) {
+
         this.ID = ID;
         this.label = label;
         this.status = STATUS.valueOf(status);
+
         this.action = action;
         this.receiverNamespace = namespace;
         this.receiverClassName = className;
+
+        this.timeAcknowledged = timeAcknowledged;
+        this.timeCompleted = timeCompleted;
 
         cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, year);
@@ -164,6 +173,10 @@ public class Alarm {
 
     // ----------------------------------------------------------------------------
     // ----------------------------------------------------------------------------
+
+    public String getTimeAcknowledged() { return timeAcknowledged; }
+
+    public String getTimeCompleted() { return timeCompleted; }
 
     public String toString() { return label; }
 
