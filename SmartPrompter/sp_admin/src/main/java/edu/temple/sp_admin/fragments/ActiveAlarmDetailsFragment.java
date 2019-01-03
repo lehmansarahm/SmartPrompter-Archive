@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,8 +44,6 @@ public class ActiveAlarmDetailsFragment extends Fragment {
     private String receiverClassName;
 
     private TextView dateText, timeText, statusText;
-
-    private boolean dirty = false;
 
     public ActiveAlarmDetailsFragment() {
         // required empty constructor
@@ -127,31 +127,56 @@ public class ActiveAlarmDetailsFragment extends Fragment {
     public void updateDate(int year, int month, int day) {
         mAlarm.updateDate(year, month, day);
         dateText.setText(mAlarm.getDateString());
-        dirty = true;
     }
 
     public void updateTime(int hour, int minute) {
         mAlarm.updateTime(hour, minute);
         timeText.setText(mAlarm.getTimeString());
-        dirty = true;
     }
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
     private void initLabel(final View rootView) {
-        TextView labelText = rootView.findViewById(R.id.label_text);
+        final TextView labelText = rootView.findViewById(R.id.label_text);
         labelText.setText(mAlarm.getLabel());
+
+        final Context context = getContext();
+        if (context == null) {
+            Log.e(Constants.LOG_TAG, "Can't initialize label entry logic without a valid context.");
+            return;
+        }
 
         LinearLayout labelLayout = rootView.findViewById(R.id.label_layout);
         labelLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(Constants.LOG_TAG, "User clicked LABEL field for alarm ID: " + mAlarm.getID());
-                Toast.makeText(rootView.getContext(),
-                        "LABEL CLICKED", Toast.LENGTH_SHORT).show();
-                // TODO - grab the label provided by the user, update the current alarm
                 // TODO - lock down editing privileges if alarm is already active
+                Log.i(Constants.LOG_TAG, "User clicked LABEL field for alarm ID: " + mAlarm.getID());
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Alarm Label");
+
+                final EditText input = new EditText(context);
+                input.setInputType(InputType.TYPE_CLASS_TEXT);
+                builder.setView(input);
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String label = input.getText().toString();
+                        mAlarm.updateLabel(label);
+                        labelText.setText(label);
+                    }
+                });
+
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                builder.show();
             }
         });
     }
@@ -223,7 +248,6 @@ public class ActiveAlarmDetailsFragment extends Fragment {
                         Log.d(Constants.LOG_TAG, "New alarm status: " + mAlarm.getStatus());
                         toggleOnOffMode();
                         mAlarmMgr.update(mAlarm);
-                        // mChangeListener.onAlarmDetailsChanged();
                     }};
 
                 new AlertDialog.Builder(context)
@@ -243,10 +267,8 @@ public class ActiveAlarmDetailsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 mAlarmMgr.update(mAlarm);
-                // mChangeListener.onAlarmDetailsChanged();
                 Toast.makeText(rootView.getContext(), "Alarm changes saved!",
                         Toast.LENGTH_SHORT).show();
-                dirty = false;
             }
         });
     }
