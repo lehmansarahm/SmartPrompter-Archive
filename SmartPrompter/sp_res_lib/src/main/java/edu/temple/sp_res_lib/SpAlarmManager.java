@@ -27,24 +27,26 @@ public class SpAlarmManager {
     public Alarm create() {
         ContentResolver cr = context.getContentResolver();
         Uri uri = cr.insert(AlarmDbContract.AlarmEntry.CONTENT_URI,
-                AlarmDbContract.getDefaultAlarmValues());
-        Cursor cursor = cr.query(uri, AlarmDbContract.ALL_FIELDS, null,
-                null, null);
-        return AlarmDbContract.populateAlarms(cursor).get(0);
+                AlarmDbContract.AlarmEntry.getDefaultAlarmValues());
+        Cursor cursor = cr.query(uri, AlarmDbContract.AlarmEntry.ALL_FIELDS,
+                null, null, null);
+        return AlarmDbContract.AlarmEntry.populateFromCursor(cursor).get(0);
     }
 
     public Alarm get(int alarmID) {
         Uri uri = AlarmDbContract.AlarmEntry.getContentUriWithID(alarmID);
-        Cursor cursor = context.getContentResolver().query(uri, AlarmDbContract.ALL_FIELDS,
+        Cursor cursor = context.getContentResolver().query(uri,
+                AlarmDbContract.AlarmEntry.ALL_FIELDS,
                 null, null, null);
-        return AlarmDbContract.populateAlarms(cursor).get(0);
+        return AlarmDbContract.AlarmEntry.populateFromCursor(cursor).get(0);
     }
 
     public List<Alarm> getAll() {
         Cursor cursor = context.getContentResolver()
-                .query(AlarmDbContract.AlarmEntry.CONTENT_URI, AlarmDbContract.ALL_FIELDS,
+                .query(AlarmDbContract.AlarmEntry.CONTENT_URI,
+                        AlarmDbContract.AlarmEntry.ALL_FIELDS,
                         null,null,null);
-        return AlarmDbContract.populateAlarms(cursor);
+        return AlarmDbContract.AlarmEntry.populateFromCursor(cursor);
     }
 
     public List<Alarm> getAllActive() {
@@ -56,9 +58,10 @@ public class SpAlarmManager {
         };
 
         Cursor cursor = context.getContentResolver()
-                .query(AlarmDbContract.AlarmEntry.CONTENT_URI, AlarmDbContract.ALL_FIELDS,
+                .query(AlarmDbContract.AlarmEntry.CONTENT_URI,
+                        AlarmDbContract.AlarmEntry.ALL_FIELDS,
                         multiWhereClause,args,null);
-        return AlarmDbContract.populateAlarms(cursor);
+        return AlarmDbContract.AlarmEntry.populateFromCursor(cursor);
     }
 
     public List<Alarm> getAllIncomplete() {
@@ -70,9 +73,10 @@ public class SpAlarmManager {
         };
 
         Cursor cursor = context.getContentResolver()
-                .query(AlarmDbContract.AlarmEntry.CONTENT_URI, AlarmDbContract.ALL_FIELDS,
+                .query(AlarmDbContract.AlarmEntry.CONTENT_URI,
+                        AlarmDbContract.AlarmEntry.ALL_FIELDS,
                         multiWhereClause,args,null);
-        return AlarmDbContract.populateAlarms(cursor);
+        return AlarmDbContract.AlarmEntry.populateFromCursor(cursor);
     }
 
     public List<Alarm> getAllComplete() {
@@ -80,9 +84,10 @@ public class SpAlarmManager {
         String[] args = new String[] { Alarm.STATUS.Complete.toString() };
 
         Cursor cursor = context.getContentResolver()
-                .query(AlarmDbContract.AlarmEntry.CONTENT_URI, AlarmDbContract.ALL_FIELDS,
+                .query(AlarmDbContract.AlarmEntry.CONTENT_URI,
+                        AlarmDbContract.AlarmEntry.ALL_FIELDS,
                         whereClause,args,null);
-        return AlarmDbContract.populateAlarms(cursor);
+        return AlarmDbContract.AlarmEntry.populateFromCursor(cursor);
     }
 
     public int update(Alarm alarm) {
@@ -90,7 +95,8 @@ public class SpAlarmManager {
         String[] args = new String[] { String.valueOf(alarm.getID()) };
         return context.getContentResolver()
                 .update(AlarmDbContract.AlarmEntry.CONTENT_URI,
-                AlarmDbContract.getAlarmValues(alarm), whereClause, args);
+                        AlarmDbContract.AlarmEntry.getAlarmValues(alarm),
+                        whereClause, args);
     }
 
     public int delete(Alarm alarm) {

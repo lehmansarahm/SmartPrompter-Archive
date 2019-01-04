@@ -17,15 +17,15 @@ public class SpMediaManager {
     }
 
     public Bitmap getImage(String ID) {
-        String whereClause = (AlarmMediaContract.COLUMN_ID + "=?");
+        String whereClause = (AlarmMediaContract.ImageEntry.COLUMN_ID + "=?");
         String[] args = new String[] { ID };
 
         Cursor cursor = context.getContentResolver().query(
-                AlarmMediaContract.getContentUri(AlarmMediaContract.MEDIA_TYPE.Image),
-                AlarmMediaContract.ALL_COLUMNS,
+                AlarmMediaContract.ImageEntry.CONTENT_URI,
+                AlarmMediaContract.ImageEntry.ALL_COLUMNS,
                 whereClause, args, null);
 
-        List<Bitmap> images = AlarmMediaContract.populateImages(cursor);
+        List<Bitmap> images = AlarmMediaContract.ImageEntry.populateFromCursor(cursor);
         if (images == null || images.size() == 0) return null;
         else return images.get(0);
     }

@@ -10,11 +10,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import edu.temple.smartprompter.adapters.AlarmListAdapter;
+import edu.temple.smartprompter.adapters.SimpleAlarmListAdapter;
 import edu.temple.smartprompter.utils.Constants;
 import edu.temple.sp_res_lib.SpAlarmManager;
 
-public class MainActivity extends AppCompatActivity implements AlarmListAdapter.AlarmDetailsListener {
+public class MainActivity extends AppCompatActivity implements SimpleAlarmListAdapter.AlarmDetailsListener {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements AlarmListAdapter.
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new AlarmListAdapter(mAlarmMgr.getAll(), this);
+        mAdapter = new SimpleAlarmListAdapter(mAlarmMgr.getAll(), this);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 

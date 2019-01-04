@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
 
-import edu.temple.sp_admin.adapters.SimpleAlarmAdapter;
+import edu.temple.sp_admin.adapters.SimpleAlarmListAdapter;
 import edu.temple.sp_admin.fragments.ActiveAlarmDetailsFragment;
 import edu.temple.sp_admin.fragments.ActiveAlarmListFragment;
 import edu.temple.sp_admin.fragments.DatePickerFragment;
@@ -16,7 +16,7 @@ import edu.temple.sp_admin.utils.Constants;
 
 public class ActiveAlarmsActivity extends BaseActivity implements
         ActiveAlarmListFragment.AlarmCreationListener,
-        SimpleAlarmAdapter.AlarmSelectionListener,
+        SimpleAlarmListAdapter.AlarmSelectionListener,
         DatePickerFragment.DatePickerListener,
         TimePickerFragment.TimePickerListener,
         ActiveAlarmDetailsFragment.AlarmDetailChangeListener {

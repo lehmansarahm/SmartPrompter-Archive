@@ -17,8 +17,6 @@ import edu.temple.sp_res_lib.utils.Constants;
 import edu.temple.sp_res_lib.utils.MediaUtil;
 import edu.temple.sp_res_lib.utils.StorageUtil;
 
-import edu.temple.sp_res_lib.media.AlarmMediaContract.MEDIA_TYPE;
-
 public class AlarmMediaProvider extends ContentProvider {
 
     public static final int CODE_IMAGE = 100;
@@ -28,8 +26,8 @@ public class AlarmMediaProvider extends ContentProvider {
         final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
         final String authority = AlarmMediaContract.CONTENT_AUTHORITY;
 
-        matcher.addURI(authority, MEDIA_TYPE.Image.toString(), CODE_IMAGE);
-        matcher.addURI(authority, MEDIA_TYPE.Ringtone.toString(), CODE_RINGTONE);
+        matcher.addURI(authority, AlarmMediaContract.ImageEntry.TABLE_NAME, CODE_IMAGE);
+        matcher.addURI(authority, AlarmMediaContract.RingtoneEntry.TABLE_NAME, CODE_RINGTONE);
 
         return matcher;
     }
@@ -63,7 +61,7 @@ public class AlarmMediaProvider extends ContentProvider {
     public Cursor query(@NonNull Uri uri, String[] projection, String selection,
                         String[] selectionArgs, String sortOrder) {
 
-        MatrixCursor cursor = new MatrixCursor(AlarmMediaContract.ALL_COLUMNS);
+        MatrixCursor cursor = null;
 
         switch (uriMatcher.match(uri)) {
 
@@ -82,10 +80,14 @@ public class AlarmMediaProvider extends ContentProvider {
                     break;
                 }
 
+                cursor = new MatrixCursor(AlarmMediaContract.ImageEntry.ALL_COLUMNS);
                 MatrixCursor.RowBuilder builder = cursor.newRow();
-                builder.add(AlarmMediaContract.COLUMN_ID, _ID);
-                builder.add(AlarmMediaContract.COLUMN_MEDIA_TYPE, MEDIA_TYPE.Image.toString());
-                builder.add(AlarmMediaContract.COLUMN_MEDIA, MediaUtil.convertToByteArray(media));
+
+                builder.add(AlarmMediaContract.ImageEntry.COLUMN_ID, _ID);
+                builder.add(AlarmMediaContract.ImageEntry.COLUMN_MEDIA_TYPE,
+                        AlarmMediaContract.ImageEntry.TABLE_NAME);
+                builder.add(AlarmMediaContract.ImageEntry.COLUMN_MEDIA,
+                        MediaUtil.convertToByteArray(media));
                 break;
             }
 
@@ -98,10 +100,14 @@ public class AlarmMediaProvider extends ContentProvider {
                 Log.i(Constants.LOG_TAG, "Attempting to retrieve ringtone file by ID: " + _ID
                         + " \t\t using file path: " + filepath);
 
+                cursor = new MatrixCursor(AlarmMediaContract.RingtoneEntry.ALL_COLUMNS);
                 MatrixCursor.RowBuilder builder = cursor.newRow();
-                builder.add(AlarmMediaContract.COLUMN_ID, _ID);
-                builder.add(AlarmMediaContract.COLUMN_MEDIA_TYPE, MEDIA_TYPE.Ringtone.toString());
-                builder.add(AlarmMediaContract.COLUMN_MEDIA, MediaUtil.loadRingtone(filepath));
+
+                builder.add(AlarmMediaContract.RingtoneEntry.COLUMN_ID, _ID);
+                builder.add(AlarmMediaContract.RingtoneEntry.COLUMN_MEDIA_TYPE,
+                        AlarmMediaContract.RingtoneEntry.TABLE_NAME);
+                builder.add(AlarmMediaContract.RingtoneEntry.COLUMN_MEDIA,
+                        MediaUtil.loadRingtone(filepath));
                 break;
             }
 
@@ -113,7 +119,8 @@ public class AlarmMediaProvider extends ContentProvider {
                 return null;
         }
 
-        cursor.setNotificationUri(getContext().getContentResolver(), uri);
+        if (cursor != null)
+            cursor.setNotificationUri(getContext().getContentResolver(), uri);
         return cursor;
     }
 
@@ -123,14 +130,14 @@ public class AlarmMediaProvider extends ContentProvider {
         switch (uriMatcher.match(uri)) {
             case CODE_IMAGE:
                 try {
-                    String id = values.getAsString(AlarmMediaContract.COLUMN_ID);
-                    byte[] rawMedia = values.getAsByteArray(AlarmMediaContract.COLUMN_MEDIA);
+                    String id = values.getAsString(AlarmMediaContract.ImageEntry.COLUMN_ID);
+                    byte[] rawMedia = values.getAsByteArray(AlarmMediaContract.ImageEntry.COLUMN_MEDIA);
                     Bitmap media = MediaUtil.convertToBitmap(rawMedia);
                     StorageUtil.writeToFile(imageDir, id, media);
                     media.recycle();
 
                     getContext().getContentResolver().notifyChange(uri, null);
-                    return AlarmMediaContract.getContentUri(MEDIA_TYPE.Image);
+                    return AlarmMediaContract.ImageEntry.CONTENT_URI;
                 } catch (Exception ex) {
                     Log.e(Constants.LOG_TAG, "Something went wrong while trying to "
                             + "insert new alarm image.", ex);
@@ -174,8 +181,8 @@ public class AlarmMediaProvider extends ContentProvider {
             case CODE_IMAGE:
                 int updatedFileCount = 0;
                 try {
-                    String id = values.getAsString(AlarmMediaContract.COLUMN_ID);
-                    byte[] rawMedia = values.getAsByteArray(AlarmMediaContract.COLUMN_MEDIA);
+                    String id = values.getAsString(AlarmMediaContract.ImageEntry.COLUMN_ID);
+                    byte[] rawMedia = values.getAsByteArray(AlarmMediaContract.ImageEntry.COLUMN_MEDIA);
                     Bitmap media = MediaUtil.convertToBitmap(rawMedia);
 
                     StorageUtil.writeToFile(imageDir, id, media);

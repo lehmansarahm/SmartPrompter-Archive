@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import edu.temple.sp_admin.R;
-import edu.temple.sp_admin.adapters.SimpleAlarmAdapter;
+import edu.temple.sp_admin.adapters.SimpleAlarmListAdapter;
 
 import edu.temple.sp_res_lib.Alarm;
 import edu.temple.sp_res_lib.SpAlarmManager;
@@ -35,7 +35,7 @@ public class ActiveAlarmListFragment extends Fragment {
     private TextView mEmptyView;
 
     private AlarmCreationListener mCreationListener;
-    private SimpleAlarmAdapter.AlarmSelectionListener mSelectionListener;
+    private SimpleAlarmListAdapter.AlarmSelectionListener mSelectionListener;
 
     private SpAlarmManager mAlarmMgr;
 
@@ -66,7 +66,7 @@ public class ActiveAlarmListFragment extends Fragment {
         }
 
         try {
-            mSelectionListener = (SimpleAlarmAdapter.AlarmSelectionListener) context;
+            mSelectionListener = (SimpleAlarmListAdapter.AlarmSelectionListener) context;
         } catch (ClassCastException e) {
             String error = context.toString() + " must implement AlarmSelectionListener";
             Log.e(Constants.LOG_TAG, error, e);
@@ -103,7 +103,7 @@ public class ActiveAlarmListFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new SimpleAlarmAdapter(mAlarmMgr.getAllActive(), mSelectionListener);
+        mAdapter = new SimpleAlarmListAdapter(mAlarmMgr.getAllActive(), mSelectionListener);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 

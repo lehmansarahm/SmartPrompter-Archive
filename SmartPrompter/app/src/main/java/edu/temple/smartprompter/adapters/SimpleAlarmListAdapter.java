@@ -15,7 +15,7 @@ import edu.temple.smartprompter.R;
 import edu.temple.sp_res_lib.Alarm;
 import edu.temple.sp_res_lib.utils.Constants;
 
-public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.AlarmViewHolder> {
+public class SimpleAlarmListAdapter extends RecyclerView.Adapter<SimpleAlarmListAdapter.AlarmViewHolder> {
 
     public interface AlarmDetailsListener {
         void onAlarmSelected(int alarmID);
@@ -43,7 +43,7 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.Alar
     private List<Alarm> mAlarms;
     private AlarmDetailsListener mListener;
 
-    public AlarmListAdapter(List<Alarm> alarms, AlarmDetailsListener listener) {
+    public SimpleAlarmListAdapter(List<Alarm> alarms, AlarmDetailsListener listener) {
         Log.i(Constants.LOG_TAG, "Initializing Active Alarms Adapter with: "
                 + alarms.size() + " records");
         mAlarms = alarms;

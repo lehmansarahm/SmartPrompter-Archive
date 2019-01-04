@@ -4,17 +4,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
-import edu.temple.sp_admin.adapters.SimpleAlarmAdapter;
+import edu.temple.sp_admin.adapters.SimpleAlarmListAdapter;
 import edu.temple.sp_admin.fragments.CompleteAlarmDetailsFragment;
 import edu.temple.sp_admin.fragments.CompleteAlarmListFragment;
-import edu.temple.sp_admin.fragments.IncompleteAlarmDetailsFragment;
 import edu.temple.sp_admin.utils.BaseActivity;
 import edu.temple.sp_admin.utils.Constants;
 
 public class CompleteAlarmsActivity extends BaseActivity implements
-        SimpleAlarmAdapter.AlarmSelectionListener {
+        SimpleAlarmListAdapter.AlarmSelectionListener {
 
     private CompleteAlarmListFragment listFrag;
     private CompleteAlarmDetailsFragment detailsFrag;
