@@ -1,14 +1,32 @@
 package edu.temple.sp_admin.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import edu.temple.sp_admin.R;
+import edu.temple.sp_admin.adapters.SimpleAlarmAdapter;
+import edu.temple.sp_res_lib.SpAlarmManager;
+import edu.temple.sp_res_lib.utils.Constants;
 
 public class CompleteAlarmListFragment extends Fragment {
+
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private TextView mEmptyView;
+
+    private SimpleAlarmAdapter.AlarmSelectionListener mSelectionListener;
+
+    private SpAlarmManager mAlarmMgr;
 
     public CompleteAlarmListFragment() {
         // Required empty public constructor
@@ -17,25 +35,72 @@ public class CompleteAlarmListFragment extends Fragment {
     public static CompleteAlarmListFragment newInstance() {
         CompleteAlarmListFragment fragment = new CompleteAlarmListFragment();
         Bundle args = new Bundle();
-        // args.putString(ARG_PARAM1, param1);
-        // args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
 
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mSelectionListener = (SimpleAlarmAdapter.AlarmSelectionListener) context;
+        } catch (ClassCastException e) {
+            String error = context.toString() + " must implement AlarmSelectionListener";
+            Log.e(Constants.LOG_TAG, error, e);
+            throw new ClassCastException();
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mSelectionListener = null;
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }*/
+        mAlarmMgr = new SpAlarmManager(getActivity());
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_complete_alarm_list, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_complete_alarm_list, container,
+                false);
+
+        mEmptyView = rootView.findViewById(R.id.empty_view);
+        mRecyclerView = rootView.findViewById(R.id.complete_alarm_recycler);
+        mRecyclerView.setHasFixedSize(true);
+
+        mLayoutManager = new LinearLayoutManager(getActivity());
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        mAdapter = new SimpleAlarmAdapter(mAlarmMgr.getAllComplete(), mSelectionListener);
+        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        checkDatasetVisibility();
+        return rootView;
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    private void checkDatasetVisibility() {
+        if (!mAlarmMgr.areCompleteAlarmsAvailable()) {
+            mEmptyView.setVisibility(View.VISIBLE);
+            mRecyclerView.setVisibility(View.GONE);
+        } else {
+            mEmptyView.setVisibility(View.GONE);
+            mRecyclerView.setVisibility(View.VISIBLE);
+        }
     }
 
 }

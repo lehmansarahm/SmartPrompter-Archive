@@ -24,8 +24,6 @@ import static android.app.Notification.VISIBILITY_PUBLIC;
 
 public class AlarmReceiver extends BroadcastReceiver {
 
-    private SpAlarmManager mAlarmMgr;
-    private Alarm mAlarm;
     private int mAlarmID;
     private String mAlarmStatus;
 
@@ -48,11 +46,9 @@ public class AlarmReceiver extends BroadcastReceiver {
         Log.e(Constants.LOG_TAG, "Alarm broadcast has been received "
                 + "for alarmID: " + mAlarmID + " at original time: " + timeString);
 
-        mAlarmMgr = new SpAlarmManager(context);
-        mAlarm = mAlarmMgr.get(mAlarmID);
-        mAlarm.updateStatus(Alarm.STATUS.Unacknowledged);
-        mAlarmStatus = mAlarm.getStatus();
-        mAlarmMgr.update(mAlarm);
+        SpAlarmManager alarmMgr = new SpAlarmManager(context);
+        Alarm alarm = alarmMgr.get(mAlarmID);
+        mAlarmStatus = alarm.getStatus();
 
         createNotificationChannel(context);
         Uri ringtoneUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
@@ -68,11 +64,6 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
         notificationManager.notify(mAlarmID, mBuilder.build());
-
-        // just for sanity's sake ...
-        mAlarm = mAlarmMgr.get(mAlarmID);
-        Log.i(Constants.LOG_TAG, "Received and acknowledged alarm broadcast for alarm ID: "
-                + mAlarmID + ".  \t\t Current alarm status: " + mAlarm.getStatus());
     }
 
     @SuppressLint("WrongConstant")

@@ -12,10 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import edu.temple.sp_admin.R;
-import edu.temple.sp_admin.adapters.ActiveAlarmsAdapter;
+import edu.temple.sp_admin.adapters.SimpleAlarmAdapter;
 
 import edu.temple.sp_res_lib.Alarm;
 import edu.temple.sp_res_lib.SpAlarmManager;
@@ -36,7 +35,7 @@ public class ActiveAlarmListFragment extends Fragment {
     private TextView mEmptyView;
 
     private AlarmCreationListener mCreationListener;
-    private ActiveAlarmsAdapter.AlarmDetailsListener mDetailsListener;
+    private SimpleAlarmAdapter.AlarmSelectionListener mSelectionListener;
 
     private SpAlarmManager mAlarmMgr;
 
@@ -67,9 +66,9 @@ public class ActiveAlarmListFragment extends Fragment {
         }
 
         try {
-            mDetailsListener = (ActiveAlarmsAdapter.AlarmDetailsListener) context;
+            mSelectionListener = (SimpleAlarmAdapter.AlarmSelectionListener) context;
         } catch (ClassCastException e) {
-            String error = context.toString() + " must implement AlarmDetailsListener";
+            String error = context.toString() + " must implement AlarmSelectionListener";
             Log.e(Constants.LOG_TAG, error, e);
             throw new ClassCastException();
         }
@@ -78,7 +77,8 @@ public class ActiveAlarmListFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        mDetailsListener = null;
+        mCreationListener = null;
+        mSelectionListener = null;
     }
 
     // --------------------------------------------------------------------------------------
@@ -103,7 +103,7 @@ public class ActiveAlarmListFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new ActiveAlarmsAdapter(mAlarmMgr.getAll(), mDetailsListener);
+        mAdapter = new SimpleAlarmAdapter(mAlarmMgr.getAllActive(), mSelectionListener);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
@@ -142,7 +142,7 @@ public class ActiveAlarmListFragment extends Fragment {
     // --------------------------------------------------------------------------------------
 
     private void checkDatasetVisibility() {
-        if (!mAlarmMgr.areAlarmsAvailable()) {
+        if (!mAlarmMgr.areActiveAlarmsAvailable()) {
             mEmptyView.setVisibility(View.VISIBLE);
             mRecyclerView.setVisibility(View.GONE);
         } else {

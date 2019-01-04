@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">SmartPrompter Admin</string>
 
+    <string name="activity_label_active_alarms">Active Alarms</string>
+    <string name="activity_label_incomplete_alarms">Incomplete Alarms</string>
+    <string name="activity_label_complete_alarms">Complete Alarms</string>
+
     <string name="authority_alarms">edu.temple.smartprompter.alarms</string>
+    <string name="authority_media">edu.temple.smartprompter.media</string>
 
     <string name="line_break_single">\n</string>
     <string name="line_break_double">\n\n</string>

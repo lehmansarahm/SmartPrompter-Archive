@@ -1,4 +1,4 @@
-package edu.temple.sp_res_lib.content;
+package edu.temple.sp_res_lib.db;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -33,7 +33,8 @@ public final class AlarmDbContract {
             AlarmEntry.COLUMN_RECEIVER_CLASS_NAME,
             // -----------------------------------------------------------------------
             AlarmEntry.COLUMN_TIME_ACKNOWLEDGED,
-            AlarmEntry.COLUMN_TIME_COMPLETED
+            AlarmEntry.COLUMN_TIME_COMPLETED,
+            AlarmEntry.COLUMN_COMPLETION_MEDIA_ID
     };
 
     public static final class AlarmEntry implements BaseColumns {
@@ -62,6 +63,7 @@ public final class AlarmDbContract {
 
         public static final String COLUMN_TIME_ACKNOWLEDGED = "timeAcknowledged";
         public static final String COLUMN_TIME_COMPLETED = "timeCompleted";
+        public static final String COLUMN_COMPLETION_MEDIA_ID = "completionMediaID";
 
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
                 .appendPath(TABLE_NAME)
@@ -79,6 +81,7 @@ public final class AlarmDbContract {
     private static final String DEFAULT_STATUS = Alarm.STATUS.New.toString();
     private static final int DEFAULT_HOUR_OF_DAY = 12;
     private static final int DEFAULT_MINUTE = 0;
+    private static final String DEFAULT_MEDIA_ID = "headshot.jpg";
 
     public static ContentValues getDefaultAlarmValues() {
         ContentValues values = new ContentValues();
@@ -94,6 +97,9 @@ public final class AlarmDbContract {
         // default the alarm time to 12 noon
         values.put(AlarmEntry.COLUMN_HOUR_OF_DAY, DEFAULT_HOUR_OF_DAY);
         values.put(AlarmEntry.COLUMN_MINUTE, DEFAULT_MINUTE);
+
+        // default the completion media ID to placeholder image
+        values.put(AlarmEntry.COLUMN_COMPLETION_MEDIA_ID, DEFAULT_MEDIA_ID);
 
         return values;
     }
@@ -120,6 +126,7 @@ public final class AlarmDbContract {
 
         values.put(AlarmEntry.COLUMN_TIME_ACKNOWLEDGED, alarm.getTimeAcknowledged());
         values.put(AlarmEntry.COLUMN_TIME_COMPLETED, alarm.getTimeCompleted());
+        values.put(AlarmEntry.COLUMN_COMPLETION_MEDIA_ID, alarm.getCompletionMediaID());
 
         return values;
     }
@@ -146,7 +153,8 @@ public final class AlarmDbContract {
                     cursor.getString(cursor.getColumnIndex(AlarmEntry.COLUMN_RECEIVER_CLASS_NAME)),
                     // -----------------------------------------------------------------------
                     cursor.getString(cursor.getColumnIndex(AlarmEntry.COLUMN_TIME_ACKNOWLEDGED)),
-                    cursor.getString(cursor.getColumnIndex(AlarmEntry.COLUMN_TIME_COMPLETED))
+                    cursor.getString(cursor.getColumnIndex(AlarmEntry.COLUMN_TIME_COMPLETED)),
+                    cursor.getString(cursor.getColumnIndex(AlarmEntry.COLUMN_COMPLETION_MEDIA_ID))
             );
             alarms.add(alarm);
         }  while(cursor.moveToNext());

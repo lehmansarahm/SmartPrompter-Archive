@@ -19,9 +19,26 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:label="@string/activity_label_active_alarms"
+            android:name=".ActiveAlarmsActivity" />
+
+        <activity
+            android:label="@string/activity_label_incomplete_alarms"
+            android:name=".IncompleteAlarmsActivity" />
+
+        <activity
+            android:label="@string/activity_label_complete_alarms"
+            android:name=".CompleteAlarmsActivity" />
+
         <provider
-            android:name="edu.temple.sp_res_lib.content.AlarmDbProvider"
+            android:name="edu.temple.sp_res_lib.db.AlarmDbProvider"
             android:authorities="@string/authority_alarms"
+            android:exported="true" />
+
+        <provider
+            android:name="edu.temple.sp_res_lib.media.AlarmMediaProvider"
+            android:authorities="@string/authority_media"
             android:exported="true" />
 
     </application>

@@ -10,7 +10,7 @@ import android.util.Log;
 
 import java.util.List;
 
-import edu.temple.sp_res_lib.content.AlarmDbContract;
+import edu.temple.sp_res_lib.db.AlarmDbContract;
 import edu.temple.sp_res_lib.utils.Constants;
 
 public class SpAlarmManager {
@@ -47,6 +47,44 @@ public class SpAlarmManager {
         return AlarmDbContract.populateAlarms(cursor);
     }
 
+    public List<Alarm> getAllActive() {
+        String multiWhereClause = (AlarmDbContract.AlarmEntry.COLUMN_STATUS + "=? OR "
+                + AlarmDbContract.AlarmEntry.COLUMN_STATUS + "=?");
+        String[] args = new String[] {
+                Alarm.STATUS.New.toString(),
+                Alarm.STATUS.Active.toString()
+        };
+
+        Cursor cursor = context.getContentResolver()
+                .query(AlarmDbContract.AlarmEntry.CONTENT_URI, AlarmDbContract.ALL_FIELDS,
+                        multiWhereClause,args,null);
+        return AlarmDbContract.populateAlarms(cursor);
+    }
+
+    public List<Alarm> getAllIncomplete() {
+        String multiWhereClause = (AlarmDbContract.AlarmEntry.COLUMN_STATUS + "=? OR "
+                + AlarmDbContract.AlarmEntry.COLUMN_STATUS + "=?");
+        String[] args = new String[] {
+                Alarm.STATUS.Unacknowledged.toString(),
+                Alarm.STATUS.Incomplete.toString()
+        };
+
+        Cursor cursor = context.getContentResolver()
+                .query(AlarmDbContract.AlarmEntry.CONTENT_URI, AlarmDbContract.ALL_FIELDS,
+                        multiWhereClause,args,null);
+        return AlarmDbContract.populateAlarms(cursor);
+    }
+
+    public List<Alarm> getAllComplete() {
+        String whereClause = (AlarmDbContract.AlarmEntry.COLUMN_STATUS + "=?");
+        String[] args = new String[] { Alarm.STATUS.Complete.toString() };
+
+        Cursor cursor = context.getContentResolver()
+                .query(AlarmDbContract.AlarmEntry.CONTENT_URI, AlarmDbContract.ALL_FIELDS,
+                        whereClause,args,null);
+        return AlarmDbContract.populateAlarms(cursor);
+    }
+
     public int update(Alarm alarm) {
         String whereClause = (AlarmDbContract.AlarmEntry._ID + "=?");
         String[] args = new String[] { String.valueOf(alarm.getID()) };
@@ -62,8 +100,23 @@ public class SpAlarmManager {
                 .delete(AlarmDbContract.AlarmEntry.CONTENT_URI, whereClause, args);
     }
 
+    // ----------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------
+
     public boolean areAlarmsAvailable() {
         return (getAll().size() > 0);
+    }
+
+    public boolean areActiveAlarmsAvailable() {
+        return (getAllActive().size() > 0);
+    }
+
+    public boolean areIncompleteAlarmsAvailable() {
+        return (getAllIncomplete().size() > 0);
+    }
+
+    public boolean areCompleteAlarmsAvailable() {
+        return (getAllComplete().size() > 0);
     }
 
     // ----------------------------------------------------------------------------

@@ -3,11 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.temple.sp_admin.fragments.CompleteAlarmListFragment">
+    tools:context=".fragments.CompleteAlarmListFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/complete_alarm_recycler"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <TextView
+        android:id="@+id/empty_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/placeholder_complete_alarms" />
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/no_data_available" />
 
 </FrameLayout>

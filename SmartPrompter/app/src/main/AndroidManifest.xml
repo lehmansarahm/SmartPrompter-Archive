@@ -29,7 +29,8 @@
 
         <activity android:name=".AlarmDetailsActivity" />
         <activity android:name=".AlarmResponseActivity" />
-        <activity android:name=".ReminderResponseActivity"></activity>
+        <activity android:name=".ReminderResponseActivity" />
+        <activity android:name=".TaskCompletionActivity"></activity>
     </application>
 
 </manifest>

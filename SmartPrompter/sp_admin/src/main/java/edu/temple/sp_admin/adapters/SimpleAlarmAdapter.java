@@ -16,9 +16,9 @@ import edu.temple.sp_admin.R;
 import edu.temple.sp_res_lib.Alarm;
 import edu.temple.sp_res_lib.utils.Constants;
 
-public class ActiveAlarmsAdapter extends RecyclerView.Adapter<ActiveAlarmsAdapter.AlarmViewHolder> {
+public class SimpleAlarmAdapter extends RecyclerView.Adapter<SimpleAlarmAdapter.AlarmViewHolder> {
 
-    public interface AlarmDetailsListener {
+    public interface AlarmSelectionListener {
         void onAlarmSelected(int alarmID);
     }
 
@@ -42,10 +42,10 @@ public class ActiveAlarmsAdapter extends RecyclerView.Adapter<ActiveAlarmsAdapte
     // --------------------------------------------------------------------------------------
 
     private List<Alarm> mAlarms;
-    private AlarmDetailsListener mListener;
+    private AlarmSelectionListener mListener;
 
-    public ActiveAlarmsAdapter(List<Alarm> alarms, AlarmDetailsListener listener) {
-        Log.i(Constants.LOG_TAG, "Initializing Active Alarms Adapter with: "
+    public SimpleAlarmAdapter(List<Alarm> alarms, AlarmSelectionListener listener) {
+        Log.i(Constants.LOG_TAG, "Initializing Simple Alarms Adapter with: "
                 + alarms.size() + " records");
         mAlarms = alarms;
         mListener = listener;
@@ -54,7 +54,7 @@ public class ActiveAlarmsAdapter extends RecyclerView.Adapter<ActiveAlarmsAdapte
     @Override
     public AlarmViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         TextView v = (TextView) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recycler_item_active_alarm, parent, false);
+                .inflate(R.layout.recycler_item_alarm, parent, false);
         AlarmViewHolder vh = new AlarmViewHolder(parent.getContext(), v);
         return vh;
     }

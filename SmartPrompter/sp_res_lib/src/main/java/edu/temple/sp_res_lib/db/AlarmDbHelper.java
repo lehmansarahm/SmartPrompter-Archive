@@ -1,4 +1,4 @@
-package edu.temple.sp_res_lib.content;
+package edu.temple.sp_res_lib.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -16,7 +16,7 @@ public class AlarmDbHelper extends SQLiteOpenHelper {
      * If you change the database schema, you must increment the database version or the onUpgrade
      * method will not be called.
      */
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 7;
 
     public AlarmDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -42,7 +42,8 @@ public class AlarmDbHelper extends SQLiteOpenHelper {
                         AlarmDbContract.AlarmEntry.COLUMN_RECEIVER_CLASS_NAME   + " TEXT,"                                  +
                         // -----------------------------------------------------------------
                         AlarmDbContract.AlarmEntry.COLUMN_TIME_ACKNOWLEDGED     + " TEXT, "                                 +
-                        AlarmDbContract.AlarmEntry.COLUMN_TIME_COMPLETED        + " TEXT);";
+                        AlarmDbContract.AlarmEntry.COLUMN_TIME_COMPLETED        + " TEXT, "                                 +
+                        AlarmDbContract.AlarmEntry.COLUMN_COMPLETION_MEDIA_ID   + " TEXT);";
         db.execSQL(SQL_CREATE_ALARM_TABLE);
     }
 

@@ -41,10 +41,11 @@ public class Alarm {
 
     private String timeAcknowledged;
     private String timeCompleted;
+    private String completionMediaID;
 
     public Alarm(int ID, String label, String status, int year, int month, int day,
                  int hour, int minute, String action, String namespace, String className,
-                 String timeAcknowledged, String timeCompleted) {
+                 String timeAcknowledged, String timeCompleted, String completionMediaID) {
 
         this.ID = ID;
         this.label = label;
@@ -56,6 +57,7 @@ public class Alarm {
 
         this.timeAcknowledged = timeAcknowledged;
         this.timeCompleted = timeCompleted;
+        this.completionMediaID = completionMediaID;
 
         cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, year);
@@ -177,6 +179,8 @@ public class Alarm {
     public String getTimeAcknowledged() { return timeAcknowledged; }
 
     public String getTimeCompleted() { return timeCompleted; }
+
+    public String getCompletionMediaID() { return completionMediaID; }
 
     public String toString() { return label; }
 

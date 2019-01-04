@@ -1,4 +1,4 @@
-package edu.temple.sp_res_lib.content;
+package edu.temple.sp_res_lib.db;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
