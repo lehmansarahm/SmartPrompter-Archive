@@ -2,6 +2,7 @@ package edu.temple.sp_res_lib.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.Ringtone;
 import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
@@ -25,6 +26,17 @@ public class MediaUtil {
         byte[] byteArray = stream.toByteArray();
         bmp.recycle();
         return byteArray;
+    }
+
+    public static Bitmap loadBitmap(String filepath) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+        return BitmapFactory.decodeFile(filepath, options);
+    }
+
+    public static Ringtone loadRingtone(String filepath) {
+        // TODO - figure out how to load a ringtone from file
+        return null;
     }
 
 }

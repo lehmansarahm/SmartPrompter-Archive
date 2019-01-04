@@ -1,12 +1,15 @@
 package edu.temple.sp_admin;
 
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
 import edu.temple.sp_admin.adapters.SimpleAlarmAdapter;
+import edu.temple.sp_admin.fragments.CompleteAlarmDetailsFragment;
 import edu.temple.sp_admin.fragments.CompleteAlarmListFragment;
+import edu.temple.sp_admin.fragments.IncompleteAlarmDetailsFragment;
 import edu.temple.sp_admin.utils.BaseActivity;
 import edu.temple.sp_admin.utils.Constants;
 
@@ -14,6 +17,7 @@ public class CompleteAlarmsActivity extends BaseActivity implements
         SimpleAlarmAdapter.AlarmSelectionListener {
 
     private CompleteAlarmListFragment listFrag;
+    private CompleteAlarmDetailsFragment detailsFrag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +52,17 @@ public class CompleteAlarmsActivity extends BaseActivity implements
 
     @Override
     public void onAlarmSelected(int alarmID) {
-        Log.e(Constants.LOG_TAG, "COMPLETED ALARM SELECTED");
-        Toast.makeText(this, "Haven't programmed this path yet ...",
-                Toast.LENGTH_SHORT).show();
+        // Log.e(Constants.LOG_TAG, "COMPLETED ALARM SELECTED");
+        // Toast.makeText(this, "Haven't programmed this path yet ...",
+        //         Toast.LENGTH_SHORT).show();
+
+        Log.i(Constants.LOG_TAG, "User wants to view details of alarm ID: " + alarmID);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        detailsFrag = CompleteAlarmDetailsFragment.newInstance(alarmID);
+        ft.replace(R.id.fragment_container, detailsFrag);
+        ft.addToBackStack(null);
+        ft.commit();
     }
 
 }

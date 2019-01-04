@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import edu.temple.smartprompter.utils.BaseActivity;
 import edu.temple.smartprompter.utils.Constants;
 import edu.temple.sp_res_lib.Alarm;
 

@@ -29,16 +29,21 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        if (verifyIntentExtras(context, intent))
+            generateNotification(context, mAlarmID, mAlarmStatus);
+    }
+
+    private boolean verifyIntentExtras(Context context, Intent intent) {
         if (!intent.hasExtra(Alarm.INTENT_EXTRA_ALARM_ID)) {
             Log.e(Constants.LOG_TAG, "Alarm broadcast has been received, "
                     + "but is missing the alarm ID.");
-            return;
+            return false;
         }
 
         if (!intent.hasExtra(Alarm.INTENT_EXTRA_ORIG_TIME)) {
             Log.e(Constants.LOG_TAG, "Alarm broadcast has been received, "
                     + "but is missing original alarm time.");
-            return;
+            return false;
         }
 
         mAlarmID = intent.getIntExtra(Alarm.INTENT_EXTRA_ALARM_ID, -1);
@@ -50,6 +55,13 @@ public class AlarmReceiver extends BroadcastReceiver {
         Alarm alarm = alarmMgr.get(mAlarmID);
         mAlarmStatus = alarm.getStatus();
 
+        return true;
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    private static void generateNotification(Context context, int alarmID, String alarmStatus) {
         createNotificationChannel(context);
         Uri ringtoneUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
@@ -58,26 +70,23 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setContentTitle("SmartPrompter")
                 .setContentText("Please complete your task!")
                 .setSound(ringtoneUri)
-                .setContentIntent(createNotificationIntent(context))
+                .setContentIntent(createNotificationIntent(context, alarmID, alarmStatus))
                 .setVisibility(VISIBILITY_PUBLIC)
                 .setPriority(NotificationCompat.PRIORITY_MAX);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
-        notificationManager.notify(mAlarmID, mBuilder.build());
+        notificationManager.notify(alarmID, mBuilder.build());
     }
 
     @SuppressLint("WrongConstant")
-    private void createNotificationChannel(Context context) {
-        CharSequence name = "channel_smartprompter";
-        String description = "channel for smartprompter notifications";
-
+    private static void createNotificationChannel(Context context) {
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             int importance = NotificationManager.IMPORTANCE_MAX;
             NotificationChannel channel = new NotificationChannel(Constants.CHANNEL_ID,
-                    name, importance);
-            channel.setDescription(description);
+                    Constants.CHANNEL_NAME, importance);
+            channel.setDescription(Constants.CHANNEL_DESCRIPTION);
 
             // Register the channel with the system; you can't change the importance
             // or other notification behaviors after this
@@ -87,12 +96,17 @@ public class AlarmReceiver extends BroadcastReceiver {
         }
     }
 
-    private PendingIntent createNotificationIntent(Context context) {
+    private static PendingIntent createNotificationIntent(Context context, int alarmID,
+                                                          String alarmStatus) {
+
+        Log.i(Constants.LOG_TAG, "Creating intent to launch Alarm Response activity "
+                + "for alarm ID: " + alarmID + " \t\t with current status: " + alarmStatus);
+
         Intent intent = new Intent(context, AlarmResponseActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        intent.putExtra(Constants.INTENT_EXTRA_ALARM_ID, mAlarmID);
-        intent.putExtra(Constants.INTENT_EXTRA_ALARM_CURRENT_STATUS, mAlarmStatus);
-        return PendingIntent.getActivity(context, 0, intent, 0);
+        intent.putExtra(Constants.INTENT_EXTRA_ALARM_ID, alarmID);
+        intent.putExtra(Constants.INTENT_EXTRA_ALARM_CURRENT_STATUS, alarmStatus);
+        return PendingIntent.getActivity(context, alarmID, intent, Constants.PENDING_INTENT_FLAGS);
     }
 
 }

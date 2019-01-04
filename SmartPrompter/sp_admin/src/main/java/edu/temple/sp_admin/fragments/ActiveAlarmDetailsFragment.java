@@ -262,6 +262,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
     }
 
     private void initSave(final View rootView) {
+        final Context context = getContext();
         FloatingActionButton saveButton = rootView.findViewById(R.id.save_button);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -269,6 +270,29 @@ public class ActiveAlarmDetailsFragment extends Fragment {
                 mAlarmMgr.update(mAlarm);
                 Toast.makeText(rootView.getContext(), "Alarm changes saved!",
                         Toast.LENGTH_SHORT).show();
+
+                if (mAlarm.isActive()) {
+                    DialogInterface.OnClickListener rescheduleListener = new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            Log.i(Constants.LOG_TAG, "Cancelling and rescheduling all "
+                                    + "reminders for alarm ID: " + mAlarm.getID());
+                            mAlarmMgr.cancelAllReminders(mAlarm);
+                            boolean success = mAlarmMgr.scheduleReminder(mAlarm,
+                                    receiverNamespace, receiverClassName);
+                            if (!success) {
+                                Toast.makeText(rootView.getContext(), "Please schedule an alarm in the future!",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        }};
+
+                    new AlertDialog.Builder(context)
+                            .setTitle("Update Scheduled Alarm")
+                            .setMessage("You are saving changes to an alarm that has already "
+                                    + "been scheduled.  Would you like to reschedule the existing alarm?")
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .setPositiveButton(android.R.string.yes, rescheduleListener)
+                            .setNegativeButton(android.R.string.no, null).show();
+                }
             }
         });
     }

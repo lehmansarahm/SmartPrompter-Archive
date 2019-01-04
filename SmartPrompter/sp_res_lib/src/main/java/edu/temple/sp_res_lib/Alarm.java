@@ -18,6 +18,7 @@ public class Alarm {
 
     public static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
     public static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("hh:mm a");
+    public static final SimpleDateFormat DATE_TIME_FORMAT = new SimpleDateFormat("yyyy-MM-dd hh:mm a");
 
     public enum STATUS { New, Active, Unacknowledged, Incomplete, Complete }
 
@@ -178,9 +179,25 @@ public class Alarm {
 
     public String getTimeAcknowledged() { return timeAcknowledged; }
 
+    public void updateTimeAcknowledged() {
+        Calendar cal = Calendar.getInstance();
+        timeAcknowledged = DATE_TIME_FORMAT.format(cal.getTime());
+    }
+
     public String getTimeCompleted() { return timeCompleted; }
 
-    public String getCompletionMediaID() { return completionMediaID; }
+    public void updateTimeCompleted() {
+        Calendar cal = Calendar.getInstance();
+        timeCompleted = DATE_TIME_FORMAT.format(cal.getTime());
+    }
+
+    // ----------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------
+
+    public String getCompletionMediaID() {
+        // return completionMediaID;
+        return "Headshot.jpg";
+    }
 
     public String toString() { return label; }
 

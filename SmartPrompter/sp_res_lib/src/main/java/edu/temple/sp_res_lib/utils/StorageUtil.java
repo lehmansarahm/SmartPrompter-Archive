@@ -34,6 +34,21 @@ public class StorageUtil {
         return rootDir;
     }
 
+    public static File getPublicDir(File rootDir, String subdirName) {
+        File taskMediaDir = new File(rootDir, subdirName);
+        if (!taskMediaDir.exists()) {
+            Log.e(Constants.LOG_TAG, "Media directory: " + subdirName
+                    + " does not exist!  Attempting to create.");
+            if (!taskMediaDir.mkdirs())
+                Log.e(Constants.LOG_TAG, "Failed to create media directory: "
+                        + subdirName);
+        }
+
+        Log.i(Constants.LOG_TAG, "Retrieved public directory: "
+                + taskMediaDir.getAbsolutePath());
+        return taskMediaDir;
+    }
+
     public static void writeToFile(File directory, String filename, Bitmap bmp) {
         try {
             File file = new File(directory, filename);

@@ -126,15 +126,6 @@ public class ActiveAlarmListFragment extends Fragment {
             }
         });
 
-        /* FloatingActionButton saveCloseButton = rootView.findViewById(R.id.save_close_button);
-        saveCloseButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getActivity(), "Save-Close Button clicked!",
-                        Toast.LENGTH_SHORT).show();
-            }
-        }); */
-
         return rootView;
     }
 

@@ -1,5 +1,7 @@
 package edu.temple.smartprompter.utils;
 
+import android.app.PendingIntent;
+
 public class Constants {
 
     public static final String LOG_TAG = "SmartPrompter";
@@ -13,5 +15,9 @@ public class Constants {
     public static final int DEFAULT_ALARM_ID = -1;
 
     public static final String CHANNEL_ID = "smartprompter";
+    public static final CharSequence CHANNEL_NAME = "channel_smartprompter";
+    public static final String CHANNEL_DESCRIPTION = "channel for smartprompter notifications";
+
+    public static final int PENDING_INTENT_FLAGS = PendingIntent.FLAG_CANCEL_CURRENT;
 
 }

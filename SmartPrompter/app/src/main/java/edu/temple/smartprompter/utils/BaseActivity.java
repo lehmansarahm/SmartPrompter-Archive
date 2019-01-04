@@ -1,11 +1,10 @@
-package edu.temple.smartprompter;
+package edu.temple.smartprompter.utils;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import edu.temple.smartprompter.utils.Constants;
 import edu.temple.sp_res_lib.Alarm;
 import edu.temple.sp_res_lib.SpAlarmManager;
 
@@ -44,6 +43,17 @@ public class BaseActivity extends AppCompatActivity {
         mAlarmMgr = new SpAlarmManager(this);
         mAlarm = mAlarmMgr.get(mAlarmID);
         mAlarm.updateStatus(newStatus);
+
+        // check to see if a timestamp is necessary
+        if (newStatus == Alarm.STATUS.Incomplete) {
+            // user completed acknowledgement phase
+            mAlarm.updateTimeAcknowledged();
+        } else if (newStatus == Alarm.STATUS.Complete) {
+            // user completed entire task
+            mAlarm.updateTimeCompleted();
+        }
+
+        // commit changes to database
         mAlarmMgr.update(mAlarm);
 
         // just for sanity's sake ...
