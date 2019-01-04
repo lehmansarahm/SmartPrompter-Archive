@@ -52,10 +52,6 @@ public class CompleteAlarmsActivity extends BaseActivity implements
 
     @Override
     public void onAlarmSelected(int alarmID) {
-        // Log.e(Constants.LOG_TAG, "COMPLETED ALARM SELECTED");
-        // Toast.makeText(this, "Haven't programmed this path yet ...",
-        //         Toast.LENGTH_SHORT).show();
-
         Log.i(Constants.LOG_TAG, "User wants to view details of alarm ID: " + alarmID);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();

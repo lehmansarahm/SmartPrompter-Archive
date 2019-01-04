@@ -18,9 +18,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import edu.temple.sp_admin.R;
+import edu.temple.sp_admin.utils.Constants;
 import edu.temple.sp_res_lib.Alarm;
 import edu.temple.sp_res_lib.SpAlarmManager;
-import edu.temple.sp_res_lib.utils.Constants;
 
 public class ActiveAlarmDetailsFragment extends Fragment {
 
@@ -30,8 +30,6 @@ public class ActiveAlarmDetailsFragment extends Fragment {
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
-
-    private static final String BUNDLE_ARG_ALARM_ID = "bundle_arg_position";
 
     private SpAlarmManager mAlarmMgr;
     private Alarm mAlarm;
@@ -52,7 +50,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
     public static ActiveAlarmDetailsFragment newInstance(int alarmID) {
         ActiveAlarmDetailsFragment fragment = new ActiveAlarmDetailsFragment();
         Bundle args = new Bundle();
-        args.putInt(BUNDLE_ARG_ALARM_ID, alarmID);
+        args.putInt(Constants.BUNDLE_ARG_ALARM_ID, alarmID);
         fragment.setArguments(args);
         return fragment;
     }
@@ -101,7 +99,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         receiverClassName = getResources().getString(R.string.patient_app_alarm_receiver);
 
         if (getArguments() != null) {
-            int alarmID = getArguments().getInt(BUNDLE_ARG_ALARM_ID);
+            int alarmID = getArguments().getInt(Constants.BUNDLE_ARG_ALARM_ID);
             mAlarmMgr = new SpAlarmManager(getActivity());
             mAlarm = mAlarmMgr.get(alarmID);
         }

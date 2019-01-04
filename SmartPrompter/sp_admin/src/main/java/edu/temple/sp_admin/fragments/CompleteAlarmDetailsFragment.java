@@ -25,8 +25,6 @@ import edu.temple.sp_res_lib.SpMediaManager;
 
 public class CompleteAlarmDetailsFragment extends Fragment {
 
-    private static final String BUNDLE_ARG_ALARM_ID = "bundle_arg_position";
-
     private SpMediaManager mMediaMgr;
     private SpAlarmManager mAlarmMgr;
     private Alarm mAlarm;
@@ -41,7 +39,7 @@ public class CompleteAlarmDetailsFragment extends Fragment {
     public static CompleteAlarmDetailsFragment newInstance(int alarmID) {
         CompleteAlarmDetailsFragment fragment = new CompleteAlarmDetailsFragment();
         Bundle args = new Bundle();
-        args.putInt(BUNDLE_ARG_ALARM_ID, alarmID);
+        args.putInt(Constants.BUNDLE_ARG_ALARM_ID, alarmID);
         fragment.setArguments(args);
         return fragment;
     }
@@ -50,7 +48,7 @@ public class CompleteAlarmDetailsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            int alarmID = getArguments().getInt(BUNDLE_ARG_ALARM_ID);
+            int alarmID = getArguments().getInt(Constants.BUNDLE_ARG_ALARM_ID);
             mMediaMgr = new SpMediaManager(getActivity());
             mAlarmMgr = new SpAlarmManager(getActivity());
             mAlarm = mAlarmMgr.get(alarmID);

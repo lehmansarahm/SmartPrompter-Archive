@@ -21,11 +21,6 @@ public class DatePickerFragment extends DialogFragment
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
-    private static final String BUNDLE_ARG_ALARM_ID = "bundle_arg_alarm_id";
-    private static final String BUNDLE_ARG_YEAR = "bundle_arg_year";
-    private static final String BUNDLE_ARG_MONTH = "bundle_arg_month";
-    private static final String BUNDLE_ARG_DAY = "bundle_arg_day";
-
     private int mAlarmID;
     private int mYear, mMonth, mDay;
 
@@ -34,10 +29,10 @@ public class DatePickerFragment extends DialogFragment
     public static DatePickerFragment newInstance(int alarmID, int[] date) {
         DatePickerFragment fragment = new DatePickerFragment();
         Bundle args = new Bundle();
-        args.putInt(BUNDLE_ARG_ALARM_ID, alarmID);
-        args.putInt(BUNDLE_ARG_YEAR, date[0]);
-        args.putInt(BUNDLE_ARG_MONTH, date[1]);
-        args.putInt(BUNDLE_ARG_DAY, date[2]);
+        args.putInt(Constants.BUNDLE_ARG_ALARM_ID, alarmID);
+        args.putInt(Constants.BUNDLE_ARG_YEAR, date[0]);
+        args.putInt(Constants.BUNDLE_ARG_MONTH, date[1]);
+        args.putInt(Constants.BUNDLE_ARG_DAY, date[2]);
         fragment.setArguments(args);
         return fragment;
     }
@@ -66,10 +61,10 @@ public class DatePickerFragment extends DialogFragment
             return null;
         }
 
-        mAlarmID = getArguments().getInt(BUNDLE_ARG_ALARM_ID);
-        mYear = getArguments().getInt(BUNDLE_ARG_YEAR);
-        mMonth = getArguments().getInt(BUNDLE_ARG_MONTH);
-        mDay = getArguments().getInt(BUNDLE_ARG_DAY);
+        mAlarmID = getArguments().getInt(Constants.BUNDLE_ARG_ALARM_ID);
+        mYear = getArguments().getInt(Constants.BUNDLE_ARG_YEAR);
+        mMonth = getArguments().getInt(Constants.BUNDLE_ARG_MONTH);
+        mDay = getArguments().getInt(Constants.BUNDLE_ARG_DAY);
 
         // Create a new instance of DatePickerDialog and return it
         return new DatePickerDialog(getActivity(), this, mYear, mMonth, mDay);

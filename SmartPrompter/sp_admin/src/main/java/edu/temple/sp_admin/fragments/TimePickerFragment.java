@@ -22,10 +22,6 @@ public class TimePickerFragment extends DialogFragment
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
-    private static final String BUNDLE_ARG_ALARM_ID = "bundle_arg_alarm_id";
-    private static final String BUNDLE_ARG_HOUR = "bundle_arg_hour";
-    private static final String BUNDLE_ARG_MINUTE = "bundle_arg_minute";
-
     private int mAlarmID;
     private int mHour, mMinute;
     private boolean mIs24Hr;
@@ -35,9 +31,9 @@ public class TimePickerFragment extends DialogFragment
     public static TimePickerFragment newInstance(int alarmID, int[] time) {
         TimePickerFragment fragment = new TimePickerFragment();
         Bundle args = new Bundle();
-        args.putInt(BUNDLE_ARG_ALARM_ID, alarmID);
-        args.putInt(BUNDLE_ARG_HOUR, time[0]);
-        args.putInt(BUNDLE_ARG_MINUTE, time[1]);
+        args.putInt(Constants.BUNDLE_ARG_ALARM_ID, alarmID);
+        args.putInt(Constants.BUNDLE_ARG_HOUR, time[0]);
+        args.putInt(Constants.BUNDLE_ARG_MINUTE, time[1]);
         fragment.setArguments(args);
         return fragment;
     }
@@ -66,9 +62,9 @@ public class TimePickerFragment extends DialogFragment
             return null;
         }
 
-        mAlarmID = getArguments().getInt(BUNDLE_ARG_ALARM_ID);
-        mHour = getArguments().getInt(BUNDLE_ARG_HOUR);
-        mMinute = getArguments().getInt(BUNDLE_ARG_MINUTE);
+        mAlarmID = getArguments().getInt(Constants.BUNDLE_ARG_ALARM_ID);
+        mHour = getArguments().getInt(Constants.BUNDLE_ARG_HOUR);
+        mMinute = getArguments().getInt(Constants.BUNDLE_ARG_MINUTE);
         mIs24Hr = DateFormat.is24HourFormat(getActivity());
 
         // Create a new instance of TimePickerDialog and return it

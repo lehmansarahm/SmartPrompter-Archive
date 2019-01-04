@@ -22,8 +22,6 @@ import edu.temple.sp_res_lib.SpAlarmManager;
 
 public class IncompleteAlarmDetailsFragment extends Fragment {
 
-    private static final String BUNDLE_ARG_ALARM_ID = "bundle_arg_position";
-
     private SpAlarmManager mAlarmMgr;
     private Alarm mAlarm;
 
@@ -36,7 +34,7 @@ public class IncompleteAlarmDetailsFragment extends Fragment {
     public static IncompleteAlarmDetailsFragment newInstance(int alarmID) {
         IncompleteAlarmDetailsFragment fragment = new IncompleteAlarmDetailsFragment();
         Bundle args = new Bundle();
-        args.putInt(BUNDLE_ARG_ALARM_ID, alarmID);
+        args.putInt(Constants.BUNDLE_ARG_ALARM_ID, alarmID);
         fragment.setArguments(args);
         return fragment;
     }
@@ -45,7 +43,7 @@ public class IncompleteAlarmDetailsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            int alarmID = getArguments().getInt(BUNDLE_ARG_ALARM_ID);
+            int alarmID = getArguments().getInt(Constants.BUNDLE_ARG_ALARM_ID);
             mAlarmMgr = new SpAlarmManager(getActivity());
             mAlarm = mAlarmMgr.get(alarmID);
         }
