@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.text.InputType;
@@ -25,9 +26,18 @@ import edu.temple.sp_res_lib.SpMediaManager;
 
 public class CompleteAlarmDetailsFragment extends Fragment {
 
+    public interface AlarmDetailChangeListener {
+        void onAlarmDetailsChanged();
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
     private SpMediaManager mMediaMgr;
     private SpAlarmManager mAlarmMgr;
     private Alarm mAlarm;
+
+    private AlarmDetailChangeListener mChangeListener;
 
     private TextView dateText, timeText, statusText, ackText, compText;
     private ImageView imageView;
@@ -42,6 +52,25 @@ public class CompleteAlarmDetailsFragment extends Fragment {
         args.putInt(Constants.BUNDLE_ARG_ALARM_ID, alarmID);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try {
+            mChangeListener = (AlarmDetailChangeListener) context;
+        } catch (ClassCastException e) {
+            String error = context.toString() + " must implement AlarmDetailChangeListener";
+            Log.e(Constants.LOG_TAG, error, e);
+            throw new ClassCastException();
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mChangeListener = null;
     }
 
     @Override
@@ -67,6 +96,7 @@ public class CompleteAlarmDetailsFragment extends Fragment {
         initAckTime(rootView);
         initCompTime(rootView);
         initImageView(rootView);
+        initDelete(rootView);
         return rootView;
     }
 
@@ -211,6 +241,18 @@ public class CompleteAlarmDetailsFragment extends Fragment {
             imageView.setVisibility(View.GONE);
             errorMsg.setVisibility(View.VISIBLE);
         }
+    }
+
+    private void initDelete(final View rootView) {
+        FloatingActionButton deleteButton = rootView.findViewById(R.id.delete_button);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAlarmMgr.cancelAllReminders(mAlarm);
+                mAlarmMgr.delete(mAlarm);
+                mChangeListener.onAlarmDetailsChanged();
+            }
+        });
     }
 
     // --------------------------------------------------------------------------------------

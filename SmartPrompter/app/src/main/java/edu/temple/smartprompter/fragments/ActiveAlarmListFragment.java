@@ -87,11 +87,13 @@ public class ActiveAlarmListFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        List<Alarm> activeAlarms = mAlarmMgr.get(Alarm.STATUS.Active);
-        activeAlarms.addAll(mAlarmMgr.get(Alarm.STATUS.Unacknowledged));
-        activeAlarms.addAll(mAlarmMgr.get(Alarm.STATUS.Incomplete));
+        Alarm.STATUS[] statuses = new Alarm.STATUS[] {
+                Alarm.STATUS.Active,
+                Alarm.STATUS.Unacknowledged,
+                Alarm.STATUS.Incomplete
+        };
 
-        mAdapter = new SimpleAlarmListAdapter(activeAlarms, mSelectionListener);
+        mAdapter = new SimpleAlarmListAdapter(mAlarmMgr.get(statuses), mSelectionListener);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 

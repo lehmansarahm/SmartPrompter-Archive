@@ -53,6 +53,7 @@ public class SimpleAlarmListAdapter extends RecyclerView.Adapter<SimpleAlarmList
 
     @Override
     public AlarmViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Log.i(Constants.LOG_TAG, "Creating new view holder!");
         TextView v = (TextView) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recycler_item_alarm, parent, false);
         AlarmViewHolder vh = new AlarmViewHolder(parent.getContext(), v);
@@ -84,6 +85,7 @@ public class SimpleAlarmListAdapter extends RecyclerView.Adapter<SimpleAlarmList
 
     @Override
     public int getItemCount() {
+        Log.i(Constants.LOG_TAG, "Checking alarm list item count: " + mAlarms.size());
         return mAlarms.size();
     }
 

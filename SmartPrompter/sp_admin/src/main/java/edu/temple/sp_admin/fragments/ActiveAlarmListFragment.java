@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.temple.sp_admin.R;
@@ -105,10 +106,12 @@ public class ActiveAlarmListFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        List<Alarm> activeAlarms = mAlarmMgr.get(Alarm.STATUS.Active);
-        activeAlarms.addAll(mAlarmMgr.get(Alarm.STATUS.New));
+        Alarm.STATUS[] statuses = new Alarm.STATUS[] {
+                Alarm.STATUS.Active,
+                Alarm.STATUS.New
+        };
 
-        mAdapter = new SimpleAlarmListAdapter(activeAlarms, mSelectionListener);
+        mAdapter = new SimpleAlarmListAdapter(mAlarmMgr.get(statuses), mSelectionListener);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
@@ -119,7 +122,7 @@ public class ActiveAlarmListFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Alarm alarm = mAlarmMgr.create();
-                mAdapter.notifyDataSetChanged(); // mAdapter.notifyItemInserted(newAlarmPosition);
+                mAdapter.notifyDataSetChanged();
 
                 // force the list view to return to the top
                 LinearLayoutManager layoutManager = (LinearLayoutManager) mRecyclerView

@@ -85,7 +85,9 @@ public class CompleteAlarmListFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new SimpleAlarmListAdapter(mAlarmMgr.get(Alarm.STATUS.Complete),
+        Alarm.STATUS[] statuses = new Alarm.STATUS[] { Alarm.STATUS.Complete };
+
+        mAdapter = new SimpleAlarmListAdapter(mAlarmMgr.get(statuses),
                 mSelectionListener);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());

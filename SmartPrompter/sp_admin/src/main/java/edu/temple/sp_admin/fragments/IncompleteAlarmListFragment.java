@@ -85,10 +85,12 @@ public class IncompleteAlarmListFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        List<Alarm> incompAlarms = mAlarmMgr.get(Alarm.STATUS.Incomplete);
-        incompAlarms.addAll(mAlarmMgr.get(Alarm.STATUS.Unacknowledged));
+        Alarm.STATUS[] statuses = new Alarm.STATUS[] {
+                Alarm.STATUS.Unacknowledged,
+                Alarm.STATUS.Incomplete
+        };
 
-        mAdapter = new SimpleAlarmListAdapter(incompAlarms, mSelectionListener);
+        mAdapter = new SimpleAlarmListAdapter(mAlarmMgr.get(statuses), mSelectionListener);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 

@@ -6,13 +6,15 @@ import android.os.Bundle;
 import android.util.Log;
 
 import edu.temple.sp_admin.adapters.SimpleAlarmListAdapter;
+import edu.temple.sp_admin.fragments.ActiveAlarmListFragment;
 import edu.temple.sp_admin.fragments.IncompleteAlarmDetailsFragment;
 import edu.temple.sp_admin.fragments.IncompleteAlarmListFragment;
 import edu.temple.sp_admin.utils.BaseActivity;
 import edu.temple.sp_admin.utils.Constants;
 
 public class IncompleteAlarmsActivity extends BaseActivity implements
-        SimpleAlarmListAdapter.AlarmSelectionListener {
+        SimpleAlarmListAdapter.AlarmSelectionListener,
+        IncompleteAlarmDetailsFragment.AlarmDetailChangeListener {
 
     private IncompleteAlarmListFragment listFrag;
     private IncompleteAlarmDetailsFragment detailsFrag;
@@ -66,4 +68,25 @@ public class IncompleteAlarmsActivity extends BaseActivity implements
         ft.commit();
     }
 
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+    //      AlarmDetailChangeListener methods
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    @Override
+    public void onAlarmDetailsChanged() {
+        Log.i(Constants.LOG_TAG, "User has made changes to an alarm!  Reloading the "
+                + "incomplete alarm list ...");
+
+        FragmentManager fm = getSupportFragmentManager();
+        fm.popBackStack(); // remove alarm details fragment from backstack
+        fm.popBackStack(); // remove previous view of alarm list from backstack (keep current)
+
+        FragmentTransaction ft = fm.beginTransaction();
+        listFrag = IncompleteAlarmListFragment.newInstance();
+        ft.replace(R.id.fragment_container, listFrag);
+        ft.addToBackStack(null);
+        ft.commit();
+    }
 }

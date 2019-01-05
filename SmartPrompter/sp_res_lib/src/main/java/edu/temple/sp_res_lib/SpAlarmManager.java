@@ -42,14 +42,22 @@ public class SpAlarmManager {
         return AlarmDbContract.AlarmEntry.populateFromCursor(cursor).get(0);
     }
 
-    public List<Alarm> get(Alarm.STATUS status) {
+    public List<Alarm> get(Alarm.STATUS[] statuses) {
+        List<String> whereArgs = new ArrayList<>();
         String whereClause = (AlarmDbContract.AlarmEntry.COLUMN_STATUS + "=?");
-        String[] whereArgs = new String[] { status.toString() };
+        for (int i = 0; i < statuses.length; i++) {
+            whereArgs.add(statuses[i].toString());
+            if (i > 0) {
+                whereClause += (" OR " + AlarmDbContract.AlarmEntry.COLUMN_STATUS
+                        + "=?");
+            }
+        }
 
         Cursor cursor = context.getContentResolver()
                 .query(AlarmDbContract.AlarmEntry.CONTENT_URI,
                         AlarmDbContract.AlarmEntry.ALL_FIELDS,
-                        whereClause, whereArgs,null);
+                        whereClause, whereArgs.toArray(new String[0]),
+                        null);
         return AlarmDbContract.AlarmEntry.populateFromCursor(cursor);
     }
 
@@ -85,20 +93,24 @@ public class SpAlarmManager {
     }
 
     public boolean areActiveAlarmsAvailable() {
-        List<Alarm> newAlarms = get(Alarm.STATUS.New);
-        List<Alarm> activeAlarms = get(Alarm.STATUS.Active);
-        return (newAlarms.size() != 0 && activeAlarms.size() != 0);
+        Alarm.STATUS[] statuses = new Alarm.STATUS[] {
+                Alarm.STATUS.New,
+                Alarm.STATUS.Active
+        };
+        return (get(statuses).size() != 0);
     }
 
     public boolean areIncompleteAlarmsAvailable() {
-        List<Alarm> unackAlarms = get(Alarm.STATUS.Unacknowledged);
-        List<Alarm> incompAlarms = get(Alarm.STATUS.Incomplete);
-        return (unackAlarms.size() != 0 && incompAlarms.size() != 0);
+        Alarm.STATUS[] statuses = new Alarm.STATUS[] {
+                Alarm.STATUS.Unacknowledged,
+                Alarm.STATUS.Incomplete
+        };
+        return (get(statuses).size() != 0);
     }
 
     public boolean areCompleteAlarmsAvailable() {
-        List<Alarm> compAlarms = get(Alarm.STATUS.Complete);
-        return (compAlarms.size() != 0);
+        Alarm.STATUS[] statuses = new Alarm.STATUS[] { Alarm.STATUS.Complete };
+        return (get(statuses).size() != 0);
     }
 
     // ----------------------------------------------------------------------------
