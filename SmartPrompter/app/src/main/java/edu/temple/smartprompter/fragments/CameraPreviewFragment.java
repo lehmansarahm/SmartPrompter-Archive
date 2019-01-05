@@ -2,7 +2,11 @@ package edu.temple.smartprompter.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
+import edu.temple.smartprompter.R;
 import edu.temple.smartprompter.utils.Constants;
 import edu.temple.sp_res_lib.Alarm;
 import edu.temple.sp_res_lib.SpAlarmManager;
@@ -32,6 +36,14 @@ public class CameraPreviewFragment extends Fragment {
             mAlarmMgr = new SpAlarmManager(getActivity());
             mAlarm = mAlarmMgr.get(alarmID);
         }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        final View rootView = inflater.inflate(R.layout.fragment_camera_preview,
+                container, false);
+        return rootView;
     }
 
 }
