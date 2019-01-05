@@ -70,8 +70,10 @@ public class TaskAcknowledgementActivity extends BaseActivity implements
 
     @Override
     public void onAlarmDeferred(int alarmID) {
+        // TODO - finish alarm acknowledgement deferral logic
         updateAlarmStatus(Alarm.STATUS.Incomplete);
-        Toast.makeText(this, "Haven't coded the reminder deferral logic yet.",
+        Toast.makeText(this,
+                "Haven't coded the reminder deferral logic yet.",
                 Toast.LENGTH_SHORT).show();
     }
 

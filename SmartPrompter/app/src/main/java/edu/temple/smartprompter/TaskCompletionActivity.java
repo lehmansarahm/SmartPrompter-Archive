@@ -83,6 +83,7 @@ public class TaskCompletionActivity extends BaseActivity implements
 
     @Override
     public void onImageDeferred(int alarmID) {
+        // TODO - finish picture-taking deferral logic
         Toast.makeText(this,
                 "Haven't coded the picture-taking deferral logic yet.",
                 Toast.LENGTH_SHORT).show();
@@ -117,5 +118,5 @@ public class TaskCompletionActivity extends BaseActivity implements
     public void onImageRejected(int alarmID) {
         // TODO - pop review fragment ... return to preview fragment
     }
-    
+
 }
