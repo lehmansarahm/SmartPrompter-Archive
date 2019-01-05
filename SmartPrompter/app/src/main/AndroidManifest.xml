@@ -32,6 +32,14 @@
             android:label="@string/activity_label_complete_alarms"
             android:name=".CompleteAlarmsActivity" />
 
+        <activity
+            android:label="@string/app_name"
+            android:name=".TaskAcknowledgementActivity" />
+
+        <activity
+            android:label="@string/app_name"
+            android:name=".TaskCompletionActivity" />
+
         <receiver
             android:name=".receivers.AlarmReceiver"
             android:exported="true">

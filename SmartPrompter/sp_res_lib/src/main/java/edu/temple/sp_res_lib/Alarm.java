@@ -120,6 +120,10 @@ public class Alarm {
 
     public void updateStatus(STATUS newStatus) { status = newStatus; }
 
+    public boolean hasStatus(STATUS compStatus) {
+        return this.status.equals(compStatus);
+    }
+
     public STATUS getStatus() { return status; }
 
     public String getStatusString() { return status.toString(); }

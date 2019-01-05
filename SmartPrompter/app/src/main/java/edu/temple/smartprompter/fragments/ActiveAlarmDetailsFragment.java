@@ -1,15 +1,22 @@
 package edu.temple.smartprompter.fragments;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import edu.temple.smartprompter.R;
+import edu.temple.smartprompter.TaskAcknowledgementActivity;
+import edu.temple.smartprompter.TaskCompletionActivity;
 import edu.temple.smartprompter.utils.Constants;
 import edu.temple.sp_res_lib.Alarm;
 import edu.temple.sp_res_lib.SpAlarmManager;
@@ -18,6 +25,8 @@ public class ActiveAlarmDetailsFragment extends Fragment {
 
     private SpAlarmManager mAlarmMgr;
     private Alarm mAlarm;
+
+    private Intent taskCompletionIntent = null;
 
     public ActiveAlarmDetailsFragment() {
         // required empty constructor
@@ -56,6 +65,13 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         TextView timeText = rootView.findViewById(R.id.time_text);
         timeText.setText(mAlarm.getTimeString());
 
+        initStatus(rootView);
+        initTaskCompletion(rootView);
+
+        return rootView;
+    }
+
+    private void initStatus(final View rootView) {
         TextView statusText = rootView.findViewById(R.id.status_text);
         statusText.setText(mAlarm.getStatusString());
 
@@ -65,18 +81,58 @@ public class ActiveAlarmDetailsFragment extends Fragment {
                 // do nothing
                 break;
             case Unacknowledged:
+                Log.i(Constants.LOG_TAG, "Alarm is currently unacknowledged.  Setting "
+                        + "task completion intent to point to TaskAcknowledgementActivity.");
+                taskCompletionIntent = new Intent(getContext(),
+                        TaskAcknowledgementActivity.class);
                 statusText.setBackgroundColor(Color.GREEN);
                 break;
             case Incomplete:
+                Log.i(Constants.LOG_TAG, "Alarm is currently incomplete.  Setting "
+                        + "task completion intent to point to TaskCompletionActivity.");
+                taskCompletionIntent = new Intent(getContext(),
+                        TaskCompletionActivity.class);
                 statusText.setBackgroundColor(Color.RED);
                 break;
             default:
                 Log.e(edu.temple.sp_res_lib.utils.Constants.LOG_TAG,
                         "Unrecognized alarm status: "
-                        + mAlarm.getStatusString());
+                                + mAlarm.getStatusString());
         }
+    }
 
-        return rootView;
+    private void initTaskCompletion(final View rootView) {
+        if (taskCompletionIntent == null)
+            return;
+
+        taskCompletionIntent.putExtra(Constants.INTENT_EXTRA_ALARM_ID,
+                mAlarm.getID());
+        taskCompletionIntent.putExtra(Constants.INTENT_EXTRA_ALARM_CURRENT_STATUS,
+                mAlarm.getStatusString());
+
+        final Context context = getContext();
+        final DialogInterface.OnClickListener clickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int whichButton) {
+                context.startActivity(taskCompletionIntent);
+            }
+        };
+
+        LinearLayout statusLayout = rootView.findViewById(R.id.status_layout);
+        statusLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i(Constants.LOG_TAG, "User clicked STATUS field for alarm ID: "
+                        + mAlarm.getID());
+                new AlertDialog.Builder(context)
+                        .setTitle("Initiate Alarm Task")
+                        .setMessage("This alarm task is incomplete.  Would you like to "
+                                + "resume task completion?")
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton(android.R.string.yes, clickListener)
+                        .setNegativeButton(android.R.string.no, null).show();
+            }
+        });
     }
 
 }

@@ -24,13 +24,17 @@ import static android.app.Notification.VISIBILITY_PUBLIC;
 
 public class AlarmReceiver extends BroadcastReceiver {
 
+    private SpAlarmManager mAlarmMgr;
+    private Alarm mAlarm;
     private int mAlarmID;
     private String mAlarmStatus;
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (verifyIntentExtras(context, intent))
+        if (verifyIntentExtras(context, intent)) {
+            updateAlarmStatus();
             generateNotification(context, mAlarmID, mAlarmStatus);
+        }
     }
 
     private boolean verifyIntentExtras(Context context, Intent intent) {
@@ -48,14 +52,27 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         mAlarmID = intent.getIntExtra(Alarm.INTENT_EXTRA_ALARM_ID, -1);
         String timeString = intent.getStringExtra(Alarm.INTENT_EXTRA_ORIG_TIME);
-        Log.e(Constants.LOG_TAG, "Alarm broadcast has been received "
-                + "for alarmID: " + mAlarmID + " at original time: " + timeString);
 
-        SpAlarmManager alarmMgr = new SpAlarmManager(context);
-        Alarm alarm = alarmMgr.get(mAlarmID);
-        mAlarmStatus = alarm.getStatusString();
+        mAlarmMgr = new SpAlarmManager(context);
+        mAlarm = mAlarmMgr.get(mAlarmID);
+        String statusString = mAlarm.getStatusString();
+
+        Log.e(Constants.LOG_TAG, "Alarm broadcast has been received"
+                + " for alarm ID: " + mAlarmID
+                + " scheduled for original time: " + timeString
+                + " with original status: " + statusString);
 
         return true;
+    }
+
+    private void updateAlarmStatus() {
+        // update and commit the status changes for this alarm
+        mAlarm.updateStatus(Alarm.STATUS.Unacknowledged);
+        mAlarmMgr.update(mAlarm);
+
+        // just for sanity's sake ...
+        Alarm sanityAlarm = mAlarmMgr.get(mAlarmID);
+        mAlarmStatus = sanityAlarm.getStatusString();
     }
 
     // --------------------------------------------------------------------------------------

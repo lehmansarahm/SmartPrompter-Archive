@@ -1,16 +1,25 @@
 package edu.temple.smartprompter;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import edu.temple.smartprompter.fragments.CameraInstructionFragment;
+import edu.temple.smartprompter.fragments.TaskAcknowledgementFragment;
 import edu.temple.smartprompter.utils.BaseActivity;
 import edu.temple.smartprompter.utils.Constants;
 import edu.temple.sp_res_lib.Alarm;
 
-public class TaskAcknowledgementActivity extends BaseActivity {
+public class TaskAcknowledgementActivity extends BaseActivity implements
+        TaskAcknowledgementFragment.TaskAcknowledgementListener {
+
+    private TaskAcknowledgementFragment defaultFrag;
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,30 +46,33 @@ public class TaskAcknowledgementActivity extends BaseActivity {
         Log.i(Constants.LOG_TAG, "Task Acknowledgement Activity destroyed!");
     }
 
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
     protected void showDefaultFragment() {
-        // No fragment for this activity ... just updating the alarm status
-        // and displaying a static view
-        updateAlarmStatus(Alarm.STATUS.Unacknowledged);
+        Log.i(Constants.LOG_TAG, "Populating Task Completion Activity with default fragment.");
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        defaultFrag = TaskAcknowledgementFragment.newInstance(mAlarmID);
+        ft.replace(R.id.fragment_container, defaultFrag);
+        ft.commit();
+    }
 
-        Button acknowledgeButton = findViewById(R.id.acknowledge_button);
-        acknowledgeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startNextActivity(TaskAcknowledgementActivity.this, TaskCompletionActivity.class);
-                Log.i(Constants.LOG_TAG, "Received and acknowledged alarm response for alarm ID: "
-                        + mAlarm.getID() + ".  \t\t and updated alarm status: " + mAlarm.getStatusString());
-            }
-        });
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
 
-        Button reminderButton = findViewById(R.id.remind_button);
-        reminderButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(TaskAcknowledgementActivity.this,
-                        "Haven't coded the reminder logic yet.",
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
+    @Override
+    public void onAlarmAcknowledged(int alarmID) {
+        updateAlarmStatus(Alarm.STATUS.Incomplete);
+        startNextActivity(this, TaskCompletionActivity.class);
+        Log.i(Constants.LOG_TAG, "Received and acknowledged alarm response for alarm ID: "
+                + mAlarm.getID() + ".  \t\t and updated alarm status: " + mAlarm.getStatusString());
+    }
+
+    @Override
+    public void onAlarmDeferred(int alarmID) {
+        updateAlarmStatus(Alarm.STATUS.Incomplete);
+        Toast.makeText(this, "Haven't coded the reminder deferral logic yet.",
+                Toast.LENGTH_SHORT).show();
     }
 
 }
