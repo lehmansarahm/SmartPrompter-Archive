@@ -14,10 +14,32 @@ public class TaskCompletionActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        Log.i(Constants.LOG_TAG, "Task Completion Activity created!");
         setContentView(R.layout.activity_task_completion);
+        super.onCreate(savedInstanceState);
 
         if (!verifyIntentExtras()) return;
+        if (checkPermissions()) {
+            initNavigation();
+            showDefaultFragment();
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.i(Constants.LOG_TAG, "Task Completion Activity paused!");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i(Constants.LOG_TAG, "Task Completion Activity destroyed!");
+    }
+
+    protected void showDefaultFragment() {
+        // No fragment for this activity ... just updating the alarm status
+        // and displaying a static view
         updateAlarmStatus(Alarm.STATUS.Incomplete);
 
         Button completeButton = findViewById(R.id.complete_button);

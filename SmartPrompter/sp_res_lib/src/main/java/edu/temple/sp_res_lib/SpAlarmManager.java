@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.temple.sp_res_lib.db.AlarmDbContract;
@@ -41,52 +42,22 @@ public class SpAlarmManager {
         return AlarmDbContract.AlarmEntry.populateFromCursor(cursor).get(0);
     }
 
+    public List<Alarm> get(Alarm.STATUS status) {
+        String whereClause = (AlarmDbContract.AlarmEntry.COLUMN_STATUS + "=?");
+        String[] whereArgs = new String[] { status.toString() };
+
+        Cursor cursor = context.getContentResolver()
+                .query(AlarmDbContract.AlarmEntry.CONTENT_URI,
+                        AlarmDbContract.AlarmEntry.ALL_FIELDS,
+                        whereClause, whereArgs,null);
+        return AlarmDbContract.AlarmEntry.populateFromCursor(cursor);
+    }
+
     public List<Alarm> getAll() {
         Cursor cursor = context.getContentResolver()
                 .query(AlarmDbContract.AlarmEntry.CONTENT_URI,
                         AlarmDbContract.AlarmEntry.ALL_FIELDS,
                         null,null,null);
-        return AlarmDbContract.AlarmEntry.populateFromCursor(cursor);
-    }
-
-    public List<Alarm> getAllActive() {
-        String multiWhereClause = (AlarmDbContract.AlarmEntry.COLUMN_STATUS + "=? OR "
-                + AlarmDbContract.AlarmEntry.COLUMN_STATUS + "=?");
-        String[] args = new String[] {
-                Alarm.STATUS.New.toString(),
-                Alarm.STATUS.Active.toString()
-        };
-
-        Cursor cursor = context.getContentResolver()
-                .query(AlarmDbContract.AlarmEntry.CONTENT_URI,
-                        AlarmDbContract.AlarmEntry.ALL_FIELDS,
-                        multiWhereClause,args,null);
-        return AlarmDbContract.AlarmEntry.populateFromCursor(cursor);
-    }
-
-    public List<Alarm> getAllIncomplete() {
-        String multiWhereClause = (AlarmDbContract.AlarmEntry.COLUMN_STATUS + "=? OR "
-                + AlarmDbContract.AlarmEntry.COLUMN_STATUS + "=?");
-        String[] args = new String[] {
-                Alarm.STATUS.Unacknowledged.toString(),
-                Alarm.STATUS.Incomplete.toString()
-        };
-
-        Cursor cursor = context.getContentResolver()
-                .query(AlarmDbContract.AlarmEntry.CONTENT_URI,
-                        AlarmDbContract.AlarmEntry.ALL_FIELDS,
-                        multiWhereClause,args,null);
-        return AlarmDbContract.AlarmEntry.populateFromCursor(cursor);
-    }
-
-    public List<Alarm> getAllComplete() {
-        String whereClause = (AlarmDbContract.AlarmEntry.COLUMN_STATUS + "=?");
-        String[] args = new String[] { Alarm.STATUS.Complete.toString() };
-
-        Cursor cursor = context.getContentResolver()
-                .query(AlarmDbContract.AlarmEntry.CONTENT_URI,
-                        AlarmDbContract.AlarmEntry.ALL_FIELDS,
-                        whereClause,args,null);
         return AlarmDbContract.AlarmEntry.populateFromCursor(cursor);
     }
 
@@ -114,15 +85,20 @@ public class SpAlarmManager {
     }
 
     public boolean areActiveAlarmsAvailable() {
-        return (getAllActive().size() > 0);
+        List<Alarm> newAlarms = get(Alarm.STATUS.New);
+        List<Alarm> activeAlarms = get(Alarm.STATUS.Active);
+        return (newAlarms.size() != 0 && activeAlarms.size() != 0);
     }
 
     public boolean areIncompleteAlarmsAvailable() {
-        return (getAllIncomplete().size() > 0);
+        List<Alarm> unackAlarms = get(Alarm.STATUS.Unacknowledged);
+        List<Alarm> incompAlarms = get(Alarm.STATUS.Incomplete);
+        return (unackAlarms.size() != 0 && incompAlarms.size() != 0);
     }
 
     public boolean areCompleteAlarmsAvailable() {
-        return (getAllComplete().size() > 0);
+        List<Alarm> compAlarms = get(Alarm.STATUS.Complete);
+        return (compAlarms.size() != 0);
     }
 
     // ----------------------------------------------------------------------------

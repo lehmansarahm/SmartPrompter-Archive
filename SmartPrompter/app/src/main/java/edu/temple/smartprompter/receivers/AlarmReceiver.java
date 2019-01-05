@@ -14,7 +14,7 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 
-import edu.temple.smartprompter.AlarmResponseActivity;
+import edu.temple.smartprompter.TaskAcknowledgementActivity;
 import edu.temple.smartprompter.utils.Constants;
 import edu.temple.smartprompter.R;
 import edu.temple.sp_res_lib.Alarm;
@@ -99,10 +99,10 @@ public class AlarmReceiver extends BroadcastReceiver {
     private static PendingIntent createNotificationIntent(Context context, int alarmID,
                                                           String alarmStatus) {
 
-        Log.i(Constants.LOG_TAG, "Creating intent to launch Alarm Response activity "
+        Log.i(Constants.LOG_TAG, "Creating intent to launch Task Acknowledgement activity "
                 + "for alarm ID: " + alarmID + " \t\t with current status: " + alarmStatus);
 
-        Intent intent = new Intent(context, AlarmResponseActivity.class);
+        Intent intent = new Intent(context, TaskAcknowledgementActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.putExtra(Constants.INTENT_EXTRA_ALARM_ID, alarmID);
         intent.putExtra(Constants.INTENT_EXTRA_ALARM_CURRENT_STATUS, alarmStatus);

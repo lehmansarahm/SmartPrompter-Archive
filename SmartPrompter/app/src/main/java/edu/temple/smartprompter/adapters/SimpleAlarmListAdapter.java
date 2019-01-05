@@ -17,7 +17,7 @@ import edu.temple.sp_res_lib.utils.Constants;
 
 public class SimpleAlarmListAdapter extends RecyclerView.Adapter<SimpleAlarmListAdapter.AlarmViewHolder> {
 
-    public interface AlarmDetailsListener {
+    public interface AlarmSelectionListener {
         void onAlarmSelected(int alarmID);
     }
 
@@ -41,9 +41,9 @@ public class SimpleAlarmListAdapter extends RecyclerView.Adapter<SimpleAlarmList
     // --------------------------------------------------------------------------------------
 
     private List<Alarm> mAlarms;
-    private AlarmDetailsListener mListener;
+    private AlarmSelectionListener mListener;
 
-    public SimpleAlarmListAdapter(List<Alarm> alarms, AlarmDetailsListener listener) {
+    public SimpleAlarmListAdapter(List<Alarm> alarms, AlarmSelectionListener listener) {
         Log.i(Constants.LOG_TAG, "Initializing Active Alarms Adapter with: "
                 + alarms.size() + " records");
         mAlarms = alarms;

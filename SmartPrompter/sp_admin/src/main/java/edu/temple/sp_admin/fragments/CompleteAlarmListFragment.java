@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import edu.temple.sp_admin.R;
 import edu.temple.sp_admin.adapters.SimpleAlarmListAdapter;
+import edu.temple.sp_res_lib.Alarm;
 import edu.temple.sp_res_lib.SpAlarmManager;
 import edu.temple.sp_res_lib.utils.Constants;
 
@@ -82,7 +83,8 @@ public class CompleteAlarmListFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new SimpleAlarmListAdapter(mAlarmMgr.getAllComplete(), mSelectionListener);
+        mAdapter = new SimpleAlarmListAdapter(mAlarmMgr.get(Alarm.STATUS.Complete),
+                mSelectionListener);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 

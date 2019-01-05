@@ -1,4 +1,4 @@
-package edu.temple.sp_admin.fragments;
+package edu.temple.smartprompter.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,13 +14,14 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import edu.temple.sp_admin.R;
-import edu.temple.sp_admin.adapters.SimpleAlarmListAdapter;
+import edu.temple.smartprompter.R;
+import edu.temple.smartprompter.adapters.SimpleAlarmListAdapter;
+
 import edu.temple.sp_res_lib.Alarm;
 import edu.temple.sp_res_lib.SpAlarmManager;
 import edu.temple.sp_res_lib.utils.Constants;
 
-public class IncompleteAlarmListFragment extends Fragment {
+public class ActiveAlarmListFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -31,12 +32,12 @@ public class IncompleteAlarmListFragment extends Fragment {
 
     private SpAlarmManager mAlarmMgr;
 
-    public IncompleteAlarmListFragment() {
+    public ActiveAlarmListFragment() {
         // Required empty public constructor
     }
 
-    public static IncompleteAlarmListFragment newInstance() {
-        IncompleteAlarmListFragment fragment = new IncompleteAlarmListFragment();
+    public static ActiveAlarmListFragment newInstance(/* any parameters we require */) {
+        ActiveAlarmListFragment fragment = new ActiveAlarmListFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -48,6 +49,7 @@ public class IncompleteAlarmListFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+
         try {
             mSelectionListener = (SimpleAlarmListAdapter.AlarmSelectionListener) context;
         } catch (ClassCastException e) {
@@ -75,20 +77,21 @@ public class IncompleteAlarmListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_incomplete_alarm_list, container,
+        View rootView = inflater.inflate(R.layout.fragment_active_alarm_list, container,
                 false);
 
         mEmptyView = rootView.findViewById(R.id.empty_view);
-        mRecyclerView = rootView.findViewById(R.id.incomplete_alarm_recycler);
+        mRecyclerView = rootView.findViewById(R.id.active_alarm_recycler);
         mRecyclerView.setHasFixedSize(true);
 
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        List<Alarm> incompAlarms = mAlarmMgr.get(Alarm.STATUS.Incomplete);
-        incompAlarms.addAll(mAlarmMgr.get(Alarm.STATUS.Unacknowledged));
+        List<Alarm> activeAlarms = mAlarmMgr.get(Alarm.STATUS.Active);
+        activeAlarms.addAll(mAlarmMgr.get(Alarm.STATUS.Unacknowledged));
+        activeAlarms.addAll(mAlarmMgr.get(Alarm.STATUS.Incomplete));
 
-        mAdapter = new SimpleAlarmListAdapter(incompAlarms, mSelectionListener);
+        mAdapter = new SimpleAlarmListAdapter(activeAlarms, mSelectionListener);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
@@ -100,7 +103,7 @@ public class IncompleteAlarmListFragment extends Fragment {
     // --------------------------------------------------------------------------------------
 
     private void checkDatasetVisibility() {
-        if (!mAlarmMgr.areIncompleteAlarmsAvailable()) {
+        if (!mAlarmMgr.areActiveAlarmsAvailable()) {
             mEmptyView.setVisibility(View.VISIBLE);
             mRecyclerView.setVisibility(View.GONE);
         } else {

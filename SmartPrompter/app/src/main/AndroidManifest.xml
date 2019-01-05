@@ -19,13 +19,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity">
+
+        <activity
+            android:name=".ActiveAlarmsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:label="@string/activity_label_complete_alarms"
+            android:name=".CompleteAlarmsActivity" />
 
         <receiver
             android:name=".receivers.AlarmReceiver"
@@ -35,11 +40,14 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".AlarmDetailsActivity" />
-        <activity android:name=".AlarmResponseActivity" />
-        <activity android:name=".ReminderResponseActivity" />
-        <activity android:name=".TaskCompletionActivity" />
-        <activity android:name=".MissingPermissionsActivity"></activity>
+        <receiver
+            android:name=".receivers.ReminderReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="@string/action_reminders" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

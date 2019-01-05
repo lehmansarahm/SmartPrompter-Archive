@@ -26,14 +26,14 @@
     <string name="nav_complete_alarms">Complete Alarms</string>
     <string name="nav_incomplete_alarms">Incomplete Alarms</string>
 
-    <string name="nav_header_title">SmartPrompter</string>
+    <string name="nav_header_title">SmartPrompter Admin</string>
     <string name="nav_header_subtitle">Temple University</string>
     <string name="nav_header_desc">Navigation Drawer</string>
 
     <string name="nav_drawer_open">Open</string>
     <string name="nav_drawer_close">Close</string>
 
-    <string name="welcome_intro">Welcome to SmartPrompter!</string>
+    <string name="welcome_intro">Welcome to SmartPrompter Admin!</string>
     <string name="welcome_instructions">Please use the menu in the upper left to review the current lists of alarms.</string>
 
     <string name="button_activate">Activate</string>

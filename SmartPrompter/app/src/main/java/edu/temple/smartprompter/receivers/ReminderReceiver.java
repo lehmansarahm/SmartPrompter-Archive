@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import edu.temple.smartprompter.ReminderResponseActivity;
 import edu.temple.smartprompter.utils.Constants;
 
 public class ReminderReceiver extends BroadcastReceiver {
@@ -70,7 +69,7 @@ public class ReminderReceiver extends BroadcastReceiver {
         Log.i(Constants.LOG_TAG, "Creating intent to launch Reminder Response activity "
                 + "for alarm ID: " + alarmID + " \t\t with current status: " + alarmStatus);
 
-        Intent intent = new Intent(context, ReminderResponseActivity.class);
+        Intent intent = new Intent(); // context, ReminderResponseActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.putExtra(Constants.INTENT_EXTRA_ALARM_ID, alarmID);
         intent.putExtra(Constants.INTENT_EXTRA_ALARM_CURRENT_STATUS, alarmStatus);

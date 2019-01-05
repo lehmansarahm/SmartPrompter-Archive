@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
 import edu.temple.sp_admin.R;
 import edu.temple.sp_admin.adapters.SimpleAlarmListAdapter;
 
@@ -103,7 +105,10 @@ public class ActiveAlarmListFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new SimpleAlarmListAdapter(mAlarmMgr.getAllActive(), mSelectionListener);
+        List<Alarm> activeAlarms = mAlarmMgr.get(Alarm.STATUS.Active);
+        activeAlarms.addAll(mAlarmMgr.get(Alarm.STATUS.New));
+
+        mAdapter = new SimpleAlarmListAdapter(activeAlarms, mSelectionListener);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
