@@ -16,11 +16,10 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
 
-        Log.i(Constants.LOG_TAG, "Populating Main Activity with welcome fragment.");
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        WelcomeFragment fragment = new WelcomeFragment();
-        ft.replace(R.id.fragment_container, fragment);
-        ft.commit();
+        if (checkPermissions()) {
+            initNavigation();
+            showDefaultFragment();
+        }
     }
 
     @Override
@@ -33,6 +32,14 @@ public class MainActivity extends BaseActivity {
     public void onDestroy() {
         Log.i(Constants.LOG_TAG, "Main Activity destroyed!");
         super.onDestroy();
+    }
+
+    protected void showDefaultFragment() {
+        Log.i(Constants.LOG_TAG, "Populating Main Activity with welcome fragment.");
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        WelcomeFragment fragment = new WelcomeFragment();
+        ft.replace(R.id.fragment_container, fragment);
+        ft.commit();
     }
 
 }

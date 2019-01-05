@@ -19,8 +19,16 @@ public class StorageUtil {
     }
 
     public static File getPublicRootDir() {
-        File rootDir = new File(Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_DOCUMENTS), Constants.PUBLIC_DIR_ROOT);
+        File docsDir = new File(Environment.getExternalStorageDirectory() + "/Documents");
+        if (!docsDir.exists()) {
+            Log.e(Constants.LOG_TAG, "Documents directory: " + docsDir.getName()
+                    + " does not exist!  Attempting to create.");
+            if (!docsDir.mkdirs())
+                Log.e(Constants.LOG_TAG, "Failed to create documents directory: "
+                        + docsDir.getName());
+        }
+
+        File rootDir = new File(docsDir + "/" + Constants.PUBLIC_DIR_ROOT);
         if (!rootDir.exists()) {
             Log.e(Constants.LOG_TAG, "Media directory: " + rootDir.getName()
                     + " does not exist!  Attempting to create.");
@@ -35,7 +43,7 @@ public class StorageUtil {
     }
 
     public static File getPublicDir(File rootDir, String subdirName) {
-        File taskMediaDir = new File(rootDir, subdirName);
+        File taskMediaDir = new File(rootDir + "/" + subdirName);
         if (!taskMediaDir.exists()) {
             Log.e(Constants.LOG_TAG, "Media directory: " + subdirName
                     + " does not exist!  Attempting to create.");

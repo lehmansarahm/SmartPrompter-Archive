@@ -1,9 +1,12 @@
 package edu.temple.sp_admin.utils;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
+import android.content.pm.PackageManager;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,9 +19,10 @@ import edu.temple.sp_admin.ActiveAlarmsActivity;
 import edu.temple.sp_admin.CompleteAlarmsActivity;
 import edu.temple.sp_admin.IncompleteAlarmsActivity;
 import edu.temple.sp_admin.R;
+import edu.temple.sp_admin.fragments.MissingPermissionsFragment;
 import edu.temple.sp_res_lib.SpAlarmManager;
 
-public class BaseActivity extends AppCompatActivity implements
+public abstract class BaseActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener {
 
     private static final String INTENT_EXTRA_SELECTED_MENU_ITEM = "selected_menu_item";
@@ -28,9 +32,47 @@ public class BaseActivity extends AppCompatActivity implements
     protected DrawerLayout mDrawerLayout;
     protected SpAlarmManager mAlarmMgr;
 
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    private static final int PERMISSION_REQUEST_CODE = 101;
+    private static final String[] PERMISSIONS = new String[] {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
+
+    protected boolean checkPermissions() {
+        boolean permissionsGranted = true;
+        for (String permission : PERMISSIONS) {
+            permissionsGranted &=
+                    (checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED);
+        }
+
+        if (permissionsGranted)
+            return true;
+
+        ActivityCompat.requestPermissions(this, PERMISSIONS,
+                PERMISSION_REQUEST_CODE);
+        return false;
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onRequestPermissionsResult(int requestCode, String permissions[],
+                                           int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSION_REQUEST_CODE: {
+                if (grantResults.length > 0 &&
+                        grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    initNavigation();
+                    showDefaultFragment();
+                } else {
+                    showMissingPermissionsFragment();
+                }
+            }
+        }
+    }
+
+    protected void initNavigation() {
         mAlarmMgr = new SpAlarmManager(this);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -59,6 +101,16 @@ public class BaseActivity extends AppCompatActivity implements
                 }
             }
         }
+    }
+
+    protected abstract void showDefaultFragment();
+
+    protected void showMissingPermissionsFragment() {
+        Log.i(Constants.LOG_TAG, "Populating current activity with missing-permissions fragment.");
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        MissingPermissionsFragment fragment = new MissingPermissionsFragment();
+        ft.replace(R.id.fragment_container, fragment);
+        ft.commit();
     }
 
     // --------------------------------------------------------------------------------------

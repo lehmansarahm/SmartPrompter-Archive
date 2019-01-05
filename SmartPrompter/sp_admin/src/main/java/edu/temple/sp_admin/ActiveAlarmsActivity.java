@@ -30,11 +30,10 @@ public class ActiveAlarmsActivity extends BaseActivity implements
         setContentView(R.layout.activity_active_alarms);
         super.onCreate(savedInstanceState);
 
-        Log.i(Constants.LOG_TAG, "Populating Active Alarms Activity with list fragment.");
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        listFrag = ActiveAlarmListFragment.newInstance();
-        ft.replace(R.id.fragment_container, listFrag);
-        ft.commit();
+        if (checkPermissions()) {
+            initNavigation();
+            showDefaultFragment();
+        }
     }
 
     @Override
@@ -47,6 +46,14 @@ public class ActiveAlarmsActivity extends BaseActivity implements
     public void onDestroy() {
         super.onDestroy();
         Log.i(Constants.LOG_TAG, "Active Alarms Activity destroyed!");
+    }
+
+    protected void showDefaultFragment() {
+        Log.i(Constants.LOG_TAG, "Populating Active Alarms Activity with list fragment.");
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        listFrag = ActiveAlarmListFragment.newInstance();
+        ft.replace(R.id.fragment_container, listFrag);
+        ft.commit();
     }
 
     // --------------------------------------------------------------------------------------

@@ -1,19 +1,27 @@
 package edu.temple.smartprompter.utils;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import edu.temple.smartprompter.MissingPermissionsActivity;
 import edu.temple.sp_res_lib.Alarm;
 import edu.temple.sp_res_lib.SpAlarmManager;
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     protected SpAlarmManager mAlarmMgr;
     protected Alarm mAlarm;
     protected int mAlarmID;
     protected String mAlarmStatus;
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
 
     protected boolean verifyIntentExtras() {
         if (!getIntent().hasExtra(Constants.INTENT_EXTRA_ALARM_ID)) {

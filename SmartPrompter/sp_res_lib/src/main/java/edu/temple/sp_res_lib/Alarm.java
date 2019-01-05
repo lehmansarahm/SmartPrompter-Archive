@@ -197,7 +197,7 @@ public class Alarm {
     public String getCompletionMediaID() {
         // TODO - come back and re-enable this field once media C.P. is working
         // return completionMediaID;
-        return "Headshot.jpg";
+        return "headshot.jpg";
     }
 
     public String toString() { return label; }

@@ -76,7 +76,8 @@ public class AlarmMediaProvider extends ContentProvider {
 
                 Bitmap media = MediaUtil.loadBitmap(filepath);
                 if (media == null) {
-                    Log.e(Constants.LOG_TAG, "UNABLE TO FIND IMAGE WITH PATH: " + filepath);
+                    Log.e(Constants.LOG_TAG, "UNABLE TO LOAD IMAGE FROM PATH: \t\t"
+                            + filepath);
                     break;
                 }
 

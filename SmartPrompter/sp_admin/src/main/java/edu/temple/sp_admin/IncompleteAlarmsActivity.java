@@ -23,11 +23,10 @@ public class IncompleteAlarmsActivity extends BaseActivity implements
         setContentView(R.layout.activity_active_alarms);
         super.onCreate(savedInstanceState);
 
-        Log.i(Constants.LOG_TAG, "Populating Incomplete Alarms Activity with list fragment.");
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        listFrag = IncompleteAlarmListFragment.newInstance();
-        ft.replace(R.id.fragment_container, listFrag);
-        ft.commit();
+        if (checkPermissions()) {
+            initNavigation();
+            showDefaultFragment();
+        }
     }
 
     @Override
@@ -40,6 +39,14 @@ public class IncompleteAlarmsActivity extends BaseActivity implements
     public void onDestroy() {
         super.onDestroy();
         Log.i(Constants.LOG_TAG, "Incomplete Alarms Activity destroyed!");
+    }
+
+    protected void showDefaultFragment() {
+        Log.i(Constants.LOG_TAG, "Populating Incomplete Alarms Activity with list fragment.");
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        listFrag = IncompleteAlarmListFragment.newInstance();
+        ft.replace(R.id.fragment_container, listFrag);
+        ft.commit();
     }
 
     // --------------------------------------------------------------------------------------
