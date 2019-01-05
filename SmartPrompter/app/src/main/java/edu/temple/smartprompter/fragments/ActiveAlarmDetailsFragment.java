@@ -57,14 +57,23 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         timeText.setText(mAlarm.getTimeString());
 
         TextView statusText = rootView.findViewById(R.id.status_text);
-        statusText.setText(mAlarm.getStatus());
+        statusText.setText(mAlarm.getStatusString());
 
-        if (mAlarm.isActive()) {
-            Log.i(Constants.LOG_TAG, "Alarm is active!  Setting button to 'off' mode.");
-            statusText.setBackgroundColor(Color.GREEN);
-        } else {
-            Log.i(Constants.LOG_TAG, "Alarm is inactive!  Setting button to 'on' mode.");
-            statusText.setBackgroundColor(Color.WHITE);
+        switch (mAlarm.getStatus()) {
+            case Active:
+            case Complete:
+                // do nothing
+                break;
+            case Unacknowledged:
+                statusText.setBackgroundColor(Color.GREEN);
+                break;
+            case Incomplete:
+                statusText.setBackgroundColor(Color.RED);
+                break;
+            default:
+                Log.e(edu.temple.sp_res_lib.utils.Constants.LOG_TAG,
+                        "Unrecognized alarm status: "
+                        + mAlarm.getStatusString());
         }
 
         return rootView;

@@ -120,7 +120,9 @@ public class Alarm {
 
     public void updateStatus(STATUS newStatus) { status = newStatus; }
 
-    public String getStatus() { return status.toString(); }
+    public STATUS getStatus() { return status; }
+
+    public String getStatusString() { return status.toString(); }
 
     public boolean isActive() {
         // an alarm is "inactive" if its status is "new" or "complete"

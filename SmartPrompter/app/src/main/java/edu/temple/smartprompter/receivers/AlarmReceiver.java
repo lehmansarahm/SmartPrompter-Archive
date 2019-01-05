@@ -53,7 +53,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         SpAlarmManager alarmMgr = new SpAlarmManager(context);
         Alarm alarm = alarmMgr.get(mAlarmID);
-        mAlarmStatus = alarm.getStatus();
+        mAlarmStatus = alarm.getStatusString();
 
         return true;
     }

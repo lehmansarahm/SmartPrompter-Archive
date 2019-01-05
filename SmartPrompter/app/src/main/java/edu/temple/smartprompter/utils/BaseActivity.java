@@ -209,7 +209,7 @@ public abstract class BaseActivity extends AppCompatActivity implements
         // just for sanity's sake ...
         mAlarm = mAlarmMgr.get(mAlarmID);
         Log.i(Constants.LOG_TAG, "Received and acknowledged alarm response for alarm ID: "
-                + mAlarm.getID() + ".  \t\t and updated alarm status: " + mAlarm.getStatus());
+                + mAlarm.getID() + ".  \t\t and updated alarm status: " + mAlarm.getStatusString());
     }
 
     protected void startNextActivity(Context origContext, Class nextActClass) {

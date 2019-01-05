@@ -40,6 +40,8 @@ public class SimpleAlarmListAdapter extends RecyclerView.Adapter<SimpleAlarmList
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
+    private static final int COLOR_TRANSPARENT = 0x00000000;
+
     private List<Alarm> mAlarms;
     private AlarmSelectionListener mListener;
 
@@ -60,14 +62,25 @@ public class SimpleAlarmListAdapter extends RecyclerView.Adapter<SimpleAlarmList
 
     @Override
     public void onBindViewHolder(final AlarmViewHolder holder, final int position) {
-        Log.i(edu.temple.sp_res_lib.utils.Constants.LOG_TAG, "Binding new line item view for alarm at position: "
+        Log.i(edu.temple.sp_res_lib.utils.Constants.LOG_TAG,
+                "Binding new line item view for alarm at position: "
                 + position);
 
         final Alarm currentAlarm = mAlarms.get(position);
-        if (currentAlarm.isActive()) {
-            Log.d(edu.temple.sp_res_lib.utils.Constants.LOG_TAG, "Alarm at position: " + position
-                    + " is active!  Updating line item background color.");
-            holder.mTextView.setBackgroundColor(Color.GREEN);
+        switch (currentAlarm.getStatus()) {
+            case Active:
+            case Complete:
+                // do nothing ... use default white background, single line border
+                break;
+            case Unacknowledged:
+                holder.mTextView.setBackgroundColor(Color.GREEN);
+                break;
+            case Incomplete:
+                holder.mTextView.setBackgroundColor(Color.RED);
+                break;
+            default:
+                Log.e(Constants.LOG_TAG, "Unrecognized alarm status: "
+                        + currentAlarm.getStatusString());
         }
 
         holder.mTextView.setText(currentAlarm.toString());

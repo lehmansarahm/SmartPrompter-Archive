@@ -106,7 +106,7 @@ public final class AlarmDbContract {
             ContentValues values = new ContentValues();
 
             values.put(AlarmEntry.COLUMN_LABEL, alarm.getLabel());
-            values.put(AlarmEntry.COLUMN_STATUS, alarm.getStatus());
+            values.put(AlarmEntry.COLUMN_STATUS, alarm.getStatusString());
 
             int[] date = alarm.getDate();
             values.put(AlarmEntry.COLUMN_YEAR, date[0]);

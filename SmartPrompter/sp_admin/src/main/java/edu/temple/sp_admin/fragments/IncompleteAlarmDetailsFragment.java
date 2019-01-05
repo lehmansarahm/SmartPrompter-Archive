@@ -241,7 +241,7 @@ public class IncompleteAlarmDetailsFragment extends Fragment {
             Log.i(Constants.LOG_TAG, "Alarm is inactive!  Setting button to 'on' mode.");
             statusText.setBackgroundColor(Color.WHITE);
         }
-        statusText.setText(mAlarm.getStatus());
+        statusText.setText(mAlarm.getStatusString());
     }
 
 }

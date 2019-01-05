@@ -226,7 +226,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
                 DialogInterface.OnClickListener statusChangeListener = new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         Log.i(Constants.LOG_TAG, "User clicked STATUS field for alarm ID: " + mAlarm.getID());
-                        Log.d(Constants.LOG_TAG, "Current alarm status: " + mAlarm.getStatus());
+                        Log.d(Constants.LOG_TAG, "Current alarm status: " + mAlarm.getStatusString());
 
                         if (mAlarm.isActive()) {
                             Log.i(Constants.LOG_TAG, "Alarm is already active.  Cancelling "
@@ -243,7 +243,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
                             }
                         }
 
-                        Log.d(Constants.LOG_TAG, "New alarm status: " + mAlarm.getStatus());
+                        Log.d(Constants.LOG_TAG, "New alarm status: " + mAlarm.getStatusString());
                         toggleOnOffMode();
                         mAlarmMgr.update(mAlarm);
                     }};
@@ -318,7 +318,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
             Log.i(Constants.LOG_TAG, "Alarm is inactive!  Setting button to 'on' mode.");
             statusText.setBackgroundColor(Color.WHITE);
         }
-        statusText.setText(mAlarm.getStatus());
+        statusText.setText(mAlarm.getStatusString());
     }
 
 }

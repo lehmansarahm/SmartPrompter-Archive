@@ -74,7 +74,7 @@ public class CompleteAlarmDetailsFragment extends Fragment {
         //          STATUS
         // --------------------------------------------------------------------------------------
         TextView statusText = rootView.findViewById(R.id.status_text);
-        statusText.setText(mAlarm.getStatus());
+        statusText.setText(mAlarm.getStatusString());
 
         if (mAlarm.isActive()) {
             Log.i(Constants.LOG_TAG, "Alarm is active!  Setting button to 'off' mode.");
