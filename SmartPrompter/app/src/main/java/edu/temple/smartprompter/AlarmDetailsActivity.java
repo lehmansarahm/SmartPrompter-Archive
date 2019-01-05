@@ -91,9 +91,15 @@ public class AlarmDetailsActivity extends AppCompatActivity {
     }
 
     private void initStatus() {
-        final Intent intent = new Intent(this, AlarmResponseActivity.class);
+        final Intent intent = new Intent();
         intent.putExtra(Constants.INTENT_EXTRA_ALARM_ID, mAlarm.getID());
         intent.putExtra(Constants.INTENT_EXTRA_ALARM_CURRENT_STATUS, mAlarm.getStatus());
+
+        if (mAlarm.getStatus().equals(Alarm.STATUS.Incomplete.toString())) {
+            intent.setClass(this, TaskCompletionActivity.class);
+        } else {
+            intent.setClass(this, AlarmResponseActivity.class);
+        }
 
         TextView statusText = findViewById(R.id.status_text);
         statusText.setText(mAlarm.getStatus());
@@ -107,7 +113,8 @@ public class AlarmDetailsActivity extends AppCompatActivity {
                 if (mAlarm.isActive()) {
                     new AlertDialog.Builder(AlarmDetailsActivity.this)
                             .setTitle("Initiate Alarm Task")
-                            .setMessage("This alarm task is incomplete.  Would you like to resume task completion?")
+                            .setMessage("This alarm task is incomplete.  Would you like to "
+                                    + "resume task completion?")
                             .setIcon(android.R.drawable.ic_dialog_alert)
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
