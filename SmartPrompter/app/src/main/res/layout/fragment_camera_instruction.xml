@@ -19,7 +19,7 @@
             android:gravity="center"
             android:textSize="32sp"
             android:textStyle="bold"
-            android:text="This is the task completion screen!" />
+            android:text="You must take a picture of your task target to complete the task." />
 
         <TextView
             android:layout_width="match_parent"
@@ -28,8 +28,14 @@
             android:text="@string/line_break_double" />
 
         <Button
-            android:text="Complete!"
-            android:id="@+id/complete_button"
+            android:text="Ready to take picture!"
+            android:id="@+id/acknowledge_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:text="@string/task_button_remind_me_later"
+            android:id="@+id/remind_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

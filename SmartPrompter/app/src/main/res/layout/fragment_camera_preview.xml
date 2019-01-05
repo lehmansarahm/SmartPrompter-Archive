@@ -19,19 +19,7 @@
             android:gravity="center"
             android:textSize="32sp"
             android:textStyle="bold"
-            android:text="This is the task completion screen!" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/line_break_double" />
-
-        <Button
-            android:text="Complete!"
-            android:id="@+id/complete_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:text="Need to figure out how to show the camera preview..." />
 
     </LinearLayout>
 

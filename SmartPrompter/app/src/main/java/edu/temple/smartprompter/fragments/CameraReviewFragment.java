@@ -1,7 +1,9 @@
 package edu.temple.smartprompter.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,15 @@ import edu.temple.sp_res_lib.SpAlarmManager;
 
 public class CameraReviewFragment extends Fragment {
 
+    public interface ImageReviewListener {
+        void onImageAccepted(int alarmID);
+        void onImageRejected(int alarmID);
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    private ImageReviewListener mListener;
     private SpAlarmManager mAlarmMgr;
     private Alarm mAlarm;
 
@@ -27,6 +38,31 @@ public class CameraReviewFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try {
+            mListener = (ImageReviewListener) context;
+        } catch (ClassCastException e) {
+            String error = context.toString() + " must implement ImageReviewListener";
+            Log.e(edu.temple.sp_res_lib.utils.Constants.LOG_TAG, error, e);
+            throw new ClassCastException();
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
