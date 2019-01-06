@@ -6,21 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".fragments.CameraPreviewFragment">
 
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_gravity="center">
+        android:orientation="vertical">
 
-        <TextView
+        <TextureView
+            android:id="@+id/camera_preview_texture"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:text="Need to figure out how to show the camera preview..." />
+            android:layout_above="@+id/take_picture_button"
+            android:layout_alignParentTop="true"/>
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/take_picture_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/task_button_take_picture" />
+
+    </RelativeLayout>
 
 </FrameLayout>

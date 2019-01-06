@@ -34,4 +34,7 @@
     <string name="task_prompt">It\'s time to complete your task!</string>
     <string name="task_button_on_my_way">On my way!</string>
     <string name="task_button_remind_me_later">Remind me later</string>
+    <string name="task_button_take_picture">Take Picture</string>
+
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
 </resources>

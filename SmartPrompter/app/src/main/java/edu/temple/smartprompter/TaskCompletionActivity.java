@@ -39,8 +39,16 @@ public class TaskCompletionActivity extends BaseActivity implements
 
     @Override
     public void onPause() {
-        super.onPause();
         Log.i(Constants.LOG_TAG, "Task Completion Activity paused!");
+        if (previewFrag != null) previewFrag.pausePreview();
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (previewFrag != null) previewFrag.resumePreview();
+        Log.i(Constants.LOG_TAG, "Task Completion Activity resumed!");
     }
 
     @Override
