@@ -201,9 +201,20 @@ public class Alarm {
     // ----------------------------------------------------------------------------
 
     public String getCompletionMediaID() {
-        // TODO - come back and re-enable this field once media C.P. is working
-        // return completionMediaID;
-        return "headshot.jpg";
+        boolean invalidTime = (timeCompleted == null || timeCompleted.isEmpty());
+        boolean invalidLabel = (label == null || label.isEmpty());
+
+        if (!status.equals(STATUS.Complete) || invalidTime || invalidLabel)
+            return "headshot.jpg";
+
+        String formattedTime = timeCompleted
+                .replace(":", "")
+                .replace(" ", "");
+        String formattedLabel = label
+                .replace(" ", "");
+
+        // Formatted image string = time_label.jpg
+        return (formattedTime + "_" + formattedLabel + ".jpg");
     }
 
     public String toString() { return label; }

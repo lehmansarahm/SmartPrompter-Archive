@@ -49,7 +49,7 @@ import edu.temple.sp_res_lib.SpAlarmManager;
 public class CameraPreviewFragment extends Fragment {
 
     public interface ImageCaptureListener {
-        void onImageCaptured(int alarmID);
+        void onImageCaptured(int alarmID, byte[] imageBytes);
     }
 
     // --------------------------------------------------------------------------------------
@@ -119,22 +119,6 @@ public class CameraPreviewFragment extends Fragment {
             cameraDevice.close();
             cameraDevice = null;
         }
-    };
-
-    final CameraCaptureSession.CaptureCallback captureCallbackListener =
-            new CameraCaptureSession.CaptureCallback() {
-
-        @Override
-        public void onCaptureCompleted(CameraCaptureSession session,
-                                       CaptureRequest request,
-                                       TotalCaptureResult result) {
-            // TODO - grab captured image, forward to review screen
-            super.onCaptureCompleted(session, request, result);
-            Toast.makeText(CameraPreviewFragment.this.getContext(),
-                    "Image captured!", Toast.LENGTH_SHORT).show();
-            createCameraPreview();
-        }
-
     };
 
     // --------------------------------------------------------------------------------------
@@ -286,41 +270,16 @@ public class CameraPreviewFragment extends Fragment {
             int rotation = getActivity().getWindowManager().getDefaultDisplay().getRotation();
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, ORIENTATIONS.get(rotation));
 
-            final File file = new File(Environment.getExternalStorageDirectory()+"/pic.jpg");
-
             ImageReader.OnImageAvailableListener readerListener =
                     new ImageReader.OnImageAvailableListener() {
 
                 @Override
                 public void onImageAvailable(ImageReader reader) {
-                    Image image = null;
-                    try {
-                        image = reader.acquireLatestImage();
-                        ByteBuffer buffer = image.getPlanes()[0].getBuffer();
-                        byte[] bytes = new byte[buffer.capacity()];
-                        buffer.get(bytes);
-                        save(bytes);
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } finally {
-                        if (image != null) {
-                            image.close();
-                        }
-                    }
-                }
-
-                private void save(byte[] bytes) throws IOException {
-                    OutputStream output = null;
-                    try {
-                        output = new FileOutputStream(file);
-                        output.write(bytes);
-                    } finally {
-                        if (null != output) {
-                            output.close();
-                        }
-                    }
+                    Image image = reader.acquireLatestImage();
+                    ByteBuffer buffer = image.getPlanes()[0].getBuffer();
+                    byte[] bytes = new byte[buffer.capacity()];
+                    buffer.get(bytes);
+                    mListener.onImageCaptured(mAlarmID, bytes);
                 }
 
             };
@@ -335,9 +294,7 @@ public class CameraPreviewFragment extends Fragment {
                                                CaptureRequest request,
                                                TotalCaptureResult result) {
                     super.onCaptureCompleted(session, request, result);
-                    Toast.makeText(CameraPreviewFragment.this.getContext(),
-                            "Saved:" + file, Toast.LENGTH_SHORT).show();
-                    createCameraPreview();
+                    // createCameraPreview();
                 }
 
             };

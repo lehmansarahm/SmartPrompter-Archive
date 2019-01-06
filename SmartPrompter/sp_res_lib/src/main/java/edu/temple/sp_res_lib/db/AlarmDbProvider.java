@@ -66,7 +66,18 @@ public class AlarmDbProvider extends ContentProvider {
                 break;
             }
             case CODE_ALARM: {
-                Log.i(Constants.LOG_TAG, "Attempting to retrieve all alarm records.");
+                if (selection == null || selection.isEmpty())
+                    Log.i(Constants.LOG_TAG, "Attempting to retrieve all alarm records.");
+                else {
+                    StringBuilder builder = new StringBuilder();
+                    for (String s : selectionArgs) { builder.append(s + ","); }
+                    String selectArgs = builder.toString();
+
+                    Log.i(Constants.LOG_TAG, "Attempting to retrieve alarm records "
+                            + "which match the following selection clause: " + selection
+                            + " \n\t\t and arguments: " + selectArgs);
+                }
+
                 cursor = db.query(AlarmDbContract.AlarmEntry.TABLE_NAME, projection,
                         selection, selectionArgs, null, null, sortOrder);
                 break;

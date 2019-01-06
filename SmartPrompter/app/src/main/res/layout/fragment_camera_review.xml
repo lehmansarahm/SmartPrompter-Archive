@@ -7,31 +7,49 @@
     tools:context=".fragments.CameraReviewFragment">
 
     <LinearLayout
+        android:id="@+id/image_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_gravity="center">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="32sp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:text="This is the task completion screen!" />
+            android:text="Are you satisfied with  this picture?" />
 
-        <TextView
+        <ImageView
+            android:id="@+id/camera_review_image"
+            android:contentDescription="@string/alarm_field_image"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/accept_reject_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/line_break_double" />
+            android:orientation="horizontal">
 
-        <Button
-            android:text="Complete!"
-            android:id="@+id/complete_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/accept_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Accept" />
+
+            <Button
+                android:id="@+id/reject_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Reject" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

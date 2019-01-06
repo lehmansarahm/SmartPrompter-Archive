@@ -20,6 +20,10 @@ import edu.temple.sp_res_lib.utils.Constants;
 
 public class CompleteAlarmListFragment extends Fragment {
 
+    private static final Alarm.STATUS[] LIST_ALARM_STATUSES = new Alarm.STATUS[] {
+            Alarm.STATUS.Complete
+    };
+
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -83,9 +87,7 @@ public class CompleteAlarmListFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        Alarm.STATUS[] statuses = new Alarm.STATUS[] { Alarm.STATUS.Complete };
-
-        mAdapter = new SimpleAlarmListAdapter(mAlarmMgr.get(statuses),
+        mAdapter = new SimpleAlarmListAdapter(mAlarmMgr.get(LIST_ALARM_STATUSES),
                 mSelectionListener);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -98,7 +100,7 @@ public class CompleteAlarmListFragment extends Fragment {
     // --------------------------------------------------------------------------------------
 
     private void checkDatasetVisibility() {
-        if (!mAlarmMgr.areCompleteAlarmsAvailable()) {
+        if (!mAlarmMgr.areAlarmsAvailable(LIST_ALARM_STATUSES)) {
             mEmptyView.setVisibility(View.VISIBLE);
             mRecyclerView.setVisibility(View.GONE);
         } else {

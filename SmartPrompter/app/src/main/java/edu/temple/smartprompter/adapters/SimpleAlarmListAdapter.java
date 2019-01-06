@@ -40,13 +40,11 @@ public class SimpleAlarmListAdapter extends RecyclerView.Adapter<SimpleAlarmList
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
-    private static final int COLOR_TRANSPARENT = 0x00000000;
-
     private List<Alarm> mAlarms;
     private AlarmSelectionListener mListener;
 
     public SimpleAlarmListAdapter(List<Alarm> alarms, AlarmSelectionListener listener) {
-        Log.i(Constants.LOG_TAG, "Initializing Active Alarms Adapter with: "
+        Log.i(Constants.LOG_TAG, "Initializing Simple Alarms List Adapter with: "
                 + alarms.size() + " records");
         mAlarms = alarms;
         mListener = listener;

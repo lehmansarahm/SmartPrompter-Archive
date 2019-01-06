@@ -21,6 +21,12 @@ import edu.temple.sp_res_lib.utils.Constants;
 
 public class ActiveAlarmListFragment extends Fragment {
 
+    private static final Alarm.STATUS[] LIST_ALARM_STATUSES = new Alarm.STATUS[] {
+            Alarm.STATUS.Active,
+            Alarm.STATUS.Unacknowledged,
+            Alarm.STATUS.Incomplete
+    };
+
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -85,17 +91,13 @@ public class ActiveAlarmListFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        Alarm.STATUS[] statuses = new Alarm.STATUS[] {
-                Alarm.STATUS.Active,
-                Alarm.STATUS.Unacknowledged,
-                Alarm.STATUS.Incomplete
-        };
-
-        mAdapter = new SimpleAlarmListAdapter(mAlarmMgr.get(statuses), mSelectionListener);
+        mAdapter = new SimpleAlarmListAdapter(mAlarmMgr.get(LIST_ALARM_STATUSES),
+                mSelectionListener);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         checkDatasetVisibility();
+
         return rootView;
     }
 
@@ -103,7 +105,7 @@ public class ActiveAlarmListFragment extends Fragment {
     // --------------------------------------------------------------------------------------
 
     private void checkDatasetVisibility() {
-        if (!mAlarmMgr.areActiveAlarmsAvailable()) {
+        if (!mAlarmMgr.areAlarmsAvailable(LIST_ALARM_STATUSES)) {
             mEmptyView.setVisibility(View.VISIBLE);
             mRecyclerView.setVisibility(View.GONE);
         } else {

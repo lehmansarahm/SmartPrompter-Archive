@@ -61,6 +61,7 @@ public class StorageUtil {
         try {
             File file = new File(directory, filename);
             if (file.exists()) file.delete();
+            file.createNewFile();
 
             FileOutputStream out = new FileOutputStream(file);
             bmp.compress(Bitmap.CompressFormat.JPEG, 100, out);

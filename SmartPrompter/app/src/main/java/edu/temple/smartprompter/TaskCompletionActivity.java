@@ -1,5 +1,6 @@
 package edu.temple.smartprompter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -11,6 +12,9 @@ import edu.temple.smartprompter.fragments.CameraPreviewFragment;
 import edu.temple.smartprompter.fragments.CameraReviewFragment;
 import edu.temple.smartprompter.utils.BaseActivity;
 import edu.temple.smartprompter.utils.Constants;
+import edu.temple.sp_res_lib.Alarm;
+import edu.temple.sp_res_lib.SpAlarmManager;
+import edu.temple.sp_res_lib.SpMediaManager;
 
 public class TaskCompletionActivity extends BaseActivity implements
         CameraInstructionFragment.ImageAcknowledgementListener,
@@ -104,9 +108,14 @@ public class TaskCompletionActivity extends BaseActivity implements
     // --------------------------------------------------------------------------------------
 
     @Override
-    public void onImageCaptured(int alarmID) {
-        // TODO - forward image to review fragment
-        // TODO - load review fragment
+    public void onImageCaptured(int alarmID, byte[] bytes) {
+        Log.i(Constants.LOG_TAG, "User wants to view details of alarm ID: " + alarmID);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        reviewFrag = CameraReviewFragment.newInstance(alarmID, bytes);
+        ft.replace(R.id.fragment_container, reviewFrag);
+        ft.addToBackStack(null);
+        ft.commit();
     }
 
     // --------------------------------------------------------------------------------------
@@ -116,15 +125,34 @@ public class TaskCompletionActivity extends BaseActivity implements
     // --------------------------------------------------------------------------------------
 
     @Override
-    public void onImageAccepted(int alarmID) {
-        // TODO - save image to public directory
-        // TODO - update alarm record (time completed, completion file name, status)
-        // TODO - close this fragment ... reload active alarms list
+    public void onImageAccepted(int alarmID, byte[] bytes) {
+        Log.i(Constants.LOG_TAG, "User has successfully taken and approved a task "
+                + "completion picture.  Updating alarm and saving image to storage.");
+        mAlarmMgr = new SpAlarmManager(this);
+        mAlarm = mAlarmMgr.get(alarmID);
+        mAlarm.updateTimeCompleted();
+        mAlarm.updateStatus(Alarm.STATUS.Complete);
+        mAlarmMgr.update(mAlarm);
+
+        String imageID = mAlarm.getCompletionMediaID();
+        SpMediaManager mediaMgr = new SpMediaManager(this);
+        mediaMgr.saveImage(imageID, bytes);
+
+        Log.i(Constants.LOG_TAG, "Redirect to ActiveAlarmsActivity using new Android "
+                + "task so that task completion fragments aren't on backstack..");
+        Intent intent = new Intent(this, ActiveAlarmsActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 
     @Override
     public void onImageRejected(int alarmID) {
         // TODO - pop review fragment ... return to preview fragment
+        Log.i(Constants.LOG_TAG, "User has rejected the task completion picture "
+                + "they took.  Returning to camera preview fragment ...");
+        FragmentManager fm = getSupportFragmentManager();
+        fm.popBackStack(); // return to camera preview screen
     }
 
 }

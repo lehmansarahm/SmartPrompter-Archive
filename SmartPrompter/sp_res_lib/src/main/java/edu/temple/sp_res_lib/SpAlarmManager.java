@@ -92,24 +92,7 @@ public class SpAlarmManager {
         return (getAll().size() > 0);
     }
 
-    public boolean areActiveAlarmsAvailable() {
-        Alarm.STATUS[] statuses = new Alarm.STATUS[] {
-                Alarm.STATUS.New,
-                Alarm.STATUS.Active
-        };
-        return (get(statuses).size() != 0);
-    }
-
-    public boolean areIncompleteAlarmsAvailable() {
-        Alarm.STATUS[] statuses = new Alarm.STATUS[] {
-                Alarm.STATUS.Unacknowledged,
-                Alarm.STATUS.Incomplete
-        };
-        return (get(statuses).size() != 0);
-    }
-
-    public boolean areCompleteAlarmsAvailable() {
-        Alarm.STATUS[] statuses = new Alarm.STATUS[] { Alarm.STATUS.Complete };
+    public boolean areAlarmsAvailable(Alarm.STATUS[] statuses) {
         return (get(statuses).size() != 0);
     }
 

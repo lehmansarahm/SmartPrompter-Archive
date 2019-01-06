@@ -7,6 +7,7 @@ public class Constants {
     public static final String LOG_TAG = "SmartPrompter";
 
     public static final String BUNDLE_ARG_ALARM_ID = "bundle_arg_alarm_id";
+    public static final String BUNDLE_ARG_IMAGE_BYTES = "bundle_arg_image_bytes";
 
     public static final String INTENT_EXTRA_ALARM_ID = "intent_extra_alarm_id";
     public static final String INTENT_EXTRA_ALARM_CURRENT_STATUS = "intent_extra_alarm_current_status";
