@@ -56,6 +56,12 @@
             </intent-filter>
         </receiver>
 
+        <!-- USING THE ALARM DB PROVIDER, BUT DON'T NEED TO DECLARE IT
+            BECAUSE IT IS EXPORTED BY THE ADMIN APP -->
+
+        <!-- USING THE ALARM MEDIA PROVIDER, BUT DON'T NEED TO DECLARE IT
+            BECAUSE IT IS EXPORTED BY THE ADMIN APP -->
+
     </application>
 
 </manifest>

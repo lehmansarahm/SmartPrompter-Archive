@@ -2,6 +2,8 @@ package edu.temple.smartprompter;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +29,15 @@ public class TaskAcknowledgementActivity extends BaseActivity implements
         setContentView(R.layout.activity_task_acknowledgement);
         super.onCreate(savedInstanceState);
 
-        if (!verifyIntentExtras()) return;
+        // make sure we were passed the correct intent extras
+        if (!verifyIntentExtras())
+            return;
+
+        // cancel any lingering notifications associated with this alarm
+        NotificationManagerCompat nm = NotificationManagerCompat.from(this);
+        nm.cancel(mAlarmID);
+
+        // proceed with displaying the activity view
         if (checkPermissions()) {
             initNavigation();
             showDefaultFragment();

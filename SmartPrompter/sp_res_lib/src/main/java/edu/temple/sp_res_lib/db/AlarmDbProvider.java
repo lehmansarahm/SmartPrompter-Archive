@@ -51,6 +51,7 @@ public class AlarmDbProvider extends ContentProvider {
     @Override
     public Cursor query(@NonNull Uri uri, String[] projection, String selection,
                         String[] selectionArgs, String sortOrder) {
+        Log.i(Constants.LOG_TAG, "Received query request with URI: " + uri);
         Cursor cursor;
         final SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -94,6 +95,7 @@ public class AlarmDbProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
+        Log.i(Constants.LOG_TAG, "Received insert request with URI: " + uri);
         final SQLiteDatabase db = dbHelper.getWritableDatabase();
         switch (uriMatcher.match(uri)) {
             case CODE_ALARM:
@@ -119,6 +121,7 @@ public class AlarmDbProvider extends ContentProvider {
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection,
                       @Nullable String[] selectionArgs) {
+        Log.i(Constants.LOG_TAG, "Received delete request with URI: " + uri);
         switch (uriMatcher.match(uri)) {
             case CODE_ALARM:
                 int countRowsDeleted = dbHelper.getWritableDatabase()
@@ -135,6 +138,7 @@ public class AlarmDbProvider extends ContentProvider {
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues values,
                       @Nullable String selection, @Nullable String[] selectionArgs) {
+        Log.i(Constants.LOG_TAG, "Received update request with URI: " + uri);
         switch (uriMatcher.match(uri)) {
             case CODE_ALARM:
                 int countRowsUpdated = dbHelper.getWritableDatabase()

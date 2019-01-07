@@ -18,7 +18,7 @@ public class Alarm {
 
     public static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
     public static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("hh:mm a");
-    public static final SimpleDateFormat DATE_TIME_FORMAT = new SimpleDateFormat("yyyy-MM-dd hh:mm a");
+    public static final SimpleDateFormat DATE_TIME_FORMAT = new SimpleDateFormat("yyyy-MM-dd hh:mma");
 
     public enum STATUS { New, Active, Unacknowledged, Incomplete, Complete }
 
@@ -208,8 +208,9 @@ public class Alarm {
             return "headshot.jpg";
 
         String formattedTime = timeCompleted
+                .replace("-", "")
                 .replace(":", "")
-                .replace(" ", "");
+                .replace(" ", "_");
         String formattedLabel = label
                 .replace(" ", "");
 

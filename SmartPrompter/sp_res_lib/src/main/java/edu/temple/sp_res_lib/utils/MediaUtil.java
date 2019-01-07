@@ -27,7 +27,6 @@ public class MediaUtil {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.JPEG, 100, stream);
         byte[] byteArray = stream.toByteArray();
-        bmp.recycle();
         return byteArray;
     }
 

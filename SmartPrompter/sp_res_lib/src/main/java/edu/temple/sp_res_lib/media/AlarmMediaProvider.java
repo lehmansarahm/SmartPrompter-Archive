@@ -61,6 +61,7 @@ public class AlarmMediaProvider extends ContentProvider {
     public Cursor query(@NonNull Uri uri, String[] projection, String selection,
                         String[] selectionArgs, String sortOrder) {
 
+        Log.i(Constants.LOG_TAG, "Received QUERY request with URI: " + uri);
         MatrixCursor cursor = null;
 
         switch (uriMatcher.match(uri)) {
@@ -128,14 +129,18 @@ public class AlarmMediaProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
+        Log.e(Constants.LOG_TAG, "Received INSERT query with URI: " + uri);
         switch (uriMatcher.match(uri)) {
             case CODE_IMAGE:
                 try {
                     String id = values.getAsString(AlarmMediaContract.ImageEntry.COLUMN_ID);
                     byte[] rawMedia = values.getAsByteArray(AlarmMediaContract.ImageEntry.COLUMN_MEDIA);
+                    Log.i(Constants.LOG_TAG, "Attempting to write image to file at location: "
+                            + imageDir.getAbsolutePath() + "/" + id);
+
                     Bitmap media = MediaUtil.convertToBitmap(rawMedia);
                     StorageUtil.writeToFile(imageDir, id, media);
-                    media.recycle();
+                    // media.recycle();
 
                     getContext().getContentResolver().notifyChange(uri, null);
                     return AlarmMediaContract.ImageEntry.CONTENT_URI;
@@ -158,6 +163,7 @@ public class AlarmMediaProvider extends ContentProvider {
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection,
                       @Nullable String[] selectionArgs) {
+        Log.i(Constants.LOG_TAG, "Received DELETE request with URI: " + uri);
         switch (uriMatcher.match(uri)) {
             case CODE_IMAGE:
                 Log.e(Constants.LOG_TAG, "Programmatically deleting images is "
@@ -178,6 +184,7 @@ public class AlarmMediaProvider extends ContentProvider {
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues values,
                       @Nullable String selection, @Nullable String[] selectionArgs) {
+        Log.i(Constants.LOG_TAG, "Received UPDATE request with URI: " + uri);
         switch (uriMatcher.match(uri)) {
             case CODE_IMAGE:
                 int updatedFileCount = 0;

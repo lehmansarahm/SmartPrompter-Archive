@@ -59,9 +59,12 @@ public class StorageUtil {
 
     public static void writeToFile(File directory, String filename, Bitmap bmp) {
         try {
-            File file = new File(directory, filename);
+            File file = new File(directory + "/" + filename);
             if (file.exists()) file.delete();
-            file.createNewFile();
+            // file.createNewFile();
+
+            Log.i(Constants.LOG_TAG, "Saving bitmap to file at location: "
+                    + file.getAbsolutePath());
 
             FileOutputStream out = new FileOutputStream(file);
             bmp.compress(Bitmap.CompressFormat.JPEG, 100, out);

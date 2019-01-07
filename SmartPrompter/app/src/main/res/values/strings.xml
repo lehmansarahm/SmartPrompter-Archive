@@ -7,6 +7,9 @@
     <string name="action_alarms">edu.temple.smartprompter.alarms</string>
     <string name="action_reminders">edu.temple.smartprompter.reminders</string>
 
+    <string name="authority_alarms">edu.temple.smartprompter.alarms</string>
+    <string name="authority_media">edu.temple.smartprompter.media</string>
+
     <string name="no_data_available">No records available.</string>
     <string name="not_applicable">N/A</string>
 

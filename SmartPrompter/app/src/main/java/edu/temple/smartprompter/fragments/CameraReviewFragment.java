@@ -108,12 +108,13 @@ public class CameraReviewFragment extends Fragment {
         Matrix matrix = new Matrix();
         matrix.postRotate(90);
 
-        int height = 480, width = 640;
+        int height = 960, width = 1280;
 
         Bitmap bmpOrig = MediaUtil.convertToBitmap(mImageBytes);
         Bitmap bmpScaled = Bitmap.createScaledBitmap(bmpOrig, width, height, true);
         Bitmap bmpRotated = Bitmap.createBitmap(bmpScaled, 0, 0,
                 bmpScaled.getWidth(), bmpScaled.getHeight(), matrix, true);
+        mImageBytes = MediaUtil.convertToByteArray(bmpRotated);
 
         ImageView reviewImageView = rootView.findViewById(R.id.camera_review_image);
         reviewImageView.setImageBitmap(bmpRotated);

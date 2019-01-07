@@ -70,6 +70,8 @@ public class SpAlarmManager {
     }
 
     public int update(Alarm alarm) {
+        Log.i(Constants.LOG_TAG, "Committing details for alarm with ID: "
+                + alarm.getID());
         String whereClause = (AlarmDbContract.AlarmEntry._ID + "=?");
         String[] args = new String[] { String.valueOf(alarm.getID()) };
         return context.getContentResolver()

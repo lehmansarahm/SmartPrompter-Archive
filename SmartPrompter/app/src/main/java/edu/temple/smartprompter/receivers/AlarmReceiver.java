@@ -33,7 +33,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (verifyIntentExtras(context, intent)) {
             updateAlarmStatus();
-            generateNotification(context, mAlarmID, mAlarmStatus);
+            generateNotification(context);
         }
     }
 
@@ -78,7 +78,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
-    private static void generateNotification(Context context, int alarmID, String alarmStatus) {
+    private void generateNotification(Context context) {
         createNotificationChannel(context);
         Uri ringtoneUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
@@ -87,16 +87,16 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setContentTitle("SmartPrompter")
                 .setContentText("Please complete your task!")
                 .setSound(ringtoneUri)
-                .setContentIntent(createNotificationIntent(context, alarmID, alarmStatus))
+                .setContentIntent(createNotificationIntent(context))
                 .setVisibility(VISIBILITY_PUBLIC)
                 .setPriority(NotificationCompat.PRIORITY_MAX);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
-        notificationManager.notify(alarmID, mBuilder.build());
+        notificationManager.notify(mAlarmID, mBuilder.build());
     }
 
     @SuppressLint("WrongConstant")
-    private static void createNotificationChannel(Context context) {
+    private void createNotificationChannel(Context context) {
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -113,17 +113,16 @@ public class AlarmReceiver extends BroadcastReceiver {
         }
     }
 
-    private static PendingIntent createNotificationIntent(Context context, int alarmID,
-                                                          String alarmStatus) {
+    private PendingIntent createNotificationIntent(Context context) {
 
         Log.i(Constants.LOG_TAG, "Creating intent to launch Task Acknowledgement activity "
-                + "for alarm ID: " + alarmID + " \t\t with current status: " + alarmStatus);
+                + "for alarm ID: " + mAlarmID + " \t\t with current status: " + mAlarmStatus);
 
         Intent intent = new Intent(context, TaskAcknowledgementActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        intent.putExtra(Constants.INTENT_EXTRA_ALARM_ID, alarmID);
-        intent.putExtra(Constants.INTENT_EXTRA_ALARM_CURRENT_STATUS, alarmStatus);
-        return PendingIntent.getActivity(context, alarmID, intent, Constants.PENDING_INTENT_FLAGS);
+        intent.putExtra(Constants.INTENT_EXTRA_ALARM_ID, mAlarmID);
+        intent.putExtra(Constants.INTENT_EXTRA_ALARM_CURRENT_STATUS, mAlarmStatus);
+        return PendingIntent.getActivity(context, mAlarmID, intent, Constants.PENDING_INTENT_FLAGS);
     }
 
 }

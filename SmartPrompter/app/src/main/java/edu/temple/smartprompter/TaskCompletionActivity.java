@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -34,7 +35,15 @@ public class TaskCompletionActivity extends BaseActivity implements
         setContentView(R.layout.activity_task_completion);
         super.onCreate(savedInstanceState);
 
-        if (!verifyIntentExtras()) return;
+        // make sure we were passed the correct intent extras
+        if (!verifyIntentExtras())
+            return;
+
+        // cancel any lingering notifications associated with this alarm
+        NotificationManagerCompat nm = NotificationManagerCompat.from(this);
+        nm.cancel(mAlarmID);
+
+        // proceed with displaying the activity view
         if (checkPermissions()) {
             initNavigation();
             showDefaultFragment();
