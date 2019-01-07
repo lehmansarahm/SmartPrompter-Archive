@@ -10,39 +10,50 @@ import edu.temple.smartprompter.utils.Constants;
 
 public class ReminderReceiver extends BroadcastReceiver {
 
+    private String mOrigReminderTime;
+    private int mReminderID;
     private int mAlarmID;
-    private String mAlarmStatus;
 
     @Override
     public void onReceive(Context context, Intent intent) {
         if (verifyIntentExtras(intent))
-            generateNotification(context, mAlarmID, mAlarmStatus);
+            generateNotification(context, mReminderID, mAlarmID);
     }
 
     private boolean verifyIntentExtras(Intent intent) {
+        if (!intent.hasExtra(Constants.INTENT_EXTRA_REMINDER_ID)) {
+            Log.e(Constants.LOG_TAG, "Reminder broadcast has been received, "
+                    + "but is missing the reminder ID.");
+            return false;
+        }
+
         if (!intent.hasExtra(Constants.INTENT_EXTRA_ALARM_ID)) {
-            Log.e(Constants.LOG_TAG, "Alarm broadcast has been received, "
+            Log.e(Constants.LOG_TAG, "Reminder broadcast has been received, "
                     + "but is missing the alarm ID.");
             return false;
         }
 
-        if (!intent.hasExtra(Constants.INTENT_EXTRA_ALARM_CURRENT_STATUS)) {
-            Log.e(Constants.LOG_TAG, "Alarm broadcast has been received, "
-                    + "but is missing current alarm status.");
+        if (!intent.hasExtra(Constants.INTENT_EXTRA_ORIG_TIME)) {
+            Log.e(Constants.LOG_TAG, "Reminder broadcast has been received, "
+                    + "but is missing the original reminder time.");
             return false;
         }
 
+        mOrigReminderTime = intent.getStringExtra(Constants.INTENT_EXTRA_ORIG_TIME);
+        mReminderID = intent.getIntExtra(Constants.INTENT_EXTRA_REMINDER_ID, -1);
         mAlarmID = intent.getIntExtra(Constants.INTENT_EXTRA_ALARM_ID, -1);
-        mAlarmStatus = intent.getStringExtra(Constants.INTENT_EXTRA_ALARM_CURRENT_STATUS);
-        Log.e(Constants.LOG_TAG, "Alarm broadcast has been received "
-                + "for alarmID: " + mAlarmID + " with current status: " + mAlarmStatus);
+
+        Log.e(Constants.LOG_TAG, "Reminder broadcast has been received "
+                + "for reminder ID: " + mReminderID
+                + " and alarm ID: " + mAlarmID
+                + ", scheduled at original time: " + mOrigReminderTime);
         return true;
     }
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
-    private static void generateNotification(Context context, int alarmID, String alarmStatus) {
+    private static void generateNotification(Context context, int mReminderID, int mAlarmID) {
         // TODO - generate reminder notification !!
 
         // NO NEED TO CREATE NOTIFICATION CHANNEL ...

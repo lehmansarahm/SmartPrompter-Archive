@@ -17,14 +17,22 @@ public class AlarmDbProvider extends ContentProvider {
     public static final int CODE_ALARM = 100;
     public static final int CODE_ALARM_WITH_ID = 101;
 
+    public static final int CODE_REMINDER = 200;
+    public static final int CODE_REMINDER_WITH_ID = 201;
+
     private static final UriMatcher uriMatcher = buildUriMatcher();
 
     public static UriMatcher buildUriMatcher() {
         final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
-        final String authority = AlarmDbContract.CONTENT_AUTHORITY;
 
-        matcher.addURI(authority, AlarmDbContract.AlarmEntry.TABLE_NAME, CODE_ALARM);
-        matcher.addURI(authority, AlarmDbContract.AlarmEntry.TABLE_NAME + "/#", CODE_ALARM_WITH_ID);
+        final String alarmAuthority = AlarmDbContract.CONTENT_AUTHORITY;
+        matcher.addURI(alarmAuthority, AlarmDbContract.AlarmEntry.TABLE_NAME, CODE_ALARM);
+        matcher.addURI(alarmAuthority, AlarmDbContract.AlarmEntry.TABLE_NAME + "/#", CODE_ALARM_WITH_ID);
+
+        final String reminderAuthority = AlarmDbContract.CONTENT_AUTHORITY;
+        matcher.addURI(reminderAuthority, AlarmDbContract.ReminderEntry.TABLE_NAME, CODE_REMINDER);
+        matcher.addURI(reminderAuthority, AlarmDbContract.ReminderEntry.TABLE_NAME + "/#", CODE_REMINDER_WITH_ID);
+
         return matcher;
     }
 
@@ -83,6 +91,33 @@ public class AlarmDbProvider extends ContentProvider {
                         selection, selectionArgs, null, null, sortOrder);
                 break;
             }
+            case CODE_REMINDER_WITH_ID: {
+                String _ID = uri.getLastPathSegment();
+                Log.i(Constants.LOG_TAG, "Attempting to retrieve record by ID: " + _ID);
+
+                String[] selectionArguments = new String[]{_ID};
+                cursor = db.query(AlarmDbContract.ReminderEntry.TABLE_NAME, projection,
+                        AlarmDbContract.ReminderEntry._ID + " = ? ",
+                        selectionArguments, null, null, sortOrder);
+                break;
+            }
+            case CODE_REMINDER: {
+                if (selection == null || selection.isEmpty())
+                    Log.i(Constants.LOG_TAG, "Attempting to retrieve all reminder records.");
+                else {
+                    StringBuilder builder = new StringBuilder();
+                    for (String s : selectionArgs) { builder.append(s + ","); }
+                    String selectArgs = builder.toString();
+
+                    Log.i(Constants.LOG_TAG, "Attempting to retrieve reminder records "
+                            + "which match the following selection clause: " + selection
+                            + " \n\t\t and arguments: " + selectArgs);
+                }
+
+                cursor = db.query(AlarmDbContract.ReminderEntry.TABLE_NAME, projection,
+                        selection, selectionArgs, null, null, sortOrder);
+                break;
+            }
             default:
                 Log.e(Constants.LOG_TAG, "Unexpected URI: " + uri);
                 return null;
@@ -98,23 +133,36 @@ public class AlarmDbProvider extends ContentProvider {
         Log.i(Constants.LOG_TAG, "Received insert request with URI: " + uri);
         final SQLiteDatabase db = dbHelper.getWritableDatabase();
         switch (uriMatcher.match(uri)) {
-            case CODE_ALARM:
-                long _id = db.insert(AlarmDbContract.AlarmEntry.TABLE_NAME,
+            case CODE_ALARM: {
+                long alarmID = db.insert(AlarmDbContract.AlarmEntry.TABLE_NAME,
                         null, values);
-                Log.i(Constants.LOG_TAG, "Inserted new alarm record!  ID: " + _id);
+                Log.i(Constants.LOG_TAG, "Inserted new alarm record!  ID: " + alarmID);
 
-                if (_id == -1) {
+                if (alarmID == -1) {
                     Log.e(Constants.LOG_TAG, "Alarm record insertion failed.");
                     return null;
                 }
 
-                // Firing this will broadcast that database has been changed, and trigger
-                // dependent entities to perform automatic update.
                 getContext().getContentResolver().notifyChange(uri, null);
-                return AlarmDbContract.AlarmEntry.getContentUriWithID(_id);
-            default:
+                return AlarmDbContract.AlarmEntry.getContentUriWithID(alarmID);
+            }
+            case CODE_REMINDER: {
+                long reminderID = db.insert(AlarmDbContract.ReminderEntry.TABLE_NAME,
+                        null, values);
+                Log.i(Constants.LOG_TAG, "Inserted new reminder record!  ID: " + reminderID);
+
+                if (reminderID == -1) {
+                    Log.e(Constants.LOG_TAG, "Reminder record insertion failed.");
+                    return null;
+                }
+
+                getContext().getContentResolver().notifyChange(uri, null);
+                return AlarmDbContract.ReminderEntry.getContentUriWithID(reminderID);
+            }
+            default: {
                 Log.e(Constants.LOG_TAG, "Unexpected URI: " + uri);
                 return null;
+            }
         }
     }
 
@@ -123,15 +171,24 @@ public class AlarmDbProvider extends ContentProvider {
                       @Nullable String[] selectionArgs) {
         Log.i(Constants.LOG_TAG, "Received delete request with URI: " + uri);
         switch (uriMatcher.match(uri)) {
-            case CODE_ALARM:
+            case CODE_ALARM: {
                 int countRowsDeleted = dbHelper.getWritableDatabase()
                         .delete(AlarmDbContract.AlarmEntry.TABLE_NAME,
                                 selection, selectionArgs);
                 getContext().getContentResolver().notifyChange(uri, null);
                 return countRowsDeleted;
-            default:
+            }
+            case CODE_REMINDER: {
+                int countRowsDeleted = dbHelper.getWritableDatabase()
+                        .delete(AlarmDbContract.ReminderEntry.TABLE_NAME,
+                                selection, selectionArgs);
+                getContext().getContentResolver().notifyChange(uri, null);
+                return countRowsDeleted;
+            }
+            default: {
                 Log.e(Constants.LOG_TAG, "Unexpected URI: " + uri);
                 return -1;
+            }
         }
     }
 
@@ -140,15 +197,24 @@ public class AlarmDbProvider extends ContentProvider {
                       @Nullable String selection, @Nullable String[] selectionArgs) {
         Log.i(Constants.LOG_TAG, "Received update request with URI: " + uri);
         switch (uriMatcher.match(uri)) {
-            case CODE_ALARM:
+            case CODE_ALARM: {
                 int countRowsUpdated = dbHelper.getWritableDatabase()
                         .update(AlarmDbContract.AlarmEntry.TABLE_NAME,
                                 values, selection, selectionArgs);
                 getContext().getContentResolver().notifyChange(uri, null);
                 return countRowsUpdated;
-            default:
+            }
+            case CODE_REMINDER: {
+                int countRowsUpdated = dbHelper.getWritableDatabase()
+                        .update(AlarmDbContract.ReminderEntry.TABLE_NAME,
+                                values, selection, selectionArgs);
+                getContext().getContentResolver().notifyChange(uri, null);
+                return countRowsUpdated;
+            }
+            default: {
                 Log.e(Constants.LOG_TAG, "Unexpected URI: " + uri);
                 return -1;
+            }
         }
     }
 

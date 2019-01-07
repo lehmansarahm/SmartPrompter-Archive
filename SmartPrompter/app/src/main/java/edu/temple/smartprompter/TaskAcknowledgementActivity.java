@@ -1,20 +1,16 @@
 package edu.temple.smartprompter;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
-import edu.temple.smartprompter.fragments.CameraInstructionFragment;
 import edu.temple.smartprompter.fragments.TaskAcknowledgementFragment;
 import edu.temple.smartprompter.utils.BaseActivity;
 import edu.temple.smartprompter.utils.Constants;
-import edu.temple.sp_res_lib.Alarm;
+
+import edu.temple.sp_res_lib.utils.Constants.ALARM_STATUS;
 
 public class TaskAcknowledgementActivity extends BaseActivity implements
         TaskAcknowledgementFragment.TaskAcknowledgementListener {
@@ -73,7 +69,7 @@ public class TaskAcknowledgementActivity extends BaseActivity implements
 
     @Override
     public void onAlarmAcknowledged(int alarmID) {
-        updateAlarmStatus(Alarm.STATUS.Incomplete);
+        updateAlarmStatus(ALARM_STATUS.Incomplete);
         startNextActivity(this, TaskCompletionActivity.class);
         Log.i(Constants.LOG_TAG, "Received and acknowledged alarm response for alarm ID: "
                 + mAlarm.getID() + ".  \t\t and updated alarm status: " + mAlarm.getStatusString());
@@ -82,6 +78,9 @@ public class TaskAcknowledgementActivity extends BaseActivity implements
 
     @Override
     public void onAlarmDeferred(int alarmID) {
+        Log.e(Constants.LOG_TAG, "User has elected to defer the task "
+                + "acknowledgement for alarm ID: " + alarmID);
+
         // TODO - finish alarm acknowledgement deferral logic
         Toast.makeText(this,
                 "Haven't coded the reminder deferral logic yet.",

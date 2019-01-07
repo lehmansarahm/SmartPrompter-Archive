@@ -38,6 +38,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
     private DatePickerFragment.DatePickerListener mDateListener;
     private TimePickerFragment.TimePickerListener mTimeListener;
 
+    private String alarmAction;
     private String receiverNamespace;
     private String receiverClassName;
 
@@ -95,6 +96,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        alarmAction = getResources().getString(R.string.action_alarms);
         receiverNamespace = getResources().getString(R.string.patient_app_namespace);
         receiverClassName = getResources().getString(R.string.patient_app_alarm_receiver);
 
@@ -225,18 +227,18 @@ public class ActiveAlarmDetailsFragment extends Fragment {
             public void onClick(View view) {
                 DialogInterface.OnClickListener statusChangeListener = new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        Log.i(Constants.LOG_TAG, "User clicked STATUS field for alarm ID: " + mAlarm.getID());
+                        Log.i(Constants.LOG_TAG, "User clicked ALARM_STATUS field for alarm ID: " + mAlarm.getID());
                         Log.d(Constants.LOG_TAG, "Current alarm status: " + mAlarm.getStatusString());
 
                         if (mAlarm.isActive()) {
                             Log.i(Constants.LOG_TAG, "Alarm is already active.  Cancelling "
                                     + "currently scheduled reminders and resetting alarm status.");
-                            mAlarmMgr.cancelAllReminders(mAlarm);
+                            mAlarmMgr.cancelAlarm(mAlarm);
                         } else {
                             Log.i(Constants.LOG_TAG, "Alarm status is currently inactive.  "
                                     + "Activating alarm and scheduling reminders.");
-                            boolean success = mAlarmMgr.scheduleReminder(mAlarm,
-                                    receiverNamespace, receiverClassName);
+                            boolean success = mAlarmMgr.scheduleAlarm(mAlarm,
+                                    alarmAction, receiverNamespace, receiverClassName);
                             if (!success) {
                                 Toast.makeText(rootView.getContext(), "Please schedule an alarm in the future!",
                                         Toast.LENGTH_SHORT).show();
@@ -274,9 +276,9 @@ public class ActiveAlarmDetailsFragment extends Fragment {
                         public void onClick(DialogInterface dialog, int whichButton) {
                             Log.i(Constants.LOG_TAG, "Cancelling and rescheduling all "
                                     + "reminders for alarm ID: " + mAlarm.getID());
-                            mAlarmMgr.cancelAllReminders(mAlarm);
-                            boolean success = mAlarmMgr.scheduleReminder(mAlarm,
-                                    receiverNamespace, receiverClassName);
+                            mAlarmMgr.cancelAlarm(mAlarm);
+                            boolean success = mAlarmMgr.scheduleAlarm(mAlarm,
+                                    alarmAction, receiverNamespace, receiverClassName);
                             if (!success) {
                                 Toast.makeText(rootView.getContext(), "Please schedule an alarm in the future!",
                                         Toast.LENGTH_SHORT).show();
@@ -300,7 +302,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mAlarmMgr.cancelAllReminders(mAlarm);
+                mAlarmMgr.cancelAlarm(mAlarm);
                 mAlarmMgr.delete(mAlarm);
                 mChangeListener.onAlarmDetailsChanged();
             }

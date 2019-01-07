@@ -7,6 +7,9 @@
     <string name="action_alarms">edu.temple.smartprompter.alarms</string>
     <string name="action_reminders">edu.temple.smartprompter.reminders</string>
 
+    <string name="reminder_receiver_namespace">edu.temple.smartprompter</string>
+    <string name="reminder_receiver_class">edu.temple.smartprompter.receivers.ReminderReceiver</string>
+
     <string name="authority_alarms">edu.temple.smartprompter.alarms</string>
     <string name="authority_media">edu.temple.smartprompter.media</string>
 

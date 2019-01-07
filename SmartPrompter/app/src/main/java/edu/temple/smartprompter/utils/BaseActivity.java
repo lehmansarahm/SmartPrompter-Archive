@@ -22,8 +22,10 @@ import edu.temple.smartprompter.ActiveAlarmsActivity;
 import edu.temple.smartprompter.CompleteAlarmsActivity;
 import edu.temple.smartprompter.R;
 import edu.temple.smartprompter.fragments.MissingPermissionsFragment;
+
 import edu.temple.sp_res_lib.Alarm;
 import edu.temple.sp_res_lib.SpAlarmManager;
+import edu.temple.sp_res_lib.utils.Constants.ALARM_STATUS;
 
 public abstract class BaseActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener {
@@ -216,17 +218,17 @@ public abstract class BaseActivity extends AppCompatActivity implements
         return true;
     }
 
-    protected void updateAlarmStatus(Alarm.STATUS newStatus) {
+    protected void updateAlarmStatus(ALARM_STATUS newStatus) {
         // retrieve alarm record
         mAlarmMgr = new SpAlarmManager(this);
         mAlarm = mAlarmMgr.get(mAlarmID);
         mAlarm.updateStatus(newStatus);
 
         // check to see if a timestamp is necessary
-        if (newStatus == Alarm.STATUS.Incomplete) {
+        if (newStatus == ALARM_STATUS.Incomplete) {
             // user completed acknowledgement phase
             mAlarm.updateTimeAcknowledged();
-        } else if (newStatus == Alarm.STATUS.Complete) {
+        } else if (newStatus == ALARM_STATUS.Complete) {
             // user completed entire task
             mAlarm.updateTimeCompleted();
         }

@@ -71,7 +71,7 @@ public class CompleteAlarmDetailsFragment extends Fragment {
         timeText.setText(mAlarm.getTimeString());
 
         // --------------------------------------------------------------------------------------
-        //          STATUS
+        //          ALARM_STATUS
         // --------------------------------------------------------------------------------------
         TextView statusText = rootView.findViewById(R.id.status_text);
         statusText.setText(mAlarm.getStatusString());

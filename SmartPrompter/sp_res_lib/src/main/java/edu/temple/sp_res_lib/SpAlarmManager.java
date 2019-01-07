@@ -28,8 +28,8 @@ public class SpAlarmManager {
     public Alarm create() {
         ContentResolver cr = context.getContentResolver();
         Uri uri = cr.insert(AlarmDbContract.AlarmEntry.CONTENT_URI,
-                AlarmDbContract.AlarmEntry.getDefaultAlarmValues());
-        Cursor cursor = cr.query(uri, AlarmDbContract.AlarmEntry.ALL_FIELDS,
+                AlarmDbContract.AlarmEntry.getDefaultValues());
+        Cursor cursor = cr.query(uri, AlarmDbContract.AlarmEntry.getAllFields(),
                 null, null, null);
         return AlarmDbContract.AlarmEntry.populateFromCursor(cursor).get(0);
     }
@@ -37,12 +37,12 @@ public class SpAlarmManager {
     public Alarm get(int alarmID) {
         Uri uri = AlarmDbContract.AlarmEntry.getContentUriWithID(alarmID);
         Cursor cursor = context.getContentResolver().query(uri,
-                AlarmDbContract.AlarmEntry.ALL_FIELDS,
+                AlarmDbContract.AlarmEntry.getAllFields(),
                 null, null, null);
         return AlarmDbContract.AlarmEntry.populateFromCursor(cursor).get(0);
     }
 
-    public List<Alarm> get(Alarm.STATUS[] statuses) {
+    public List<Alarm> get(Constants.ALARM_STATUS[] statuses) {
         List<String> whereArgs = new ArrayList<>();
         String whereClause = (AlarmDbContract.AlarmEntry.COLUMN_STATUS + "=?");
         for (int i = 0; i < statuses.length; i++) {
@@ -55,7 +55,7 @@ public class SpAlarmManager {
 
         Cursor cursor = context.getContentResolver()
                 .query(AlarmDbContract.AlarmEntry.CONTENT_URI,
-                        AlarmDbContract.AlarmEntry.ALL_FIELDS,
+                        AlarmDbContract.AlarmEntry.getAllFields(),
                         whereClause, whereArgs.toArray(new String[0]),
                         null);
         return AlarmDbContract.AlarmEntry.populateFromCursor(cursor);
@@ -64,7 +64,7 @@ public class SpAlarmManager {
     public List<Alarm> getAll() {
         Cursor cursor = context.getContentResolver()
                 .query(AlarmDbContract.AlarmEntry.CONTENT_URI,
-                        AlarmDbContract.AlarmEntry.ALL_FIELDS,
+                        AlarmDbContract.AlarmEntry.getAllFields(),
                         null,null,null);
         return AlarmDbContract.AlarmEntry.populateFromCursor(cursor);
     }
@@ -76,7 +76,7 @@ public class SpAlarmManager {
         String[] args = new String[] { String.valueOf(alarm.getID()) };
         return context.getContentResolver()
                 .update(AlarmDbContract.AlarmEntry.CONTENT_URI,
-                        AlarmDbContract.AlarmEntry.getAlarmValues(alarm),
+                        AlarmDbContract.AlarmEntry.getValues(alarm),
                         whereClause, args);
     }
 
@@ -94,7 +94,7 @@ public class SpAlarmManager {
         return (getAll().size() > 0);
     }
 
-    public boolean areAlarmsAvailable(Alarm.STATUS[] statuses) {
+    public boolean areAlarmsAvailable(Constants.ALARM_STATUS[] statuses) {
         return (get(statuses).size() != 0);
     }
 
@@ -104,10 +104,12 @@ public class SpAlarmManager {
     /*
             NOTE !!!  ADMIN APP IS RESPONSIBLE FOR PROVIDING ALARM RECEIVER DETAILS !!!
      */
-    public boolean scheduleReminder(Alarm alarm, String receiverNamespace, String receiverClassName) {
+    public boolean scheduleAlarm(Alarm alarm, String alarmAction,
+                                 String receiverNamespace, String receiverClassName) {
+
         AlarmManager alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        String alarmAction = context.getResources().getString(R.string.action_alarms);
-        alarm.updateAlarmIntentSettings(alarmAction, receiverNamespace, receiverClassName);
+        // String alarmAction = context.getResources().getString(R.string.action_alarms);
+        alarm.updateIntentSettings(alarmAction, receiverNamespace, receiverClassName);
 
         long alarmTime = alarm.getAlarmTimeMillis();
         Log.d(Constants.LOG_TAG, "Alarm will go off at time (millis): " + alarmTime);
@@ -125,12 +127,12 @@ public class SpAlarmManager {
         Log.e(Constants.LOG_TAG, "Scheduling new alarm reminder with request code: "
                 + alarm.getID() + " \t\t for time: " + alarm.getTimeString());
         alarmMgr.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,
-                alarmTime, alarm.getAlarmIntent(context));
-        alarm.updateStatus(Alarm.STATUS.Active);
+                alarmTime, alarm.getPendingIntent(context));
+        alarm.updateStatus(Constants.ALARM_STATUS.Active);
         return true;
     }
 
-    public void cancelAllReminders(Alarm alarm) {
+    public void cancelAlarm(Alarm alarm) {
         AlarmManager alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Log.i(Constants.LOG_TAG,
                 "Attempting to cancel active reminders for alarm with ID: "
@@ -142,7 +144,7 @@ public class SpAlarmManager {
             return;
         }
 
-        PendingIntent alarmIntent = alarm.getAlarmIntent(context);
+        PendingIntent alarmIntent = alarm.getPendingIntent(context);
         if (alarmIntent == null) {
             Log.e(Constants.LOG_TAG,
                     "Cannot cancel active reminders!  Alarm intent is null.");
@@ -150,7 +152,7 @@ public class SpAlarmManager {
         }
 
         alarmMgr.cancel(alarmIntent);
-        alarm.updateStatus(Alarm.STATUS.New);
+        alarm.updateStatus(Constants.ALARM_STATUS.New);
         Log.i(Constants.LOG_TAG, "Reminders cancelled.");
     }
 

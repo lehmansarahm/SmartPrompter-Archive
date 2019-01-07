@@ -25,9 +25,9 @@ import edu.temple.sp_res_lib.utils.Constants;
 
 public class ActiveAlarmListFragment extends Fragment {
 
-    private static final Alarm.STATUS[] LIST_ALARM_STATUSES = new Alarm.STATUS[] {
-            Alarm.STATUS.Active,
-            Alarm.STATUS.New
+    private static final Constants.ALARM_STATUS[] LIST_ALARM_STATUSES = new Constants.ALARM_STATUS[] {
+            Constants.ALARM_STATUS.Active,
+            Constants.ALARM_STATUS.New
     };
 
     public interface AlarmCreationListener {

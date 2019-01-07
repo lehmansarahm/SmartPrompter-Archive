@@ -13,9 +13,11 @@ import edu.temple.smartprompter.fragments.CameraPreviewFragment;
 import edu.temple.smartprompter.fragments.CameraReviewFragment;
 import edu.temple.smartprompter.utils.BaseActivity;
 import edu.temple.smartprompter.utils.Constants;
+
 import edu.temple.sp_res_lib.Alarm;
 import edu.temple.sp_res_lib.SpAlarmManager;
 import edu.temple.sp_res_lib.SpMediaManager;
+import edu.temple.sp_res_lib.utils.Constants.ALARM_STATUS;
 
 public class TaskCompletionActivity extends BaseActivity implements
         CameraInstructionFragment.ImageAcknowledgementListener,
@@ -142,7 +144,7 @@ public class TaskCompletionActivity extends BaseActivity implements
         mAlarmMgr = new SpAlarmManager(this);
         mAlarm = mAlarmMgr.get(alarmID);
         mAlarm.updateTimeCompleted();
-        mAlarm.updateStatus(Alarm.STATUS.Complete);
+        mAlarm.updateStatus(ALARM_STATUS.Complete);
         mAlarmMgr.update(mAlarm);
 
         String imageID = mAlarm.getCompletionMediaID();

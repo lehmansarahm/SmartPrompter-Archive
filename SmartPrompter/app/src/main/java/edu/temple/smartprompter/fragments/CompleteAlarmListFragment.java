@@ -14,14 +14,15 @@ import android.widget.TextView;
 
 import edu.temple.smartprompter.R;
 import edu.temple.smartprompter.adapters.SimpleAlarmListAdapter;
-import edu.temple.sp_res_lib.Alarm;
+
 import edu.temple.sp_res_lib.SpAlarmManager;
 import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.Constants.ALARM_STATUS;
 
 public class CompleteAlarmListFragment extends Fragment {
 
-    private static final Alarm.STATUS[] LIST_ALARM_STATUSES = new Alarm.STATUS[] {
-            Alarm.STATUS.Complete
+    private static final ALARM_STATUS[] LIST_ALARM_STATUSES = new ALARM_STATUS[] {
+            ALARM_STATUS.Complete
     };
 
     private RecyclerView mRecyclerView;

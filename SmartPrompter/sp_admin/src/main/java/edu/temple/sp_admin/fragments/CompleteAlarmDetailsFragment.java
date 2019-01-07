@@ -184,7 +184,7 @@ public class CompleteAlarmDetailsFragment extends Fragment {
         statusLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(Constants.LOG_TAG, "User clicked STATUS field for alarm ID: "
+                Log.i(Constants.LOG_TAG, "User clicked ALARM_STATUS field for alarm ID: "
                         + mAlarm.getID());
             }
         });
@@ -248,7 +248,7 @@ public class CompleteAlarmDetailsFragment extends Fragment {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mAlarmMgr.cancelAllReminders(mAlarm);
+                mAlarmMgr.cancelAlarm(mAlarm);
                 mAlarmMgr.delete(mAlarm);
                 mChangeListener.onAlarmDetailsChanged();
             }

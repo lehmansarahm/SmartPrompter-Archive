@@ -122,7 +122,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         statusLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(Constants.LOG_TAG, "User clicked STATUS field for alarm ID: "
+                Log.i(Constants.LOG_TAG, "User clicked ALARM_STATUS field for alarm ID: "
                         + mAlarm.getID());
                 new AlertDialog.Builder(context)
                         .setTitle("Initiate Alarm Task")

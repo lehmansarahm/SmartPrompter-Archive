@@ -22,9 +22,9 @@ import edu.temple.sp_res_lib.utils.Constants;
 
 public class IncompleteAlarmListFragment extends Fragment {
 
-    private static final Alarm.STATUS[] LIST_ALARM_STATUSES = new Alarm.STATUS[] {
-            Alarm.STATUS.Unacknowledged,
-            Alarm.STATUS.Incomplete
+    private static final Constants.ALARM_STATUS[] LIST_ALARM_STATUSES = new Constants.ALARM_STATUS[] {
+            Constants.ALARM_STATUS.Unacknowledged,
+            Constants.ALARM_STATUS.Incomplete
     };
 
     private RecyclerView mRecyclerView;

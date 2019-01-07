@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
@@ -17,12 +18,23 @@ import android.util.Log;
 import edu.temple.smartprompter.TaskAcknowledgementActivity;
 import edu.temple.smartprompter.utils.Constants;
 import edu.temple.smartprompter.R;
+
 import edu.temple.sp_res_lib.Alarm;
+import edu.temple.sp_res_lib.Reminder;
 import edu.temple.sp_res_lib.SpAlarmManager;
+import edu.temple.sp_res_lib.SpReminderManager;
+import edu.temple.sp_res_lib.utils.Constants.ALARM_STATUS;
+import edu.temple.sp_res_lib.utils.Constants.REMINDER_TYPE;
 
 import static android.app.Notification.VISIBILITY_PUBLIC;
 
 public class AlarmReceiver extends BroadcastReceiver {
+
+    private static final String INTENT_EXTRA_ALARM_ID =
+            edu.temple.sp_res_lib.utils.Constants.INTENT_EXTRA_ALARM_ID;
+
+    private static final String INTENT_EXTRA_ORIG_TIME =
+            edu.temple.sp_res_lib.utils.Constants.INTENT_EXTRA_ORIG_TIME;
 
     private SpAlarmManager mAlarmMgr;
     private Alarm mAlarm;
@@ -33,25 +45,26 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (verifyIntentExtras(context, intent)) {
             updateAlarmStatus();
+            schedulePreemptiveReminder(context);
             generateNotification(context);
         }
     }
 
     private boolean verifyIntentExtras(Context context, Intent intent) {
-        if (!intent.hasExtra(Alarm.INTENT_EXTRA_ALARM_ID)) {
+        if (!intent.hasExtra(INTENT_EXTRA_ALARM_ID)) {
             Log.e(Constants.LOG_TAG, "Alarm broadcast has been received, "
                     + "but is missing the alarm ID.");
             return false;
         }
 
-        if (!intent.hasExtra(Alarm.INTENT_EXTRA_ORIG_TIME)) {
+        if (!intent.hasExtra(INTENT_EXTRA_ORIG_TIME)) {
             Log.e(Constants.LOG_TAG, "Alarm broadcast has been received, "
                     + "but is missing original alarm time.");
             return false;
         }
 
-        mAlarmID = intent.getIntExtra(Alarm.INTENT_EXTRA_ALARM_ID, -1);
-        String timeString = intent.getStringExtra(Alarm.INTENT_EXTRA_ORIG_TIME);
+        mAlarmID = intent.getIntExtra(INTENT_EXTRA_ALARM_ID, -1);
+        String timeString = intent.getStringExtra(INTENT_EXTRA_ORIG_TIME);
 
         mAlarmMgr = new SpAlarmManager(context);
         mAlarm = mAlarmMgr.get(mAlarmID);
@@ -67,12 +80,43 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     private void updateAlarmStatus() {
         // update and commit the status changes for this alarm
-        mAlarm.updateStatus(Alarm.STATUS.Unacknowledged);
+        mAlarm.updateStatus(ALARM_STATUS.Unacknowledged);
         mAlarmMgr.update(mAlarm);
 
         // just for sanity's sake ...
         Alarm sanityAlarm = mAlarmMgr.get(mAlarmID);
         mAlarmStatus = sanityAlarm.getStatusString();
+    }
+
+    private void schedulePreemptiveReminder(Context context) {
+        // schedule a reminder for this alarm ...
+        // we can always cancel it if the user acknowledges ...
+        SpReminderManager rm = new SpReminderManager(context);
+        Reminder reminder = rm.create(mAlarmID, REMINDER_TYPE.Acknowledgement);
+
+        // retrieve, set the appropriate receiver settings ...
+        Resources resources = context.getResources();
+        reminder.updateIntentSettings(
+                resources.getString(R.string.action_alarms),
+                resources.getString(R.string.reminder_receiver_namespace),
+                resources.getString(R.string.reminder_receiver_class)
+        );
+
+        // sanity check ...
+        Log.i(Constants.LOG_TAG, "Current reminder time: "
+                + reminder.getTimeString());
+
+        // calculate the appropriate reminder interval and commit changes to database
+        reminder.calculateNewReminder();
+        rm.update(reminder);
+
+        // sanity check, part ...
+        Reminder sanityReminder = rm.get(reminder.getID());
+        Log.i(Constants.LOG_TAG, "Adjusted reminder time: "
+                + sanityReminder.getTimeString());
+
+        // schedule the reminder
+        rm.scheduleReminder(sanityReminder);
     }
 
     // --------------------------------------------------------------------------------------

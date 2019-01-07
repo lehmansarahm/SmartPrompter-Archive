@@ -20,8 +20,8 @@ import edu.temple.sp_res_lib.utils.Constants;
 
 public class CompleteAlarmListFragment extends Fragment {
 
-    private static final Alarm.STATUS[] LIST_ALARM_STATUSES = new Alarm.STATUS[] {
-            Alarm.STATUS.Complete
+    private static final Constants.ALARM_STATUS[] LIST_ALARM_STATUSES = new Constants.ALARM_STATUS[] {
+            Constants.ALARM_STATUS.Complete
     };
 
     private RecyclerView mRecyclerView;
