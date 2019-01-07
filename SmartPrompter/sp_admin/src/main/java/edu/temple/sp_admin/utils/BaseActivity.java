@@ -2,14 +2,17 @@ package edu.temple.sp_admin.utils;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -25,9 +28,11 @@ import edu.temple.sp_res_lib.SpAlarmManager;
 public abstract class BaseActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener {
 
-    private static final String INTENT_EXTRA_SELECTED_MENU_ITEM = "selected_menu_item";
+    protected static final String DEFAULT_FRAGMENT_TAG = "default_fragment";
 
-    private static final int DEFAULT_VALUE_INT = -1;
+    protected static final String INTENT_EXTRA_SELECTED_MENU_ITEM = "selected_menu_item";
+
+    protected static final int DEFAULT_VALUE_INT = -1;
 
     protected DrawerLayout mDrawerLayout;
     protected SpAlarmManager mAlarmMgr;
@@ -118,9 +123,24 @@ public abstract class BaseActivity extends AppCompatActivity implements
 
     @Override
     public void onBackPressed() {
+        FragmentManager fm = getSupportFragmentManager();
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
+
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else if (isTaskRoot()) {
+            new AlertDialog.Builder(this)
+                        .setTitle("No Prior Screens")
+                        .setMessage("Pressing back will exit the app.  "
+                                + "Are you sure you wish to continue?")
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                BaseActivity.super.onBackPressed();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, null).show();
         } else {
             super.onBackPressed();
         }
@@ -137,6 +157,12 @@ public abstract class BaseActivity extends AppCompatActivity implements
     public boolean onNavigationItemSelected(MenuItem menuItem) {
         menuItem.setChecked(true);
         mDrawerLayout.closeDrawers();
+
+        // NOTE - assuming that each activity's default fragment is tagged with
+        // a non-null flag, this command will pop everything BUT the default
+        // fragment before redirecting to the next activity selected from the nav
+        getSupportFragmentManager().popBackStack(null,
+                FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         Intent intent = new Intent();
         Context pkgContext = BaseActivity.this;

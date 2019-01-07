@@ -45,7 +45,7 @@ public class ActiveAlarmsActivity extends BaseActivity implements
         Log.i(Constants.LOG_TAG, "Populating Active Alarms Activity with list fragment.");
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         listFrag = ActiveAlarmListFragment.newInstance();
-        ft.replace(R.id.fragment_container, listFrag);
+        ft.replace(R.id.fragment_container, listFrag, DEFAULT_FRAGMENT_TAG);
         ft.commit();
     }
 

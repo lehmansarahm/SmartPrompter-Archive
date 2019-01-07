@@ -77,7 +77,7 @@ public class TaskCompletionActivity extends BaseActivity implements
         Log.i(Constants.LOG_TAG, "Populating Task Completion Activity with default fragment.");
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         defaultFrag = CameraInstructionFragment.newInstance(mAlarmID);
-        ft.replace(R.id.fragment_container, defaultFrag);
+        ft.replace(R.id.fragment_container, defaultFrag, DEFAULT_FRAGMENT_TAG);
         ft.commit();
     }
 

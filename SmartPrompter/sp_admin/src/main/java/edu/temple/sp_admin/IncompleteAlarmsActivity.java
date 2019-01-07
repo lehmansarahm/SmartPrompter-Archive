@@ -47,7 +47,7 @@ public class IncompleteAlarmsActivity extends BaseActivity implements
         Log.i(Constants.LOG_TAG, "Populating Incomplete Alarms Activity with list fragment.");
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         listFrag = IncompleteAlarmListFragment.newInstance();
-        ft.replace(R.id.fragment_container, listFrag);
+        ft.replace(R.id.fragment_container, listFrag, DEFAULT_FRAGMENT_TAG);
         ft.commit();
     }
 

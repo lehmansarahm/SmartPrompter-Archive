@@ -38,7 +38,7 @@ public class MainActivity extends BaseActivity {
         Log.i(Constants.LOG_TAG, "Populating Main Activity with welcome fragment.");
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         WelcomeFragment fragment = new WelcomeFragment();
-        ft.replace(R.id.fragment_container, fragment);
+        ft.replace(R.id.fragment_container, fragment, DEFAULT_FRAGMENT_TAG);
         ft.commit();
     }
 
