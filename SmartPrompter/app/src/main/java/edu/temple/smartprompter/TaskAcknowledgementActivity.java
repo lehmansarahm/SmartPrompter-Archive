@@ -1,6 +1,7 @@
 package edu.temple.smartprompter;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
@@ -76,12 +77,12 @@ public class TaskAcknowledgementActivity extends BaseActivity implements
         startNextActivity(this, TaskCompletionActivity.class);
         Log.i(Constants.LOG_TAG, "Received and acknowledged alarm response for alarm ID: "
                 + mAlarm.getID() + ".  \t\t and updated alarm status: " + mAlarm.getStatusString());
+        finish();
     }
 
     @Override
     public void onAlarmDeferred(int alarmID) {
         // TODO - finish alarm acknowledgement deferral logic
-        updateAlarmStatus(Alarm.STATUS.Incomplete);
         Toast.makeText(this,
                 "Haven't coded the reminder deferral logic yet.",
                 Toast.LENGTH_SHORT).show();

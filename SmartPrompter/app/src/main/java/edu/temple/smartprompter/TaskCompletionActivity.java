@@ -120,6 +120,8 @@ public class TaskCompletionActivity extends BaseActivity implements
     public void onImageCaptured(int alarmID, byte[] bytes) {
         Log.i(Constants.LOG_TAG, "User wants to view details of alarm ID: " + alarmID);
         FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.popBackStack();     // remove camera preview fragment to avoid conflicts
+
         FragmentTransaction ft = fragmentManager.beginTransaction();
         reviewFrag = CameraReviewFragment.newInstance(alarmID, bytes);
         ft.replace(R.id.fragment_container, reviewFrag);
