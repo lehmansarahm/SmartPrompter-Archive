@@ -66,10 +66,22 @@ public class SimpleAlarmListAdapter extends RecyclerView.Adapter<SimpleAlarmList
                 + position);
 
         final Alarm currentAlarm = mAlarms.get(position);
-        if (currentAlarm.isActive()) {
-            Log.d(Constants.LOG_TAG, "Alarm at position: " + position
-                    + " is active!  Updating line item background color.");
-            holder.mTextView.setBackgroundColor(Color.GREEN);
+        switch (currentAlarm.getStatus()) {
+            case Inactive:
+            case Complete:
+            case TimedOut:
+                // do nothing ... use default white background, single line border
+                break;
+            case Active:
+            case Unacknowledged:
+                holder.mTextView.setBackgroundColor(Color.GREEN);
+                break;
+            case Incomplete:
+                holder.mTextView.setBackgroundColor(Color.RED);
+                break;
+            default:
+                Log.e(Constants.LOG_TAG, "Unrecognized alarm status: "
+                        + currentAlarm.getStatusString());
         }
 
         holder.mTextView.setText(currentAlarm.toString());

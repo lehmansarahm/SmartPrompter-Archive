@@ -13,6 +13,7 @@ public class Constants {
     public static final String PUBLIC_DIR_RINGTONES = "ringtones";
 
     public static final String INTENT_EXTRA_ALARM_ID = "intent_extra_alarm_ID";
+    public static final String INTENT_EXTRA_ALARM_CURRENT_STATUS = "intent_extra_alarm_current_status";
     public static final String INTENT_EXTRA_REMINDER_ID = "intent_extra_reminder_ID";
     public static final String INTENT_EXTRA_ORIG_TIME = "intent_extra_orig_time";
 
@@ -23,7 +24,7 @@ public class Constants {
     public static final int DEFAULT_HOUR_OF_DAY = 12;
     public static final int DEFAULT_MINUTE = 0;
 
-    public enum ALARM_STATUS { New, Active, Unacknowledged, Incomplete, Complete }
+    public enum ALARM_STATUS {Inactive, Active, Unacknowledged, Incomplete, Complete, TimedOut }
 
     public enum REMINDER_TYPE { Acknowledgement, Completion }
 

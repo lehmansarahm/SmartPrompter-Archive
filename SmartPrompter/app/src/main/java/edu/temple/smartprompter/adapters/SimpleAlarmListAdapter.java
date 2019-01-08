@@ -68,6 +68,7 @@ public class SimpleAlarmListAdapter extends RecyclerView.Adapter<SimpleAlarmList
         switch (currentAlarm.getStatus()) {
             case Active:
             case Complete:
+            case TimedOut:
                 // do nothing ... use default white background, single line border
                 break;
             case Unacknowledged:

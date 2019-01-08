@@ -21,7 +21,8 @@ import edu.temple.sp_res_lib.utils.Constants;
 public class CompleteAlarmListFragment extends Fragment {
 
     private static final Constants.ALARM_STATUS[] LIST_ALARM_STATUSES = new Constants.ALARM_STATUS[] {
-            Constants.ALARM_STATUS.Complete
+            Constants.ALARM_STATUS.Complete,
+            Constants.ALARM_STATUS.TimedOut
     };
 
     private RecyclerView mRecyclerView;

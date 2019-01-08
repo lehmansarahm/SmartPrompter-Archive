@@ -14,15 +14,16 @@ public class Reminder extends BaseScheduleable {
 
     private static final int REMINDER_REQUEST_CODE_OFFSET = 1000;
 
-    private int alarmID;
+    private int alarmID, count;
     private Constants.REMINDER_TYPE type;
 
-    public Reminder(int ID, int alarmID, String type,
+    public Reminder(int ID, int alarmID, String type, int count,
                     int year, int month, int day, int hour, int minute,
                     String action, String namespace, String className) {
         this.ID = ID;
         this.alarmID = alarmID;
         this.type = Constants.REMINDER_TYPE.valueOf(type);
+        this.count = count;
 
         updateDate(year, month, day);
         updateTime(hour, minute);
@@ -43,25 +44,32 @@ public class Reminder extends BaseScheduleable {
     // ----------------------------------------------------------------------------
     // ----------------------------------------------------------------------------
 
+    public void incrementCount() { count++; }
+
+    public int getCount() { return count; }
+
+    public boolean hasReachedCountLimit() {
+        return (count == Constants.getReminderLimit(type));
+    }
+
+    // ----------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------
+
     public void calculateNewReminder() {
+        int interval = Constants.getReminderInterval(type);
         Log.i(Constants.LOG_TAG, "ORIGINAL reminder will go off at time: "
-                + getTimeString() + " on date: " + getDateString());
+                + getTimeString() + " on date: " + getDateString()
+                + " after interval: " + interval);
 
-        Calendar now = Calendar.getInstance();
-        Log.i(Constants.LOG_TAG, "CURRENT time is: "
-                + Constants.DATE_TIME_FORMAT.format(now.getTime()));
-
-        cal.set(Calendar.YEAR, now.get(Calendar.YEAR));
-        cal.set(Calendar.MONTH, now.get(Calendar.MONTH));
-        cal.set(Calendar.DAY_OF_MONTH, now.get(Calendar.DAY_OF_MONTH));
-        cal.set(Calendar.HOUR_OF_DAY, now.get(Calendar.HOUR_OF_DAY));
-        cal.add(Calendar.MINUTE, now.get(Calendar.MINUTE)
-                + Constants.getReminderInterval(type));
+        cal = Calendar.getInstance();
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.MILLISECOND, 0);
+        Log.i(Constants.LOG_TAG, "CURRENT reminder time is: "
+                + Constants.DATE_TIME_FORMAT.format(cal.getTime()));
 
-        Log.i(Constants.LOG_TAG, "ADJUSTED reminder will go off at time: "
-                + getTimeString() + " on date: " + getDateString());
+        cal.add(Calendar.MINUTE, interval);
+        Log.i(Constants.LOG_TAG, "ADJUSTED reminder time is: "
+                + Constants.DATE_TIME_FORMAT.format(cal.getTime()));
     }
 
     public PendingIntent getPendingIntent(Context context) {

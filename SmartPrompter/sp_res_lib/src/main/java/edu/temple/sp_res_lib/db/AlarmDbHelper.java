@@ -16,7 +16,7 @@ public class AlarmDbHelper extends SQLiteOpenHelper {
      * If you change the database schema, you must increment the database version or the onUpgrade
      * method will not be called.
      */
-    private static final int DATABASE_VERSION = 8;
+    private static final int DATABASE_VERSION = 9;
 
     public AlarmDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -51,6 +51,7 @@ public class AlarmDbHelper extends SQLiteOpenHelper {
                         AlarmDbContract.ReminderEntry._ID                          + " INTEGER PRIMARY KEY AUTOINCREMENT, "    +
                         AlarmDbContract.ReminderEntry.COLUMN_ALARM_ID              + " INTEGER NOT NULL, "                     +
                         AlarmDbContract.ReminderEntry.COLUMN_TYPE                  + " TEXT NOT NULL,"                         +
+                        AlarmDbContract.ReminderEntry.COLUMN_COUNT                 + " INTEGER NOT NULL, "                     +
                         // -----------------------------------------------------------------
                         AlarmDbContract.ReminderEntry.COLUMN_YEAR                  + " INTEGER NOT NULL,"                      +
                         AlarmDbContract.ReminderEntry.COLUMN_MONTH                 + " INTEGER NOT NULL,"                      +

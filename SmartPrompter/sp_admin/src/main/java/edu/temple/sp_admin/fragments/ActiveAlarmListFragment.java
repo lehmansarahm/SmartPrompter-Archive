@@ -13,9 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import edu.temple.sp_admin.R;
 import edu.temple.sp_admin.adapters.SimpleAlarmListAdapter;
 
@@ -27,7 +24,7 @@ public class ActiveAlarmListFragment extends Fragment {
 
     private static final Constants.ALARM_STATUS[] LIST_ALARM_STATUSES = new Constants.ALARM_STATUS[] {
             Constants.ALARM_STATUS.Active,
-            Constants.ALARM_STATUS.New
+            Constants.ALARM_STATUS.Inactive
     };
 
     public interface AlarmCreationListener {

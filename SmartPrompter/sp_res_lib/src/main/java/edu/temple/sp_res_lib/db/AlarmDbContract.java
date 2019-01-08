@@ -31,7 +31,7 @@ public final class AlarmDbContract {
         public static final String COLUMN_COMPLETION_MEDIA_ID = "completionMediaID";
 
         private static final String DEFAULT_LABEL = "New Alarm";
-        private static final String DEFAULT_STATUS = Constants.ALARM_STATUS.New.toString();
+        private static final String DEFAULT_STATUS = Constants.ALARM_STATUS.Inactive.toString();
         private static final String DEFAULT_MEDIA_ID = "headshot.jpg";
 
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
@@ -150,6 +150,7 @@ public final class AlarmDbContract {
 
         public static final String COLUMN_ALARM_ID = "alarmID";
         public static final String COLUMN_TYPE = "reminderType";
+        public static final String COLUMN_COUNT = "reminderCount";
 
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
                 .appendPath(TABLE_NAME)
@@ -165,7 +166,8 @@ public final class AlarmDbContract {
             String[] firstFields = new String[]{
                     ReminderEntry._ID,
                     ReminderEntry.COLUMN_ALARM_ID,
-                    ReminderEntry.COLUMN_TYPE
+                    ReminderEntry.COLUMN_TYPE,
+                    ReminderEntry.COLUMN_COUNT
             };
 
             String[] allFields = concat(firstFields, SCHEDULEABLE_FIELDS);
@@ -176,6 +178,7 @@ public final class AlarmDbContract {
             ContentValues values = new ContentValues();
             values.put(ReminderEntry.COLUMN_ALARM_ID, alarmID);
             values.put(ReminderEntry.COLUMN_TYPE, type.toString());
+            values.put(ReminderEntry.COLUMN_COUNT, 0);
 
             // default the reminder to today's date
             Calendar cal = Calendar.getInstance();
@@ -195,6 +198,7 @@ public final class AlarmDbContract {
 
             values.put(ReminderEntry.COLUMN_ALARM_ID, reminder.getAlarmID());
             values.put(ReminderEntry.COLUMN_TYPE, reminder.getTypeString());
+            values.put(ReminderEntry.COLUMN_COUNT, reminder.getCount());
 
             int[] date = reminder.getDate();
             values.put(ReminderEntry.COLUMN_YEAR, date[0]);
@@ -222,6 +226,7 @@ public final class AlarmDbContract {
                         cursor.getInt(cursor.getColumnIndex(ReminderEntry._ID)),
                         cursor.getInt(cursor.getColumnIndex(ReminderEntry.COLUMN_ALARM_ID)),
                         cursor.getString(cursor.getColumnIndex(ReminderEntry.COLUMN_TYPE)),
+                        cursor.getInt(cursor.getColumnIndex(ReminderEntry.COLUMN_COUNT)),
                         // -----------------------------------------------------------------------
                         cursor.getInt(cursor.getColumnIndex(ReminderEntry.COLUMN_YEAR)),
                         cursor.getInt(cursor.getColumnIndex(ReminderEntry.COLUMN_MONTH)),

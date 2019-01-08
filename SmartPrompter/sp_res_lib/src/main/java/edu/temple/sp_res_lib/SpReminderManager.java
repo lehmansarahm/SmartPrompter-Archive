@@ -34,31 +34,30 @@ public class SpReminderManager {
         return AlarmDbContract.ReminderEntry.populateFromCursor(cursor).get(0);
     }
 
-    public Reminder get(int alarmID) {
-        Uri uri = AlarmDbContract.ReminderEntry.getContentUriWithID(alarmID);
+    public Reminder get(int reminderID) {
+        Uri uri = AlarmDbContract.ReminderEntry.getContentUriWithID(reminderID);
         Cursor cursor = context.getContentResolver().query(uri,
                 AlarmDbContract.ReminderEntry.getAllFields(),
                 null, null, null);
-        return AlarmDbContract.ReminderEntry.populateFromCursor(cursor).get(0);
+
+        List<Reminder> results = AlarmDbContract.ReminderEntry.populateFromCursor(cursor);
+        if (!results.isEmpty()) return results.get(0);
+        else return null;
     }
 
-    public List<Reminder> get(Constants.REMINDER_TYPE[] types) {
-        List<String> whereArgs = new ArrayList<>();
-        String whereClause = (AlarmDbContract.ReminderEntry.COLUMN_TYPE + "=?");
-        for (int i = 0; i < types.length; i++) {
-            whereArgs.add(types[i].toString());
-            if (i > 0) {
-                whereClause += (" OR " + AlarmDbContract.ReminderEntry.COLUMN_TYPE
-                        + "=?");
-            }
-        }
+    public Reminder get(int alarmID, Constants.REMINDER_TYPE type) {
+        String whereClause = (AlarmDbContract.ReminderEntry.COLUMN_ALARM_ID + "=? AND "
+                + AlarmDbContract.ReminderEntry.COLUMN_TYPE + "=?");
+        String[] whereArgs = new String[] { String.valueOf(alarmID), type.toString() };
 
         Cursor cursor = context.getContentResolver()
                 .query(AlarmDbContract.ReminderEntry.CONTENT_URI,
                         AlarmDbContract.ReminderEntry.getAllFields(),
-                        whereClause, whereArgs.toArray(new String[0]),
-                        null);
-        return AlarmDbContract.ReminderEntry.populateFromCursor(cursor);
+                        whereClause, whereArgs, null);
+
+        List<Reminder> results = AlarmDbContract.ReminderEntry.populateFromCursor(cursor);
+        if (!results.isEmpty()) return results.get(0);
+        else return null;
     }
 
     public List<Reminder> getAll() {
@@ -94,27 +93,31 @@ public class SpReminderManager {
             NOTE !!!  ADMIN APP IS RESPONSIBLE FOR PROVIDING ALARM RECEIVER DETAILS !!!
      */
     public boolean scheduleReminder(Reminder reminder) {
-        String[] intentSettings = reminder.getIntentSettings();
-        reminder.updateIntentSettings(intentSettings[0], intentSettings[1], intentSettings[2]);
-
-        long alarmTime = reminder.getAlarmTimeMillis();
-        Log.d(Constants.LOG_TAG, "Alarm will go off at time (millis): " + alarmTime);
-        Log.d(Constants.LOG_TAG, "Current time (millis): " + System.currentTimeMillis());
-
-        long intervalMillis = (alarmTime - System.currentTimeMillis());
-        double intervalSec = (intervalMillis / 1000.d);
-        Log.d(Constants.LOG_TAG, "Alarm time interval (sec): " + intervalSec);
-
-        if (intervalSec <= 0) {
-            Log.e(Constants.LOG_TAG, "CANNOT SET AN ALARM FOR A TIME IN THE PAST.");
+        if (reminder.hasReachedCountLimit())
             return false;
-        }
 
-        Log.e(Constants.LOG_TAG, "Scheduling new alarm reminder with request code: "
-                + reminder.getRequestCode() + " \t\t for time: " + reminder.getTimeString());
+        // Retrieve the associated intent settings
+        String[] intentSettings = reminder.getIntentSettings();
+        reminder.updateIntentSettings(
+                intentSettings[0],      // broadcast action name
+                intentSettings[1],      // broadcast receiver namespace
+                intentSettings[2]);     // broadcast receiver class name
+
+        // Schedule the actual alarm with the system
         AlarmManager alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         alarmMgr.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,
-                alarmTime, reminder.getPendingIntent(context));
+                reminder.getAlarmTimeMillis(), reminder.getPendingIntent(context));
+
+        // Alarm reminder has been set ... increment reminder count
+        // and commit changes to DB ...
+        SpReminderManager reminderMgr = new SpReminderManager(context);
+        reminder.incrementCount();
+        reminderMgr.update(reminder);
+
+        Log.e(Constants.LOG_TAG, "Scheduled new alarm reminder with request code: "
+                + reminder.getRequestCode()
+                + " \t\t at current count: " + reminder.getCount()
+                + " \t\t for time: " + reminder.getTimeString());
         return true;
     }
 

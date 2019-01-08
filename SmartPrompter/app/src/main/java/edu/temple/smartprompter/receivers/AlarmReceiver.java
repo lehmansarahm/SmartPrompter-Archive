@@ -30,12 +30,6 @@ import static android.app.Notification.VISIBILITY_PUBLIC;
 
 public class AlarmReceiver extends BroadcastReceiver {
 
-    private static final String INTENT_EXTRA_ALARM_ID =
-            edu.temple.sp_res_lib.utils.Constants.INTENT_EXTRA_ALARM_ID;
-
-    private static final String INTENT_EXTRA_ORIG_TIME =
-            edu.temple.sp_res_lib.utils.Constants.INTENT_EXTRA_ORIG_TIME;
-
     private SpAlarmManager mAlarmMgr;
     private Alarm mAlarm;
     private int mAlarmID;
@@ -51,20 +45,20 @@ public class AlarmReceiver extends BroadcastReceiver {
     }
 
     private boolean verifyIntentExtras(Context context, Intent intent) {
-        if (!intent.hasExtra(INTENT_EXTRA_ALARM_ID)) {
+        if (!intent.hasExtra(Constants.INTENT_EXTRA_ALARM_ID)) {
             Log.e(Constants.LOG_TAG, "Alarm broadcast has been received, "
                     + "but is missing the alarm ID.");
             return false;
         }
 
-        if (!intent.hasExtra(INTENT_EXTRA_ORIG_TIME)) {
+        if (!intent.hasExtra(Constants.INTENT_EXTRA_ORIG_TIME)) {
             Log.e(Constants.LOG_TAG, "Alarm broadcast has been received, "
                     + "but is missing original alarm time.");
             return false;
         }
 
-        mAlarmID = intent.getIntExtra(INTENT_EXTRA_ALARM_ID, -1);
-        String timeString = intent.getStringExtra(INTENT_EXTRA_ORIG_TIME);
+        mAlarmID = intent.getIntExtra(Constants.INTENT_EXTRA_ALARM_ID, -1);
+        String timeString = intent.getStringExtra(Constants.INTENT_EXTRA_ORIG_TIME);
 
         mAlarmMgr = new SpAlarmManager(context);
         mAlarm = mAlarmMgr.get(mAlarmID);
@@ -89,10 +83,20 @@ public class AlarmReceiver extends BroadcastReceiver {
     }
 
     private void schedulePreemptiveReminder(Context context) {
-        // schedule a reminder for this alarm ...
-        // we can always cancel it if the user acknowledges ...
+        // create a new acknowledgement reminder for this alarm by default ...
+        // will cancel if / when the user completes the acknowledgement phase
         SpReminderManager rm = new SpReminderManager(context);
         Reminder reminder = rm.create(mAlarmID, REMINDER_TYPE.Acknowledgement);
+
+        // --------------------------------------------------------------------------------------
+
+        // NOTE - THERE WILL ONLY EVER BE ONE REMINDER OF EACH TYPE IN THE DB
+        // AFTER THIS POINT IN THE PROGRAM FLOW, RETRIEVE THE EXISTING ACKNOWLEDGEMENT
+        // REMINDER AND KEEP RESCHEDULING IT UNTIL WE HIT THE LIMIT OR THE USER ACKNOWLEDGES
+
+        // ... RINSE AND REPEAT FOR THE COMPLETION REMINDERS
+
+        // --------------------------------------------------------------------------------------
 
         // retrieve, set the appropriate receiver settings ...
         Resources resources = context.getResources();
@@ -102,21 +106,12 @@ public class AlarmReceiver extends BroadcastReceiver {
                 resources.getString(R.string.reminder_receiver_class)
         );
 
-        // sanity check ...
-        Log.i(Constants.LOG_TAG, "Current reminder time: "
-                + reminder.getTimeString());
-
         // calculate the appropriate reminder interval and commit changes to database
         reminder.calculateNewReminder();
         rm.update(reminder);
 
-        // sanity check, part ...
-        Reminder sanityReminder = rm.get(reminder.getID());
-        Log.i(Constants.LOG_TAG, "Adjusted reminder time: "
-                + sanityReminder.getTimeString());
-
         // schedule the reminder
-        rm.scheduleReminder(sanityReminder);
+        rm.scheduleReminder(reminder);
     }
 
     // --------------------------------------------------------------------------------------

@@ -108,7 +108,6 @@ public class SpAlarmManager {
                                  String receiverNamespace, String receiverClassName) {
 
         AlarmManager alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        // String alarmAction = context.getResources().getString(R.string.action_alarms);
         alarm.updateIntentSettings(alarmAction, receiverNamespace, receiverClassName);
 
         long alarmTime = alarm.getAlarmTimeMillis();
@@ -124,7 +123,7 @@ public class SpAlarmManager {
             return false;
         }
 
-        Log.e(Constants.LOG_TAG, "Scheduling new alarm reminder with request code: "
+        Log.e(Constants.LOG_TAG, "Scheduling new alarm with request code: "
                 + alarm.getID() + " \t\t for time: " + alarm.getTimeString());
         alarmMgr.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,
                 alarmTime, alarm.getPendingIntent(context));
@@ -152,7 +151,7 @@ public class SpAlarmManager {
         }
 
         alarmMgr.cancel(alarmIntent);
-        alarm.updateStatus(Constants.ALARM_STATUS.New);
+        alarm.updateStatus(Constants.ALARM_STATUS.Inactive);
         Log.i(Constants.LOG_TAG, "Reminders cancelled.");
     }
 

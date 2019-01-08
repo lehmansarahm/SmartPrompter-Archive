@@ -18,8 +18,12 @@ import android.widget.TextView;
 
 import edu.temple.sp_admin.R;
 import edu.temple.sp_admin.utils.Constants;
+
 import edu.temple.sp_res_lib.Alarm;
+import edu.temple.sp_res_lib.Reminder;
 import edu.temple.sp_res_lib.SpAlarmManager;
+import edu.temple.sp_res_lib.SpReminderManager;
+import edu.temple.sp_res_lib.utils.Constants.REMINDER_TYPE;
 
 public class IncompleteAlarmDetailsFragment extends Fragment {
 
@@ -223,6 +227,19 @@ public class IncompleteAlarmDetailsFragment extends Fragment {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SpReminderManager remMgr = new SpReminderManager(getContext());
+                Reminder ackRem = remMgr.get(mAlarm.getID(), REMINDER_TYPE.Acknowledgement);
+                if (ackRem != null) {
+                    remMgr.cancelReminder(ackRem);
+                    remMgr.delete(ackRem);
+                }
+
+                Reminder compRem = remMgr.get(mAlarm.getID(), REMINDER_TYPE.Completion);
+                if (compRem != null) {
+                    remMgr.cancelReminder(compRem);
+                    remMgr.delete(compRem);
+                }
+
                 mAlarmMgr.cancelAlarm(mAlarm);
                 mAlarmMgr.delete(mAlarm);
                 mChangeListener.onAlarmDetailsChanged();

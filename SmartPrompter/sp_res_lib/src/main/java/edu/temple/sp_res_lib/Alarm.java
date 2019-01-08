@@ -56,11 +56,16 @@ public class Alarm extends BaseScheduleable {
 
     public String getStatusString() { return status.toString(); }
 
+    public boolean hasStatus(Constants.ALARM_STATUS compStatus) {
+        return (status.equals(compStatus));
+    }
+
     public boolean isActive() {
         // an alarm is "inactive" if its status is "new" or "complete"
         // therefore, an "active" alarm is one with a status OTHER THAN these
-        return !status.equals(Constants.ALARM_STATUS.New) &&
-                !status.equals(Constants.ALARM_STATUS.Complete);
+        return !status.equals(Constants.ALARM_STATUS.Inactive) &&
+                !status.equals(Constants.ALARM_STATUS.Complete) &&
+                !status.equals(Constants.ALARM_STATUS.TimedOut);
     }
 
     // ----------------------------------------------------------------------------
@@ -88,7 +93,7 @@ public class Alarm extends BaseScheduleable {
         boolean invalidLabel = (label == null || label.isEmpty());
 
         if (!status.equals(Constants.ALARM_STATUS.Complete) || invalidTime || invalidLabel)
-            return "headshot.jpg";
+            return ""; // "headshot.jpg";
 
         String formattedTime = timeCompleted
                 .replace("-", "")
