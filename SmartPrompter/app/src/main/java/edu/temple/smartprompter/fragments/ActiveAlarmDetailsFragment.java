@@ -18,13 +18,17 @@ import edu.temple.smartprompter.R;
 import edu.temple.smartprompter.TaskAcknowledgementActivity;
 import edu.temple.smartprompter.TaskCompletionActivity;
 import edu.temple.smartprompter.utils.Constants;
+
 import edu.temple.sp_res_lib.Alarm;
+import edu.temple.sp_res_lib.Reminder;
 import edu.temple.sp_res_lib.SpAlarmManager;
+import edu.temple.sp_res_lib.SpReminderManager;
 
 public class ActiveAlarmDetailsFragment extends Fragment {
 
     private SpAlarmManager mAlarmMgr;
     private Alarm mAlarm;
+    private Reminder mLatestReminder;
 
     private Intent taskCompletionIntent = null;
 
@@ -47,6 +51,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
             int alarmID = getArguments().getInt(Constants.BUNDLE_ARG_ALARM_ID);
             mAlarmMgr = new SpAlarmManager(getActivity());
             mAlarm = mAlarmMgr.get(alarmID);
+            mLatestReminder = (new SpReminderManager(getContext())).getLatest(alarmID);
         }
     }
 
@@ -105,6 +110,10 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         if (taskCompletionIntent == null)
             return;
 
+        taskCompletionIntent.putExtra(Constants.INTENT_EXTRA_REMINDER_ID,
+                (mLatestReminder != null
+                        ? mLatestReminder.getID()
+                        : Constants.DEFAULT_REMINDER_ID));
         taskCompletionIntent.putExtra(Constants.INTENT_EXTRA_ALARM_ID,
                 mAlarm.getID());
         taskCompletionIntent.putExtra(Constants.INTENT_EXTRA_ALARM_CURRENT_STATUS,

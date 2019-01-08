@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AlertDialog;
 import android.text.InputType;
 import android.util.Log;
@@ -108,6 +109,12 @@ public class ActiveAlarmDetailsFragment extends Fragment {
             int alarmID = getArguments().getInt(Constants.BUNDLE_ARG_ALARM_ID);
             mAlarmMgr = new SpAlarmManager(getActivity());
             mAlarm = mAlarmMgr.get(alarmID);
+            mAlarm.updateIntentSettings(
+                    alarmAction,
+                    receiverNamespace,
+                    receiverClassName
+            );
+            mAlarmMgr.update(mAlarm);
         }
     }
 
@@ -241,8 +248,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
                         } else {
                             Log.i(Constants.LOG_TAG, "Alarm status is currently inactive.  "
                                     + "Activating alarm and scheduling reminders.");
-                            boolean success = mAlarmMgr.scheduleAlarm(mAlarm,
-                                    alarmAction, receiverNamespace, receiverClassName);
+                            boolean success = mAlarmMgr.scheduleAlarm(mAlarm);
                             if (!success) {
                                 Toast.makeText(rootView.getContext(), "Please schedule an alarm in the future!",
                                         Toast.LENGTH_SHORT).show();
@@ -281,8 +287,7 @@ public class ActiveAlarmDetailsFragment extends Fragment {
                             Log.i(Constants.LOG_TAG, "Cancelling and rescheduling all "
                                     + "reminders for alarm ID: " + mAlarm.getID());
                             mAlarmMgr.cancelAlarm(mAlarm);
-                            boolean success = mAlarmMgr.scheduleAlarm(mAlarm,
-                                    alarmAction, receiverNamespace, receiverClassName);
+                            boolean success = mAlarmMgr.scheduleAlarm(mAlarm);
                             if (!success) {
                                 Toast.makeText(rootView.getContext(), "Please schedule an alarm in the future!",
                                         Toast.LENGTH_SHORT).show();
@@ -306,19 +311,6 @@ public class ActiveAlarmDetailsFragment extends Fragment {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SpReminderManager remMgr = new SpReminderManager(getContext());
-                Reminder ackRem = remMgr.get(mAlarm.getID(), REMINDER_TYPE.Acknowledgement);
-                if (ackRem != null) {
-                    remMgr.cancelReminder(ackRem);
-                    remMgr.delete(ackRem);
-                }
-
-                Reminder compRem = remMgr.get(mAlarm.getID(), REMINDER_TYPE.Completion);
-                if (compRem != null) {
-                    remMgr.cancelReminder(compRem);
-                    remMgr.delete(compRem);
-                }
-
                 mAlarmMgr.cancelAlarm(mAlarm);
                 mAlarmMgr.delete(mAlarm);
                 mChangeListener.onAlarmDetailsChanged();

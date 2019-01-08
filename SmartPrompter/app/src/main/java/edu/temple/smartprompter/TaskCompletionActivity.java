@@ -1,10 +1,12 @@
 package edu.temple.smartprompter;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NotificationManagerCompat;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -46,15 +48,34 @@ public class TaskCompletionActivity extends BaseActivity implements
         // cancel any lingering notifications associated with this alarm
         NotificationManagerCompat nm = NotificationManagerCompat.from(this);
         nm.cancel(mAlarmID);
-        nm.cancel(reminderID);
+        nm.cancel(reminder.getRequestCode());
 
-        // retrieve and update the completion reminder for this alarm
-        updateReminder();
+        // retrieve the current alarm
+        mAlarmMgr = new SpAlarmManager(this);
+        mAlarm = mAlarmMgr.get(mAlarmID);
+        if (mAlarm == null) {
+            Log.e(Constants.LOG_TAG, "NO MATCHING RECORD FOR PROVIDED ALARM ID.");
 
-        // proceed with displaying the activity view
-        if (checkPermissions()) {
-            initNavigation();
-            showDefaultFragment();
+            DialogInterface.OnClickListener missingAlarmListener = new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    TaskCompletionActivity.this.finishAndRemoveTask();
+                }};
+
+            new AlertDialog.Builder(this)
+                    .setTitle("Missing Alarm")
+                    .setMessage("The alarm you are trying to access no longer exists.  "
+                            + "Please check with your caretaker to verify.")
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setPositiveButton(android.R.string.ok, missingAlarmListener).show();
+        } else {
+            // retrieve and update the completion reminder for this alarm
+            updateReminder();
+
+            // proceed with displaying the activity view
+            if (checkPermissions()) {
+                initNavigation();
+                showDefaultFragment();
+            }
         }
     }
 

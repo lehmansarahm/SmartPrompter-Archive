@@ -1,11 +1,13 @@
 package edu.temple.sp_res_lib;
 
 import android.app.AlarmManager;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -68,6 +70,15 @@ public class SpReminderManager {
         return AlarmDbContract.ReminderEntry.populateFromCursor(cursor);
     }
 
+    public Reminder getLatest(int alarmID) {
+        Reminder compRem = get(alarmID, Constants.REMINDER_TYPE.Completion);
+        if (compRem == null) {
+            return get(alarmID, Constants.REMINDER_TYPE.Acknowledgement);
+        } else {
+            return  compRem;
+        }
+    }
+
     public int update(Reminder reminder) {
         Log.i(Constants.LOG_TAG, "Committing details for reminder with ID: "
                 + reminder.getID());
@@ -93,15 +104,14 @@ public class SpReminderManager {
             NOTE !!!  ADMIN APP IS RESPONSIBLE FOR PROVIDING ALARM RECEIVER DETAILS !!!
      */
     public boolean scheduleReminder(Reminder reminder) {
-        if (reminder.hasReachedCountLimit())
+        if (reminder.hasExceededCountLimit())
             return false;
 
-        // Retrieve the associated intent settings
-        String[] intentSettings = reminder.getIntentSettings();
-        reminder.updateIntentSettings(
-                intentSettings[0],      // broadcast action name
-                intentSettings[1],      // broadcast receiver namespace
-                intentSettings[2]);     // broadcast receiver class name
+        String[] receiverSettings = reminder.getIntentSettings();
+        Log.e(Constants.LOG_TAG, "Scheduling reminder using pre-existing receiver settings: "
+                + " \n\t action: " + receiverSettings[0]
+                + " \n\t receiver namespace: " + receiverSettings[1]
+                + " \n\t receiver class name: " + receiverSettings[2]);
 
         // Schedule the actual alarm with the system
         AlarmManager alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -110,12 +120,12 @@ public class SpReminderManager {
 
         // Alarm reminder has been set ... increment reminder count
         // and commit changes to DB ...
-        SpReminderManager reminderMgr = new SpReminderManager(context);
         reminder.incrementCount();
-        reminderMgr.update(reminder);
+        update(reminder);
 
-        Log.e(Constants.LOG_TAG, "Scheduled new alarm reminder with request code: "
-                + reminder.getRequestCode()
+        Log.e(Constants.LOG_TAG, "Scheduled new alarm reminder "
+                + "with request code: " + reminder.getRequestCode()
+                + " \t\t of type: " + reminder.getTypeString()
                 + " \t\t at current count: " + reminder.getCount()
                 + " \t\t for time: " + reminder.getTimeString());
         return true;
@@ -140,8 +150,17 @@ public class SpReminderManager {
             return;
         }
 
+        // cancel any lingering notifications
+        Log.i(Constants.LOG_TAG, "Cancelling future notifications and alerts for"
+                + " reminder ID: " + reminder.getID()
+                + " with request code: " + reminder.getRequestCode());
+        NotificationManager nm = (NotificationManager)
+                context.getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.cancel(reminder.getRequestCode());
+
         alarmMgr.cancel(alarmIntent);
-        Log.i(Constants.LOG_TAG, "Reminders cancelled.");
+        Log.i(Constants.LOG_TAG, "Reminders cancelled for reminder ID: "
+                + reminder.getID());
     }
 
 }

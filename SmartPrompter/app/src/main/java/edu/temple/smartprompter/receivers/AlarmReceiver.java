@@ -57,7 +57,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             return false;
         }
 
-        mAlarmID = intent.getIntExtra(Constants.INTENT_EXTRA_ALARM_ID, -1);
+        mAlarmID = intent.getIntExtra(Constants.INTENT_EXTRA_ALARM_ID, Constants.DEFAULT_ALARM_ID);
         String timeString = intent.getStringExtra(Constants.INTENT_EXTRA_ORIG_TIME);
 
         mAlarmMgr = new SpAlarmManager(context);
@@ -130,8 +130,10 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setVisibility(VISIBILITY_PUBLIC)
                 .setPriority(NotificationCompat.PRIORITY_MAX);
 
+        Log.i(Constants.LOG_TAG, "Building notification for alarm ID: "
+                + mAlarmID + " using request code: " + mAlarm.getRequestCode());
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
-        notificationManager.notify(mAlarmID, mBuilder.build());
+        notificationManager.notify(mAlarm.getRequestCode(), mBuilder.build());
     }
 
     @SuppressLint("WrongConstant")
@@ -161,7 +163,17 @@ public class AlarmReceiver extends BroadcastReceiver {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.putExtra(Constants.INTENT_EXTRA_ALARM_ID, mAlarmID);
         intent.putExtra(Constants.INTENT_EXTRA_ALARM_CURRENT_STATUS, mAlarmStatus);
-        return PendingIntent.getActivity(context, mAlarmID, intent, Constants.PENDING_INTENT_FLAGS);
+
+        Reminder latestReminder = (new SpReminderManager(context)).getLatest(mAlarmID);
+        intent.putExtra(Constants.INTENT_EXTRA_REMINDER_ID,
+                (latestReminder != null
+                        ? latestReminder.getID()
+                        : Constants.DEFAULT_REMINDER_ID));
+
+        Log.i(Constants.LOG_TAG, "Returning notification intent for alarm ID: "
+                + mAlarmID + " using request code: " + mAlarm.getRequestCode());
+        return PendingIntent.getActivity(context, mAlarm.getRequestCode(),
+                intent, Constants.PENDING_INTENT_FLAGS);
     }
 
 }

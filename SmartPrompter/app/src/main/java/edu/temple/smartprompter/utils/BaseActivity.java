@@ -223,11 +223,15 @@ public abstract class BaseActivity extends AppCompatActivity implements
         // parse out the intent extras
         mAlarmID = getIntent().getIntExtra(Constants.INTENT_EXTRA_ALARM_ID,
                 Constants.DEFAULT_ALARM_ID);
-        reminderID = getIntent().getIntExtra(Constants.INTENT_EXTRA_REMINDER_ID,
-                Constants.DEFAULT_ALARM_ID);
         mAlarmStatus = getIntent().getStringExtra(Constants.INTENT_EXTRA_ALARM_CURRENT_STATUS);
         Log.i(Constants.LOG_TAG, "Received alarm response request for alarm with ID: "
                 + mAlarmID + " \t\t and original alarm status: " + mAlarmStatus);
+
+        // get the reminder info
+        reminderID = getIntent().getIntExtra(Constants.INTENT_EXTRA_REMINDER_ID,
+                Constants.DEFAULT_ALARM_ID);
+        mReminderMgr = new SpReminderManager(this);
+        reminder = mReminderMgr.get(reminderID);
 
         return true;
     }

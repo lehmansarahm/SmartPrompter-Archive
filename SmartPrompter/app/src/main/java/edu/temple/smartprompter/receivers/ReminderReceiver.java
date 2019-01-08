@@ -1,5 +1,6 @@
 package edu.temple.smartprompter.receivers;
 
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -37,29 +38,45 @@ public class ReminderReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (verifyIntentExtras(intent)) {
-            mRemMgr = new SpReminderManager(context);
-            mReminder = mRemMgr.get(mReminderID);
-
-            mAlarmMgr = new SpAlarmManager(context);
-            mAlarm = mAlarmMgr.get(mAlarmID);
-
             // cancel any lingering notifications
-            NotificationManagerCompat nm = NotificationManagerCompat.from(context);
+            NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             nm.cancel(mAlarmID);
             nm.cancel(mReminderID);
 
+            // retrieve the current reminder
+            mRemMgr = new SpReminderManager(context);
+            mReminder = mRemMgr.get(mReminderID);
+            if (mReminder == null) {
+                Log.e(Constants.LOG_TAG, "NO MATCHING RECORD FOR PROVIDED REMINDER ID.");
+                return;
+            }
+
+            // retrieve the current alarm
+            mAlarmMgr = new SpAlarmManager(context);
+            mAlarm = mAlarmMgr.get(mAlarmID);
+            if (mAlarm == null) {
+                Log.e(Constants.LOG_TAG, "NO MATCHING RECORD FOR PROVIDED ALARM ID.");
+                return;
+            }
+
             // Get ready to handle the next alarm reminder ..
-            if (mReminder.hasReachedCountLimit()) {
+            if (mReminder.hasExceededCountLimit()) {
                 Log.e(Constants.LOG_TAG, "REMINDER LIMIT FOR ALARM ID: " + mAlarmID
-                        + " HAS BEEN REACHED. CANCELLING ALL NOTIFICATIONS FOR THIS "
+                        + " HAS BEEN EXCEEDED. CANCELLING ALL NOTIFICATIONS FOR THIS "
                         + "ALARM, AND SETTING ALARM STATUS TO 'TIMED OUT'.");
                 mAlarmMgr.cancelAlarm(mAlarm);
                 mAlarm.updateStatus(ALARM_STATUS.TimedOut);
                 mAlarmMgr.update(mAlarm);
+            } else if (mReminder.hasReachedCountLimit()) {
+                Log.e(Constants.LOG_TAG, "REMINDER LIMIT FOR ALARM ID: " + mAlarmID
+                        + " HAS BEEN REACHED. SCHEDULING FINAL NOTIFICATION-LESS "
+                        + "GRACE PERIOD REMINDER.  \n\t\t (When this reminder goes off, "
+                        + "app will auto-close parent alarm with status TimedOut.)");
+                scheduleReminder();
             } else {
                 Log.i(Constants.LOG_TAG, "Alarm ID: " + mAlarmID + " still has "
                         + "reminders available.  Scheduling next reminder.");
-                schedulePreemptiveReminder();
+                scheduleReminder();
                 generateNotification(context);
             }
         }
@@ -98,7 +115,7 @@ public class ReminderReceiver extends BroadcastReceiver {
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
-    private void schedulePreemptiveReminder() {
+    private void scheduleReminder() {
 
         // NOTE - THERE WILL ONLY EVER BE ONE REMINDER OF EACH TYPE IN THE DB
         // AFTER THIS POINT IN THE PROGRAM FLOW, RETRIEVE THE EXISTING ACKNOWLEDGEMENT
@@ -137,8 +154,10 @@ public class ReminderReceiver extends BroadcastReceiver {
                 .setVisibility(VISIBILITY_PUBLIC)
                 .setPriority(NotificationCompat.PRIORITY_MAX);
 
+        Log.i(Constants.LOG_TAG, "Building notification for reminder ID: "
+                + mReminderID + " using request code: " + mReminder.getRequestCode());
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
-        notificationManager.notify(mReminderID, mBuilder.build());
+        notificationManager.notify(mReminder.getRequestCode(), mBuilder.build());
     }
 
     private PendingIntent createNotificationIntent(Context context) {
@@ -155,6 +174,9 @@ public class ReminderReceiver extends BroadcastReceiver {
         intent.putExtra(Constants.INTENT_EXTRA_REMINDER_ID, mReminderID);
         intent.putExtra(Constants.INTENT_EXTRA_ALARM_ID, mAlarmID);
         intent.putExtra(Constants.INTENT_EXTRA_ALARM_CURRENT_STATUS, mAlarm.getStatusString());
+
+        Log.i(Constants.LOG_TAG, "Returning notification intent for reminder ID: "
+                + mReminderID + " using request code: " + mReminder.getRequestCode());
         return PendingIntent.getActivity(context, mReminder.getRequestCode(),
                 intent, Constants.PENDING_INTENT_FLAGS);
     }

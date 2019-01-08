@@ -14,6 +14,7 @@ public class Constants {
     public static final String CHANNEL_DESCRIPTION = "channel for smartprompter notifications";
 
     public static final int DEFAULT_ALARM_ID = -1;
+    public static final int DEFAULT_REMINDER_ID = -1;
 
     public static final int PENDING_INTENT_FLAGS = PendingIntent.FLAG_CANCEL_CURRENT;
 

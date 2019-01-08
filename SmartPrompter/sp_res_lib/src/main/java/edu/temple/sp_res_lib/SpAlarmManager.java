@@ -1,11 +1,13 @@
 package edu.temple.sp_res_lib;
 
 import android.app.AlarmManager;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -31,7 +33,10 @@ public class SpAlarmManager {
                 AlarmDbContract.AlarmEntry.getDefaultValues());
         Cursor cursor = cr.query(uri, AlarmDbContract.AlarmEntry.getAllFields(),
                 null, null, null);
-        return AlarmDbContract.AlarmEntry.populateFromCursor(cursor).get(0);
+
+        List<Alarm> results = AlarmDbContract.AlarmEntry.populateFromCursor(cursor);
+        if (results.isEmpty()) return null;
+        else return results.get(0);
     }
 
     public Alarm get(int alarmID) {
@@ -39,7 +44,10 @@ public class SpAlarmManager {
         Cursor cursor = context.getContentResolver().query(uri,
                 AlarmDbContract.AlarmEntry.getAllFields(),
                 null, null, null);
-        return AlarmDbContract.AlarmEntry.populateFromCursor(cursor).get(0);
+
+        List<Alarm> results = AlarmDbContract.AlarmEntry.populateFromCursor(cursor);
+        if (results.isEmpty()) return null;
+        else return results.get(0);
     }
 
     public List<Alarm> get(Constants.ALARM_STATUS[] statuses) {
@@ -104,11 +112,15 @@ public class SpAlarmManager {
     /*
             NOTE !!!  ADMIN APP IS RESPONSIBLE FOR PROVIDING ALARM RECEIVER DETAILS !!!
      */
-    public boolean scheduleAlarm(Alarm alarm, String alarmAction,
-                                 String receiverNamespace, String receiverClassName) {
+    public boolean scheduleAlarm(Alarm alarm) {
 
         AlarmManager alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarm.updateIntentSettings(alarmAction, receiverNamespace, receiverClassName);
+
+        String[] receiverSettings = alarm.getIntentSettings();
+        Log.e(Constants.LOG_TAG, "Scheduling alarm using pre-existing receiver settings: "
+            + " \n\t action: " + receiverSettings[0]
+            + " \n\t receiver namespace: " + receiverSettings[1]
+            + " \n\t receiver class name: " + receiverSettings[2]);
 
         long alarmTime = alarm.getAlarmTimeMillis();
         Log.d(Constants.LOG_TAG, "Alarm will go off at time (millis): " + alarmTime);
@@ -124,7 +136,7 @@ public class SpAlarmManager {
         }
 
         Log.e(Constants.LOG_TAG, "Scheduling new alarm with request code: "
-                + alarm.getID() + " \t\t for time: " + alarm.getTimeString());
+                + alarm.getRequestCode() + " \t\t for time: " + alarm.getTimeString());
         alarmMgr.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,
                 alarmTime, alarm.getPendingIntent(context));
         alarm.updateStatus(Constants.ALARM_STATUS.Active);
@@ -132,23 +144,49 @@ public class SpAlarmManager {
     }
 
     public void cancelAlarm(Alarm alarm) {
-        AlarmManager alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        AlarmManager alarmMgr = (AlarmManager)
+                context.getSystemService(Context.ALARM_SERVICE);
+
         Log.i(Constants.LOG_TAG,
-                "Attempting to cancel active reminders for alarm with ID: "
+                "Attempting to cancel active alerts for alarm with ID: "
                 + alarm.getID());
 
         if (alarmMgr == null) {
             Log.e(Constants.LOG_TAG,
-                    "Cannot cancel active reminders!  Alarm Manager is null.");
+                    "Cannot cancel active alerts!  Alarm Manager is null.");
             return;
         }
 
         PendingIntent alarmIntent = alarm.getPendingIntent(context);
         if (alarmIntent == null) {
             Log.e(Constants.LOG_TAG,
-                    "Cannot cancel active reminders!  Alarm intent is null.");
+                    "Cannot cancel active alerts!  Alarm intent is null.");
             return;
         }
+
+        // cancel and delete any lingering acknowledgement reminders
+        SpReminderManager remMgr = new SpReminderManager(context);
+        Reminder ackRem = remMgr.get(alarm.getID(),
+                Constants.REMINDER_TYPE.Acknowledgement);
+        if (ackRem != null) {
+            remMgr.cancelReminder(ackRem);
+            remMgr.delete(ackRem);
+        }
+
+        // cancel and delete any lingering completion reminders
+        Reminder compRem = remMgr.get(alarm.getID(),
+                Constants.REMINDER_TYPE.Completion);
+        if (compRem != null) {
+            remMgr.cancelReminder(compRem);
+            remMgr.delete(compRem);
+        }
+
+        // cancel any lingering notifications
+        Log.i(Constants.LOG_TAG, "Attempting to cancel alarm notification "
+                + "using request code: " + alarm.getRequestCode());
+        NotificationManager nm = (NotificationManager)
+                context.getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.cancel(alarm.getRequestCode());
 
         alarmMgr.cancel(alarmIntent);
         alarm.updateStatus(Constants.ALARM_STATUS.Inactive);

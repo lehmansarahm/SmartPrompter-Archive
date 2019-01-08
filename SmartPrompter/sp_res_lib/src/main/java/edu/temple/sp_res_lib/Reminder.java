@@ -12,8 +12,6 @@ import edu.temple.sp_res_lib.utils.Constants;
 
 public class Reminder extends BaseScheduleable {
 
-    private static final int REMINDER_REQUEST_CODE_OFFSET = 1000;
-
     private int alarmID, count;
     private Constants.REMINDER_TYPE type;
 
@@ -33,7 +31,7 @@ public class Reminder extends BaseScheduleable {
     // ----------------------------------------------------------------------------
     // ----------------------------------------------------------------------------
 
-    public int getRequestCode() { return (REMINDER_REQUEST_CODE_OFFSET + ID); }
+    public int getRequestCode() { return Constants.getReminderRequestCode(ID, type); }
 
     public int getAlarmID() { return alarmID; }
 
@@ -50,6 +48,10 @@ public class Reminder extends BaseScheduleable {
 
     public boolean hasReachedCountLimit() {
         return (count == Constants.getReminderLimit(type));
+    }
+
+    public boolean hasExceededCountLimit() {
+        return (count > Constants.getReminderLimit(type));
     }
 
     // ----------------------------------------------------------------------------
@@ -76,6 +78,7 @@ public class Reminder extends BaseScheduleable {
         Intent baseIntent = super.getBaseBroadcastIntent(context);
         baseIntent.putExtra(Constants.INTENT_EXTRA_REMINDER_ID, ID);
         baseIntent.putExtra(Constants.INTENT_EXTRA_ALARM_ID, alarmID);
+        baseIntent.putExtra(Constants.INTENT_EXTRA_ORIG_TIME, "");
         return PendingIntent.getBroadcast(context, getRequestCode(),
                 baseIntent, super.PENDING_INTENT_FLAGS);
     }

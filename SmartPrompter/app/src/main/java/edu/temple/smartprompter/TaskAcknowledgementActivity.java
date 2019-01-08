@@ -1,8 +1,10 @@
 package edu.temple.smartprompter;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NotificationManagerCompat;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -11,6 +13,7 @@ import edu.temple.smartprompter.utils.BaseActivity;
 import edu.temple.smartprompter.utils.Constants;
 
 import edu.temple.sp_res_lib.Reminder;
+import edu.temple.sp_res_lib.SpAlarmManager;
 import edu.temple.sp_res_lib.SpReminderManager;
 import edu.temple.sp_res_lib.utils.Constants.ALARM_STATUS;
 import edu.temple.sp_res_lib.utils.Constants.REMINDER_TYPE;
@@ -37,8 +40,25 @@ public class TaskAcknowledgementActivity extends BaseActivity implements
         NotificationManagerCompat nm = NotificationManagerCompat.from(this);
         nm.cancel(mAlarmID);
 
-        // proceed with displaying the activity view
-        if (checkPermissions()) {
+        // retrieve the current alarm
+        mAlarmMgr = new SpAlarmManager(this);
+        mAlarm = mAlarmMgr.get(mAlarmID);
+        if (mAlarm == null) {
+            Log.e(Constants.LOG_TAG, "NO MATCHING RECORD FOR PROVIDED ALARM ID.");
+
+            DialogInterface.OnClickListener missingAlarmListener = new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    TaskAcknowledgementActivity.this.finishAffinity();
+                }};
+
+            new AlertDialog.Builder(this)
+                    .setTitle("Missing Alarm")
+                    .setMessage("The alarm you are trying to access no longer exists.  "
+                            + "Please check with your caretaker to verify.")
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setPositiveButton(android.R.string.ok, missingAlarmListener).show();
+        } else if (checkPermissions()) {
+            // proceed with displaying the activity view
             initNavigation();
             showDefaultFragment();
         }

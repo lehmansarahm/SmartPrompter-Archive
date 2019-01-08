@@ -25,16 +25,35 @@ public class Constants {
     public static final int DEFAULT_HOUR_OF_DAY = 12;
     public static final int DEFAULT_MINUTE = 0;
 
+    public static final int REQUEST_CODE_OFFSET_ALARM = 1000;
+    public static final int REQUEST_CODE_OFFSET_ACK_REM = 2000;
+    public static final int REQUEST_CODE_OFFSET_COMP_REM = 3000;
+
     public enum ALARM_STATUS {Inactive, Active, Unacknowledged, Incomplete, Complete, TimedOut }
+
+    public static int getAlarmRequestCode(int alarmID) {
+        return (REQUEST_CODE_OFFSET_ALARM + alarmID);
+    }
 
     public enum REMINDER_TYPE { Acknowledgement, Completion }
 
+    public static int getReminderRequestCode(int reminderID, REMINDER_TYPE type) {
+        switch (type) {
+            case Acknowledgement:
+                return (REQUEST_CODE_OFFSET_ACK_REM + reminderID);
+            case Completion:
+                return (REQUEST_CODE_OFFSET_COMP_REM + reminderID);
+            default:
+                return reminderID;
+        }
+    }
+
     public static int getReminderInterval(REMINDER_TYPE type) {
         switch (type) {
+            case Acknowledgement:
+                return 1;   // minutes
             case Completion:
                 return 5;   // minutes
-            case Acknowledgement:
-                return 1;
             default:
                 Log.e(Constants.LOG_TAG, "Unknown reminder type: " + type.toString());
                 return -1;

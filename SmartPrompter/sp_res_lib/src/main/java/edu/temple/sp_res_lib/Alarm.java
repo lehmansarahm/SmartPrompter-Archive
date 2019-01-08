@@ -39,6 +39,8 @@ public class Alarm extends BaseScheduleable {
     // ----------------------------------------------------------------------------
     // ----------------------------------------------------------------------------
 
+    public int getRequestCode() { return Constants.getAlarmRequestCode(ID); }
+
     public String getLabel() { return label; }
 
     public void updateLabel(String newLabel) {
