@@ -12,6 +12,7 @@ public class Constants {
     public static final String PUBLIC_DIR_IMAGES = "images";
     public static final String PUBLIC_DIR_RINGTONES = "ringtones";
 
+    public static final String INTENT_EXTRA_SELECTED_MENU_ITEM = "selected_menu_item";
     public static final String INTENT_EXTRA_ALARM_ID = "intent_extra_alarm_ID";
     public static final String INTENT_EXTRA_ALARM_CURRENT_STATUS = "intent_extra_alarm_current_status";
     public static final String INTENT_EXTRA_REMINDER_ID = "intent_extra_reminder_ID";

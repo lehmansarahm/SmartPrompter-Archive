@@ -10,7 +10,10 @@ import edu.temple.smartprompter.fragments.TaskAcknowledgementFragment;
 import edu.temple.smartprompter.utils.BaseActivity;
 import edu.temple.smartprompter.utils.Constants;
 
+import edu.temple.sp_res_lib.Reminder;
+import edu.temple.sp_res_lib.SpReminderManager;
 import edu.temple.sp_res_lib.utils.Constants.ALARM_STATUS;
+import edu.temple.sp_res_lib.utils.Constants.REMINDER_TYPE;
 
 public class TaskAcknowledgementActivity extends BaseActivity implements
         TaskAcknowledgementFragment.TaskAcknowledgementListener {
@@ -69,10 +72,15 @@ public class TaskAcknowledgementActivity extends BaseActivity implements
 
     @Override
     public void onAlarmAcknowledged(int alarmID) {
+        SpReminderManager remMgr = new SpReminderManager(this);
+        Reminder reminder = remMgr.get(alarmID, REMINDER_TYPE.Acknowledgement);
+        remMgr.cancelReminder(reminder);
         updateAlarmStatus(ALARM_STATUS.Incomplete);
+
         startNextActivity(this, TaskCompletionActivity.class);
         Log.i(Constants.LOG_TAG, "Received and acknowledged alarm response for alarm ID: "
-                + mAlarm.getID() + ".  \t\t and updated alarm status: " + mAlarm.getStatusString());
+                + mAlarm.getID() + ".  \t\t and updated alarm status: "
+                + mAlarm.getStatusString());
         finish();
     }
 

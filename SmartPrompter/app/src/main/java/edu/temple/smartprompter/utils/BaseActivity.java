@@ -24,7 +24,9 @@ import edu.temple.smartprompter.R;
 import edu.temple.smartprompter.fragments.MissingPermissionsFragment;
 
 import edu.temple.sp_res_lib.Alarm;
+import edu.temple.sp_res_lib.Reminder;
 import edu.temple.sp_res_lib.SpAlarmManager;
+import edu.temple.sp_res_lib.SpReminderManager;
 import edu.temple.sp_res_lib.utils.Constants.ALARM_STATUS;
 
 public abstract class BaseActivity extends AppCompatActivity implements
@@ -32,10 +34,14 @@ public abstract class BaseActivity extends AppCompatActivity implements
 
     protected static final String DEFAULT_FRAGMENT_TAG = "default_fragment";
 
-    protected static final String INTENT_EXTRA_SELECTED_MENU_ITEM = "selected_menu_item";
+    protected static final String INTENT_EXTRA_SELECTED_MENU_ITEM =
+            edu.temple.sp_res_lib.utils.Constants.INTENT_EXTRA_SELECTED_MENU_ITEM;
+
     protected static final int DEFAULT_VALUE_INT = -1;
 
-    protected boolean isHome = false;
+    protected SpReminderManager mReminderMgr;
+    protected Reminder reminder;
+    protected int reminderID;
 
     protected SpAlarmManager mAlarmMgr;
     protected Alarm mAlarm;
@@ -196,6 +202,12 @@ public abstract class BaseActivity extends AppCompatActivity implements
     // --------------------------------------------------------------------------------------
 
     protected boolean verifyIntentExtras() {
+        if (!getIntent().hasExtra(Constants.INTENT_EXTRA_REMINDER_ID)) {
+            Log.e(Constants.LOG_TAG, "Alarm response has been initiated, "
+                    + "but intent is missing the reminder ID.");
+            return false;
+        }
+
         if (!getIntent().hasExtra(Constants.INTENT_EXTRA_ALARM_ID)) {
             Log.e(Constants.LOG_TAG, "Alarm response has been initiated, "
                     + "but intent was missing the alarm ID.");
@@ -210,6 +222,8 @@ public abstract class BaseActivity extends AppCompatActivity implements
 
         // parse out the intent extras
         mAlarmID = getIntent().getIntExtra(Constants.INTENT_EXTRA_ALARM_ID,
+                Constants.DEFAULT_ALARM_ID);
+        reminderID = getIntent().getIntExtra(Constants.INTENT_EXTRA_REMINDER_ID,
                 Constants.DEFAULT_ALARM_ID);
         mAlarmStatus = getIntent().getStringExtra(Constants.INTENT_EXTRA_ALARM_CURRENT_STATUS);
         Log.i(Constants.LOG_TAG, "Received alarm response request for alarm with ID: "
@@ -244,6 +258,7 @@ public abstract class BaseActivity extends AppCompatActivity implements
 
     protected void startNextActivity(Context origContext, Class nextActClass) {
         Intent intent = new Intent(origContext, nextActClass);
+        intent.putExtra(Constants.INTENT_EXTRA_REMINDER_ID, reminderID);
         intent.putExtra(Constants.INTENT_EXTRA_ALARM_ID, mAlarmID);
         intent.putExtra(Constants.INTENT_EXTRA_ALARM_CURRENT_STATUS, mAlarmStatus);
         startActivity(intent);

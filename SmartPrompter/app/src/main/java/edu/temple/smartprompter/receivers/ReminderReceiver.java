@@ -4,7 +4,6 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
@@ -124,8 +123,6 @@ public class ReminderReceiver extends BroadcastReceiver {
     // --------------------------------------------------------------------------------------
 
     private void generateNotification(Context context) {
-        // TODO - generate reminder notification !!
-
         // NO NEED TO CREATE NOTIFICATION CHANNEL ...
         // original Alarm Receiver took care of that for us ...
 

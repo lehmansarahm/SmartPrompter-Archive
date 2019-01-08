@@ -14,10 +14,12 @@ import edu.temple.smartprompter.fragments.CameraReviewFragment;
 import edu.temple.smartprompter.utils.BaseActivity;
 import edu.temple.smartprompter.utils.Constants;
 
-import edu.temple.sp_res_lib.Alarm;
+import edu.temple.sp_res_lib.Reminder;
 import edu.temple.sp_res_lib.SpAlarmManager;
 import edu.temple.sp_res_lib.SpMediaManager;
+import edu.temple.sp_res_lib.SpReminderManager;
 import edu.temple.sp_res_lib.utils.Constants.ALARM_STATUS;
+import edu.temple.sp_res_lib.utils.Constants.REMINDER_TYPE;
 
 public class TaskCompletionActivity extends BaseActivity implements
         CameraInstructionFragment.ImageAcknowledgementListener,
@@ -44,6 +46,10 @@ public class TaskCompletionActivity extends BaseActivity implements
         // cancel any lingering notifications associated with this alarm
         NotificationManagerCompat nm = NotificationManagerCompat.from(this);
         nm.cancel(mAlarmID);
+        nm.cancel(reminderID);
+
+        // retrieve and update the completion reminder for this alarm
+        updateReminder();
 
         // proceed with displaying the activity view
         if (checkPermissions()) {
@@ -81,6 +87,45 @@ public class TaskCompletionActivity extends BaseActivity implements
         defaultFrag = CameraInstructionFragment.newInstance(mAlarmID);
         ft.replace(R.id.fragment_container, defaultFrag, DEFAULT_FRAGMENT_TAG);
         ft.commit();
+    }
+
+    private void updateReminder() {
+        // create a new acknowledgement reminder for this alarm by default ...
+        // will cancel if / when the user completes the acknowledgement phase
+        SpReminderManager rm = new SpReminderManager(this);
+        Reminder reminder = rm.get(mAlarmID, REMINDER_TYPE.Completion);
+        if (reminder != null) {
+            // only proceed if the current reminder is null ...
+            // if it is not null, the process has already been started and
+            // the reminder receiver is in charge ...
+            return;
+        }
+
+        reminder = rm.create(mAlarmID, REMINDER_TYPE.Completion);
+
+        // --------------------------------------------------------------------------------------
+
+        // NOTE - THERE WILL ONLY EVER BE ONE REMINDER OF EACH TYPE IN THE DB
+        // AFTER THIS POINT IN THE PROGRAM FLOW, RETRIEVE THE EXISTING ACKNOWLEDGEMENT
+        // REMINDER AND KEEP RESCHEDULING IT UNTIL WE HIT THE LIMIT OR THE USER ACKNOWLEDGES
+
+        // ... RINSE AND REPEAT FOR THE COMPLETION REMINDERS
+
+        // --------------------------------------------------------------------------------------
+
+        // retrieve, set the appropriate receiver settings ...
+        reminder.updateIntentSettings(
+                getResources().getString(R.string.action_alarms),
+                getResources().getString(R.string.reminder_receiver_namespace),
+                getResources().getString(R.string.reminder_receiver_class)
+        );
+
+        // calculate the appropriate reminder interval and commit changes to database
+        reminder.calculateNewReminder();
+        rm.update(reminder);
+
+        // schedule the reminder
+        rm.scheduleReminder(reminder);
     }
 
     // --------------------------------------------------------------------------------------
@@ -141,6 +186,11 @@ public class TaskCompletionActivity extends BaseActivity implements
     public void onImageAccepted(int alarmID, byte[] bytes) {
         Log.i(Constants.LOG_TAG, "User has successfully taken and approved a task "
                 + "completion picture.  Updating alarm and saving image to storage.");
+
+        SpReminderManager remMgr = new SpReminderManager(this);
+        Reminder reminder = remMgr.get(alarmID, REMINDER_TYPE.Completion);
+        remMgr.cancelReminder(reminder);
+
         mAlarmMgr = new SpAlarmManager(this);
         mAlarm = mAlarmMgr.get(alarmID);
         mAlarm.updateTimeCompleted();
@@ -161,7 +211,6 @@ public class TaskCompletionActivity extends BaseActivity implements
 
     @Override
     public void onImageRejected(int alarmID) {
-        // TODO - pop review fragment ... return to preview fragment
         Log.i(Constants.LOG_TAG, "User has rejected the task completion picture "
                 + "they took.  Returning to camera preview fragment ...");
         FragmentManager fm = getSupportFragmentManager();
