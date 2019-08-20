@@ -1,5 +1,6 @@
 package edu.temple.smartprompter;
 
+import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,11 +46,6 @@ public class TaskCompletionActivity extends BaseActivity implements
         if (!verifyIntentExtras())
             return;
 
-        // cancel any lingering notifications associated with this alarm
-        NotificationManagerCompat nm = NotificationManagerCompat.from(this);
-        nm.cancel(mAlarmID);
-        nm.cancel(reminder.getRequestCode());
-
         // retrieve the current alarm
         mAlarmMgr = new SpAlarmManager(this);
         mAlarm = mAlarmMgr.get(mAlarmID);
@@ -68,8 +64,19 @@ public class TaskCompletionActivity extends BaseActivity implements
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setPositiveButton(android.R.string.ok, missingAlarmListener).show();
         } else {
-            // retrieve and update the completion reminder for this alarm
-            updateReminder();
+            // cancel any lingering notifications associated with this alarm
+            NotificationManager nm = getSystemService(NotificationManager.class);
+            Log.e(Constants.LOG_TAG, "Cancelling notification with alarm request "
+                    + "code: " + mAlarm.getRequestCode());
+            nm.cancel(mAlarm.getRequestCode());
+
+            // if reminder has been provided, cancel any lingering
+            // notifications associated with it
+            if (reminder != null) {
+                Log.e(Constants.LOG_TAG, "Cancelling notification with reminder "
+                        + "request code: " + reminder.getRequestCode());
+                nm.cancel(reminder.getRequestCode());
+            }
 
             // proceed with displaying the activity view
             if (checkPermissions()) {
@@ -110,45 +117,6 @@ public class TaskCompletionActivity extends BaseActivity implements
         ft.commit();
     }
 
-    private void updateReminder() {
-        // create a new acknowledgement reminder for this alarm by default ...
-        // will cancel if / when the user completes the acknowledgement phase
-        SpReminderManager rm = new SpReminderManager(this);
-        Reminder reminder = rm.get(mAlarmID, REMINDER_TYPE.Completion);
-        if (reminder != null) {
-            // only proceed if the current reminder is null ...
-            // if it is not null, the process has already been started and
-            // the reminder receiver is in charge ...
-            return;
-        }
-
-        reminder = rm.create(mAlarmID, REMINDER_TYPE.Completion);
-
-        // --------------------------------------------------------------------------------------
-
-        // NOTE - THERE WILL ONLY EVER BE ONE REMINDER OF EACH TYPE IN THE DB
-        // AFTER THIS POINT IN THE PROGRAM FLOW, RETRIEVE THE EXISTING ACKNOWLEDGEMENT
-        // REMINDER AND KEEP RESCHEDULING IT UNTIL WE HIT THE LIMIT OR THE USER ACKNOWLEDGES
-
-        // ... RINSE AND REPEAT FOR THE COMPLETION REMINDERS
-
-        // --------------------------------------------------------------------------------------
-
-        // retrieve, set the appropriate receiver settings ...
-        reminder.updateIntentSettings(
-                getResources().getString(R.string.action_alarms),
-                getResources().getString(R.string.reminder_receiver_namespace),
-                getResources().getString(R.string.reminder_receiver_class)
-        );
-
-        // calculate the appropriate reminder interval and commit changes to database
-        reminder.calculateNewReminder();
-        rm.update(reminder);
-
-        // schedule the reminder
-        rm.scheduleReminder(reminder);
-    }
-
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
     //      ImageAcknowledgementListener methods
@@ -157,7 +125,7 @@ public class TaskCompletionActivity extends BaseActivity implements
 
     @Override
     public void onImageAcknowledged(int alarmID) {
-        Log.i(Constants.LOG_TAG, "User wants to view details of alarm ID: " + alarmID);
+        Log.i(Constants.LOG_TAG, "User is ready to take a picture for alarm ID: " + alarmID);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
         previewFrag = CameraPreviewFragment.newInstance(alarmID);
@@ -186,7 +154,7 @@ public class TaskCompletionActivity extends BaseActivity implements
 
     @Override
     public void onImageCaptured(int alarmID, byte[] bytes) {
-        Log.i(Constants.LOG_TAG, "User wants to view details of alarm ID: " + alarmID);
+        Log.i(Constants.LOG_TAG, "User has captured an image for alarm ID: " + alarmID);
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.popBackStack();     // remove camera preview fragment to avoid conflicts
 

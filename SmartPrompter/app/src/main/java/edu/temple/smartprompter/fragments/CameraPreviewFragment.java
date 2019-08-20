@@ -236,6 +236,7 @@ public class CameraPreviewFragment extends Fragment {
             return;
         }
 
+        Log.e(Constants.LOG_TAG, "Ready to capture picture from camera preview!");
         CameraManager manager =
                 (CameraManager) getContext().getSystemService(Context.CAMERA_SERVICE);
 
@@ -277,6 +278,7 @@ public class CameraPreviewFragment extends Fragment {
 
                 @Override
                 public void onImageAvailable(ImageReader reader) {
+                    Log.i(Constants.LOG_TAG, "A new camera image is available!");
                     Image image = reader.acquireLatestImage();
                     ByteBuffer buffer = image.getPlanes()[0].getBuffer();
                     byte[] bytes = new byte[buffer.capacity()];
@@ -295,17 +297,22 @@ public class CameraPreviewFragment extends Fragment {
                 public void onCaptureCompleted(CameraCaptureSession session,
                                                CaptureRequest request,
                                                TotalCaptureResult result) {
+                    Log.i(Constants.LOG_TAG, "Capture session callback listener "
+                            + "engaged!  Returning control to parent activity.");
                     super.onCaptureCompleted(session, request, result);
                     // createCameraPreview();
                 }
 
             };
 
-            cameraDevice.createCaptureSession(outputSurfaces, new CameraCaptureSession.StateCallback() {
+            cameraDevice.createCaptureSession(outputSurfaces,
+                    new CameraCaptureSession.StateCallback() {
 
                 @Override
                 public void onConfigured(CameraCaptureSession session) {
                     try {
+                        Log.i(Constants.LOG_TAG, "Attempting to create a new "
+                                + "capture session.");
                         session.capture(captureBuilder.build(),
                                 captureListener, mBackgroundHandler);
                     } catch (CameraAccessException e) {
@@ -320,7 +327,8 @@ public class CameraPreviewFragment extends Fragment {
 
             }, mBackgroundHandler);
         } catch (CameraAccessException e) {
-            e.printStackTrace();
+            Log.e(Constants.LOG_TAG, "Something went wrong while trying to capture "
+                    + "an image from the camera preview.", e);
         }
     }
 

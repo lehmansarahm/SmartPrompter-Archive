@@ -63,7 +63,7 @@ public class Constants {
     public static int getReminderLimit(REMINDER_TYPE type) {
         switch (type) {
             case Completion:
-                return 1;   // attempts
+                return 2;   // attempts
             case Acknowledgement:
                 return 3;
             default:

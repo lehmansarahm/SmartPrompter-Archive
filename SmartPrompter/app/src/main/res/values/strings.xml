@@ -5,10 +5,12 @@
     <string name="activity_label_complete_alarms">Complete Alarms</string>
 
     <string name="action_alarms">edu.temple.smartprompter.alarms</string>
-    <string name="action_reminders">edu.temple.smartprompter.reminders</string>
+    <string name="action_reminders_ack">edu.temple.smartprompter.reminders.ack</string>
+    <string name="action_reminders_comp">edu.temple.smartprompter.reminders.comp</string>
 
     <string name="reminder_receiver_namespace">edu.temple.smartprompter</string>
-    <string name="reminder_receiver_class">edu.temple.smartprompter.receivers.ReminderReceiver</string>
+    <string name="reminder_ack_receiver_class">edu.temple.smartprompter.receivers.ReminderAcknowledgementReceiver</string>
+    <string name="reminder_comp_receiver_class">edu.temple.smartprompter.receivers.ReminderCompletionReceiver</string>
 
     <string name="authority_alarms">edu.temple.smartprompter.alarms</string>
     <string name="authority_media">edu.temple.smartprompter.media</string>

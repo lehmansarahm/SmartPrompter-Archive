@@ -90,7 +90,7 @@ public abstract class BaseScheduleable {
         };
     }
 
-    protected Intent getBaseBroadcastIntent(Context context) {
+    protected Intent getBaseBroadcastIntent() {
         if (action == null || action.isEmpty()) {
             Log.e(Constants.LOG_TAG,
                     "Cannot recreate alarm PI without action name!");

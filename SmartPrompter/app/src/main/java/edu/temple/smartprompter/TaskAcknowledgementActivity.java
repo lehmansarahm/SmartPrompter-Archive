@@ -1,5 +1,6 @@
 package edu.temple.smartprompter;
 
+import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -36,10 +37,6 @@ public class TaskAcknowledgementActivity extends BaseActivity implements
         if (!verifyIntentExtras())
             return;
 
-        // cancel any lingering notifications associated with this alarm
-        NotificationManagerCompat nm = NotificationManagerCompat.from(this);
-        nm.cancel(mAlarmID);
-
         // retrieve the current alarm
         mAlarmMgr = new SpAlarmManager(this);
         mAlarm = mAlarmMgr.get(mAlarmID);
@@ -58,6 +55,20 @@ public class TaskAcknowledgementActivity extends BaseActivity implements
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setPositiveButton(android.R.string.ok, missingAlarmListener).show();
         } else if (checkPermissions()) {
+            // cancel any lingering notifications associated with this alarm
+            NotificationManager nm = getSystemService(NotificationManager.class);
+            Log.e(Constants.LOG_TAG, "Cancelling notification with alarm request "
+                    + "code: " + mAlarm.getRequestCode());
+            nm.cancel(mAlarm.getRequestCode());
+
+            // if reminder has been provided, cancel any lingering
+            // notifications associated with it
+            if (reminder != null) {
+                Log.e(Constants.LOG_TAG, "Cancelling notification with reminder "
+                        + "request code: " + reminder.getRequestCode());
+                nm.cancel(reminder.getRequestCode());
+            }
+
             // proceed with displaying the activity view
             initNavigation();
             showDefaultFragment();
@@ -95,7 +106,9 @@ public class TaskAcknowledgementActivity extends BaseActivity implements
         SpReminderManager remMgr = new SpReminderManager(this);
         Reminder reminder = remMgr.get(alarmID, REMINDER_TYPE.Acknowledgement);
         remMgr.cancelReminder(reminder);
+
         updateAlarmStatus(ALARM_STATUS.Incomplete);
+        scheduleCompletionReminder();
 
         startNextActivity(this, TaskCompletionActivity.class);
         Log.i(Constants.LOG_TAG, "Received and acknowledged alarm response for alarm ID: "
@@ -113,6 +126,40 @@ public class TaskAcknowledgementActivity extends BaseActivity implements
         Toast.makeText(this,
                 "Haven't coded the reminder deferral logic yet.",
                 Toast.LENGTH_SHORT).show();
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    private void scheduleCompletionReminder() {
+        // create a new completion reminder for this alarm ...
+        // will cancel if / when the user completes the overall task
+        SpReminderManager rm = new SpReminderManager(this);
+        Reminder reminder = rm.create(mAlarmID, REMINDER_TYPE.Completion);
+
+        // --------------------------------------------------------------------------------------
+
+        // NOTE - THERE WILL ONLY EVER BE ONE REMINDER OF EACH TYPE IN THE DB
+        // AFTER THIS POINT IN THE PROGRAM FLOW, RETRIEVE THE EXISTING ACKNOWLEDGEMENT
+        // REMINDER AND KEEP RESCHEDULING IT UNTIL WE HIT THE LIMIT OR THE USER ACKNOWLEDGES
+
+        // ... RINSE AND REPEAT FOR THE COMPLETION REMINDERS
+
+        // --------------------------------------------------------------------------------------
+
+        // retrieve, set the appropriate receiver settings ...
+        reminder.updateIntentSettings(
+                getResources().getString(R.string.action_reminders_comp),
+                getResources().getString(R.string.reminder_receiver_namespace),
+                getResources().getString(R.string.reminder_comp_receiver_class)
+        );
+
+        // calculate the appropriate reminder interval and commit changes to database
+        reminder.calculateNewReminder();
+        rm.update(reminder);
+
+        // schedule the reminder
+        rm.scheduleReminder(reminder);
     }
 
 }

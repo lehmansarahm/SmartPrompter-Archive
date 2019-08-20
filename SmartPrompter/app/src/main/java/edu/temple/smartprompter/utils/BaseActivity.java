@@ -202,11 +202,6 @@ public abstract class BaseActivity extends AppCompatActivity implements
     // --------------------------------------------------------------------------------------
 
     protected boolean verifyIntentExtras() {
-        if (!getIntent().hasExtra(Constants.INTENT_EXTRA_REMINDER_ID)) {
-            Log.e(Constants.LOG_TAG, "Alarm response has been initiated, "
-                    + "but intent is missing the reminder ID.");
-            return false;
-        }
 
         if (!getIntent().hasExtra(Constants.INTENT_EXTRA_ALARM_ID)) {
             Log.e(Constants.LOG_TAG, "Alarm response has been initiated, "
@@ -228,10 +223,13 @@ public abstract class BaseActivity extends AppCompatActivity implements
                 + mAlarmID + " \t\t and original alarm status: " + mAlarmStatus);
 
         // get the reminder info
-        reminderID = getIntent().getIntExtra(Constants.INTENT_EXTRA_REMINDER_ID,
-                Constants.DEFAULT_ALARM_ID);
-        mReminderMgr = new SpReminderManager(this);
-        reminder = mReminderMgr.get(reminderID);
+        if (getIntent().hasExtra(Constants.INTENT_EXTRA_REMINDER_ID)) {
+            Log.i(Constants.LOG_TAG, "We got an reminder ID!!");
+            reminderID = getIntent().getIntExtra(Constants.INTENT_EXTRA_REMINDER_ID,
+                    Constants.DEFAULT_ALARM_ID);
+            mReminderMgr = new SpReminderManager(this);
+            reminder = mReminderMgr.get(reminderID);
+        }
 
         return true;
     }

@@ -49,10 +49,18 @@
         </receiver>
 
         <receiver
-            android:name=".receivers.ReminderReceiver"
+            android:name=".receivers.ReminderAcknowledgementReceiver"
             android:exported="true">
             <intent-filter>
-                <action android:name="@string/action_reminders" />
+                <action android:name="@string/action_reminders_ack" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".receivers.ReminderCompletionReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="@string/action_reminders_comp" />
             </intent-filter>
         </receiver>
 

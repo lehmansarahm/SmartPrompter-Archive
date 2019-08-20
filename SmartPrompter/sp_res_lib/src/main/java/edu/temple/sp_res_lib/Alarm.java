@@ -112,8 +112,9 @@ public class Alarm extends BaseScheduleable {
     // ----------------------------------------------------------------------------
 
     public PendingIntent getPendingIntent(Context context) {
-        Intent baseIntent = super.getBaseBroadcastIntent(context);
-        return PendingIntent.getBroadcast(context, ID, baseIntent, super.PENDING_INTENT_FLAGS);
+        Intent baseIntent = super.getBaseBroadcastIntent();
+        return PendingIntent.getBroadcast(context, ID, baseIntent,
+                super.PENDING_INTENT_FLAGS);
     }
 
     public String toString() { return label; }

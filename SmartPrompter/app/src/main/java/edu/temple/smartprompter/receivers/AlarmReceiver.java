@@ -39,7 +39,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (verifyIntentExtras(context, intent)) {
             updateAlarmStatus();
-            schedulePreemptiveReminder(context);
+            scheduleAcknowledgementReminder(context);
             generateNotification(context);
         }
     }
@@ -82,7 +82,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         mAlarmStatus = sanityAlarm.getStatusString();
     }
 
-    private void schedulePreemptiveReminder(Context context) {
+    private void scheduleAcknowledgementReminder(Context context) {
         // create a new acknowledgement reminder for this alarm by default ...
         // will cancel if / when the user completes the acknowledgement phase
         SpReminderManager rm = new SpReminderManager(context);
@@ -101,9 +101,9 @@ public class AlarmReceiver extends BroadcastReceiver {
         // retrieve, set the appropriate receiver settings ...
         Resources resources = context.getResources();
         reminder.updateIntentSettings(
-                resources.getString(R.string.action_alarms),
+                resources.getString(R.string.action_reminders_ack),
                 resources.getString(R.string.reminder_receiver_namespace),
-                resources.getString(R.string.reminder_receiver_class)
+                resources.getString(R.string.reminder_ack_receiver_class)
         );
 
         // calculate the appropriate reminder interval and commit changes to database

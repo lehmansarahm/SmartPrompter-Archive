@@ -75,7 +75,7 @@ public class Reminder extends BaseScheduleable {
     }
 
     public PendingIntent getPendingIntent(Context context) {
-        Intent baseIntent = super.getBaseBroadcastIntent(context);
+        Intent baseIntent = super.getBaseBroadcastIntent();
         baseIntent.putExtra(Constants.INTENT_EXTRA_REMINDER_ID, ID);
         baseIntent.putExtra(Constants.INTENT_EXTRA_ALARM_ID, alarmID);
         baseIntent.putExtra(Constants.INTENT_EXTRA_ORIG_TIME, "");

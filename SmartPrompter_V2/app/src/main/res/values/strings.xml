@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SmartPrompter</string>
+    <string name="no_scheduled_tasks">You have no scheduled tasks at this time.</string>
+    <string name="great_day">Have a great day!</string>
+    <string name="task_button_take_picture">Take Picture</string>
+    <string name="alarm_field_image">Are you satisfied with this picture?</string>
+    <string name="line_break_double">\\n\\n</string>
+    <string name="current_time">Current Time:</string>
+    <string name="line_break_single">\\n</string>
+    <string name="whitespace_single" />
+    <string name="current_tasks">Current Tasks:</string>
+</resources>
