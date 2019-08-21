@@ -11,12 +11,14 @@ import android.util.Log;
 import java.util.ArrayList;
 
 import edu.temple.smartprompter_v2.R;
-import edu.temple.smartprompter_v2.data.Alarm;
+import edu.temple.smartprompter_v2.SmartPrompter;
+import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.smartprompter_v2.fragments.AlarmListFragment;
 import edu.temple.smartprompter_v2.fragments.ClockFragment;
 import edu.temple.smartprompter_v2.fragments.EmptyAlarmListFragment;
 import edu.temple.smartprompter_v2.fragments.MissingPermissionsFragment;
-import edu.temple.smartprompter_v2.utils.Constants;
+
+import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 
 public class MainActivity extends AppCompatActivity implements AlarmListFragment.OnListItemSelectionListener {
 
@@ -78,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements AlarmListFragment
     }
 
     protected void showClockFragment() {
-        Log.i(Constants.LOG_TAG, "Populating current activity with clock fragment.");
+        Log.i(LOG_TAG, "Populating current activity with clock fragment.");
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ClockFragment fragment = new ClockFragment();
         ft.replace(R.id.clock_container, fragment);
@@ -86,18 +88,18 @@ public class MainActivity extends AppCompatActivity implements AlarmListFragment
     }
 
     protected void showDefaultFragment() {
-        Log.i(Constants.LOG_TAG, "We have all required permissions!  Determining "
+        Log.i(LOG_TAG, "We have all required permissions!  Determining "
                 + "whether there are alarms to show ...");
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         getActiveAlarms();
 
         if (mActiveAlarms != null && mActiveAlarms.size() > 0) {
-            Log.i(Constants.LOG_TAG, "Populating current activity with alarm-list fragment.");
+            Log.i(LOG_TAG, "Populating current activity with alarm-list fragment.");
             AlarmListFragment fragment = AlarmListFragment.newInstance(mActiveAlarms);
             ft.replace(R.id.alarm_container, fragment);
         } else {
-            Log.i(Constants.LOG_TAG, "Populating current activity with empty-list fragment.");
+            Log.i(LOG_TAG, "Populating current activity with empty-list fragment.");
             EmptyAlarmListFragment fragment = new EmptyAlarmListFragment();
             ft.replace(R.id.alarm_container, fragment);
         }
@@ -106,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements AlarmListFragment
     }
 
     protected void showMissingPermissionsFragment() {
-        Log.i(Constants.LOG_TAG, "Populating current activity with missing-permissions fragment.");
+        Log.i(LOG_TAG, "Populating current activity with missing-permissions fragment.");
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         MissingPermissionsFragment fragment = new MissingPermissionsFragment();
         ft.replace(R.id.alarm_container, fragment);
@@ -114,22 +116,15 @@ public class MainActivity extends AppCompatActivity implements AlarmListFragment
     }
 
     public void OnListItemSelected(Alarm item) {
-        Log.i(Constants.LOG_TAG, "List item selected!  Item Number: " + item.id);
+        Log.i(LOG_TAG, "List item selected!  Item Number: " + item.getID());
     }
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
     private void getActiveAlarms() {
-        if (mActiveAlarms == null)
-            mActiveAlarms = new ArrayList<>();
-        else
-            mActiveAlarms.clear();
-
-        // TODO - populate active alarms list for real
-        mActiveAlarms.add(new Alarm("1", "Take out the trash",  "Take out the trash"));
-        mActiveAlarms.add(new Alarm("2", "Water the plants", "Water the plants"));
-        mActiveAlarms.add(new Alarm("3", "Feed the dog", "Feed the dog"));
+        SmartPrompter sp = (SmartPrompter) getApplicationContext();
+        mActiveAlarms = sp.getAlarms();
     }
 
 }

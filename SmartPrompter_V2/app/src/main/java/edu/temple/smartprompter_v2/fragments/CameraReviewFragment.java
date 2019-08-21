@@ -14,8 +14,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import edu.temple.smartprompter_v2.R;
-import edu.temple.smartprompter_v2.utils.Constants;
-import edu.temple.smartprompter_v2.utils.MediaUtil;
+import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.MediaUtil;
+
+import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 
 
 public class CameraReviewFragment extends Fragment {
@@ -56,7 +58,7 @@ public class CameraReviewFragment extends Fragment {
             mListener = (ImageReviewListener) context;
         } catch (ClassCastException e) {
             String error = context.toString() + " must implement ImageReviewListener";
-            Log.e(Constants.LOG_TAG, error, e);
+            Log.e(LOG_TAG, error, e);
             throw new ClassCastException();
         }
     }

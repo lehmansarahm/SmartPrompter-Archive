@@ -36,7 +36,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import edu.temple.smartprompter_v2.R;
-import edu.temple.smartprompter_v2.utils.Constants;
+import edu.temple.sp_res_lib.utils.Constants;
+
+import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 
 public class CameraPreviewFragment extends Fragment {
 
@@ -98,7 +100,7 @@ public class CameraPreviewFragment extends Fragment {
         @Override
         public void onOpened(CameraDevice camera) {
             //This is called when the camera is open
-            Log.e(Constants.LOG_TAG, "onOpened");
+            Log.e(LOG_TAG, "onOpened");
             cameraDevice = camera;
             createCameraPreview();
         }
@@ -139,7 +141,7 @@ public class CameraPreviewFragment extends Fragment {
             mListener = (ImageCaptureListener) context;
         } catch (ClassCastException e) {
             String error = context.toString() + " must implement ImageCaptureListener";
-            Log.e(Constants.LOG_TAG, error, e);
+            Log.e(LOG_TAG, error, e);
             throw new ClassCastException();
         }
     }
@@ -224,11 +226,11 @@ public class CameraPreviewFragment extends Fragment {
 
     private void takePicture() {
         if (cameraDevice == null) {
-            Log.e(Constants.LOG_TAG, "cameraDevice is null");
+            Log.e(LOG_TAG, "cameraDevice is null");
             return;
         }
 
-        Log.e(Constants.LOG_TAG, "Ready to capture picture from camera preview!");
+        Log.e(LOG_TAG, "Ready to capture picture from camera preview!");
         CameraManager manager =
                 (CameraManager) getContext().getSystemService(Context.CAMERA_SERVICE);
 
@@ -270,7 +272,7 @@ public class CameraPreviewFragment extends Fragment {
 
                         @Override
                         public void onImageAvailable(ImageReader reader) {
-                            Log.i(Constants.LOG_TAG, "A new camera image is available!");
+                            Log.i(LOG_TAG, "A new camera image is available!");
                             Image image = reader.acquireLatestImage();
                             ByteBuffer buffer = image.getPlanes()[0].getBuffer();
                             byte[] bytes = new byte[buffer.capacity()];
@@ -289,7 +291,7 @@ public class CameraPreviewFragment extends Fragment {
                         public void onCaptureCompleted(CameraCaptureSession session,
                                                        CaptureRequest request,
                                                        TotalCaptureResult result) {
-                            Log.i(Constants.LOG_TAG, "Capture session callback listener "
+                            Log.i(LOG_TAG, "Capture session callback listener "
                                     + "engaged!  Returning control to parent activity.");
                             super.onCaptureCompleted(session, request, result);
                             // createCameraPreview();
@@ -303,7 +305,7 @@ public class CameraPreviewFragment extends Fragment {
                         @Override
                         public void onConfigured(CameraCaptureSession session) {
                             try {
-                                Log.i(Constants.LOG_TAG, "Attempting to create a new "
+                                Log.i(LOG_TAG, "Attempting to create a new "
                                         + "capture session.");
                                 session.capture(captureBuilder.build(),
                                         captureListener, mBackgroundHandler);
@@ -319,7 +321,7 @@ public class CameraPreviewFragment extends Fragment {
 
                     }, mBackgroundHandler);
         } catch (CameraAccessException e) {
-            Log.e(Constants.LOG_TAG, "Something went wrong while trying to capture "
+            Log.e(LOG_TAG, "Something went wrong while trying to capture "
                     + "an image from the camera preview.", e);
         }
     }
@@ -366,7 +368,7 @@ public class CameraPreviewFragment extends Fragment {
 
     private void updatePreview() {
         if (cameraDevice == null) {
-            Log.e(Constants.LOG_TAG, "updatePreview error, return");
+            Log.e(LOG_TAG, "updatePreview error, return");
             return;
         }
 
@@ -385,7 +387,7 @@ public class CameraPreviewFragment extends Fragment {
 
     private void openCamera() {
         CameraManager manager = (CameraManager) getContext().getSystemService(Context.CAMERA_SERVICE);
-        Log.e(Constants.LOG_TAG, "is camera open");
+        Log.e(LOG_TAG, "is camera open");
 
         try {
             cameraId = manager.getCameraIdList()[0];
@@ -403,7 +405,7 @@ public class CameraPreviewFragment extends Fragment {
             e.printStackTrace();
         }
 
-        Log.e(Constants.LOG_TAG, "openCamera X");
+        Log.e(LOG_TAG, "openCamera X");
     }
 
     private void closeCamera() {

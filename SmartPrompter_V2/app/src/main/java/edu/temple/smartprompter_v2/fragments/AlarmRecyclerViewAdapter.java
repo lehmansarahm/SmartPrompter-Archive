@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import edu.temple.smartprompter_v2.R;
-import edu.temple.smartprompter_v2.data.Alarm;
+import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.smartprompter_v2.fragments.AlarmListFragment.OnListItemSelectionListener;
 
 import java.util.List;
@@ -33,8 +33,8 @@ public class AlarmRecyclerViewAdapter extends RecyclerView.Adapter<AlarmRecycler
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(String.valueOf(mValues.get(position).getID()));
+        holder.mContentView.setText(mValues.get(position).toString());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override

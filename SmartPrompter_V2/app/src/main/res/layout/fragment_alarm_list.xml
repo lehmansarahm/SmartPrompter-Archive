@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+        android:gravity="center"
         app:layoutManager="LinearLayoutManager"
         tools:context=".fragments.AlarmListFragment"
         tools:listitem="@layout/fragment_alarm_item" />

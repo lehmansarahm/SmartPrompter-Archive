@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.temple.smartprompter_v2.R;
-import edu.temple.smartprompter_v2.data.Alarm;
+import edu.temple.sp_res_lib.obj.Alarm;
 
 public class AlarmListFragment extends Fragment {
 
