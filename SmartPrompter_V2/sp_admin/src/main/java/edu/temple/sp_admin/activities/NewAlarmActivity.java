@@ -18,15 +18,12 @@ public class NewAlarmActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_alarm);
 
-        Log.i(LOG_TAG, "Populating current activity with clock fragment.");
+        Log.i(LOG_TAG, "Populating " + this.getLocalClassName()
+                + " with Alarm-Details fragment.");
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-
-        AlarmDetailsFragment f1 = new AlarmDetailsFragment();
-        ft.replace(R.id.details_container, f1);
-
-        ButtonBarFragment f2 = new ButtonBarFragment();
-        ft.replace(R.id.button_bar_container, f2);
-
+        AlarmDetailsFragment fragment = new AlarmDetailsFragment();
+        ft.replace(R.id.details_container, fragment);
         ft.commit();
     }
+
 }

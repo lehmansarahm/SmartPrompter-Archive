@@ -8,9 +8,6 @@
     <string name="view_current_text">View Current Alarms</string>
     <string name="view_past_text">View Past Alarms</string>
     <string name="configure_survey_text">Configure Survey Questions</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="alarm_field_label">Label</string>
     <string name="alarm_field_date">Date</string>
     <string name="alarm_field_time">Time</string>
@@ -22,4 +19,9 @@
     <string name="no_records_avail">There are no alarm records available at this time.</string>
     <string name="whitespace_single" />
     <string name="great_day">Have a great day!</string>
+    <string name="alarm_orig_label">Alarm Label</string>
+    <string name="alarm_orig_date_time">Original Date and Time</string>
+    <string name="alarm_time_acknowledged">Time Acknowledged</string>
+    <string name="alarm_time_completed">Time Completed</string>
+    <string name="alarm_photo_path">Photo Path</string>
 </resources>
