@@ -1,5 +1,7 @@
 package edu.temple.smartprompter_v2.activities;
 
+import android.content.Intent;
+import android.graphics.Camera;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -57,6 +59,9 @@ public class CameraActivity extends AppCompatActivity implements
         Log.i(LOG_TAG, "User has successfully taken and approved a task "
                 + "completion picture.  Updating alarm and saving image to storage.");
         // TODO - save image for real
+        // TODO - finalize alarm for real, redirect to home screen
+        startActivity(new Intent(CameraActivity.this,
+                MainActivity.class));
     }
 
     @Override
