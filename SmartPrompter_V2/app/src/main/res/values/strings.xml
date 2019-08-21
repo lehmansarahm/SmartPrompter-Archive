@@ -3,10 +3,19 @@
     <string name="no_scheduled_tasks">You have no scheduled tasks at this time.</string>
     <string name="great_day">Have a great day!</string>
     <string name="task_button_take_picture">Take Picture</string>
-    <string name="alarm_field_image">Are you satisfied with this picture?</string>
+    <string name="alarm_field_image">Are you satisfied with \n this picture?</string>
     <string name="line_break_double">\\n\\n</string>
     <string name="current_time">Current Time:</string>
     <string name="line_break_single">\\n</string>
     <string name="whitespace_single" />
     <string name="current_tasks">Current Tasks:</string>
+    <string name="title_activity_camera">CameraActivity</string>
+    <string name="acknowledgment_text">It\'s time to complete your task:</string>
+    <string name="acknowledgment_instruction_text">Move the slider to the RIGHT when you\'re ready to complete the task, or to the LEFT to set a reminder to do the task later.</string>
+    <string name="acknowledgment_remind_me_later">\n REMIND ME LATER \n</string>
+    <string name="acknowledgment_on_my_way">\n ON MY WAY \n</string>
+    <string name="completion_text">Please take a picture to confirm completion for task:</string>
+    <string name="completion_instruction_text">Move the slider to the RIGHT when you\'re ready to take a picture, or to the LEFT to set a reminder to take a picture later.</string>
+    <string name="completion_remind_me_later">\n REMIND ME LATER \n</string>
+    <string name="completion_ready">\n READY TO TAKE PICTURE \n</string>
 </resources>

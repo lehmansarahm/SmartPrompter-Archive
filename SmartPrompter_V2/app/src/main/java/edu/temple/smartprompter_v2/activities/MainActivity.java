@@ -1,6 +1,7 @@
 package edu.temple.smartprompter_v2.activities;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentTransaction;
@@ -117,6 +118,8 @@ public class MainActivity extends AppCompatActivity implements AlarmListFragment
 
     public void OnListItemSelected(Alarm item) {
         Log.i(LOG_TAG, "List item selected!  Item Number: " + item.getID());
+        startActivity(new Intent(MainActivity.this,
+                AcknowledgmentActivity.class));
     }
 
     // --------------------------------------------------------------------------------------

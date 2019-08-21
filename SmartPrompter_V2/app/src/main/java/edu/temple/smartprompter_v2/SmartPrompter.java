@@ -12,7 +12,7 @@ import android.preference.PreferenceManager;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import edu.temple.smartprompter_v2.activities.AlarmReceiverActivity;
+import edu.temple.smartprompter_v2.activities.AcknowledgmentActivity;
 import edu.temple.smartprompter_v2.receivers.AlarmReceiver;
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.utils.Constants;
@@ -46,7 +46,7 @@ public class SmartPrompter extends Application {
                 new AlarmManager.AlarmClockInfo(
                         alarm.getTimeInMillis(),
                         PendingIntent.getActivity(context, 0,
-                                new Intent(context, AlarmReceiverActivity.class), 0)
+                                new Intent(context, AcknowledgmentActivity.class), 0)
                 ),
                 getIntent(context, alarm.getID())
         );
