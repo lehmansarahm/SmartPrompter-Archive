@@ -1,12 +1,14 @@
 package edu.temple.sp_admin;
 
 import android.app.Application;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.obj.SurveyQuestion;
+import edu.temple.sp_res_lib.utils.Constants;
 
 public class SpAdmin extends Application {
 
@@ -35,13 +37,14 @@ public class SpAdmin extends Application {
         questions = new ArrayList<>();
     }
 
-    public void addNewAlarm(String label, String date, String time) {
-
-    }
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
 
     public Alarm getAlarm(int alarmID) {
-        // TODO - get alarm by ID for real
-        return alarms.get(0);
+        // TODO - confirm what an alarm "ID" is ... is it the ordinal number of the alarm in
+        //  the overall list?  is it the index of the alarm in the collection?  the ACTUAL unique
+        //  identifier of the alarm is the GUID...
+        return alarms.get(alarmID - 1);
     }
 
     public ArrayList<Alarm> getCurrentAlarms() {
@@ -54,6 +57,43 @@ public class SpAdmin extends Application {
 
     public ArrayList<SurveyQuestion> getQuestions() {
         return this.questions;
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    public void saveAlarm(Alarm alarm) {
+        Log.i(LOG_TAG, "Attempting to save alarm record with: "
+                + "\t ID: " + alarm.getID()
+                + "\t GUID: " + alarm.getUUID()
+                + "\t Description: " + alarm.getDesc()
+                + "\t Date: " + alarm.getDateString()
+                + "\t Time: " + alarm.getTimeString()
+                + "\t Status: " + alarm.getStatusString());
+
+        if (alarm.getID() == Constants.DEFAULT_ALARM_ID ||
+                alarm.getUUID() == Constants.DEFAULT_ALARM_GUID) {
+            Log.i(LOG_TAG, "Creating new record for alarm: " + alarm.getDesc());
+            // TODO - calculate new ID for new alarm
+            // TODO - generate new GUID for new alarm
+            // TODO - insert alarm into collection
+        } else {
+            Log.i(LOG_TAG, "Updating details for existing alarm: " + alarm.getDesc());
+            // TODO - override old alarm record in collection by ID
+        }
+
+        // TODO - update any relevant listeners
+    }
+
+    public void deleteAlarm(Alarm alarm) {
+        Log.i(LOG_TAG, "Attempting to delete alarm record with: "
+                + "\t ID: " + alarm.getID()
+                + "\t GUID: " + alarm.getUUID()
+                + "\t Description: " + alarm.getDesc());
+
+        // TODO - remove alarm from collection
+        // TODO - delete alarm from persistent storage
+        // TODO - update any relevant listeners
     }
 
 }

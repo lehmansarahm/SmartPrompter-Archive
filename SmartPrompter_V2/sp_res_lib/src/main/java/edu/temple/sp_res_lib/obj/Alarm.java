@@ -50,6 +50,26 @@ public class Alarm implements Parcelable {
         return desc;
     }
 
+    public void updateDesc(String newDesc) {
+        desc = newDesc;
+    }
+
+    public String getStatusString() { return status.toString(); }
+
+    @Override
+    public String toString() {
+        return desc + " (" + status.toString() + ")";
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    public void updateDate(int y, int m, int d) {
+        time.set(Calendar.YEAR, y);
+        time.set(Calendar.MONTH, m);
+        time.set(Calendar.DAY_OF_MONTH, d);
+    }
+
     public int[] getDate() {
         return new int[] {
                 time.get(Calendar.YEAR),
@@ -59,6 +79,14 @@ public class Alarm implements Parcelable {
     }
 
     public String getDateString() { return Constants.DATE_FORMAT.format(time.getTime()); }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    public void updateTime(int h, int m) {
+        time.set(Calendar.HOUR_OF_DAY, h);
+        time.set(Calendar.MINUTE, m);
+    }
 
     public int[] getTime() {
         return new int[] {
@@ -72,13 +100,6 @@ public class Alarm implements Parcelable {
 
     public long getTimeInMillis() {
         return time.getTimeInMillis();
-    }
-
-    public String getStatusString() { return status.toString(); }
-
-    @Override
-    public String toString() {
-        return desc + " (" + status.toString() + ")";
     }
 
     // --------------------------------------------------------------------------------------

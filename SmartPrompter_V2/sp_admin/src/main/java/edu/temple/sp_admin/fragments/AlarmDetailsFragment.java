@@ -39,7 +39,7 @@ public class AlarmDetailsFragment extends Fragment {
     // --------------------------------------------------------------------------------------
 
     public interface OnButtonClickListener {
-        void OnButtonClicked(ACTION_BUTTON button);
+        void OnButtonClicked(ACTION_BUTTON button, Alarm alarm);
     }
 
     // --------------------------------------------------------------------------------------
@@ -119,12 +119,12 @@ public class AlarmDetailsFragment extends Fragment {
     }
 
     public void updateDate(int year, int month, int day) {
-        // TODO - mAlarm.updateDate(year, month, day);
+        mAlarm.updateDate(year, month, day);
         mDateText.setText(mAlarm.getDateString());
     }
 
     public void updateTime(int hour, int minute) {
-        // TODO - mAlarm.updateTime(hour, minute);
+        mAlarm.updateTime(hour, minute);
         mTimeText.setText(mAlarm.getTimeString());
     }
 
@@ -145,7 +145,6 @@ public class AlarmDetailsFragment extends Fragment {
         labelLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO - lock down editing privileges if alarm is already active
                 Log.i(Constants.LOG_TAG, "User clicked LABEL field for alarm ID: " + mAlarm.getID());
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setTitle("Alarm Label");
@@ -158,7 +157,7 @@ public class AlarmDetailsFragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String label = input.getText().toString();
-                        // TODO - mAlarm.updateLabel(label);
+                        mAlarm.updateDesc(label);
                         labelText.setText(label);
                     }
                 });
@@ -186,7 +185,6 @@ public class AlarmDetailsFragment extends Fragment {
             public void onClick(View view) {
                 Log.i(LOG_TAG, "User clicked DATE field for alarm ID: " + mAlarm.getID());
                 mDateListener.onDatePickerRequested(mAlarm.getID(), mAlarm.getDate());
-                // TODO - lock down editing privileges if alarm is already active
             }
         });
     }
@@ -201,7 +199,6 @@ public class AlarmDetailsFragment extends Fragment {
             public void onClick(View view) {
                 Log.i(LOG_TAG, "User clicked TIME field for alarm ID: " + mAlarm.getID());
                 mTimeListener.onTimePickerRequested(mAlarm.getID(), mAlarm.getTime());
-                // TODO - lock down editing privileges if alarm is already active
             }
         });
     }
@@ -216,7 +213,7 @@ public class AlarmDetailsFragment extends Fragment {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mButtonListener.OnButtonClicked(ACTION_BUTTON.Save);
+                mButtonListener.OnButtonClicked(ACTION_BUTTON.Save, mAlarm);
             }
         });
 
@@ -224,7 +221,7 @@ public class AlarmDetailsFragment extends Fragment {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mButtonListener.OnButtonClicked(ACTION_BUTTON.Cancel);
+                mButtonListener.OnButtonClicked(ACTION_BUTTON.Cancel, mAlarm);
             }
         });
 
@@ -232,7 +229,7 @@ public class AlarmDetailsFragment extends Fragment {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mButtonListener.OnButtonClicked(ACTION_BUTTON.Delete);
+                mButtonListener.OnButtonClicked(ACTION_BUTTON.Delete, mAlarm);
             }
         });
     }

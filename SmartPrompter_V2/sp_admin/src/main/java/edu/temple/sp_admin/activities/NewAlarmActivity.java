@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.util.Log;
 
 import edu.temple.sp_admin.R;
+import edu.temple.sp_admin.SpAdmin;
 import edu.temple.sp_admin.fragments.AlarmDetailsFragment;
 import edu.temple.sp_admin.fragments.DatePickerFragment;
 import edu.temple.sp_admin.fragments.TimePickerFragment;
+import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.utils.Constants;
 
 import static edu.temple.sp_admin.SpAdmin.LOG_TAG;
@@ -34,17 +36,18 @@ public class NewAlarmActivity extends AppCompatActivity
     }
 
     @Override
-    public void OnButtonClicked(AlarmDetailsFragment.ACTION_BUTTON button) {
-        Log.i(LOG_TAG, "Button Clicked: " + button.toString());
+    public void OnButtonClicked(AlarmDetailsFragment.ACTION_BUTTON button, Alarm alarm) {
+        Log.i(LOG_TAG, "Button Clicked: " + button.toString()
+                + " for alarm with ID: " + alarm.getID());
         switch(button) {
             case Save:
-                // TODO - fill out save logic for "New Alarm" activity
+                ((SpAdmin)getApplicationContext()).saveAlarm(alarm);
                 break;
             case Cancel:
                 // TODO - fill out cancellation logic for "New Alarm" activity
                 break;
             case Delete:
-                // TODO - fill out delete logic for "New Alarm" activity
+                ((SpAdmin)getApplicationContext()).deleteAlarm(alarm);
                 break;
         }
     }
