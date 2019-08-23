@@ -5,9 +5,11 @@ import android.os.Parcelable;
 
 import java.util.Calendar;
 
+import edu.temple.sp_res_lib.utils.Constants;
+
 public class Alarm implements Parcelable {
 
-    public enum STATUS { Active, Unacknowledged, Incomplete, Complete }
+    public enum STATUS { New, Active, Unacknowledged, Incomplete, Complete }
 
     private int id;
     private String uuid;
@@ -48,9 +50,31 @@ public class Alarm implements Parcelable {
         return desc;
     }
 
+    public int[] getDate() {
+        return new int[] {
+                time.get(Calendar.YEAR),
+                time.get(Calendar.MONTH),
+                time.get(Calendar.DAY_OF_MONTH)
+        };
+    }
+
+    public String getDateString() { return Constants.DATE_FORMAT.format(time.getTime()); }
+
+    public int[] getTime() {
+        return new int[] {
+                time.get(Calendar.HOUR_OF_DAY),
+                time.get(Calendar.MINUTE),
+                time.get(Calendar.AM_PM)
+        };
+    }
+
+    public String getTimeString() { return Constants.TIME_FORMAT.format(time.getTime()); }
+
     public long getTimeInMillis() {
         return time.getTimeInMillis();
     }
+
+    public String getStatusString() { return status.toString(); }
 
     @Override
     public String toString() {

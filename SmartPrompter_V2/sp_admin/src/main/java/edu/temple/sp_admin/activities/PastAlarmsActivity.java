@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 import edu.temple.sp_admin.R;
 import edu.temple.sp_admin.SpAdmin;
-import edu.temple.sp_admin.fragments.AlarmDetailsFragment;
 import edu.temple.sp_admin.fragments.AlarmListFragment;
 import edu.temple.sp_admin.fragments.AlarmLogFragment;
 import edu.temple.sp_admin.fragments.EmptyAlarmListFragment;
