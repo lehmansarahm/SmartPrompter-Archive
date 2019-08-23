@@ -69,7 +69,7 @@ public class SpAdmin extends Application {
                 + "\t Description: " + alarm.getDesc()
                 + "\t Date: " + alarm.getDateString()
                 + "\t Time: " + alarm.getTimeString()
-                + "\t Status: " + alarm.getStatusString());
+                + "\t Status: " + alarm.getStatus());
 
         if (alarm.getID() == Constants.DEFAULT_ALARM_ID ||
                 alarm.getUUID() == Constants.DEFAULT_ALARM_GUID) {

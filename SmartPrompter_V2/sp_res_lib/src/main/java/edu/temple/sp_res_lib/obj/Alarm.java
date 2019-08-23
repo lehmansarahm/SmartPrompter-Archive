@@ -54,7 +54,7 @@ public class Alarm implements Parcelable {
         desc = newDesc;
     }
 
-    public String getStatusString() { return status.toString(); }
+    public STATUS getStatus() { return status; }
 
     @Override
     public String toString() {

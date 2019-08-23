@@ -38,15 +38,8 @@ public class CurrentAlarmsActivity extends AppCompatActivity
     }
 
     @Override
-    public void OnListItemSelected(Alarm item) {
-        Log.i(LOG_TAG, "List item selected!  Item Number: " + item.getID());
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        detailsFrag = AlarmDetailsFragment.newInstance(item.getID());
-
-        // put this fragment on the backstack so we can return to the default view if necessary
-        ft.replace(R.id.alarm_container, detailsFrag)
-                .addToBackStack(null)
-                .commit();
+    public void OnListItemSelected(Alarm alarm) {
+        showDetailsFragment(alarm.getID());
     }
 
     @Override
@@ -58,7 +51,9 @@ public class CurrentAlarmsActivity extends AppCompatActivity
                 ((SpAdmin)getApplicationContext()).saveAlarm(alarm);
                 break;
             case Cancel:
-                // TODO - fill out cancellation logic for "New Alarm" activity
+                // have to explicitly pop the back stack before refreshing fragment
+                getSupportFragmentManager().popBackStack();
+                showDetailsFragment(alarm.getID());
                 break;
             case Delete:
                 ((SpAdmin)getApplicationContext()).deleteAlarm(alarm);
@@ -135,6 +130,17 @@ public class CurrentAlarmsActivity extends AppCompatActivity
 
         // DO NOT put this fragment on the backstack ... this is the default view of the activity
         ft.commit();
+    }
+
+    private void showDetailsFragment(int alarmID) {
+        Log.i(LOG_TAG, "List item selected!  Item Number: " + alarmID);
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        detailsFrag = AlarmDetailsFragment.newInstance(alarmID);
+
+        // put this fragment on the backstack so we can return to the default view if necessary
+        ft.replace(R.id.alarm_container, detailsFrag)
+                .addToBackStack(null)
+                .commit();
     }
 
 }

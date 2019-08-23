@@ -67,7 +67,9 @@ public class AlarmDetailsFragment extends Fragment {
                 mAlarm = new Alarm(Constants.DEFAULT_ALARM_ID, Constants.DEFAULT_ALARM_GUID,
                         Constants.DEFAULT_ALARM_DESC, now.getTimeInMillis(), Alarm.STATUS.New);
             } else {
-                mAlarm = ((SpAdmin) getContext().getApplicationContext()).getAlarm(alarmID);
+                Alarm origAlarm = ((SpAdmin) getContext().getApplicationContext()).getAlarm(alarmID);
+                mAlarm = new Alarm(origAlarm.getID(), origAlarm.getUUID(), origAlarm.getDesc(),
+                        origAlarm.getTimeInMillis(), origAlarm.getStatus());
             }
         }
     }
@@ -205,7 +207,7 @@ public class AlarmDetailsFragment extends Fragment {
 
     private void initStatus(final View rootView) {
         TextView statusText = rootView.findViewById(R.id.status_text);
-        statusText.setText(mAlarm.getStatusString());
+        statusText.setText(mAlarm.getStatus().toString());
     }
 
     private void initActionButtons(View rootView) {

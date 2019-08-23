@@ -26,13 +26,7 @@ public class NewAlarmActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_alarm);
-
-        Log.i(LOG_TAG, "Populating " + this.getLocalClassName()
-                + " with Alarm-Details fragment.");
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        detailsFrag = AlarmDetailsFragment.newInstance(Constants.DEFAULT_ALARM_ID);
-        ft.replace(R.id.details_container, detailsFrag);
-        ft.commit();
+        showDefaultFragment();
     }
 
     @Override
@@ -44,7 +38,8 @@ public class NewAlarmActivity extends AppCompatActivity
                 ((SpAdmin)getApplicationContext()).saveAlarm(alarm);
                 break;
             case Cancel:
-                // TODO - fill out cancellation logic for "New Alarm" activity
+                // no need to explicitly pop back stack for single-fragment activity
+                showDefaultFragment();
                 break;
             case Delete:
                 ((SpAdmin)getApplicationContext()).deleteAlarm(alarm);
@@ -94,6 +89,18 @@ public class NewAlarmActivity extends AppCompatActivity
                 + hourOfDay + ":" + minute + " \t\t for current alarm: "
                 + alarmID);
         detailsFrag.updateTime(hourOfDay, minute);
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    private void showDefaultFragment() {
+        Log.i(LOG_TAG, "Populating " + this.getLocalClassName()
+                + " with Alarm-Details fragment.");
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        detailsFrag = AlarmDetailsFragment.newInstance(Constants.DEFAULT_ALARM_ID);
+        ft.replace(R.id.details_container, detailsFrag);
+        ft.commit();
     }
 
 }
