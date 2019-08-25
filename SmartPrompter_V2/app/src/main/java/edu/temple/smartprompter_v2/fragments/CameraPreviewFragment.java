@@ -43,14 +43,14 @@ import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 public class CameraPreviewFragment extends Fragment {
 
     public interface ImageCaptureListener {
-        void onImageCaptured(int alarmID, byte[] imageBytes);
+        void onImageCaptured(String alarmGUID, byte[] imageBytes);
     }
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
     private ImageCaptureListener mListener;
-    private int mAlarmID;
+    private String mAlarmID;
 
     private Button takePictureButton;
     private TextureView cameraPreviewTexture;
@@ -122,10 +122,10 @@ public class CameraPreviewFragment extends Fragment {
         // required empty constructor
     }
 
-    public static CameraPreviewFragment newInstance(int alarmID) {
+    public static CameraPreviewFragment newInstance(String alarmGUID) {
         CameraPreviewFragment fragment = new CameraPreviewFragment();
         Bundle args = new Bundle();
-        args.putInt(Constants.BUNDLE_ARG_ALARM_ID, alarmID);
+        args.putString(Constants.BUNDLE_ARG_ALARM_GUID, alarmGUID);
         fragment.setArguments(args);
         return fragment;
     }
@@ -159,7 +159,7 @@ public class CameraPreviewFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mAlarmID = getArguments().getInt(Constants.BUNDLE_ARG_ALARM_ID);
+            mAlarmID = getArguments().getString(Constants.BUNDLE_ARG_ALARM_GUID);
         }
     }
 

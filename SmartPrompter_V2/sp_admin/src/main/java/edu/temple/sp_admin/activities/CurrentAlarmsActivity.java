@@ -37,13 +37,13 @@ public class CurrentAlarmsActivity extends BaseActivity
 
     @Override
     public void OnListItemSelected(Alarm alarm) {
-        showDetailsFragment(alarm.getID());
+        showDetailsFragment(alarm.getGuid());
     }
 
     @Override
     public void OnButtonClicked(AlarmDetailsFragment.ACTION_BUTTON button, Alarm alarm) {
         Log.i(LOG_TAG, "Button Clicked: " + button.toString()
-                + " for alarm with ID: " + alarm.getID());
+                + " for alarm with GUID: " + alarm.getGuid());
         switch(button) {
             case Save:
                 ((SpAdmin)getApplicationContext()).saveAlarm(alarm);
@@ -54,7 +54,7 @@ public class CurrentAlarmsActivity extends BaseActivity
             case Cancel:
                 // have to explicitly pop the back stack before refreshing fragment
                 getSupportFragmentManager().popBackStack();
-                showDetailsFragment(alarm.getID());
+                showDetailsFragment(alarm.getGuid());
                 break;
             case Delete:
                 ((SpAdmin)getApplicationContext()).deleteAlarm(alarm);
@@ -72,18 +72,18 @@ public class CurrentAlarmsActivity extends BaseActivity
     // --------------------------------------------------------------------------------------
 
     @Override
-    public void onDatePickerRequested(int alarmID, int[] date) {
+    public void onDatePickerRequested(String alarmGUID, int[] date) {
         Log.i(Constants.LOG_TAG, "User wants to view a date picker dialog with default date: "
                 + date[1] + "/" + date[2] + "/" + date[0]);
-        DialogFragment newFragment = DatePickerFragment.newInstance(alarmID, date);
+        DialogFragment newFragment = DatePickerFragment.newInstance(alarmGUID, date);
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
     @Override
-    public void onDatePicked(int alarmID, int year, int month, int day) {
+    public void onDatePicked(String alarmGUID, int year, int month, int day) {
         Log.i(Constants.LOG_TAG, "User selected the following date from the picker: "
                 + month + "/" + day + "/" + year + " \t\t for current alarm: "
-                + alarmID);
+                + alarmGUID);
         detailsFrag.updateDate(year, month, day);
     }
 
@@ -94,18 +94,18 @@ public class CurrentAlarmsActivity extends BaseActivity
     // --------------------------------------------------------------------------------------
 
     @Override
-    public void onTimePickerRequested(int alarmID, int[] time) {
+    public void onTimePickerRequested(String alarmGUID, int[] time) {
         Log.i(Constants.LOG_TAG, "User wants to view a time picker dialog with default time: "
                 + time[0] + ":" + time[1]);
-        DialogFragment newFragment = TimePickerFragment.newInstance(alarmID, time);
+        DialogFragment newFragment = TimePickerFragment.newInstance(alarmGUID, time);
         newFragment.show(getSupportFragmentManager(), "timePicker");
     }
 
     @Override
-    public void onTimePicked(int alarmID, int hourOfDay, int minute) {
+    public void onTimePicked(String alarmGUID, int hourOfDay, int minute) {
         Log.i(Constants.LOG_TAG, "User selected the following time from the picker: "
                 + hourOfDay + ":" + minute + " \t\t for current alarm: "
-                + alarmID);
+                + alarmGUID);
         detailsFrag.updateTime(hourOfDay, minute);
     }
 
@@ -136,10 +136,10 @@ public class CurrentAlarmsActivity extends BaseActivity
         ft.commit();
     }
 
-    private void showDetailsFragment(int alarmID) {
-        Log.i(LOG_TAG, "List item selected!  Item Number: " + alarmID);
+    private void showDetailsFragment(String alarmGUID) {
+        Log.i(LOG_TAG, "List item selected!  Item GUID: " + alarmGUID);
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        detailsFrag = AlarmDetailsFragment.newInstance(alarmID);
+        detailsFrag = AlarmDetailsFragment.newInstance(alarmGUID);
 
         // put this fragment on the backstack so we can return to the default view if necessary
         ft.replace(R.id.alarm_container, detailsFrag)

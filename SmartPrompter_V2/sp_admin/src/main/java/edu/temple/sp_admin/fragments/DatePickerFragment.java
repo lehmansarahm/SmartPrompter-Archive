@@ -14,22 +14,22 @@ public class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
 
     public interface DatePickerListener {
-        void onDatePickerRequested(int alarmID, int[] date);
-        void onDatePicked(int alarmID, int year, int month, int day);
+        void onDatePickerRequested(String getGuid, int[] date);
+        void onDatePicked(String getGuid, int year, int month, int day);
     }
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
-    private int mAlarmID;
+    private String mAlarmGUID;
     private int mYear, mMonth, mDay;
 
     private DatePickerListener mListener;
 
-    public static DatePickerFragment newInstance(int alarmID, int[] date) {
+    public static DatePickerFragment newInstance(String alarmGUID, int[] date) {
         DatePickerFragment fragment = new DatePickerFragment();
         Bundle args = new Bundle();
-        args.putInt(Constants.BUNDLE_ARG_ALARM_ID, alarmID);
+        args.putString(Constants.BUNDLE_ARG_ALARM_GUID, alarmGUID);
         args.putInt(Constants.BUNDLE_ARG_YEAR, date[0]);
         args.putInt(Constants.BUNDLE_ARG_MONTH, date[1]);
         args.putInt(Constants.BUNDLE_ARG_DAY, date[2]);
@@ -61,7 +61,7 @@ public class DatePickerFragment extends DialogFragment
             return null;
         }
 
-        mAlarmID = getArguments().getInt(Constants.BUNDLE_ARG_ALARM_ID);
+        mAlarmGUID = getArguments().getString(Constants.BUNDLE_ARG_ALARM_GUID);
         mYear = getArguments().getInt(Constants.BUNDLE_ARG_YEAR);
         mMonth = getArguments().getInt(Constants.BUNDLE_ARG_MONTH);
         mDay = getArguments().getInt(Constants.BUNDLE_ARG_DAY);
@@ -71,7 +71,7 @@ public class DatePickerFragment extends DialogFragment
     }
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        mListener.onDatePicked(mAlarmID, year, month, day);
+        mListener.onDatePicked(mAlarmGUID, year, month, day);
     }
 
 }

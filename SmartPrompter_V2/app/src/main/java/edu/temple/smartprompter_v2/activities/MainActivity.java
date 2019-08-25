@@ -18,6 +18,7 @@ import edu.temple.smartprompter_v2.fragments.AlarmListFragment;
 import edu.temple.smartprompter_v2.fragments.ClockFragment;
 import edu.temple.smartprompter_v2.fragments.EmptyAlarmListFragment;
 import edu.temple.smartprompter_v2.fragments.MissingPermissionsFragment;
+import edu.temple.sp_res_lib.utils.Constants;
 
 import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 
@@ -116,9 +117,10 @@ public class MainActivity extends AppCompatActivity implements AlarmListFragment
     }
 
     public void OnListItemSelected(Alarm item) {
-        Log.i(LOG_TAG, "List item selected!  Item Number: " + item.getID());
-        startActivity(new Intent(MainActivity.this,
-                AcknowledgmentActivity.class));
+        Log.i(LOG_TAG, "List item selected!  Item GUID: " + item.getGuid());
+        Intent intent = new Intent(MainActivity.this, AcknowledgmentActivity.class);
+        intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, item.getGuid());
+        startActivity(intent);
     }
 
 }

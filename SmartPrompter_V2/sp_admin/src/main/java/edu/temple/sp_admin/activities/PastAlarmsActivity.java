@@ -31,7 +31,7 @@ public class PastAlarmsActivity extends BaseActivity
 
     @Override
     public void OnListItemSelected(Alarm item) {
-        Log.i(LOG_TAG, "List item selected!  Item Number: " + item.getID());
+        Log.i(LOG_TAG, "List item selected!  Item GUID: " + item.getGuid());
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         AlarmLogFragment fragment = new AlarmLogFragment();
 

@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 import com.google.gson.Gson;
 
+import java.math.BigInteger;
 import java.util.Calendar;
 import java.util.UUID;
 
@@ -14,7 +15,6 @@ public class Alarm implements Parcelable {
 
     public enum STATUS { New, Active, Unacknowledged, Incomplete, Complete }
 
-    private int id;
     private String uuid;
     private String desc;
     private Calendar time;
@@ -35,8 +35,7 @@ public class Alarm implements Parcelable {
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
-    public Alarm(int id, String uuid, String desc, long time, STATUS status, boolean archived) {
-        this.id = id;
+    public Alarm(String uuid, String desc, long time, STATUS status, boolean archived) {
         this.uuid = uuid;
         this.desc = desc;
         this.time = Calendar.getInstance();
@@ -46,7 +45,6 @@ public class Alarm implements Parcelable {
     }
 
     public Alarm(Parcel in) {
-        id = in.readInt();
         uuid = in.readString();
         desc = in.readString();
         time = Calendar.getInstance();
@@ -58,18 +56,18 @@ public class Alarm implements Parcelable {
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
-    public void setID(int ID) { this.id = ID; }
-
-    public int getID() {
-        return id;
-    }
-
     public void setNewGuid() {
-        this.uuid = UUID.randomUUID().toString();
+        this.uuid = String.format("%040d", new BigInteger(UUID.randomUUID().toString().replace("-", ""), 16));
+        // this.uuid = Integer.parseInt(lUUID);
+        // this.uuid = UUID.randomUUID().toString();
     }
 
     public String getGuid() {
         return uuid;
+    }
+
+    public int getGuidInt() {
+        return Integer.parseInt(uuid);
     }
 
     public String getDesc() {
@@ -140,7 +138,6 @@ public class Alarm implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(id);
         parcel.writeString(uuid);
         parcel.writeString(desc);
         parcel.writeLong(time.getTimeInMillis());

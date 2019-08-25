@@ -23,25 +23,25 @@ import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 public class CameraReviewFragment extends Fragment {
 
     public interface ImageReviewListener {
-        void onImageAccepted(int alarmID, byte[] bytes);
-        void onImageRejected(int alarmID);
+        void onImageAccepted(String alarmGUID, byte[] bytes);
+        void onImageRejected(String alarmGUID);
     }
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
     private ImageReviewListener mListener;
-    private int mAlarmID;
+    private String mAlarmID;
     private byte[] mImageBytes;
 
     public CameraReviewFragment() {
         // required empty constructor
     }
 
-    public static CameraReviewFragment newInstance(int alarmID, byte[] bytes) {
+    public static CameraReviewFragment newInstance(String alarmGUID, byte[] bytes) {
         CameraReviewFragment fragment = new CameraReviewFragment();
         Bundle args = new Bundle();
-        args.putInt(Constants.BUNDLE_ARG_ALARM_ID, alarmID);
+        args.putString(Constants.BUNDLE_ARG_ALARM_GUID, alarmGUID);
         args.putByteArray(Constants.BUNDLE_ARG_IMAGE_BYTES, bytes);
         fragment.setArguments(args);
         return fragment;
@@ -76,7 +76,7 @@ public class CameraReviewFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mAlarmID = getArguments().getInt(Constants.BUNDLE_ARG_ALARM_ID);
+            mAlarmID = getArguments().getString(Constants.BUNDLE_ARG_ALARM_GUID);
             mImageBytes = getArguments().getByteArray(Constants.BUNDLE_ARG_IMAGE_BYTES);
         }
     }

@@ -1,28 +1,21 @@
 package edu.temple.sp_admin;
 
 import android.app.Application;
-import android.content.SharedPreferences;
 import android.util.Log;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.obj.SurveyQuestion;
 import edu.temple.sp_res_lib.utils.Constants;
 import edu.temple.sp_res_lib.utils.StorageUtil;
 
-import static edu.temple.sp_res_lib.utils.Constants.SHARED_PREFS_FILENAME;
-import static edu.temple.sp_res_lib.utils.Constants.SP_KEY_GUIDS;
+import static edu.temple.sp_res_lib.utils.Constants.DEFAULT_ALARM_ID;
 
 public class SpAdmin extends Application {
 
     public static final String LOG_TAG = "SmartPrompter-Admin";
 
-    // private SharedPreferences prefs;
     private ArrayList<Alarm> alarms;
     private ArrayList<SurveyQuestion> questions;
 
@@ -40,8 +33,16 @@ public class SpAdmin extends Application {
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
-    public Alarm getAlarm(int alarmID) {
-        return alarms.get(alarmID);
+    // public Alarm getAlarm(int alarmID) {
+    //     return alarms.get(alarmID);
+    // }
+
+    public Alarm getAlarm(String guid) {
+        for (Alarm alarm : alarms) {
+            if (alarm.getGuid().equals(guid))
+                return alarm;
+        }
+        return null;
     }
 
     public ArrayList<Alarm> getCurrentAlarms() {
@@ -69,25 +70,25 @@ public class SpAdmin extends Application {
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
-    public void saveAlarm(Alarm alarm) {
+    public void saveAlarm(Alarm newAlarm) {
         Log.i(LOG_TAG, "Attempting to save alarm record with: "
-                + "\t ID: " + alarm.getID()
-                + "\t GUID: " + alarm.getGuid()
-                + "\t Description: " + alarm.getDesc()
-                + "\t Date: " + alarm.getDateString()
-                + "\t Time: " + alarm.getTimeString()
-                + "\t Status: " + alarm.getStatus()
-                + "\t Is Archived: " + alarm.isArchived());
+                + "\t GUID: " + newAlarm.getGuid()
+                + "\t Description: " + newAlarm.getDesc()
+                + "\t Date: " + newAlarm.getDateString()
+                + "\t Time: " + newAlarm.getTimeString()
+                + "\t Status: " + newAlarm.getStatus()
+                + "\t Is Archived: " + newAlarm.isArchived());
 
-        if (alarm.getID() == Constants.DEFAULT_ALARM_ID ||
-                alarm.getGuid() == Constants.DEFAULT_ALARM_GUID) {
-            Log.i(LOG_TAG, "Creating new record for alarm: " + alarm.getDesc());
-            alarm.setID(alarms.size());
-            alarm.setNewGuid();
-            alarms.add(alarm);
+        if (newAlarm.getGuid().equals(Constants.DEFAULT_ALARM_GUID)) {
+            Log.i(LOG_TAG, "Creating new record for alarm: " + newAlarm.getDesc());
+            newAlarm.setNewGuid();
+            alarms.add(newAlarm);
         } else {
-            Log.i(LOG_TAG, "Updating details for existing alarm: " + alarm.getDesc());
-            alarms.set(alarm.getID(), alarm);
+            Log.i(LOG_TAG, "Updating details for existing alarm: " + newAlarm.getDesc());
+            int oldAlarmIndex = getAlarmIndex(newAlarm);
+            if (oldAlarmIndex != DEFAULT_ALARM_ID)
+                alarms.set(oldAlarmIndex, newAlarm);
+
             // TODO - if ALARM alarm already exists for this record, delete it
         }
 
@@ -97,15 +98,27 @@ public class SpAdmin extends Application {
 
     public void deleteAlarm(Alarm alarm) {
         Log.i(LOG_TAG, "Attempting to delete alarm record with: "
-                + "\t ID: " + alarm.getID()
                 + "\t GUID: " + alarm.getGuid()
                 + "\t Description: " + alarm.getDesc());
 
         StorageUtil.deleteFileFromStorage(this, alarm.getGuid());
-        alarms.remove(alarm.getID());
+
+        int oldAlarmIndex = getAlarmIndex(alarm);
+        if (oldAlarmIndex != DEFAULT_ALARM_ID)
+            alarms.remove(oldAlarmIndex);
 
         // TODO - cancel ALARM alarm for this record
         // TODO - update any relevant listeners
+    }
+
+    private int getAlarmIndex(Alarm alarm) {
+        for (Alarm oldAlarm : alarms) {
+            if (oldAlarm.getGuid().equals(alarm.getGuid())) {
+                return alarms.indexOf(oldAlarm);
+            }
+        }
+
+        return DEFAULT_ALARM_ID;
     }
 
 }

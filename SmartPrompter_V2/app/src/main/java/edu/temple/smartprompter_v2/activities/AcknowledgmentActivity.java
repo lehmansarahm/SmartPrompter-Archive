@@ -8,6 +8,9 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import edu.temple.smartprompter_v2.R;
+import edu.temple.smartprompter_v2.SmartPrompter;
+import edu.temple.sp_res_lib.obj.Alarm;
+import edu.temple.sp_res_lib.utils.Constants;
 
 import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 
@@ -17,12 +20,16 @@ public class AcknowledgmentActivity extends AppCompatActivity {
     private static final int ON_MY_WAY = 2;
 
     private TextView mInstructionText;
+    private String mAlarmGUID;
     private int mSelection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acknowledgment);
+
+        mAlarmGUID = getIntent().getStringExtra(Constants.BUNDLE_ARG_ALARM_GUID);
+        populateView();
 
         mInstructionText = findViewById(R.id.instruction_text);
         SeekBar selection = findViewById(R.id.selection_seekbar);
@@ -55,11 +62,19 @@ public class AcknowledgmentActivity extends AppCompatActivity {
                 Log.i(LOG_TAG, "Acknowledgment SeekBar tracking touch stopped!  "
                         + "Initializing response for selection: " + mSelection);
                 if (mSelection == ON_MY_WAY) {
-                    startActivity(new Intent(AcknowledgmentActivity.this,
-                            CompletionActivity.class));
+                    Intent intent = new Intent(AcknowledgmentActivity.this,
+                            CompletionActivity.class);
+                    intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, mAlarmGUID);
+                    startActivity(intent);
                 }
             }
         });
+    }
+
+    private void populateView() {
+        Alarm alarm = ((SmartPrompter)getApplication()).getAlarm(mAlarmGUID);
+        TextView taskText = findViewById(R.id.task_text);
+        taskText.setText(alarm.getDesc());
     }
 
 }

@@ -49,10 +49,10 @@ public class AlarmDetailsFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static AlarmDetailsFragment newInstance(int id) {
+    public static AlarmDetailsFragment newInstance(String guid) {
         AlarmDetailsFragment fragment = new AlarmDetailsFragment();
         Bundle args = new Bundle();
-        args.putInt(Constants.BUNDLE_ARG_ALARM_ID, id);
+        args.putString(Constants.BUNDLE_ARG_ALARM_GUID, guid);
         fragment.setArguments(args);
         return fragment;
     }
@@ -61,14 +61,14 @@ public class AlarmDetailsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            int alarmID = getArguments().getInt(Constants.BUNDLE_ARG_ALARM_ID);
-            if (alarmID == Constants.DEFAULT_ALARM_ID) {
+            String alarmGUID = getArguments().getString(Constants.BUNDLE_ARG_ALARM_GUID);
+            if (alarmGUID.equals(Constants.DEFAULT_ALARM_GUID)) {
                 Calendar now = Calendar.getInstance();
-                mAlarm = new Alarm(Constants.DEFAULT_ALARM_ID, Constants.DEFAULT_ALARM_GUID,
-                        Constants.DEFAULT_ALARM_DESC, now.getTimeInMillis(), Alarm.STATUS.New, false);
+                mAlarm = new Alarm(Constants.DEFAULT_ALARM_GUID, Constants.DEFAULT_ALARM_DESC,
+                        now.getTimeInMillis(), Alarm.STATUS.New, false);
             } else {
-                Alarm origAlarm = ((SpAdmin) getContext().getApplicationContext()).getAlarm(alarmID);
-                mAlarm = new Alarm(origAlarm.getID(), origAlarm.getGuid(), origAlarm.getDesc(),
+                Alarm origAlarm = ((SpAdmin)getContext().getApplicationContext()).getAlarm(alarmGUID);
+                mAlarm = new Alarm(origAlarm.getGuid(), origAlarm.getDesc(),
                         origAlarm.getTimeInMillis(), origAlarm.getStatus(), origAlarm.isArchived());
             }
         }
@@ -147,7 +147,7 @@ public class AlarmDetailsFragment extends Fragment {
         labelLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(Constants.LOG_TAG, "User clicked LABEL field for alarm ID: " + mAlarm.getID());
+                Log.i(Constants.LOG_TAG, "User clicked LABEL field for alarm GUID: " + mAlarm.getGuid());
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setTitle("Alarm Label");
 
@@ -185,8 +185,8 @@ public class AlarmDetailsFragment extends Fragment {
         dateLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(LOG_TAG, "User clicked DATE field for alarm ID: " + mAlarm.getID());
-                mDateListener.onDatePickerRequested(mAlarm.getID(), mAlarm.getDate());
+                Log.i(LOG_TAG, "User clicked DATE field for alarm GUID: " + mAlarm.getGuid());
+                mDateListener.onDatePickerRequested(mAlarm.getGuid(), mAlarm.getDate());
             }
         });
     }
@@ -199,8 +199,8 @@ public class AlarmDetailsFragment extends Fragment {
         timeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(LOG_TAG, "User clicked TIME field for alarm ID: " + mAlarm.getID());
-                mTimeListener.onTimePickerRequested(mAlarm.getID(), mAlarm.getTime());
+                Log.i(LOG_TAG, "User clicked TIME field for alarm GUID: " + mAlarm.getGuid());
+                mTimeListener.onTimePickerRequested(mAlarm.getGuid(), mAlarm.getTime());
             }
         });
     }

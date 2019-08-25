@@ -32,7 +32,6 @@ public class SmartPrompter extends Application {
             Arrays.asList(Alarm.STATUS.New, Alarm.STATUS.Unacknowledged, Alarm.STATUS.Incomplete);
 
     private ArrayList<Alarm> alarms;
-    private Ringtone currentRingtone;
 
     @Override
     public void onCreate() {
@@ -40,11 +39,19 @@ public class SmartPrompter extends Application {
         getAlarmsFromStorage();
     }
 
+    public Alarm getAlarm(String guid) {
+        for (Alarm alarm : alarms) {
+            if (alarm.getGuid().equals(guid))
+                return alarm;
+        }
+        return null;
+    }
+
     public ArrayList<Alarm> getAlarms() {
         return this.alarms;
     }
 
-    public void setAlarm(Context context, AlarmManager manager, Alarm alarm) {
+    /* public void setAlarm(Context context, AlarmManager manager, Alarm alarm) {
         manager.setAlarmClock(
                 new AlarmManager.AlarmClockInfo(
                         alarm.getTimeInMillis(),
@@ -57,7 +64,7 @@ public class SmartPrompter extends Application {
 
     public void cancelAlarm(Context context, AlarmManager manager, Alarm alarm) {
         manager.cancel(getIntent(context, alarm.getID()));
-    }
+    } */
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
@@ -65,21 +72,18 @@ public class SmartPrompter extends Application {
     private void getAlarmsFromStorage() {
         Log.i(LOG_TAG, "Retrieving alarm records from storage!");
         alarms = new ArrayList<>();
-        int alarmCount = 0;
 
         ArrayList<Alarm> allAlarms = StorageUtil.getAlarmsFromStorage(this);
         for (Alarm alarm : allAlarms) {
             if (ACTIVE_STATUSES.contains(alarm.getStatus())) {
-                alarm.setID(alarmCount);
                 alarms.add(alarm);
-                alarmCount++;
             }
         }
     }
 
     private PendingIntent getIntent(Context context, int id) {
         Intent intent = new Intent(context, AlarmReceiver.class);
-        intent.putExtra(Constants.BUNDLE_ARG_ALARM_ID, id);
+        intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, id);
         return PendingIntent.getBroadcast(context, id /* request code */,
                 intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }

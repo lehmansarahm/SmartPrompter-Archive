@@ -21,15 +21,12 @@ public class StorageUtil {
         Log.i(Constants.LOG_TAG, "Retrieving alarm records from storage!");
         ArrayList<Alarm> alarms = new ArrayList<>();
         File alarmsDir = verifyOutputDir(ctx);
-        int alarmCount = 0;
 
         for (String alarmFile : alarmsDir.list()) {
             Log.i(Constants.LOG_TAG, "Scanning file: " + alarmFile);
             String jsonAlarm = StorageUtil.readFileFromStorage(ctx, alarmFile);
             Alarm alarm = Alarm.importFromJson(jsonAlarm);
-            alarm.setID(alarmCount);
             alarms.add(alarm);
-            alarmCount++;
         }
 
         return alarms;

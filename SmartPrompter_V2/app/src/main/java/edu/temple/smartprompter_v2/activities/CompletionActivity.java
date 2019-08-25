@@ -1,6 +1,7 @@
 package edu.temple.smartprompter_v2.activities;
 
 import android.content.Intent;
+import android.graphics.Camera;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,9 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import edu.temple.smartprompter_v2.R;
+import edu.temple.smartprompter_v2.SmartPrompter;
+import edu.temple.sp_res_lib.obj.Alarm;
+import edu.temple.sp_res_lib.utils.Constants;
 
 import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 
@@ -17,12 +21,16 @@ public class CompletionActivity extends AppCompatActivity {
     private static final int READY = 2;
 
     private TextView mInstructionText;
+    private String mAlarmGUID;
     private int mSelection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_completion);
+
+        mAlarmGUID = getIntent().getStringExtra(Constants.BUNDLE_ARG_ALARM_GUID);
+        populateView();
 
         mInstructionText = findViewById(R.id.instruction_text);
         SeekBar selection = findViewById(R.id.selection_seekbar);
@@ -55,11 +63,19 @@ public class CompletionActivity extends AppCompatActivity {
                 Log.i(LOG_TAG, "Completion SeekBar tracking touch stopped!  "
                         + "Initializing response for selection: " + mSelection);
                 if (mSelection == READY) {
-                    startActivity(new Intent(CompletionActivity.this,
-                            CameraActivity.class));
+                    Intent intent = new Intent(CompletionActivity.this,
+                            CameraActivity.class);
+                    intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, mAlarmGUID);
+                    startActivity(intent);
                 }
             }
         });
+    }
+
+    private void populateView() {
+        Alarm alarm = ((SmartPrompter)getApplication()).getAlarm(mAlarmGUID);
+        TextView taskText = findViewById(R.id.task_text);
+        taskText.setText(alarm.getDesc());
     }
 
 }

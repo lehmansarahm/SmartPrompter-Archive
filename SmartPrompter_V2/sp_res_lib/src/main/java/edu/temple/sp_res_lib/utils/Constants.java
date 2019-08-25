@@ -17,7 +17,8 @@ public class Constants {
     public static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("hh:mm a");
     public static final SimpleDateFormat DATE_TIME_FORMAT = new SimpleDateFormat("yyyy-MM-dd hh:mma");
 
-    public static final String BUNDLE_ARG_ALARM_ID = "bundle_alarm_id";
+    // public static final String BUNDLE_ARG_ALARM_ID = "bundle_alarm_id";
+    public static final String BUNDLE_ARG_ALARM_GUID = "bundle_alarm_guid";
 
     public static final String BUNDLE_ARG_IMAGE_BYTES = "bundle_alarm_image_bytes";
 

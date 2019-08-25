@@ -15,23 +15,23 @@ public class TimePickerFragment extends DialogFragment
         implements TimePickerDialog.OnTimeSetListener {
 
     public interface TimePickerListener {
-        void onTimePickerRequested(int alarmID, int[] time);
-        void onTimePicked(int alarmID, int hourOfDay, int minute);
+        void onTimePickerRequested(String alarmGUID, int[] time);
+        void onTimePicked(String alarmGUID, int hourOfDay, int minute);
     }
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
-    private int mAlarmID;
+    private String mAlarmGUID;
     private int mHour, mMinute;
     private boolean mIs24Hr;
 
     private TimePickerListener mListener;
 
-    public static TimePickerFragment newInstance(int alarmID, int[] time) {
+    public static TimePickerFragment newInstance(String alarmGUID, int[] time) {
         TimePickerFragment fragment = new TimePickerFragment();
         Bundle args = new Bundle();
-        args.putInt(Constants.BUNDLE_ARG_ALARM_ID, alarmID);
+        args.putString(Constants.BUNDLE_ARG_ALARM_GUID, alarmGUID);
         args.putInt(Constants.BUNDLE_ARG_HOUR, time[0]);
         args.putInt(Constants.BUNDLE_ARG_MINUTE, time[1]);
         fragment.setArguments(args);
@@ -62,7 +62,7 @@ public class TimePickerFragment extends DialogFragment
             return null;
         }
 
-        mAlarmID = getArguments().getInt(Constants.BUNDLE_ARG_ALARM_ID);
+        mAlarmGUID = getArguments().getString(Constants.BUNDLE_ARG_ALARM_GUID);
         mHour = getArguments().getInt(Constants.BUNDLE_ARG_HOUR);
         mMinute = getArguments().getInt(Constants.BUNDLE_ARG_MINUTE);
         mIs24Hr = DateFormat.is24HourFormat(getActivity());
@@ -72,7 +72,7 @@ public class TimePickerFragment extends DialogFragment
     }
 
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-        mListener.onTimePicked(mAlarmID, hourOfDay, minute);
+        mListener.onTimePicked(mAlarmGUID, hourOfDay, minute);
     }
 
 }

@@ -15,6 +15,7 @@ import android.view.View;
 import edu.temple.smartprompter_v2.R;
 import edu.temple.smartprompter_v2.fragments.CameraPreviewFragment;
 import edu.temple.smartprompter_v2.fragments.CameraReviewFragment;
+import edu.temple.sp_res_lib.utils.Constants;
 
 import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 
@@ -22,40 +23,40 @@ public class CameraActivity extends AppCompatActivity implements
         CameraPreviewFragment.ImageCaptureListener,
         CameraReviewFragment.ImageReviewListener {
 
-    // TODO - get current alarmID for real
-    private static final int PLACEHOLDER_ALARM_ID = 1;
-
     private CameraPreviewFragment previewFrag;
     private CameraReviewFragment reviewFrag;
+    private String mAlarmGUID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
+        mAlarmGUID = getIntent().getStringExtra(Constants.BUNDLE_ARG_ALARM_GUID);
+
         Log.i(LOG_TAG, "Populating camera fragment...");
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        previewFrag = CameraPreviewFragment.newInstance(PLACEHOLDER_ALARM_ID);
+        previewFrag = CameraPreviewFragment.newInstance(mAlarmGUID);
         ft.replace(R.id.camera_container, previewFrag)
                 .addToBackStack(null)
                 .commit();
     }
 
     @Override
-    public void onImageCaptured(int alarmID, byte[] imageBytes) {
-        Log.i(LOG_TAG, "User has captured an image for alarm ID: " + alarmID);
+    public void onImageCaptured(String alarmGUID, byte[] imageBytes) {
+        Log.i(LOG_TAG, "User has captured an image for alarm ID: " + alarmGUID);
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.popBackStack();     // remove camera preview fragment to avoid conflicts
 
         FragmentTransaction ft = fragmentManager.beginTransaction();
-        reviewFrag = CameraReviewFragment.newInstance(alarmID, imageBytes);
+        reviewFrag = CameraReviewFragment.newInstance(alarmGUID, imageBytes);
         ft.replace(R.id.camera_container, reviewFrag)
                 .addToBackStack(null)
                 .commit();
     }
 
     @Override
-    public void onImageAccepted(int alarmID, byte[] bytes) {
+    public void onImageAccepted(String alarmGUID, byte[] bytes) {
         Log.i(LOG_TAG, "User has successfully taken and approved a task "
                 + "completion picture.  Updating alarm and saving image to storage.");
         // TODO - save image for real
@@ -65,7 +66,7 @@ public class CameraActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onImageRejected(int alarmID) {
+    public void onImageRejected(String alarmGUID) {
         Log.i(LOG_TAG, "User has rejected the task completion picture "
                 + "they took.  Returning to camera preview fragment ...");
 
