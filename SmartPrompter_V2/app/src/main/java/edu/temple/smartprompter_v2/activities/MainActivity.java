@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements AlarmListFragment
     private static final String[] PERMISSIONS = new String[] {
             Manifest.permission.RECEIVE_BOOT_COMPLETED,
             Manifest.permission.WAKE_LOCK,
-            Manifest.permission.INTERNET,
             Manifest.permission.CAMERA,
             Manifest.permission.SET_ALARM,
             Manifest.permission.VIBRATE,
@@ -92,8 +91,8 @@ public class MainActivity extends AppCompatActivity implements AlarmListFragment
         Log.i(LOG_TAG, "We have all required permissions!  Determining "
                 + "whether there are alarms to show ...");
 
+        mActiveAlarms = ((SmartPrompter) getApplication()).getAlarms();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        getActiveAlarms();
 
         if (mActiveAlarms != null && mActiveAlarms.size() > 0) {
             Log.i(LOG_TAG, "Populating current activity with alarm-list fragment.");
@@ -120,14 +119,6 @@ public class MainActivity extends AppCompatActivity implements AlarmListFragment
         Log.i(LOG_TAG, "List item selected!  Item Number: " + item.getID());
         startActivity(new Intent(MainActivity.this,
                 AcknowledgmentActivity.class));
-    }
-
-    // --------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------
-
-    private void getActiveAlarms() {
-        SmartPrompter sp = (SmartPrompter) getApplicationContext();
-        mActiveAlarms = sp.getAlarms();
     }
 
 }

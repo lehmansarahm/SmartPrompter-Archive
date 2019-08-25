@@ -6,6 +6,9 @@ public class Constants {
 
     public static final String LOG_TAG = "SpResLib";
 
+    public static final String SHARED_PREFS_FILENAME = "SmartPrompter_Prefs";
+    public static final String SP_KEY_GUIDS = "Current_Alarm_GUIDs";
+
     public static final int DEFAULT_ALARM_ID = -99999;
     public static final String DEFAULT_ALARM_GUID = "XXXX-YYYY-ZZZZ";
     public static final String DEFAULT_ALARM_DESC = "New Alarm";

@@ -7,34 +7,37 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.Ringtone;
-import android.preference.PreferenceManager;
+import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.UUID;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import edu.temple.smartprompter_v2.activities.AcknowledgmentActivity;
 import edu.temple.smartprompter_v2.receivers.AlarmReceiver;
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.StorageUtil;
+
+import static edu.temple.sp_res_lib.utils.Constants.SHARED_PREFS_FILENAME;
+import static edu.temple.sp_res_lib.utils.Constants.SP_KEY_GUIDS;
 
 public class SmartPrompter extends Application {
 
     public static final String LOG_TAG = "SmartPrompterV2";
 
-    private SharedPreferences prefs;
-    private Ringtone currentRingtone;
+    private static final List<Alarm.STATUS> ACTIVE_STATUSES =
+            Arrays.asList(Alarm.STATUS.New, Alarm.STATUS.Unacknowledged, Alarm.STATUS.Incomplete);
+
     private ArrayList<Alarm> alarms;
+    private Ringtone currentRingtone;
 
     @Override
     public void onCreate() {
         super.onCreate();
-
-        prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        alarms = new ArrayList<>();
-
-        // TODO - populate active alarms list for real
-        alarms.add(new Alarm(1, UUID.randomUUID().toString(),
-                "Water the plants", 0, Alarm.STATUS.Incomplete));
+        getAlarmsFromStorage();
     }
 
     public ArrayList<Alarm> getAlarms() {
@@ -58,6 +61,21 @@ public class SmartPrompter extends Application {
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
+
+    private void getAlarmsFromStorage() {
+        Log.i(LOG_TAG, "Retrieving alarm records from storage!");
+        alarms = new ArrayList<>();
+        int alarmCount = 0;
+
+        ArrayList<Alarm> allAlarms = StorageUtil.getAlarmsFromStorage(this);
+        for (Alarm alarm : allAlarms) {
+            if (ACTIVE_STATUSES.contains(alarm.getStatus())) {
+                alarm.setID(alarmCount);
+                alarms.add(alarm);
+                alarmCount++;
+            }
+        }
+    }
 
     private PendingIntent getIntent(Context context, int id) {
         Intent intent = new Intent(context, AlarmReceiver.class);

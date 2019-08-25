@@ -4,35 +4,37 @@ import android.app.Application;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.obj.SurveyQuestion;
 import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.StorageUtil;
+
+import static edu.temple.sp_res_lib.utils.Constants.SHARED_PREFS_FILENAME;
+import static edu.temple.sp_res_lib.utils.Constants.SP_KEY_GUIDS;
 
 public class SpAdmin extends Application {
 
     public static final String LOG_TAG = "SmartPrompter-Admin";
 
-    private static final String SHARED_PREFS_FILENAME = "SmartPrompter_Prefs";
-    private static final String SP_KEY_GUIDS = "Current_Alarm_GUIDs";
-    private SharedPreferences preferences;
-
+    // private SharedPreferences prefs;
     private ArrayList<Alarm> alarms;
     private ArrayList<SurveyQuestion> questions;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        preferences = getSharedPreferences(SHARED_PREFS_FILENAME, 0);
-        getAlarmsFromStorage();
-        getSurveyQuestionsFromStorage();
+        alarms = StorageUtil.getAlarmsFromStorage(this);
+        questions = StorageUtil.getSurveyQuestionsFromStorage();
     }
 
     public void onAppStopped() {
-        writeAlarmsToStorage();
+        StorageUtil.writeAlarmsToStorage(this, alarms);
     }
 
     // --------------------------------------------------------------------------------------
@@ -98,51 +100,12 @@ public class SpAdmin extends Application {
                 + "\t ID: " + alarm.getID()
                 + "\t GUID: " + alarm.getGuid()
                 + "\t Description: " + alarm.getDesc());
+
+        StorageUtil.deleteFileFromStorage(this, alarm.getGuid());
         alarms.remove(alarm.getID());
 
         // TODO - cancel ALARM alarm for this record
         // TODO - update any relevant listeners
-    }
-
-    // --------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------
-
-    private void getAlarmsFromStorage() {
-        Log.i(LOG_TAG, "Retrieving alarm records from storage!");
-        alarms = new ArrayList<>();
-
-        Set<String> guidList = preferences.getStringSet(SP_KEY_GUIDS, new HashSet<String>());
-        int alarmCount = 0;
-
-        for (String guid : guidList) {
-            String jsonAlarm = preferences.getString(guid, null);
-            Alarm alarm = Alarm.importFromJson(jsonAlarm);
-            alarm.setID(alarmCount);
-            alarms.add(alarm);
-            alarmCount++;
-        }
-    }
-
-    private void writeAlarmsToStorage() {
-        SharedPreferences.Editor spEditor = preferences.edit();
-        Set<String> guidList = new HashSet<>();
-
-        for (Alarm alarm : alarms) {
-            guidList.add(alarm.getGuid());
-            String jsonAlarm = Alarm.exportToJson(alarm);
-            Log.i(LOG_TAG, "Writing alarm to storage: " + jsonAlarm);
-            spEditor.putString(alarm.getGuid(), jsonAlarm);
-        }
-
-        spEditor.putStringSet(SP_KEY_GUIDS, guidList);
-        spEditor.apply();
-    }
-
-    private void getSurveyQuestionsFromStorage() {
-        Log.i(LOG_TAG, "Retrieving survey questions from storage!");
-
-        // TODO - populate survey question list for real
-        questions = new ArrayList<>();
     }
 
 }
