@@ -2,7 +2,6 @@ package edu.temple.sp_admin.activities;
 
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -20,7 +19,7 @@ import edu.temple.sp_res_lib.utils.Constants;
 
 import static edu.temple.sp_admin.SpAdmin.LOG_TAG;
 
-public class CurrentAlarmsActivity extends AppCompatActivity
+public class CurrentAlarmsActivity extends BaseActivity
         implements AlarmListFragment.OnListItemSelectionListener, AlarmDetailsFragment.OnButtonClickListener,
         DatePickerFragment.DatePickerListener, TimePickerFragment.TimePickerListener {
 
@@ -32,7 +31,6 @@ public class CurrentAlarmsActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_alarms);
-
         getCurrentAlarms();
         showDefaultFragment();
     }
@@ -49,6 +47,9 @@ public class CurrentAlarmsActivity extends AppCompatActivity
         switch(button) {
             case Save:
                 ((SpAdmin)getApplicationContext()).saveAlarm(alarm);
+                getSupportFragmentManager().popBackStack();
+                getCurrentAlarms();
+                showDefaultFragment();
                 break;
             case Cancel:
                 // have to explicitly pop the back stack before refreshing fragment
@@ -57,6 +58,9 @@ public class CurrentAlarmsActivity extends AppCompatActivity
                 break;
             case Delete:
                 ((SpAdmin)getApplicationContext()).deleteAlarm(alarm);
+                getSupportFragmentManager().popBackStack();
+                getCurrentAlarms();
+                showDefaultFragment();
                 break;
         }
     }
@@ -142,5 +146,4 @@ public class CurrentAlarmsActivity extends AppCompatActivity
                 .addToBackStack(null)
                 .commit();
     }
-
 }

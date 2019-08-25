@@ -65,11 +65,11 @@ public class AlarmDetailsFragment extends Fragment {
             if (alarmID == Constants.DEFAULT_ALARM_ID) {
                 Calendar now = Calendar.getInstance();
                 mAlarm = new Alarm(Constants.DEFAULT_ALARM_ID, Constants.DEFAULT_ALARM_GUID,
-                        Constants.DEFAULT_ALARM_DESC, now.getTimeInMillis(), Alarm.STATUS.New);
+                        Constants.DEFAULT_ALARM_DESC, now.getTimeInMillis(), Alarm.STATUS.New, false);
             } else {
                 Alarm origAlarm = ((SpAdmin) getContext().getApplicationContext()).getAlarm(alarmID);
-                mAlarm = new Alarm(origAlarm.getID(), origAlarm.getUUID(), origAlarm.getDesc(),
-                        origAlarm.getTimeInMillis(), origAlarm.getStatus());
+                mAlarm = new Alarm(origAlarm.getID(), origAlarm.getGuid(), origAlarm.getDesc(),
+                        origAlarm.getTimeInMillis(), origAlarm.getStatus(), origAlarm.isArchived());
             }
         }
     }

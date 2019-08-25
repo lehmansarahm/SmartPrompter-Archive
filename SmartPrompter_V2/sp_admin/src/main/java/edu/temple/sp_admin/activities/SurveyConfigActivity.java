@@ -1,11 +1,10 @@
 package edu.temple.sp_admin.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import edu.temple.sp_admin.R;
 
-public class SurveyConfigActivity extends AppCompatActivity {
+public class SurveyConfigActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

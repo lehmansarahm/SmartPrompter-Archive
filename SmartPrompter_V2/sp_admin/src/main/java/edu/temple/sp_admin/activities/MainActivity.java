@@ -1,7 +1,6 @@
 package edu.temple.sp_admin.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,7 +10,7 @@ import edu.temple.sp_admin.R;
 
 import static edu.temple.sp_admin.SpAdmin.LOG_TAG;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,18 +57,6 @@ public class MainActivity extends AppCompatActivity {
                         SurveyConfigActivity.class));
             }
         });
-    }
-
-    @Override
-    public void onPause() {
-        Log.i(LOG_TAG, "Main Activity paused!");
-        super.onPause();
-    }
-
-    @Override
-    public void onDestroy() {
-        Log.i(LOG_TAG, "Main Activity destroyed!");
-        super.onDestroy();
     }
 
 }

@@ -1,10 +1,12 @@
 package edu.temple.sp_admin;
 
 import android.app.Application;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.UUID;
+import java.util.HashSet;
+import java.util.Set;
 
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.obj.SurveyQuestion;
@@ -14,45 +16,48 @@ public class SpAdmin extends Application {
 
     public static final String LOG_TAG = "SmartPrompter-Admin";
 
-    private ArrayList<Alarm> alarms, logs;
+    private static final String SHARED_PREFS_FILENAME = "SmartPrompter_Prefs";
+    private static final String SP_KEY_GUIDS = "Current_Alarm_GUIDs";
+    private SharedPreferences preferences;
+
+    private ArrayList<Alarm> alarms;
     private ArrayList<SurveyQuestion> questions;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        preferences = getSharedPreferences(SHARED_PREFS_FILENAME, 0);
+        getAlarmsFromStorage();
+        getSurveyQuestionsFromStorage();
+    }
 
-        // TODO - populate current alarms list for real
-        alarms = new ArrayList<>();
-        alarms.add(new Alarm(1, UUID.randomUUID().toString(),
-                "Take out the trash",  0, Alarm.STATUS.Active));
-        alarms.add(new Alarm(2, UUID.randomUUID().toString(),
-                "Water the plants", 0, Alarm.STATUS.Incomplete));
-
-        // TODO - populate past alarms list for real
-        logs = new ArrayList<>();
-        logs.add(new Alarm(1, UUID.randomUUID().toString(),
-                "Feed the dog", 0, Alarm.STATUS.Complete));
-
-        // TODO - populate survey question list for real
-        questions = new ArrayList<>();
+    public void onAppStopped() {
+        writeAlarmsToStorage();
     }
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
     public Alarm getAlarm(int alarmID) {
-        // TODO - confirm what an alarm "ID" is ... is it the ordinal number of the alarm in
-        //  the overall list?  is it the index of the alarm in the collection?  the ACTUAL unique
-        //  identifier of the alarm is the GUID...
-        return alarms.get(alarmID - 1);
+        return alarms.get(alarmID);
     }
 
     public ArrayList<Alarm> getCurrentAlarms() {
-        return this.alarms;
+        ArrayList<Alarm> currentAlarms = new ArrayList<>();
+        for (Alarm alarm : alarms) {
+            if (!alarm.isArchived())
+                currentAlarms.add(alarm);
+        }
+        return currentAlarms;
     }
 
-    public ArrayList<Alarm> getPastAlarms() {
-        return this.logs;
+    public ArrayList<Alarm> getArchivedAlarms() {
+        ArrayList<Alarm> archivedAlarms = new ArrayList<>();
+        for (Alarm alarm : alarms) {
+            if (alarm.isArchived())
+                archivedAlarms.add(alarm);
+        }
+        return archivedAlarms;
     }
 
     public ArrayList<SurveyQuestion> getQuestions() {
@@ -65,35 +70,79 @@ public class SpAdmin extends Application {
     public void saveAlarm(Alarm alarm) {
         Log.i(LOG_TAG, "Attempting to save alarm record with: "
                 + "\t ID: " + alarm.getID()
-                + "\t GUID: " + alarm.getUUID()
+                + "\t GUID: " + alarm.getGuid()
                 + "\t Description: " + alarm.getDesc()
                 + "\t Date: " + alarm.getDateString()
                 + "\t Time: " + alarm.getTimeString()
-                + "\t Status: " + alarm.getStatus());
+                + "\t Status: " + alarm.getStatus()
+                + "\t Is Archived: " + alarm.isArchived());
 
         if (alarm.getID() == Constants.DEFAULT_ALARM_ID ||
-                alarm.getUUID() == Constants.DEFAULT_ALARM_GUID) {
+                alarm.getGuid() == Constants.DEFAULT_ALARM_GUID) {
             Log.i(LOG_TAG, "Creating new record for alarm: " + alarm.getDesc());
-            // TODO - calculate new ID for new alarm
-            // TODO - generate new GUID for new alarm
-            // TODO - insert alarm into collection
+            alarm.setID(alarms.size());
+            alarm.setNewGuid();
+            alarms.add(alarm);
         } else {
             Log.i(LOG_TAG, "Updating details for existing alarm: " + alarm.getDesc());
-            // TODO - override old alarm record in collection by ID
+            alarms.set(alarm.getID(), alarm);
+            // TODO - if ALARM alarm already exists for this record, delete it
         }
 
+        // TODO - set a new ALARM alarm for this record
         // TODO - update any relevant listeners
     }
 
     public void deleteAlarm(Alarm alarm) {
         Log.i(LOG_TAG, "Attempting to delete alarm record with: "
                 + "\t ID: " + alarm.getID()
-                + "\t GUID: " + alarm.getUUID()
+                + "\t GUID: " + alarm.getGuid()
                 + "\t Description: " + alarm.getDesc());
+        alarms.remove(alarm.getID());
 
-        // TODO - remove alarm from collection
-        // TODO - delete alarm from persistent storage
+        // TODO - cancel ALARM alarm for this record
         // TODO - update any relevant listeners
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    private void getAlarmsFromStorage() {
+        Log.i(LOG_TAG, "Retrieving alarm records from storage!");
+        alarms = new ArrayList<>();
+
+        Set<String> guidList = preferences.getStringSet(SP_KEY_GUIDS, new HashSet<String>());
+        int alarmCount = 0;
+
+        for (String guid : guidList) {
+            String jsonAlarm = preferences.getString(guid, null);
+            Alarm alarm = Alarm.importFromJson(jsonAlarm);
+            alarm.setID(alarmCount);
+            alarms.add(alarm);
+            alarmCount++;
+        }
+    }
+
+    private void writeAlarmsToStorage() {
+        SharedPreferences.Editor spEditor = preferences.edit();
+        Set<String> guidList = new HashSet<>();
+
+        for (Alarm alarm : alarms) {
+            guidList.add(alarm.getGuid());
+            String jsonAlarm = Alarm.exportToJson(alarm);
+            Log.i(LOG_TAG, "Writing alarm to storage: " + jsonAlarm);
+            spEditor.putString(alarm.getGuid(), jsonAlarm);
+        }
+
+        spEditor.putStringSet(SP_KEY_GUIDS, guidList);
+        spEditor.apply();
+    }
+
+    private void getSurveyQuestionsFromStorage() {
+        Log.i(LOG_TAG, "Retrieving survey questions from storage!");
+
+        // TODO - populate survey question list for real
+        questions = new ArrayList<>();
     }
 
 }

@@ -3,7 +3,10 @@ package edu.temple.sp_res_lib.obj;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.Gson;
+
 import java.util.Calendar;
+import java.util.UUID;
 
 import edu.temple.sp_res_lib.utils.Constants;
 
@@ -16,14 +19,30 @@ public class Alarm implements Parcelable {
     private String desc;
     private Calendar time;
     private STATUS status;
+    private boolean archived;
 
-    public Alarm(int id, String uuid, String desc, long time, STATUS status) {
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    public static String exportToJson(Alarm alarm) {
+        return (new Gson()).toJson(alarm);
+    }
+
+    public static Alarm importFromJson(String json) {
+        return (new Gson()).fromJson(json, Alarm.class);
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    public Alarm(int id, String uuid, String desc, long time, STATUS status, boolean archived) {
         this.id = id;
         this.uuid = uuid;
         this.desc = desc;
         this.time = Calendar.getInstance();
         this.time.setTimeInMillis(time);
         this.status = status;
+        this.archived = archived;
     }
 
     public Alarm(Parcel in) {
@@ -33,16 +52,23 @@ public class Alarm implements Parcelable {
         time = Calendar.getInstance();
         time.setTimeInMillis(in.readLong());
         status = STATUS.valueOf(in.readString());
+        archived = (in.readInt() == 1);
     }
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
+
+    public void setID(int ID) { this.id = ID; }
 
     public int getID() {
         return id;
     }
 
-    public String getUUID() {
+    public void setNewGuid() {
+        this.uuid = UUID.randomUUID().toString();
+    }
+
+    public String getGuid() {
         return uuid;
     }
 
@@ -55,6 +81,8 @@ public class Alarm implements Parcelable {
     }
 
     public STATUS getStatus() { return status; }
+
+    public boolean isArchived() { return archived; }
 
     @Override
     public String toString() {
@@ -117,6 +145,7 @@ public class Alarm implements Parcelable {
         parcel.writeString(desc);
         parcel.writeLong(time.getTimeInMillis());
         parcel.writeString(status.toString());
+        parcel.writeInt(archived ? 1 : 0);
     }
 
     public static final Parcelable.Creator<Alarm> CREATOR = new Parcelable.Creator<Alarm>()

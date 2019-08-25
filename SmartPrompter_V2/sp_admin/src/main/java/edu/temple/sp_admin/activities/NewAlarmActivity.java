@@ -1,8 +1,8 @@
 package edu.temple.sp_admin.activities;
 
+import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -16,7 +16,7 @@ import edu.temple.sp_res_lib.utils.Constants;
 
 import static edu.temple.sp_admin.SpAdmin.LOG_TAG;
 
-public class NewAlarmActivity extends AppCompatActivity
+public class NewAlarmActivity extends BaseActivity
         implements AlarmDetailsFragment.OnButtonClickListener,
         DatePickerFragment.DatePickerListener, TimePickerFragment.TimePickerListener {
 
@@ -36,6 +36,8 @@ public class NewAlarmActivity extends AppCompatActivity
         switch(button) {
             case Save:
                 ((SpAdmin)getApplicationContext()).saveAlarm(alarm);
+                startActivity(new Intent(NewAlarmActivity.this,
+                        CurrentAlarmsActivity.class));
                 break;
             case Cancel:
                 // no need to explicitly pop back stack for single-fragment activity
@@ -43,6 +45,8 @@ public class NewAlarmActivity extends AppCompatActivity
                 break;
             case Delete:
                 ((SpAdmin)getApplicationContext()).deleteAlarm(alarm);
+                startActivity(new Intent(NewAlarmActivity.this,
+                        CurrentAlarmsActivity.class));
                 break;
         }
     }

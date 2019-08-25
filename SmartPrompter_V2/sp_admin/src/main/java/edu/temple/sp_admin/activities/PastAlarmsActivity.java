@@ -1,7 +1,6 @@
 package edu.temple.sp_admin.activities;
 
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -16,7 +15,7 @@ import edu.temple.sp_res_lib.obj.Alarm;
 
 import static edu.temple.sp_admin.SpAdmin.LOG_TAG;
 
-public class PastAlarmsActivity extends AppCompatActivity
+public class PastAlarmsActivity extends BaseActivity
         implements AlarmListFragment.OnListItemSelectionListener {
 
     ArrayList<Alarm> mPastAlarms;
@@ -44,7 +43,7 @@ public class PastAlarmsActivity extends AppCompatActivity
 
     private void getPastAlarms() {
         SpAdmin spa = (SpAdmin) getApplicationContext();
-        mPastAlarms = spa.getPastAlarms();
+        mPastAlarms = spa.getArchivedAlarms();
     }
 
     private void showDefaultFragment() {
