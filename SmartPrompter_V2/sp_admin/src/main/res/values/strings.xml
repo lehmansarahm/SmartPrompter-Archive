@@ -23,5 +23,7 @@
     <string name="alarm_orig_date_time">Original Date and Time</string>
     <string name="alarm_time_acknowledged">Time Acknowledged</string>
     <string name="alarm_time_completed">Time Completed</string>
-    <string name="alarm_photo_path">Photo Path</string>
+    <string name="alarm_photo_path">Image Path</string>
+    <string name="alarm_field_image">Image</string>
+    <string name="not_applicable">N/A</string>
 </resources>

@@ -1,7 +1,6 @@
 package edu.temple.smartprompter_v2.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.SeekBar;
@@ -14,7 +13,7 @@ import edu.temple.sp_res_lib.utils.Constants;
 
 import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 
-public class AcknowledgmentActivity extends AppCompatActivity {
+public class AcknowledgmentActivity extends BaseActivity {
 
     private static final int REMIND_ME_LATER = 0;
     private static final int ON_MY_WAY = 2;
@@ -61,11 +60,26 @@ public class AcknowledgmentActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
                 Log.i(LOG_TAG, "Acknowledgment SeekBar tracking touch stopped!  "
                         + "Initializing response for selection: " + mSelection);
-                if (mSelection == ON_MY_WAY) {
-                    Intent intent = new Intent(AcknowledgmentActivity.this,
-                            CompletionActivity.class);
-                    intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, mAlarmGUID);
-                    startActivity(intent);
+
+                Intent intent;
+                switch (mSelection) {
+                    case REMIND_ME_LATER:
+                        intent = new Intent(AcknowledgmentActivity.this,
+                                MainActivity.class);
+                        intent.putExtra(Constants.BUNDLE_REMIND_ME_LATER_ACK, true);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+                        startActivity(intent);
+                        finish();
+                        break;
+                    case ON_MY_WAY:
+                        ((SmartPrompter)getApplication()).updateAlarmStatus(mAlarmGUID,
+                                Alarm.STATUS.Incomplete);
+                        intent = new Intent(AcknowledgmentActivity.this,
+                                CompletionActivity.class);
+                        intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, mAlarmGUID);
+                        startActivity(intent);
+                        finish();
+                        break;
                 }
             }
         });

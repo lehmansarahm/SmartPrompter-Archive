@@ -30,23 +30,6 @@ public class MediaUtil {
         return byteArray;
     }
 
-    public static Bitmap loadBitmap(String filepath) {
-        // First, see if the file exists
-        File imageFile = new File(filepath);
-        if (!imageFile.exists()) {
-            Log.e(Constants.LOG_TAG, "Image file does not exist at path: "
-                    + imageFile.getAbsolutePath());
-            return null;
-        }
-
-        // PATH: /storage/emulated/0/Documents/smartprompter/images/headshot_small.jpg
-
-        Log.i(Constants.LOG_TAG, "Image file exists!  Attempting to retrieve "
-                + "from absolute path: \t\t " + imageFile.getAbsolutePath());
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        return BitmapFactory.decodeFile(imageFile.getAbsolutePath(), options);
-    }
-
     public static Ringtone loadRingtone(String filepath) {
         // TODO - figure out how to load a ringtone from file
         return null;

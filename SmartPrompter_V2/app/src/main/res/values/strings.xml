@@ -18,4 +18,6 @@
     <string name="completion_instruction_text">Move the slider to the RIGHT when you\'re ready to take a picture, or to the LEFT to set a reminder to take a picture later.</string>
     <string name="completion_remind_me_later">\n REMIND ME LATER \n</string>
     <string name="completion_ready">\n READY TO TAKE PICTURE \n</string>
+    <string name="confirmation_text">Task complete!  Well done!</string>
+    <string name="return_button_text">Return to Main Screen</string>
 </resources>

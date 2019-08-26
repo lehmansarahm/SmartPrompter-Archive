@@ -33,7 +33,7 @@ public class PastAlarmsActivity extends BaseActivity
     public void OnListItemSelected(Alarm item) {
         Log.i(LOG_TAG, "List item selected!  Item GUID: " + item.getGuid());
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        AlarmLogFragment fragment = new AlarmLogFragment();
+        AlarmLogFragment fragment = AlarmLogFragment.newInstance(item.getGuid());
 
         // put this fragment on the backstack so we can return to the default view if necessary
         ft.replace(R.id.alarm_container, fragment)

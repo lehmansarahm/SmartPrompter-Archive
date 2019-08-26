@@ -2,7 +2,6 @@ package edu.temple.smartprompter_v2.activities;
 
 import android.content.Intent;
 import android.graphics.Camera;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.SeekBar;
@@ -15,7 +14,7 @@ import edu.temple.sp_res_lib.utils.Constants;
 
 import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 
-public class CompletionActivity extends AppCompatActivity {
+public class CompletionActivity extends BaseActivity {
 
     private static final int REMIND_ME_LATER = 0;
     private static final int READY = 2;
@@ -62,11 +61,24 @@ public class CompletionActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
                 Log.i(LOG_TAG, "Completion SeekBar tracking touch stopped!  "
                         + "Initializing response for selection: " + mSelection);
-                if (mSelection == READY) {
-                    Intent intent = new Intent(CompletionActivity.this,
-                            CameraActivity.class);
-                    intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, mAlarmGUID);
-                    startActivity(intent);
+
+                Intent intent;
+                switch (mSelection) {
+                    case REMIND_ME_LATER:
+                        intent = new Intent(CompletionActivity.this,
+                                MainActivity.class);
+                        intent.putExtra(Constants.BUNDLE_REMIND_ME_LATER_COMP, true);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+                        startActivity(intent);
+                        finish();
+                        break;
+                    case READY:
+                        intent = new Intent(CompletionActivity.this,
+                                CameraActivity.class);
+                        intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, mAlarmGUID);
+                        startActivity(intent);
+                        finish();
+                        break;
                 }
             }
         });

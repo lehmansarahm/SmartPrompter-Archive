@@ -29,4 +29,8 @@ public class Constants {
     public static final String BUNDLE_ARG_HOUR = "bundle_hour";
     public static final String BUNDLE_ARG_MINUTE = "bundle_minute";
 
+    public static final String BUNDLE_REMIND_ME_LATER_ACK = "bundle_remind_me_later_ack";
+    public static final String BUNDLE_REMIND_ME_LATER_COMP = "bundle_remind_me_later_comp";
+    public static final String BUNDLE_TASK_COMPLETE = "bundle_task_complete";
+
 }

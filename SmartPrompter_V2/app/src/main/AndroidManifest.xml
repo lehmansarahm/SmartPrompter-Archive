@@ -28,37 +28,40 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity
-            android:name=".activities.CameraActivity"
-            android:label="@string/title_activity_camera"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+
         <activity
             android:name=".activities.MainActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SET_ALARM" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SHOW_ALARMS" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".activities.ConfirmationActivity"
+            android:name=".activities.AcknowledgmentActivity"
             android:launchMode="singleTask" />
+
         <activity
             android:name=".activities.CompletionActivity"
             android:launchMode="singleTask" />
+
         <activity
-            android:name=".activities.AcknowledgmentActivity"
+            android:name=".activities.CameraActivity"
+            android:label="@string/title_activity_camera"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".activities.ConfirmationActivity"
             android:launchMode="singleTask" />
 
         <receiver android:name=".receivers.AlarmReceiver" />

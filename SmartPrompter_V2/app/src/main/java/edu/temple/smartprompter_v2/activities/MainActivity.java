@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,7 +22,7 @@ import edu.temple.sp_res_lib.utils.Constants;
 
 import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 
-public class MainActivity extends AppCompatActivity implements AlarmListFragment.OnListItemSelectionListener {
+public class MainActivity extends BaseActivity implements AlarmListFragment.OnListItemSelectionListener {
 
     private static final int PERMISSION_REQUEST_CODE = 327;
     private static final String[] PERMISSIONS = new String[] {
@@ -42,9 +42,44 @@ public class MainActivity extends AppCompatActivity implements AlarmListFragment
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.i(LOG_TAG, "Main activity created!");
 
         showClockFragment();
         if (checkPermissions()) showDefaultFragment();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(LOG_TAG, "Main activity resumed!");
+        Intent intent = getIntent();
+
+        if (intent.hasExtra(Constants.BUNDLE_REMIND_ME_LATER_ACK)) {
+            if (intent.getBooleanExtra(Constants.BUNDLE_REMIND_ME_LATER_ACK, false)) {
+                Log.e(LOG_TAG, "User has chosen to 'snooze' acknowledgment phase of task alarm!");
+                Toast.makeText(this, "Acknowledgment reminder set!",
+                        Toast.LENGTH_LONG).show();
+                // TODO - set reminder for real!!
+            }
+        }
+
+        if (intent.hasExtra(Constants.BUNDLE_REMIND_ME_LATER_COMP)) {
+            if (intent.getBooleanExtra(Constants.BUNDLE_REMIND_ME_LATER_COMP, false)) {
+                Log.e(LOG_TAG, "User has chosen to 'snooze' completion phase of task alarm!");
+                Toast.makeText(this, "Completion reminder set!",
+                        Toast.LENGTH_LONG).show();
+                // TODO - set reminder for real!!
+            }
+        }
+
+        if (intent.hasExtra(Constants.BUNDLE_TASK_COMPLETE)) {
+            if (intent.getBooleanExtra(Constants.BUNDLE_TASK_COMPLETE, false)) {
+                Log.i(LOG_TAG, "User has completed an alarm task!");
+                Toast.makeText(this, "Task complete! Great work!",
+                        Toast.LENGTH_LONG).show();
+                showDefaultFragment(true);
+            }
+        }
     }
 
     // --------------------------------------------------------------------------------------
@@ -80,7 +115,27 @@ public class MainActivity extends AppCompatActivity implements AlarmListFragment
         }
     }
 
-    protected void showClockFragment() {
+    public void OnListItemSelected(Alarm item) {
+        Intent intent;
+        if (item.getStatus().equals(Alarm.STATUS.Incomplete)) {
+            Log.i(LOG_TAG, "List item selected!  Launching completion activity for alarm: "
+                    + item.getGuid());
+            intent = new Intent(MainActivity.this, CompletionActivity.class);
+        } else {
+            Log.i(LOG_TAG, "List item selected!  Launching acknowledgment activity for alarm: "
+                    + item.getGuid());
+            intent = new Intent(MainActivity.this, AcknowledgmentActivity.class);
+        }
+
+        intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, item.getGuid());
+        startActivity(intent);
+        finish();
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    private void showClockFragment() {
         Log.i(LOG_TAG, "Populating current activity with clock fragment.");
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ClockFragment fragment = new ClockFragment();
@@ -88,11 +143,15 @@ public class MainActivity extends AppCompatActivity implements AlarmListFragment
         ft.commit();
     }
 
-    protected void showDefaultFragment() {
+    private void showDefaultFragment() {
+        showDefaultFragment(false);
+    }
+
+    private void showDefaultFragment(boolean refreshFromStorage) {
         Log.i(LOG_TAG, "We have all required permissions!  Determining "
                 + "whether there are alarms to show ...");
 
-        mActiveAlarms = ((SmartPrompter) getApplication()).getAlarms();
+        mActiveAlarms = ((SmartPrompter) getApplication()).getAlarms(refreshFromStorage);
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
         if (mActiveAlarms != null && mActiveAlarms.size() > 0) {
@@ -108,19 +167,12 @@ public class MainActivity extends AppCompatActivity implements AlarmListFragment
         ft.commit();
     }
 
-    protected void showMissingPermissionsFragment() {
+    private void showMissingPermissionsFragment() {
         Log.i(LOG_TAG, "Populating current activity with missing-permissions fragment.");
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         MissingPermissionsFragment fragment = new MissingPermissionsFragment();
         ft.replace(R.id.alarm_container, fragment);
         ft.commit();
-    }
-
-    public void OnListItemSelected(Alarm item) {
-        Log.i(LOG_TAG, "List item selected!  Item GUID: " + item.getGuid());
-        Intent intent = new Intent(MainActivity.this, AcknowledgmentActivity.class);
-        intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, item.getGuid());
-        startActivity(intent);
     }
 
 }

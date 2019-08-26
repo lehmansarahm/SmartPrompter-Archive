@@ -16,13 +16,14 @@ public class SpAdmin extends Application {
 
     public static final String LOG_TAG = "SmartPrompter-Admin";
 
-    private ArrayList<Alarm> alarms;
+    private ArrayList<Alarm> alarms, logs;
     private ArrayList<SurveyQuestion> questions;
 
     @Override
     public void onCreate() {
         super.onCreate();
         alarms = StorageUtil.getAlarmsFromStorage(this);
+        logs = StorageUtil.getLogsFromStorage(this);
         questions = StorageUtil.getSurveyQuestionsFromStorage();
     }
 
@@ -45,22 +46,20 @@ public class SpAdmin extends Application {
         return null;
     }
 
-    public ArrayList<Alarm> getCurrentAlarms() {
-        ArrayList<Alarm> currentAlarms = new ArrayList<>();
-        for (Alarm alarm : alarms) {
-            if (!alarm.isArchived())
-                currentAlarms.add(alarm);
+    public Alarm getAlarmLog(String guid) {
+        for (Alarm alarm : logs) {
+            if (alarm.getGuid().equals(guid))
+                return alarm;
         }
-        return currentAlarms;
+        return null;
+    }
+
+    public ArrayList<Alarm> getCurrentAlarms() {
+        return alarms;
     }
 
     public ArrayList<Alarm> getArchivedAlarms() {
-        ArrayList<Alarm> archivedAlarms = new ArrayList<>();
-        for (Alarm alarm : alarms) {
-            if (alarm.isArchived())
-                archivedAlarms.add(alarm);
-        }
-        return archivedAlarms;
+        return logs;
     }
 
     public ArrayList<SurveyQuestion> getQuestions() {
@@ -74,8 +73,8 @@ public class SpAdmin extends Application {
         Log.i(LOG_TAG, "Attempting to save alarm record with: "
                 + "\t GUID: " + newAlarm.getGuid()
                 + "\t Description: " + newAlarm.getDesc()
-                + "\t Date: " + newAlarm.getDateString()
-                + "\t Time: " + newAlarm.getTimeString()
+                + "\t Date: " + newAlarm.getAlarmDateString()
+                + "\t Time: " + newAlarm.getAlarmTimeString()
                 + "\t Status: " + newAlarm.getStatus()
                 + "\t Is Archived: " + newAlarm.isArchived());
 
@@ -101,7 +100,7 @@ public class SpAdmin extends Application {
                 + "\t GUID: " + alarm.getGuid()
                 + "\t Description: " + alarm.getDesc());
 
-        StorageUtil.deleteFileFromStorage(this, alarm.getGuid());
+        StorageUtil.deleteAlarmFromStorage(this, alarm);
 
         int oldAlarmIndex = getAlarmIndex(alarm);
         if (oldAlarmIndex != DEFAULT_ALARM_ID)

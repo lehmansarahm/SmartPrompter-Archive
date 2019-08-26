@@ -64,12 +64,14 @@ public class AlarmDetailsFragment extends Fragment {
             String alarmGUID = getArguments().getString(Constants.BUNDLE_ARG_ALARM_GUID);
             if (alarmGUID.equals(Constants.DEFAULT_ALARM_GUID)) {
                 Calendar now = Calendar.getInstance();
+                // TODO - switch to proper default alarm status for new records
                 mAlarm = new Alarm(Constants.DEFAULT_ALARM_GUID, Constants.DEFAULT_ALARM_DESC,
-                        now.getTimeInMillis(), Alarm.STATUS.New, false);
+                        now.getTimeInMillis(), /* Alarm.STATUS.New */ Alarm.STATUS.Unacknowledged,
+                        false);
             } else {
                 Alarm origAlarm = ((SpAdmin)getContext().getApplicationContext()).getAlarm(alarmGUID);
                 mAlarm = new Alarm(origAlarm.getGuid(), origAlarm.getDesc(),
-                        origAlarm.getTimeInMillis(), origAlarm.getStatus(), origAlarm.isArchived());
+                        origAlarm.getAlarmTimeMillis(), origAlarm.getStatus(), origAlarm.isArchived());
             }
         }
     }
@@ -121,13 +123,13 @@ public class AlarmDetailsFragment extends Fragment {
     }
 
     public void updateDate(int year, int month, int day) {
-        mAlarm.updateDate(year, month, day);
-        mDateText.setText(mAlarm.getDateString());
+        mAlarm.updateAlarmDate(year, month, day);
+        mDateText.setText(mAlarm.getAlarmDateString());
     }
 
     public void updateTime(int hour, int minute) {
-        mAlarm.updateTime(hour, minute);
-        mTimeText.setText(mAlarm.getTimeString());
+        mAlarm.updateAlarmTime(hour, minute);
+        mTimeText.setText(mAlarm.getAlarmTimeString());
     }
 
     // --------------------------------------------------------------------------------------
@@ -179,28 +181,28 @@ public class AlarmDetailsFragment extends Fragment {
 
     private void initDate(View rootView) {
         mDateText = rootView.findViewById(R.id.date_text);
-        mDateText.setText(mAlarm.getDateString());
+        mDateText.setText(mAlarm.getAlarmDateString());
 
         LinearLayout dateLayout = rootView.findViewById(R.id.date_layout);
         dateLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.i(LOG_TAG, "User clicked DATE field for alarm GUID: " + mAlarm.getGuid());
-                mDateListener.onDatePickerRequested(mAlarm.getGuid(), mAlarm.getDate());
+                mDateListener.onDatePickerRequested(mAlarm.getGuid(), mAlarm.getAlarmDate());
             }
         });
     }
 
     private void initTime(final View rootView) {
         mTimeText = rootView.findViewById(R.id.time_text);
-        mTimeText.setText(mAlarm.getTimeString());
+        mTimeText.setText(mAlarm.getAlarmTimeString());
 
         LinearLayout timeLayout = rootView.findViewById(R.id.time_layout);
         timeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.i(LOG_TAG, "User clicked TIME field for alarm GUID: " + mAlarm.getGuid());
-                mTimeListener.onTimePickerRequested(mAlarm.getGuid(), mAlarm.getTime());
+                mTimeListener.onTimePickerRequested(mAlarm.getGuid(), mAlarm.getAlarmTime());
             }
         });
     }
