@@ -6,7 +6,7 @@
     android:orientation="vertical"
     tools:context=".activities.ConfirmationActivity">
 
-    <ImageView
+    <pl.droidsonroids.gif.GifImageView
         android:id="@+id/confirmation_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -24,6 +24,7 @@
         android:id="@+id/return_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:gravity="center"
         android:text="@string/return_button_text"/>
 
