@@ -46,6 +46,12 @@ public class CurrentAlarmsActivity extends BaseActivity
                 + " for alarm with GUID: " + alarm.getGuid());
         switch(button) {
             case Save:
+                Alarm oldAlarm = ((SpAdmin)getApplicationContext()).getAlarm(alarm.getGuid());
+                if (alarm.getAlarmTimeMillis() != oldAlarm.getAlarmTimeMillis()) {
+                    Log.e(LOG_TAG, "User has updated alarm time!  Resetting alarm status to ACTIVE.");
+                    alarm.updateStatus(Alarm.STATUS.Active);
+                }
+
                 ((SpAdmin)getApplicationContext()).saveAlarm(alarm);
                 getSupportFragmentManager().popBackStack();
                 getCurrentAlarms();

@@ -20,6 +20,7 @@ public class AcknowledgmentActivity extends BaseActivity {
 
     private TextView mInstructionText;
     private String mAlarmGUID;
+    private Alarm mAlarm;
     private int mSelection;
 
     @Override
@@ -64,6 +65,11 @@ public class AcknowledgmentActivity extends BaseActivity {
                 Intent intent;
                 switch (mSelection) {
                     case REMIND_ME_LATER:
+                        // Set acknowledgment reminder
+                        ((SmartPrompter)getApplication()).setAlarmReminder(mAlarm,
+                                Alarm.REMINDER.Acknowledgment);
+
+                        // Shut down the acknowledgment screen, return to main activity
                         intent = new Intent(AcknowledgmentActivity.this,
                                 MainActivity.class);
                         intent.putExtra(Constants.BUNDLE_REMIND_ME_LATER_ACK, true);
@@ -72,6 +78,10 @@ public class AcknowledgmentActivity extends BaseActivity {
                         finish();
                         break;
                     case ON_MY_WAY:
+                        // if an acknowledgment reminder exists for this alarm, cancel it
+                        ((SmartPrompter)getApplication()).cancelAlarm(mAlarm);
+
+                        // Update alarm status and progress to completion screen
                         ((SmartPrompter)getApplication()).updateAlarmStatus(mAlarmGUID,
                                 Alarm.STATUS.Incomplete);
                         intent = new Intent(AcknowledgmentActivity.this,
@@ -86,9 +96,9 @@ public class AcknowledgmentActivity extends BaseActivity {
     }
 
     private void populateView() {
-        Alarm alarm = ((SmartPrompter)getApplication()).getAlarm(mAlarmGUID);
+        mAlarm = ((SmartPrompter)getApplication()).getAlarm(mAlarmGUID);
         TextView taskText = findViewById(R.id.task_text);
-        taskText.setText(alarm.getDesc());
+        taskText.setText(mAlarm.getDesc());
     }
 
 }

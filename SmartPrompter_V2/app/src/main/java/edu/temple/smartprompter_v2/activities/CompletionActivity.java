@@ -21,6 +21,7 @@ public class CompletionActivity extends BaseActivity {
 
     private TextView mInstructionText;
     private String mAlarmGUID;
+    private Alarm mAlarm;
     private int mSelection;
 
     @Override
@@ -65,6 +66,11 @@ public class CompletionActivity extends BaseActivity {
                 Intent intent;
                 switch (mSelection) {
                     case REMIND_ME_LATER:
+                        // Set completion reminder
+                        ((SmartPrompter)getApplication()).setAlarmReminder(mAlarm,
+                                Alarm.REMINDER.Completion);
+
+                        // Shut down the completion screen, return to main activity
                         intent = new Intent(CompletionActivity.this,
                                 MainActivity.class);
                         intent.putExtra(Constants.BUNDLE_REMIND_ME_LATER_COMP, true);
@@ -73,6 +79,7 @@ public class CompletionActivity extends BaseActivity {
                         finish();
                         break;
                     case READY:
+                        // progress to camera screen (do not update alarm status until picture is taken!!)
                         intent = new Intent(CompletionActivity.this,
                                 CameraActivity.class);
                         intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, mAlarmGUID);
@@ -85,9 +92,9 @@ public class CompletionActivity extends BaseActivity {
     }
 
     private void populateView() {
-        Alarm alarm = ((SmartPrompter)getApplication()).getAlarm(mAlarmGUID);
+        mAlarm = ((SmartPrompter)getApplication()).getAlarm(mAlarmGUID);
         TextView taskText = findViewById(R.id.task_text);
-        taskText.setText(alarm.getDesc());
+        taskText.setText(mAlarm.getDesc());
     }
 
 }

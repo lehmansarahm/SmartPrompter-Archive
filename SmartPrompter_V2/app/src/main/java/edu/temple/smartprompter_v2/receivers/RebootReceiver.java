@@ -1,22 +1,31 @@
 package edu.temple.smartprompter_v2.receivers;
 
-import android.app.AlarmManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
-import edu.temple.smartprompter_v2.SmartPrompter;
-import edu.temple.sp_res_lib.obj.Alarm;
+import java.util.concurrent.TimeUnit;
+
+import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 
 public class RebootReceiver extends BroadcastReceiver {
 
+    private static final int ALARM_MONITOR_SERVICE_JOB_ID = 999;
+    private static final long SYS_CHECK_PERIOD = TimeUnit.SECONDS.toMillis(5);
+
     @Override
     public void onReceive(Context context, Intent intent) {
-        SmartPrompter sp = (SmartPrompter) context.getApplicationContext();
-        AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        for (Alarm alarm : sp.getAlarms()) {
-            // if (alarm.isEnabled)
-            //     alarm.set(context, manager);
+        if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
+            Log.e(LOG_TAG, "REBOOT RECEIVED!!");
+            // TODO - start up download service
+
+            // TODO - start up local file observer (if any alarm-clocks are set that don't match
+            //  the GUIDs we have available, cancel them...)
+
+            // TODO - restart any alarms for local files that are still active
+        } else {
+            Log.e(LOG_TAG, "BROADCAST RECEIVED FOR UNKNOWN ACTION: " + intent.getAction());
         }
     }
 

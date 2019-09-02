@@ -59,7 +59,6 @@ public class MainActivity extends BaseActivity implements AlarmListFragment.OnLi
                 Log.e(LOG_TAG, "User has chosen to 'snooze' acknowledgment phase of task alarm!");
                 Toast.makeText(this, "Acknowledgment reminder set!",
                         Toast.LENGTH_LONG).show();
-                // TODO - set reminder for real!!
             }
         }
 
@@ -68,7 +67,6 @@ public class MainActivity extends BaseActivity implements AlarmListFragment.OnLi
                 Log.e(LOG_TAG, "User has chosen to 'snooze' completion phase of task alarm!");
                 Toast.makeText(this, "Completion reminder set!",
                         Toast.LENGTH_LONG).show();
-                // TODO - set reminder for real!!
             }
         }
 

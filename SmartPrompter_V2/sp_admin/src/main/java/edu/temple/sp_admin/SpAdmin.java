@@ -87,12 +87,7 @@ public class SpAdmin extends Application {
             int oldAlarmIndex = getAlarmIndex(newAlarm);
             if (oldAlarmIndex != DEFAULT_ALARM_ID)
                 alarms.set(oldAlarmIndex, newAlarm);
-
-            // TODO - if ALARM alarm already exists for this record, delete it
         }
-
-        // TODO - set a new ALARM alarm for this record
-        // TODO - update any relevant listeners
     }
 
     public void deleteAlarm(Alarm alarm) {
@@ -105,9 +100,6 @@ public class SpAdmin extends Application {
         int oldAlarmIndex = getAlarmIndex(alarm);
         if (oldAlarmIndex != DEFAULT_ALARM_ID)
             alarms.remove(oldAlarmIndex);
-
-        // TODO - cancel ALARM alarm for this record
-        // TODO - update any relevant listeners
     }
 
     private int getAlarmIndex(Alarm alarm) {

@@ -16,9 +16,13 @@ public class Alarm implements Parcelable {
 
     public enum STATUS { New, Active, Unacknowledged, Incomplete, Complete }
 
+    public enum REMINDER { None, Acknowledgment, Completion }
+
     private String uuid;
     private String desc;
-    private Calendar alarmTime, timeAcknowledged, timeCompleted;
+    private Calendar alarmTime, reminderTime;
+    private REMINDER reminderType;
+    private Calendar timeAcknowledged, timeCompleted;
     private STATUS status;
     private boolean archived;
 
@@ -50,6 +54,10 @@ public class Alarm implements Parcelable {
         desc = in.readString();
         alarmTime = Calendar.getInstance();
         alarmTime.setTimeInMillis(in.readLong());
+
+        // NOTE - don't need reminder time, time acknowledged, or time completed for parcel ops ...
+        // Only using parcelable methods for displaying records in a list
+
         status = STATUS.valueOf(in.readString());
         archived = (in.readInt() == 1);
     }
@@ -69,7 +77,8 @@ public class Alarm implements Parcelable {
     }
 
     public int getGuidInt() {
-        return Integer.parseInt(uuid);
+        BigInteger bigInt = new BigInteger(uuid);
+        return bigInt.intValue();
     }
 
     public String getDesc() {
@@ -128,6 +137,34 @@ public class Alarm implements Parcelable {
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
+    public void setReminder(REMINDER type) {
+        reminderType = type;
+        switch (type) {
+            case Acknowledgment:
+                Calendar ackReminder = Calendar.getInstance();
+                ackReminder.set(Calendar.SECOND, 0);
+                ackReminder.add(Calendar.MILLISECOND, Constants.REMINDER_DURATION_ACK.intValue());
+                reminderTime = ackReminder;
+                break;
+            case Completion:
+                Calendar compReminder = Calendar.getInstance();
+                compReminder.set(Calendar.SECOND, 0);
+                compReminder.add(Calendar.MILLISECOND, Constants.REMINDER_DURATION_COMP.intValue());
+                reminderTime = compReminder;
+                break;
+            case None:
+                reminderTime = null;
+                break;
+        }
+    }
+
+    public long getReminderTimeMillis() {
+        return reminderTime.getTimeInMillis();
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
     public void updateAlarmDate(int y, int m, int d) {
         alarmTime.set(Calendar.YEAR, y);
         alarmTime.set(Calendar.MONTH, m);
@@ -173,6 +210,10 @@ public class Alarm implements Parcelable {
         return Constants.DATE_TIME_FORMAT.format(alarmTime.getTime());
     }
 
+    public String getReminderDateTimeString() {
+        return Constants.DATE_TIME_FORMAT.format(reminderTime.getTime());
+    }
+
     public String getAcknowledgedDateTimeString() {
         return Constants.DATE_TIME_FORMAT.format(timeAcknowledged.getTime());
     }
@@ -194,6 +235,10 @@ public class Alarm implements Parcelable {
         parcel.writeString(uuid);
         parcel.writeString(desc);
         parcel.writeLong(alarmTime.getTimeInMillis());
+
+        // NOTE - don't need reminder time, time acknowledged, or time completed for parcel ops ...
+        // Only using parcelable methods for displaying records in a list
+
         parcel.writeString(status.toString());
         parcel.writeInt(archived ? 1 : 0);
     }

@@ -64,9 +64,9 @@ public class AlarmDetailsFragment extends Fragment {
             String alarmGUID = getArguments().getString(Constants.BUNDLE_ARG_ALARM_GUID);
             if (alarmGUID.equals(Constants.DEFAULT_ALARM_GUID)) {
                 Calendar now = Calendar.getInstance();
-                // TODO - switch to proper default alarm status for new records
+                now.set(Calendar.SECOND, 0);
                 mAlarm = new Alarm(Constants.DEFAULT_ALARM_GUID, Constants.DEFAULT_ALARM_DESC,
-                        now.getTimeInMillis(), /* Alarm.STATUS.New */ Alarm.STATUS.Unacknowledged,
+                        now.getTimeInMillis(), Alarm.STATUS.Active,
                         false);
             } else {
                 Alarm origAlarm = ((SpAdmin)getContext().getApplicationContext()).getAlarm(alarmGUID);
