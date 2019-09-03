@@ -324,6 +324,7 @@ public class CameraPreviewFragment extends Fragment {
 
                         @Override
                         public void onConfigureFailed(CameraCaptureSession session) {
+                            // TODO - debug session configuration error for Google Pixel 2
                             Log.e(LOG_TAG, "Failed to create a new camera capture session!");
                         }
 

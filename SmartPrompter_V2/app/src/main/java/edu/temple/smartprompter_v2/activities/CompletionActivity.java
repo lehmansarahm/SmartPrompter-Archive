@@ -36,6 +36,9 @@ public class CompletionActivity extends BaseActivity {
         mAlarmGUID = getIntent().getStringExtra(Constants.BUNDLE_ARG_ALARM_GUID);
         populateView();
 
+        boolean wakeup = getIntent().getBooleanExtra(Constants.BUNDLE_ARG_ALARM_WAKEUP, false);
+        if (wakeup) super.wakeup(this);
+
         mInstructionText = findViewById(R.id.instruction_text);
         mInstructionText.setTextColor(Color.parseColor("#000000"));
 

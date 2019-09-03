@@ -23,6 +23,7 @@ public class Constants {
 
     // public static final String BUNDLE_ARG_ALARM_ID = "bundle_alarm_id";
     public static final String BUNDLE_ARG_ALARM_GUID = "bundle_alarm_guid";
+    public static final String BUNDLE_ARG_ALARM_WAKEUP = "bundle_arg_alarm_wakeup";
     public static final String BUNDLE_ARG_ALARM_PLAY_TONE = "bundle_alarm_play_tone";
     public static final String BUNDLE_ARG_ALARM_VIBRATE = "bundle_alarm_vibrate";
 

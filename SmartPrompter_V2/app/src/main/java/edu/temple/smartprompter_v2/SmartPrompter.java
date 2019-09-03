@@ -13,7 +13,6 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
-import edu.temple.smartprompter_v2.activities.AcknowledgmentActivity;
 import edu.temple.smartprompter_v2.activities.MainActivity;
 import edu.temple.smartprompter_v2.receivers.AlarmAlertReceiver;
 import edu.temple.sp_res_lib.obj.Alarm;
@@ -95,6 +94,10 @@ public class SmartPrompter extends Application {
     }
 
     public void setAlarmReminder(Alarm alarm, Alarm.REMINDER type) {
+
+        // TODO - figure out why alarm reminders aren't playing (the app is waking up, but the
+        //  alarm alert receiver isn't firing...)
+
         cancelAlarm(alarm);
         alarm.setReminder(type);
         setAlarm(getApplicationContext(), alarm, true);
@@ -105,7 +108,7 @@ public class SmartPrompter extends Application {
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         if (manager != null) {
             Log.i(LOG_TAG, "Cancelling existing alarms for GUID-int: " + alarm.getGuidInt());
-            manager.cancel(getIntent(context, alarm));
+            manager.cancel(getAlarmResponseIntent(context, alarm));
         }
     }
 
@@ -154,16 +157,19 @@ public class SmartPrompter extends Application {
             Log.e(LOG_TAG, "Setting alarm for task: " + alarm.getDesc()
                     + " \t \t and GUID-int: " + alarm.getGuidInt()
                     + " \t \t with date/time: " + alarmString);
-            manager.setAlarmClock(
-                    new AlarmManager.AlarmClockInfo(alarmTime,
-                            PendingIntent.getActivity(context, 0,
-                                    new Intent(context, MainActivity.class), 0)
-                    ), getIntent(context, alarm)
-            );
+            AlarmManager.AlarmClockInfo info = new AlarmManager.AlarmClockInfo(alarmTime,
+                    getAlarmResponseIntent(context, alarm));
+            manager.setAlarmClock(info, getAlarmResponseIntent(context, alarm));
         }
     }
 
-    private PendingIntent getIntent(Context context, Alarm alarm) {
+    private PendingIntent getNotificationResponseIntent(Context context, Alarm alarm) {
+        Intent intent = new Intent(context, MainActivity.class);
+        return PendingIntent.getActivity(context, alarm.getGuidInt() /* request code */,
+                intent, PendingIntent.FLAG_UPDATE_CURRENT);
+    }
+
+    private PendingIntent getAlarmResponseIntent(Context context, Alarm alarm) {
         Intent intent = new Intent(context, AlarmAlertReceiver.class);
         intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, alarm.getGuid());
         return PendingIntent.getBroadcast(context, alarm.getGuidInt() /* request code */,

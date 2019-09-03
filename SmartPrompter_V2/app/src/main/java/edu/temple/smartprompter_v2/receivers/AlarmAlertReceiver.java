@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.util.Log;
+import android.view.WindowManager;
 
 import java.util.concurrent.TimeUnit;
 
@@ -27,12 +28,6 @@ import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 
 public class AlarmAlertReceiver extends BroadcastReceiver {
 
-    private static final long ALARM_ALERT_DURATION = TimeUnit.SECONDS.toMillis(15);
-    private static final Uri ALARM_ALERT_TONE =  RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
-
-    private static final boolean PLAY_ALARM_TONE = true;
-    private static final boolean PLAY_ALARM_VIBRATE = true;
-
     @Override
     public void onReceive(Context context, Intent intent) {
         // confirm the received alarm details ...
@@ -42,15 +37,6 @@ public class AlarmAlertReceiver extends BroadcastReceiver {
                 + " \t AND GUID-INT: " + alarm.getGuidInt()
                 + " \t WITH ORIG ALARM TIME: " + alarm.getAlarmDateTimeString()
                 + " \t AND STATUS: " + alarm.getStatus());
-
-        // play alarm alerts ...
-        playAlarmAlerts(context);
-
-        // TODO - make full screen ... figure out how to wake up the screen as well as
-        //  the device itself
-
-        // TODO - figure out why alarm reminders aren't playing (the app is waking up, but the
-        //  alarm alert receiver isn't firing...)
 
         // select the appropriate response activity ...
         Intent newIntent;
@@ -64,52 +50,9 @@ public class AlarmAlertReceiver extends BroadcastReceiver {
 
         // start up the response activity ...
         newIntent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, guid);
+        newIntent.putExtra(Constants.BUNDLE_ARG_ALARM_WAKEUP, true);
         newIntent.addFlags(FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(newIntent);
-    }
-
-    private void playAlarmAlerts(Context context) {
-        if (PLAY_ALARM_TONE) {
-            try {
-                final MediaPlayer mediaPlayer = new MediaPlayer();
-                mediaPlayer.setDataSource(context, ALARM_ALERT_TONE);
-
-                final AudioManager audioMgr = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-                if (audioMgr.getStreamVolume(AudioManager.STREAM_RING) != 0) {
-                    mediaPlayer.setAudioStreamType(AudioManager.STREAM_RING);
-                    mediaPlayer.setLooping(true);
-                    mediaPlayer.prepare();
-
-                    Log.i(LOG_TAG, "Playing alarm alert tone!");
-                    mediaPlayer.start();
-                }
-
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (mediaPlayer.isPlaying()) {
-                            Log.i(LOG_TAG, "Stopping alarm alert tone!");
-                            mediaPlayer.stop();
-                        }
-                    }
-                }, ALARM_ALERT_DURATION);
-            } catch(Exception e) {
-                Log.e(LOG_TAG, "Something went wrong when trying to launch the alarm "
-                        + "ALARM_ALERT_TONE ringtone!", e);
-            }
-        }
-
-        if (PLAY_ALARM_VIBRATE) {
-            Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-            if (vibrator != null) {
-                Log.i(LOG_TAG, "Starting alarm alert vibrate!");
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                    vibrator.vibrate(VibrationEffect.createOneShot(ALARM_ALERT_DURATION,
-                            VibrationEffect.DEFAULT_AMPLITUDE));
-                else vibrator.vibrate(ALARM_ALERT_DURATION);
-            }
-        }
     }
 
 }

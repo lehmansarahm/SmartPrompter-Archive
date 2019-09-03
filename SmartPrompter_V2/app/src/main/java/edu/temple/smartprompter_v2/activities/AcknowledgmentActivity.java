@@ -35,6 +35,9 @@ public class AcknowledgmentActivity extends BaseActivity {
         mAlarmGUID = getIntent().getStringExtra(Constants.BUNDLE_ARG_ALARM_GUID);
         populateView();
 
+        boolean wakeup = getIntent().getBooleanExtra(Constants.BUNDLE_ARG_ALARM_WAKEUP, false);
+        if (wakeup) super.wakeup(this);
+
         mInstructionText = findViewById(R.id.instruction_text);
         SeekBar selection = findViewById(R.id.selection_seekbar);
         selection.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
