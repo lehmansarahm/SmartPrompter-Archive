@@ -66,7 +66,7 @@ public class CameraPreviewFragment extends Fragment {
     private String cameraId;
     protected CameraDevice cameraDevice;
 
-    protected CameraCaptureSession cameraCaptureSessions;
+    protected CameraCaptureSession cameraCaptureSession;
     protected CaptureRequest.Builder captureRequestBuilder;
 
     private Size imageDimension;
@@ -256,7 +256,13 @@ public class CameraPreviewFragment extends Fragment {
                     ImageFormat.JPEG, 1);
             List<Surface> outputSurfaces = new ArrayList<>(2);
             outputSurfaces.add(reader.getSurface());
-            outputSurfaces.add(new Surface(cameraPreviewTexture.getSurfaceTexture()));
+            Log.e(LOG_TAG, "Attempting to create camera capture session with width: "
+                    + reader.getWidth() + " \t and height: " + reader.getHeight());
+
+            SurfaceTexture texture = cameraPreviewTexture.getSurfaceTexture();
+            outputSurfaces.add(new Surface(texture));
+            Log.e(LOG_TAG, "... Compared against CameraPreviewTexture width: "
+                    + cameraPreviewTexture.getWidth() + " \t and height: " + cameraPreviewTexture.getHeight());
 
             final CaptureRequest.Builder captureBuilder =
                     cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
@@ -304,6 +310,8 @@ public class CameraPreviewFragment extends Fragment {
 
                         @Override
                         public void onConfigured(CameraCaptureSession session) {
+                            Log.e(LOG_TAG, "Camera capture session configured!");
+
                             try {
                                 Log.i(LOG_TAG, "Attempting to create a new "
                                         + "capture session.");
@@ -339,23 +347,28 @@ public class CameraPreviewFragment extends Fragment {
             captureRequestBuilder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
             captureRequestBuilder.addTarget(surface);
 
+            Log.e(LOG_TAG, "Attempting to create camera capture session with width: "
+                    + imageDimension.getWidth() + " \t and height: " + imageDimension.getHeight());
+
             cameraDevice.createCaptureSession(Arrays.asList(surface),
                     new CameraCaptureSession.StateCallback(){
 
                         @Override
-                        public void onConfigured(@NonNull CameraCaptureSession cameraCaptureSession) {
+                        public void onConfigured(@NonNull CameraCaptureSession session) {
+                            Log.e(LOG_TAG, "Camera capture session configured!");
                             if (cameraDevice == null) {
                                 // The camera is already closed
                                 return;
                             }
 
                             // When the session is ready, we start displaying the preview.
-                            cameraCaptureSessions = cameraCaptureSession;
+                            cameraCaptureSession = session;
                             updatePreview();
                         }
 
                         @Override
-                        public void onConfigureFailed(@NonNull CameraCaptureSession cameraCaptureSession) {
+                        public void onConfigureFailed(@NonNull CameraCaptureSession session) {
+                            Log.e(LOG_TAG, "Failed to create a new camera capture session!");
                             Toast.makeText(CameraPreviewFragment.this.getContext(),
                                     "Configuration change", Toast.LENGTH_SHORT).show();
                         }
@@ -373,12 +386,13 @@ public class CameraPreviewFragment extends Fragment {
         }
 
         try {
+            Log.i(LOG_TAG, "Attempting to set repeating request for camera preview.");
             captureRequestBuilder.set(CaptureRequest.CONTROL_MODE,
                     CameraMetadata.CONTROL_MODE_AUTO);
-            cameraCaptureSessions.setRepeatingRequest(captureRequestBuilder.build(),
+            cameraCaptureSession.setRepeatingRequest(captureRequestBuilder.build(),
                     null, mBackgroundHandler);
         } catch (CameraAccessException e) {
-            e.printStackTrace();
+            Log.e(LOG_TAG, "Something went wrong while attempting to update the camera preview!", e);
         }
     }
 

@@ -36,6 +36,7 @@ public class CameraActivity extends BaseActivity implements
         setContentView(R.layout.activity_camera);
 
         mAlarmGUID = getIntent().getStringExtra(Constants.BUNDLE_ARG_ALARM_GUID);
+        Log.i(LOG_TAG, "Launching camera preview for alarm GUID: " + mAlarmGUID);
 
         Log.i(LOG_TAG, "Populating camera fragment...");
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -81,9 +82,7 @@ public class CameraActivity extends BaseActivity implements
     public void onImageRejected(String alarmGUID) {
         Log.i(LOG_TAG, "User has rejected the task completion picture "
                 + "they took.  Returning to camera preview fragment ...");
-
-        // TODO - debug 'reject image' logic ... doesn't seem to be working
-        getSupportFragmentManager().popBackStack(); // return to camera preview screen
+        recreate();
     }
 
 }

@@ -1,14 +1,14 @@
 Installation instructions:
 - Install Admin app
 - Install Patient app
-- Run "init_new_sp_device.sh"
+- Run "init_new_sp_device.sh" (Developer Mode / USB debugging required)
 
 
 Setting up new alarms:
 - Run Admin app
 - Create alarms
 - Save / confirm alarm details in "Current Alarms" list
-- Run Patient app at least once to schedule alarms
+- Run Patient app at least once to schedule alarms (required for all new alarms created in Admin app)
 
 
 Responding to alarms:
