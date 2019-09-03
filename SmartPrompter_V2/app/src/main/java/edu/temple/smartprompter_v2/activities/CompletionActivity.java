@@ -2,8 +2,12 @@ package edu.temple.smartprompter_v2.activities;
 
 import android.content.Intent;
 import android.graphics.Camera;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.util.TypedValue;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -33,6 +37,8 @@ public class CompletionActivity extends BaseActivity {
         populateView();
 
         mInstructionText = findViewById(R.id.instruction_text);
+        mInstructionText.setTextColor(Color.parseColor("#000000"));
+
         SeekBar selection = findViewById(R.id.selection_seekbar);
         selection.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -43,12 +49,23 @@ public class CompletionActivity extends BaseActivity {
                 switch (mSelection) {
                     case REMIND_ME_LATER:
                         mInstructionText.setText(getString(R.string.completion_remind_me_later));
+                        mInstructionText.setTypeface(Typeface.DEFAULT_BOLD);
+                        mInstructionText.setTextSize(TypedValue.COMPLEX_UNIT_SP,22);
+                        mInstructionText.setTextColor(ContextCompat.getColor(CompletionActivity.this,
+                                R.color.colorPrimaryDark));
                         break;
                     case READY:
                         mInstructionText.setText(getString(R.string.completion_ready));
+                        mInstructionText.setTypeface(Typeface.DEFAULT_BOLD);
+                        mInstructionText.setTextSize(TypedValue.COMPLEX_UNIT_SP,22);
+                        mInstructionText.setTextColor(ContextCompat.getColor(CompletionActivity.this,
+                                R.color.colorPrimaryDark));
                         break;
                     default:
                         mInstructionText.setText(getString(R.string.completion_instruction_text));
+                        mInstructionText.setTypeface(Typeface.DEFAULT);
+                        mInstructionText.setTextSize(TypedValue.COMPLEX_UNIT_SP,18);
+                        mInstructionText.setTextColor(Color.parseColor("#000000"));
                         break;
                 }
             }

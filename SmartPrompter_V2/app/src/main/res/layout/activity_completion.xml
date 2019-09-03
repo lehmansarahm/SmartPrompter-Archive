@@ -42,7 +42,7 @@
     <TextView
         android:id="@+id/instruction_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="90dp"
         android:gravity="center"
         android:textSize="18sp"
         android:padding="10dp"
@@ -57,7 +57,9 @@
 
     <SeekBar
         android:id="@+id/selection_seekbar"
+        android:splitTrack="false"
         android:progressDrawable="@drawable/selection_bar_style"
+        android:thumb="@drawable/selection_thumb_style"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"

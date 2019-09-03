@@ -1,8 +1,12 @@
 package edu.temple.smartprompter_v2.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.util.TypedValue;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -42,12 +46,23 @@ public class AcknowledgmentActivity extends BaseActivity {
                 switch (mSelection) {
                     case REMIND_ME_LATER:
                         mInstructionText.setText(getString(R.string.acknowledgment_remind_me_later));
+                        mInstructionText.setTypeface(Typeface.DEFAULT_BOLD);
+                        mInstructionText.setTextSize(TypedValue.COMPLEX_UNIT_SP,22);
+                        mInstructionText.setTextColor(ContextCompat.getColor(AcknowledgmentActivity.this,
+                                R.color.colorPrimaryDark));
                         break;
                     case ON_MY_WAY:
                         mInstructionText.setText(getString(R.string.acknowledgment_on_my_way));
+                        mInstructionText.setTypeface(Typeface.DEFAULT_BOLD);
+                        mInstructionText.setTextSize(TypedValue.COMPLEX_UNIT_SP,22);
+                        mInstructionText.setTextColor(ContextCompat.getColor(AcknowledgmentActivity.this,
+                                R.color.colorPrimaryDark));
                         break;
                     default:
                         mInstructionText.setText(getString(R.string.acknowledgment_instruction_text));
+                        mInstructionText.setTypeface(Typeface.DEFAULT);
+                        mInstructionText.setTextSize(TypedValue.COMPLEX_UNIT_SP,18);
+                        mInstructionText.setTextColor(Color.parseColor("#000"));
                         break;
                 }
             }

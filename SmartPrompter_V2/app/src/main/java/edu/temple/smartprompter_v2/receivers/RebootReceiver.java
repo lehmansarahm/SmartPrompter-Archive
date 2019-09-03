@@ -18,12 +18,14 @@ public class RebootReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
             Log.e(LOG_TAG, "REBOOT RECEIVED!!");
+
             // TODO - start up download service
 
             // TODO - start up local file observer (if any alarm-clocks are set that don't match
             //  the GUIDs we have available, cancel them...)
 
             // TODO - restart any alarms for local files that are still active
+
         } else {
             Log.e(LOG_TAG, "BROADCAST RECEIVED FOR UNKNOWN ACTION: " + intent.getAction());
         }

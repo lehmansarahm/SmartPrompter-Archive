@@ -230,7 +230,7 @@ public class CameraPreviewFragment extends Fragment {
             return;
         }
 
-        Log.e(LOG_TAG, "Ready to capture picture from camera preview!");
+        Log.e(LOG_TAG, "User has taken a picture!  Ready to capture picture from camera preview!");
         CameraManager manager =
                 (CameraManager) getContext().getSystemService(Context.CAMERA_SERVICE);
 
@@ -316,7 +316,7 @@ public class CameraPreviewFragment extends Fragment {
 
                         @Override
                         public void onConfigureFailed(CameraCaptureSession session) {
-                            // do nothing
+                            Log.e(LOG_TAG, "Failed to create a new camera capture session!");
                         }
 
                     }, mBackgroundHandler);
