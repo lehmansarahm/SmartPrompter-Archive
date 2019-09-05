@@ -64,15 +64,9 @@
             android:name=".activities.ConfirmationActivity"
             android:launchMode="singleTask" />
 
-        <receiver android:name=".receivers.AlarmAlertReceiver"
-            android:enabled="true" />
-
-        <receiver android:name=".receivers.AlarmUpdateReceiver"
-            android:enabled="true" />
-
-        <receiver android:name=".receivers.RebootReceiver"
-            android:enabled="true"
-            android:exported="true" >
+        <receiver android:name=".receivers.AlarmAlertReceiver" />
+        <receiver android:name=".receivers.AlarmUpdateReceiver" />
+        <receiver android:name=".receivers.RebootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />

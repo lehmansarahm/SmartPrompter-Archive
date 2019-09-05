@@ -1,5 +1,8 @@
 package edu.temple.sp_res_lib.obj;
 
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
@@ -254,5 +257,15 @@ public class Alarm implements Parcelable {
             return new Alarm[size];
         }
     };
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    public PendingIntent getPI(Context context, Class<?> responseClass) {
+        Intent intent = new Intent(context, responseClass);
+        intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, getGuid());
+        return PendingIntent.getBroadcast(context, getGuidInt() /* request code */,
+                intent, PendingIntent.FLAG_CANCEL_CURRENT);
+    }
 
 }

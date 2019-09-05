@@ -4,7 +4,6 @@ import android.app.AlarmManager;
 import android.app.Application;
 import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.util.Log;
 
@@ -34,9 +33,11 @@ public class SmartPrompter extends Application {
 
     @Override
     public void onCreate() {
+        // TODO - this loading logic is firing multiple times on application start up ...
+        //  debug eventually ...
         super.onCreate();
         getAlarmsFromStorage();
-        setFutureAlarms();
+        setNewAlarms();
     }
 
     public void onAppStopped() {
@@ -76,8 +77,8 @@ public class SmartPrompter extends Application {
     // --------------------------------------------------------------------------------------
 
     public Alarm getAlarmForAlert(String guid) {
-        if (futureAlarms == null || futureAlarms.size() == 0)
-            getAlarmsFromStorage();
+        // TODO - figure out a better way to do this because this is gross ...
+        getAlarmsFromStorage();
 
         for (Alarm alarm : futureAlarms) {
             if (alarm.getGuid().equals(guid)) {
@@ -90,17 +91,17 @@ public class SmartPrompter extends Application {
             }
         }
 
+        for (Alarm alarm : outstandingAlarms) {
+            if (alarm.getGuid().equals(guid))
+                return alarm;
+        }
+
         return null;
     }
 
     public void setAlarmReminder(Alarm alarm, Alarm.REMINDER type) {
-
-        // TODO - figure out why alarm reminders aren't playing (the app is waking up, but the
-        //  alarm alert receiver isn't firing...)
-
-        cancelAlarm(alarm);
         alarm.setReminder(type);
-        setAlarm(getApplicationContext(), alarm, true);
+        setAlarm(alarm, true);
     }
 
     public void cancelAlarm(Alarm alarm) {
@@ -108,7 +109,7 @@ public class SmartPrompter extends Application {
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         if (manager != null) {
             Log.i(LOG_TAG, "Cancelling existing alarms for GUID-int: " + alarm.getGuidInt());
-            manager.cancel(getAlarmResponseIntent(context, alarm));
+            manager.cancel(alarm.getPI(context, AlarmAlertReceiver.class));
         }
     }
 
@@ -129,7 +130,7 @@ public class SmartPrompter extends Application {
         }
     }
 
-    private void setFutureAlarms() {
+    private void setNewAlarms() {
         Calendar now = Calendar.getInstance();
         Log.i(LOG_TAG, "Current time: " + Constants.DATE_TIME_FORMAT.format(now.getTime()));
 
@@ -139,17 +140,16 @@ public class SmartPrompter extends Application {
 
             if (alarm.getAlarmTimeMillis() < Calendar.getInstance().getTimeInMillis())
                 Log.e(LOG_TAG, "CAN'T SET ALARM FOR TIME IN THE PAST.");
-            else
-                setAlarm(getApplicationContext(), alarm);
+            else setAlarm(alarm, false);
         }
+
+        // TODO - check "outstanding alarms" and set reminders where necessary
     }
 
-    private void setAlarm(Context context, Alarm alarm) {
-        setAlarm(context, alarm, false);
-    }
-
-    private void setAlarm(Context context, Alarm alarm, boolean isReminder) {
+    private void setAlarm(Alarm alarm, boolean isReminder) {
+        Context context = getApplicationContext();
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+
         long alarmTime = (isReminder ? alarm.getReminderTimeMillis() : alarm.getAlarmTimeMillis());
         String alarmString = (isReminder ? alarm.getReminderDateTimeString() : alarm.getAlarmDateTimeString());
 
@@ -157,23 +157,10 @@ public class SmartPrompter extends Application {
             Log.e(LOG_TAG, "Setting alarm for task: " + alarm.getDesc()
                     + " \t \t and GUID-int: " + alarm.getGuidInt()
                     + " \t \t with date/time: " + alarmString);
-            AlarmManager.AlarmClockInfo info = new AlarmManager.AlarmClockInfo(alarmTime,
-                    getAlarmResponseIntent(context, alarm));
-            manager.setAlarmClock(info, getAlarmResponseIntent(context, alarm));
+            PendingIntent notificationPI = alarm.getPI(context, MainActivity.class);
+            PendingIntent receiverPI = alarm.getPI(context, AlarmAlertReceiver.class);
+            manager.setAlarmClock(new AlarmManager.AlarmClockInfo(alarmTime, notificationPI), receiverPI);
         }
-    }
-
-    private PendingIntent getNotificationResponseIntent(Context context, Alarm alarm) {
-        Intent intent = new Intent(context, MainActivity.class);
-        return PendingIntent.getActivity(context, alarm.getGuidInt() /* request code */,
-                intent, PendingIntent.FLAG_UPDATE_CURRENT);
-    }
-
-    private PendingIntent getAlarmResponseIntent(Context context, Alarm alarm) {
-        Intent intent = new Intent(context, AlarmAlertReceiver.class);
-        intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, alarm.getGuid());
-        return PendingIntent.getBroadcast(context, alarm.getGuidInt() /* request code */,
-                intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
 }

@@ -114,6 +114,10 @@ public class MainActivity extends BaseActivity implements AlarmListFragment.OnLi
     }
 
     public void OnListItemSelected(Alarm item) {
+        // cancel any latent alarms for this record
+        ((SmartPrompter)getApplicationContext()).cancelAlarm(item);
+
+        // select response activity according to the current record status
         Intent intent;
         if (item.getStatus().equals(Alarm.STATUS.Incomplete)) {
             Log.i(LOG_TAG, "List item selected!  Launching completion activity for alarm: "
@@ -125,6 +129,7 @@ public class MainActivity extends BaseActivity implements AlarmListFragment.OnLi
             intent = new Intent(MainActivity.this, AcknowledgmentActivity.class);
         }
 
+        // launch the response activity
         intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, item.getGuid());
         startActivity(intent);
         finish();
