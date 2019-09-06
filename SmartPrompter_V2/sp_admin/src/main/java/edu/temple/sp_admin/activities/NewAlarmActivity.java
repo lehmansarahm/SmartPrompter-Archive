@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
-import android.util.Log;
 
 import edu.temple.sp_admin.R;
 import edu.temple.sp_admin.SpAdmin;
@@ -13,6 +12,7 @@ import edu.temple.sp_admin.fragments.DatePickerFragment;
 import edu.temple.sp_admin.fragments.TimePickerFragment;
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.Log;
 
 import static edu.temple.sp_admin.SpAdmin.LOG_TAG;
 

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,7 @@ import edu.temple.sp_admin.R;
 import edu.temple.sp_admin.SpAdmin;
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.utils.Constants;
-import edu.temple.sp_res_lib.utils.MediaUtil;
+import edu.temple.sp_res_lib.utils.Log;
 import edu.temple.sp_res_lib.utils.StorageUtil;
 
 public class AlarmLogFragment extends Fragment {

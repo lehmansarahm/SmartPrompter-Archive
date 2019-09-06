@@ -5,7 +5,6 @@ import android.app.Application;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,6 +15,7 @@ import edu.temple.smartprompter_v2.activities.MainActivity;
 import edu.temple.smartprompter_v2.receivers.AlarmAlertReceiver;
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.Log;
 import edu.temple.sp_res_lib.utils.MediaUtil;
 import edu.temple.sp_res_lib.utils.StorageUtil;
 
@@ -119,6 +119,8 @@ public class SmartPrompter extends Application {
     // --------------------------------------------------------------------------------------
 
     private void getAlarmsFromStorage() {
+        // TODO - come back to this, I don't like how it's laid out ...
+
         Log.i(LOG_TAG, "Retrieving alarm records from storage!");
         futureAlarms = new ArrayList<>();       // these alarms will be going off in the future
         currentAlarms = new ArrayList<>();      // these alarms have gone off, user must complete
@@ -137,15 +139,30 @@ public class SmartPrompter extends Application {
         Log.i(LOG_TAG, "Current time: " + Constants.DATE_TIME_FORMAT.format(now.getTime()));
 
         for (Alarm alarm : futureAlarms) {
-            Log.i(LOG_TAG, "Current time millis: " + now.getTimeInMillis());
-            Log.i(LOG_TAG, "Alarm time millis: " + alarm.getAlarmTimeMillis());
-
+            Log.i(LOG_TAG, "Setting new alarm clock for future task: " + alarm.getDesc()
+                    + "\n \t Current time millis: " + now.getTimeInMillis()
+                    + "\n \t Alarm time millis: " + alarm.getAlarmTimeMillis());
             if (alarm.getAlarmTimeMillis() < Calendar.getInstance().getTimeInMillis())
                 Log.e(LOG_TAG, "CAN'T SET ALARM FOR TIME IN THE PAST.");
             else setAlarmClock(alarm, false);
         }
 
         // TODO - check "current alarms" and set reminders where necessary
+        for (Alarm alarm : currentAlarms) {
+            Log.i(LOG_TAG, "Setting new alarm clock for current task: " + alarm.getDesc()
+                    + "\n \t Current time millis: " + now.getTimeInMillis()
+                    + "\n \t Alarm time millis: " + alarm.getAlarmTimeMillis());
+
+            long currentTime = Calendar.getInstance().getTimeInMillis();
+            if (alarm.getAlarmTimeMillis() > currentTime)
+                Log.e(LOG_TAG, "WHY DOES CURRENT ALARM HAVE FUTURE TIME???  "
+                        + "ARE YOU A TIME TRAVELER???");
+            if (alarm.hasReminder()) {
+                if (alarm.getReminderTimeMillis() < currentTime)
+                    Log.e(LOG_TAG, "CAN'T SET REMINDER FOR TIME IN THE PAST.");
+                else setAlarmClock(alarm, true);
+            }
+        }
     }
 
     private void setAlarmClock(Alarm alarm, boolean isReminder) {

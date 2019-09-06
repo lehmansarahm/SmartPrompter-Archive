@@ -1,9 +1,8 @@
 package edu.temple.sp_admin.activities;
 
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
-import edu.temple.sp_admin.SpAdmin;
+import edu.temple.sp_res_lib.utils.Log;
 
 import static edu.temple.sp_admin.SpAdmin.LOG_TAG;
 
@@ -18,6 +17,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void onStop() {
         Log.i(LOG_TAG, this.getLocalClassName() + " stopped!");
+        Log.dump(this);
         super.onStop();
     }
 

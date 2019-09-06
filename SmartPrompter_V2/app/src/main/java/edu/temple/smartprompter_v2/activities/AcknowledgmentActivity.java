@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.util.TypedValue;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -14,6 +13,7 @@ import edu.temple.smartprompter_v2.R;
 import edu.temple.smartprompter_v2.SmartPrompter;
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.Log;
 
 import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 
@@ -115,6 +115,10 @@ public class AcknowledgmentActivity extends BaseActivity {
 
     private void populateView() {
         mAlarm = ((SmartPrompter)getApplication()).getAlarm(mAlarmGUID);
+        if (mAlarm.getStatus().equals(Alarm.STATUS.Active))
+            ((SmartPrompter)getApplication()).updateAlarmStatus(mAlarmGUID,
+                    Alarm.STATUS.Unacknowledged);
+
         TextView taskText = findViewById(R.id.task_text);
         taskText.setText(mAlarm.getDesc());
     }

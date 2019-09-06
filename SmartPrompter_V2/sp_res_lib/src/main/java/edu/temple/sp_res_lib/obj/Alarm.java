@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -14,6 +13,7 @@ import java.util.Calendar;
 import java.util.UUID;
 
 import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.Log;
 
 public class Alarm implements Parcelable {
 
@@ -139,6 +139,10 @@ public class Alarm implements Parcelable {
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
+
+    public boolean hasReminder() {
+        return (reminderTime != null);
+    }
 
     public void setReminder(REMINDER type) {
         reminderType = type;

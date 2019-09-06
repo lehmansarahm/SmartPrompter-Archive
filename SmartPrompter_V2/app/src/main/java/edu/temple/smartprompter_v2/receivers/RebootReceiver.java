@@ -3,9 +3,9 @@ package edu.temple.smartprompter_v2.receivers;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 
 import edu.temple.smartprompter_v2.SmartPrompter;
+import edu.temple.sp_res_lib.utils.Log;
 
 import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 

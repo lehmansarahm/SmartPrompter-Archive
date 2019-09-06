@@ -6,7 +6,6 @@ import android.graphics.Matrix;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +14,7 @@ import android.widget.ImageView;
 
 import edu.temple.smartprompter_v2.R;
 import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.Log;
 import edu.temple.sp_res_lib.utils.MediaUtil;
 
 import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;

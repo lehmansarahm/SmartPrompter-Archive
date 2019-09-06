@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
-import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -12,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.obj.SurveyQuestion;
@@ -90,14 +90,23 @@ public class StorageUtil {
         if (alarmsDir.exists() && alarmsDir.list() != null && alarmsDir.list().length > 0) {
             for (String alarmFile : alarmsDir.list()) {
                 Log.i(Constants.LOG_TAG, "Scanning file: " + alarmFile);
-                String jsonAlarm = StorageUtil.readFile(ctx, LOGS_DIR, alarmFile);
-                Alarm alarm = Alarm.importFromJson(jsonAlarm);
-                alarms.add(alarm);
+                if (!alarmFile.endsWith(".csv")) {
+                    String jsonAlarm = StorageUtil.readFile(ctx, LOGS_DIR, alarmFile);
+                    Alarm alarm = Alarm.importFromJson(jsonAlarm);
+                    alarms.add(alarm);
+                }
             }
         }
 
         return alarms;
     }
+
+    public static void appendToLog(Context ctx, String filename, List<String> content) {
+        appendToFile(ctx, LOGS_DIR, filename, content);
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
 
     public static void writeImageToFile(Context ctx, String filename, Bitmap bmp) {
         File outputDir = verifyOutputDir(ctx, PHOTOS_DIR);
@@ -198,6 +207,25 @@ public class StorageUtil {
                     + "\n \t to file: " + outputFile.getAbsolutePath());
         } catch (Exception ex) {
             Log.e(Constants.LOG_TAG, "An error occurred while writing data to file: "
+                    + filename, ex);
+        }
+    }
+
+    private static void appendToFile(Context ctx, String dirName, String filename, List<String> content) {
+        File outputDir = verifyOutputDir(ctx, dirName);
+
+        try {
+            File outputFile = new File(outputDir, filename);
+            if (!outputFile.exists())
+                outputFile.createNewFile();
+
+            FileWriter writer = new FileWriter(outputFile);
+            for (String contentLine : content)
+                writer.append(contentLine);
+            writer.flush();
+            writer.close();
+        } catch (Exception ex) {
+            Log.e(Constants.LOG_TAG, "An error occurred while appending data to file: "
                     + filename, ex);
         }
     }

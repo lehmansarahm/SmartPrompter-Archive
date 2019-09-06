@@ -3,7 +3,6 @@ package edu.temple.sp_admin.activities;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
-import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -16,6 +15,7 @@ import edu.temple.sp_admin.fragments.EmptyAlarmListFragment;
 import edu.temple.sp_admin.fragments.TimePickerFragment;
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.Log;
 
 import static edu.temple.sp_admin.SpAdmin.LOG_TAG;
 

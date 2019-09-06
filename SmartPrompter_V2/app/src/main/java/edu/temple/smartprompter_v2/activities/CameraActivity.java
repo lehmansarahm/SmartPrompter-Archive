@@ -1,16 +1,9 @@
 package edu.temple.smartprompter_v2.activities;
 
 import android.content.Intent;
-import android.graphics.Camera;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
 
 import edu.temple.smartprompter_v2.R;
 import edu.temple.smartprompter_v2.SmartPrompter;
@@ -18,7 +11,7 @@ import edu.temple.smartprompter_v2.fragments.CameraPreviewFragment;
 import edu.temple.smartprompter_v2.fragments.CameraReviewFragment;
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.utils.Constants;
-import edu.temple.sp_res_lib.utils.MediaUtil;
+import edu.temple.sp_res_lib.utils.Log;
 
 import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 

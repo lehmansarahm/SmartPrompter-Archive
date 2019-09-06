@@ -3,10 +3,8 @@ package edu.temple.sp_res_lib.utils;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Ringtone;
-import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 
 public class MediaUtil {
 

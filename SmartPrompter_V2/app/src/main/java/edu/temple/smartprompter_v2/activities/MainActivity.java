@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -19,6 +18,7 @@ import edu.temple.smartprompter_v2.fragments.ClockFragment;
 import edu.temple.smartprompter_v2.fragments.EmptyAlarmListFragment;
 import edu.temple.smartprompter_v2.fragments.MissingPermissionsFragment;
 import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.Log;
 
 import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 

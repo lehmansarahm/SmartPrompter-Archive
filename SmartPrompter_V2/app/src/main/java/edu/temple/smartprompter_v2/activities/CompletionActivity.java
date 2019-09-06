@@ -1,12 +1,10 @@
 package edu.temple.smartprompter_v2.activities;
 
 import android.content.Intent;
-import android.graphics.Camera;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.util.TypedValue;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -15,6 +13,7 @@ import edu.temple.smartprompter_v2.R;
 import edu.temple.smartprompter_v2.SmartPrompter;
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.Log;
 
 import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 

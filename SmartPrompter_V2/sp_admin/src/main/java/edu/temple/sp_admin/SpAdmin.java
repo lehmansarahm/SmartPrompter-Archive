@@ -1,13 +1,13 @@
 package edu.temple.sp_admin;
 
 import android.app.Application;
-import android.util.Log;
 
 import java.util.ArrayList;
 
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.obj.SurveyQuestion;
 import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.Log;
 import edu.temple.sp_res_lib.utils.StorageUtil;
 
 import static edu.temple.sp_res_lib.utils.Constants.DEFAULT_ALARM_ID;
@@ -34,10 +34,6 @@ public class SpAdmin extends Application {
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
-
-    // public Alarm getAlarm(int alarmID) {
-    //     return alarms.get(alarmID);
-    // }
 
     public Alarm getAlarm(String guid) {
         for (Alarm alarm : alarms) {

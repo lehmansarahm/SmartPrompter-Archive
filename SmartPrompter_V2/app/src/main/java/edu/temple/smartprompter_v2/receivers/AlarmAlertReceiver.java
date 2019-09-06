@@ -3,25 +3,13 @@ package edu.temple.smartprompter_v2.receivers;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.media.RingtoneManager;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Handler;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
-import android.util.Log;
-import android.view.WindowManager;
-
-import java.util.concurrent.TimeUnit;
 
 import edu.temple.smartprompter_v2.SmartPrompter;
 import edu.temple.smartprompter_v2.activities.AcknowledgmentActivity;
 import edu.temple.smartprompter_v2.activities.CompletionActivity;
-import edu.temple.smartprompter_v2.activities.MainActivity;
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.Log;
 
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;

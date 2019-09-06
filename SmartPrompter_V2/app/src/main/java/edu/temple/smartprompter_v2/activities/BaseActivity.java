@@ -3,20 +3,15 @@ package edu.temple.smartprompter_v2.activities;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.WindowManager;
 
-import java.util.concurrent.TimeUnit;
-
-import edu.temple.smartprompter_v2.SmartPrompter;
 import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.Log;
 
 import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 
@@ -31,6 +26,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void onStop() {
         Log.i(LOG_TAG, this.getLocalClassName() + " stopped!");
+        Log.dump(this);
         super.onStop();
     }
 
