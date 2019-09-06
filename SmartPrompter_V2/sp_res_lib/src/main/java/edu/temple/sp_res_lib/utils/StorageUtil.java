@@ -22,6 +22,12 @@ public class StorageUtil {
     private static final String PHOTOS_DIR = "sp_photos";
     private static final String LOGS_DIR = "sp_logs";
 
+    private static final String DIRTY_FLAG = "dirty";
+
+    public static File getAlarmsDirectory(Context context) {
+        return verifyOutputDir(context, ALARMS_DIR);
+    }
+
     public static ArrayList<Alarm> getAlarmsFromStorage(Context ctx) {
         Log.i(Constants.LOG_TAG, "Retrieving alarm records from storage!");
         ArrayList<Alarm> alarms = new ArrayList<>();
@@ -31,12 +37,24 @@ public class StorageUtil {
             for (String alarmFile : alarmsDir.list()) {
                 Log.i(Constants.LOG_TAG, "Scanning file: " + alarmFile);
                 String jsonAlarm = StorageUtil.readFile(ctx, ALARMS_DIR, alarmFile);
-                Alarm alarm = Alarm.importFromJson(jsonAlarm);
-                alarms.add(alarm);
+                if (jsonAlarm != null && !jsonAlarm.equals("")) {
+                    Alarm alarm = Alarm.importFromJson(jsonAlarm);
+                    alarms.add(alarm);
+                }
             }
         }
 
         return alarms;
+    }
+
+    public static boolean getDirtyStatus(Context ctx) {
+        File alarmsDir = verifyOutputDir(ctx, ALARMS_DIR);
+        File dirtyFile = new File(alarmsDir, DIRTY_FLAG);
+        return (dirtyFile.exists());
+    }
+
+    public static void writeDirtyFlag(Context ctx) {
+        StorageUtil.writeToFile(ctx, ALARMS_DIR, DIRTY_FLAG, "");
     }
 
     public static void writeAlarmsToStorage(Context ctx, ArrayList<Alarm> alarms) {
@@ -51,6 +69,10 @@ public class StorageUtil {
                 StorageUtil.writeToFile(ctx, ALARMS_DIR, alarm.getGuid(), jsonAlarm);
             }
         }
+    }
+
+    public static void deleteDirtyFlag(Context ctx) {
+        StorageUtil.deleteFile(ctx, ALARMS_DIR, DIRTY_FLAG);
     }
 
     public static void deleteAlarmFromStorage(Context ctx, Alarm alarm) {

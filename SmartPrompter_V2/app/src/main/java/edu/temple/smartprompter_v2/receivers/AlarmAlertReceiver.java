@@ -50,6 +50,9 @@ public class AlarmAlertReceiver extends BroadcastReceiver {
             newIntent = new Intent(context, AcknowledgmentActivity.class);
         }
 
+        // TODO - find out if we still want to auto-remind patients X number of times per stage
+        //  (right now, they have to manually select the snooze option...)
+
         // start up the response activity ...
         newIntent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, guid);
         newIntent.putExtra(Constants.BUNDLE_ARG_ALARM_WAKEUP, true);

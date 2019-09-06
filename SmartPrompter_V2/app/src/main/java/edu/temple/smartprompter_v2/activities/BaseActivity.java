@@ -31,7 +31,6 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void onStop() {
         Log.i(LOG_TAG, this.getLocalClassName() + " stopped!");
-        ((SmartPrompter)getApplication()).onAppStopped();
         super.onStop();
     }
 

@@ -26,45 +26,47 @@ public class SmartPrompter extends Application {
     private static final List<Alarm.STATUS> FUTURE_STATUSES =
             Arrays.asList(Alarm.STATUS.Active);
 
-    private static final List<Alarm.STATUS> ACTIVE_STATUSES =
+    private static final List<Alarm.STATUS> CURRENT_STATUSES =
             Arrays.asList(Alarm.STATUS.Unacknowledged, Alarm.STATUS.Incomplete);
 
-    private ArrayList<Alarm> futureAlarms, outstandingAlarms;
+    private ArrayList<Alarm> futureAlarms, currentAlarms;
 
-    @Override
-    public void onCreate() {
-        // TODO - this loading logic is firing multiple times on application start up ...
-        //  debug eventually ...
-        super.onCreate();
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    public void initializeFromReboot() {
         getAlarmsFromStorage();
-        setNewAlarms();
+        setAlarmClocks();
     }
 
-    public void onAppStopped() {
-        StorageUtil.writeAlarmsToStorage(this, outstandingAlarms);
+    public void cleanupDirtyAlarms() {
+        StorageUtil.deleteDirtyFlag(this);
+        getAlarmsFromStorage();
+        setAlarmClocks();
     }
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
     public Alarm getAlarm(String guid) {
-        for (Alarm alarm : outstandingAlarms) {
+        for (Alarm alarm : currentAlarms) {
             if (alarm.getGuid().equals(guid))
                 return alarm;
         }
         return null;
     }
 
-    public ArrayList<Alarm> getAlarms(boolean refreshFromStorage) {
-        if (refreshFromStorage) getAlarmsFromStorage();
-        return this.outstandingAlarms;
+    public ArrayList<Alarm> getAlarms() {
+        getAlarmsFromStorage();
+        return this.currentAlarms;
     }
 
     public void updateAlarmStatus(String alarmGUID, Alarm.STATUS newStatus) {
-        for (Alarm alarm : outstandingAlarms) {
+        for (Alarm alarm : currentAlarms) {
             if (alarm.getGuid().equals(alarmGUID))
                 alarm.updateStatus(newStatus);
         }
+        StorageUtil.writeAlarmsToStorage(this, currentAlarms);
     }
 
     public void saveTaskImage(String filename, byte[] bytes) {
@@ -85,13 +87,13 @@ public class SmartPrompter extends Application {
                 if (alarm.getStatus().equals(Alarm.STATUS.Active)) {
                     alarm.updateStatus(Alarm.STATUS.Unacknowledged);
                     futureAlarms.remove(alarm);
-                    outstandingAlarms.add(alarm);
+                    currentAlarms.add(alarm);
                 }
                 return alarm;
             }
         }
 
-        for (Alarm alarm : outstandingAlarms) {
+        for (Alarm alarm : currentAlarms) {
             if (alarm.getGuid().equals(guid))
                 return alarm;
         }
@@ -101,7 +103,7 @@ public class SmartPrompter extends Application {
 
     public void setAlarmReminder(Alarm alarm, Alarm.REMINDER type) {
         alarm.setReminder(type);
-        setAlarm(alarm, true);
+        setAlarmClock(alarm, true);
     }
 
     public void cancelAlarm(Alarm alarm) {
@@ -118,19 +120,19 @@ public class SmartPrompter extends Application {
 
     private void getAlarmsFromStorage() {
         Log.i(LOG_TAG, "Retrieving alarm records from storage!");
-        futureAlarms = new ArrayList<>();
-        outstandingAlarms = new ArrayList<>();
+        futureAlarms = new ArrayList<>();       // these alarms will be going off in the future
+        currentAlarms = new ArrayList<>();      // these alarms have gone off, user must complete
 
         ArrayList<Alarm> allAlarms = StorageUtil.getAlarmsFromStorage(this);
         for (Alarm alarm : allAlarms) {
             if (FUTURE_STATUSES.contains(alarm.getStatus()))
                 futureAlarms.add(alarm);
-            else if (ACTIVE_STATUSES.contains(alarm.getStatus()))
-                outstandingAlarms.add(alarm);
+            else if (CURRENT_STATUSES.contains(alarm.getStatus()))
+                currentAlarms.add(alarm);
         }
     }
 
-    private void setNewAlarms() {
+    private void setAlarmClocks() {
         Calendar now = Calendar.getInstance();
         Log.i(LOG_TAG, "Current time: " + Constants.DATE_TIME_FORMAT.format(now.getTime()));
 
@@ -140,13 +142,13 @@ public class SmartPrompter extends Application {
 
             if (alarm.getAlarmTimeMillis() < Calendar.getInstance().getTimeInMillis())
                 Log.e(LOG_TAG, "CAN'T SET ALARM FOR TIME IN THE PAST.");
-            else setAlarm(alarm, false);
+            else setAlarmClock(alarm, false);
         }
 
-        // TODO - check "outstanding alarms" and set reminders where necessary
+        // TODO - check "current alarms" and set reminders where necessary
     }
 
-    private void setAlarm(Alarm alarm, boolean isReminder) {
+    private void setAlarmClock(Alarm alarm, boolean isReminder) {
         Context context = getApplicationContext();
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 

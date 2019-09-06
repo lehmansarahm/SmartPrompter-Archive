@@ -27,8 +27,9 @@ public class SpAdmin extends Application {
         questions = StorageUtil.getSurveyQuestionsFromStorage();
     }
 
-    public void onAppStopped() {
+    public void commitChanges() {
         StorageUtil.writeAlarmsToStorage(this, alarms);
+        StorageUtil.writeDirtyFlag(this);
     }
 
     // --------------------------------------------------------------------------------------

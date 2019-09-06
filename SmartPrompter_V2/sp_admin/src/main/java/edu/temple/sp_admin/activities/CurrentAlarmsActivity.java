@@ -36,6 +36,12 @@ public class CurrentAlarmsActivity extends BaseActivity
     }
 
     @Override
+    public void onStop() {
+        ((SpAdmin)getApplication()).commitChanges();
+        super.onStop();
+    }
+
+    @Override
     public void OnListItemSelected(Alarm alarm) {
         showDetailsFragment(alarm.getGuid());
     }

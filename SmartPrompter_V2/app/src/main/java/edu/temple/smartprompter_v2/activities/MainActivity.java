@@ -75,7 +75,7 @@ public class MainActivity extends BaseActivity implements AlarmListFragment.OnLi
                 Log.i(LOG_TAG, "User has completed an alarm task!");
                 Toast.makeText(this, "Task complete! Great work!",
                         Toast.LENGTH_LONG).show();
-                showDefaultFragment(true);
+                showDefaultFragment();
             }
         }
     }
@@ -147,14 +147,10 @@ public class MainActivity extends BaseActivity implements AlarmListFragment.OnLi
     }
 
     private void showDefaultFragment() {
-        showDefaultFragment(false);
-    }
-
-    private void showDefaultFragment(boolean refreshFromStorage) {
         Log.i(LOG_TAG, "We have all required permissions!  Determining "
                 + "whether there are alarms to show ...");
 
-        mActiveAlarms = ((SmartPrompter) getApplication()).getAlarms(refreshFromStorage);
+        mActiveAlarms = ((SmartPrompter) getApplication()).getAlarms();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
         if (mActiveAlarms != null && mActiveAlarms.size() > 0) {
