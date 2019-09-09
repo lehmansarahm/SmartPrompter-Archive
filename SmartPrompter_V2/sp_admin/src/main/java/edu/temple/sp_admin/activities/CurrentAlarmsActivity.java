@@ -3,8 +3,10 @@ package edu.temple.sp_admin.activities;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import edu.temple.sp_admin.R;
 import edu.temple.sp_admin.SpAdmin;
@@ -63,6 +65,13 @@ public class CurrentAlarmsActivity extends BaseActivity
 
                 Alarm oldAlarm = ((SpAdmin)getApplicationContext()).getAlarm(alarm.getGuid());
                 if (alarm.getAlarmTimeMillis() != oldAlarm.getAlarmTimeMillis()) {
+                    if (alarm.getAlarmTimeMillis() < Calendar.getInstance().getTimeInMillis()) {
+                        Log.e(LOG_TAG, "Cannot set alarm for time in the past!");
+                        Toast.makeText(CurrentAlarmsActivity.this, "Cannot set alarm "
+                                + " for time in the past!", Toast.LENGTH_LONG).show();
+                        break;
+                    }
+
                     Log.e(LOG_TAG, "User has updated alarm time!  Resetting alarm status to ACTIVE.");
                     alarm.updateStatus(Alarm.STATUS.Active);
                 }

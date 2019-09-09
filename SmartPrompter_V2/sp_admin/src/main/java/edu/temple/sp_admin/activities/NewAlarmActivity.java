@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
+import android.widget.Toast;
+
+import java.util.Calendar;
 
 import edu.temple.sp_admin.R;
 import edu.temple.sp_admin.SpAdmin;
@@ -44,6 +47,14 @@ public class NewAlarmActivity extends BaseActivity
                 Log.ui(LOG_TAG, this,
                         "Saved new alarm with description: " + alarm.getDesc()
                         + " \t and time: " + alarm.getAlarmDateTimeString());
+
+                if (alarm.getAlarmTimeMillis() < Calendar.getInstance().getTimeInMillis()) {
+                    Log.e(LOG_TAG, "Cannot set alarm for time in the past!");
+                    Toast.makeText(NewAlarmActivity.this, "Cannot set alarm for time "
+                            + "in the past!", Toast.LENGTH_LONG).show();
+                    break;
+                }
+
                 ((SpAdmin)getApplicationContext()).saveAlarm(alarm);
                 startActivity(new Intent(NewAlarmActivity.this,
                         CurrentAlarmsActivity.class));
