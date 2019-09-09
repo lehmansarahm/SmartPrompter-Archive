@@ -18,6 +18,11 @@ import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 
 public class BaseActivity extends AppCompatActivity {
 
+    private static final int ALERT_FLAGS = (WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
+            WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
+            WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON |
+            WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.ui(LOG_TAG, this, "Created");
@@ -61,11 +66,7 @@ public class BaseActivity extends AppCompatActivity {
         playAlarmAlerts(context);
 
         Log.i(LOG_TAG, "Waking up the device screen...");
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
-                WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
-                WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON |
-                WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON |
-                WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON);
+        getWindow().addFlags(ALERT_FLAGS);
     }
 
     private void playAlarmAlerts(Context context) {
