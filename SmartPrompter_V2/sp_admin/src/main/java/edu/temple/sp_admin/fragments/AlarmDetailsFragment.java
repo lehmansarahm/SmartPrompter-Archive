@@ -149,7 +149,8 @@ public class AlarmDetailsFragment extends Fragment {
         labelLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(Constants.LOG_TAG, "User clicked LABEL field for alarm GUID: " + mAlarm.getGuid());
+                Log.ui(Constants.LOG_TAG, AlarmDetailsFragment.this.getContext(),
+                        "User clicked LABEL field for alarm GUID: " + mAlarm.getGuid());
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setTitle("Alarm Label");
 
@@ -163,12 +164,16 @@ public class AlarmDetailsFragment extends Fragment {
                         String label = input.getText().toString();
                         mAlarm.updateDesc(label);
                         labelText.setText(label);
+                        Log.ui(Constants.LOG_TAG, AlarmDetailsFragment.this.getContext(),
+                                "Updated alarm label: " + label);
                     }
                 });
 
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        Log.ui(Constants.LOG_TAG, AlarmDetailsFragment.this.getContext(),
+                                "User canceled alarm label change");
                         dialog.cancel();
                     }
                 });

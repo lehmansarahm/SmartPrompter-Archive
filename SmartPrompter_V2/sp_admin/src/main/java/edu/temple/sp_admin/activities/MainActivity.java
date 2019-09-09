@@ -26,7 +26,6 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i(LOG_TAG, "Main Activity created!");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -68,7 +67,7 @@ public class MainActivity extends BaseActivity {
         createNewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(LOG_TAG, "Create-New button clicked.");
+                Log.ui(LOG_TAG, MainActivity.this, "Create-New button clicked.");
                 startActivity(new Intent(MainActivity.this,
                         NewAlarmActivity.class));
             }
@@ -78,7 +77,7 @@ public class MainActivity extends BaseActivity {
         viewCurrentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(LOG_TAG, "View-Current button clicked.");
+                Log.ui(LOG_TAG, MainActivity.this,"View-Current button clicked.");
                 startActivity(new Intent(MainActivity.this,
                         CurrentAlarmsActivity.class));
             }
@@ -88,7 +87,7 @@ public class MainActivity extends BaseActivity {
         viewPastButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(LOG_TAG, "View-Past button clicked.");
+                Log.ui(LOG_TAG, MainActivity.this, "View-Past button clicked.");
                 startActivity(new Intent(MainActivity.this,
                         PastAlarmsActivity.class));
             }
@@ -98,7 +97,7 @@ public class MainActivity extends BaseActivity {
         configureQuestionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(LOG_TAG, "Configure-Surveys button clicked.");
+                Log.ui(LOG_TAG, MainActivity.this, "Configure-Surveys button clicked.");
                 startActivity(new Intent(MainActivity.this,
                         SurveyConfigActivity.class));
             }

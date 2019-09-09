@@ -9,7 +9,7 @@ import android.content.Intent;
 import java.util.concurrent.TimeUnit;
 
 import edu.temple.smartprompter_v2.SmartPrompter;
-import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.DateTimeUtil;
 import edu.temple.sp_res_lib.utils.Log;
 import edu.temple.sp_res_lib.utils.StorageUtil;
 
@@ -38,7 +38,7 @@ public class AlarmDirEventReceiver extends BroadcastReceiver {
         long nextWakeupTime = (System.currentTimeMillis() + JOB_INTERVAL);
         alarmMgr.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, nextWakeupTime, pendingIntent);
         Log.e(LOG_TAG, "Next alarm directory check scheduled for: "
-                + Constants.formatTimeInMillis(nextWakeupTime, Constants.DATE_TIME_FORMAT));
+                + DateTimeUtil.formatTimeInMillis(nextWakeupTime, DateTimeUtil.FORMAT.DateTime));
     }
 
 }

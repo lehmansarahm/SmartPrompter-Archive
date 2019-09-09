@@ -72,17 +72,22 @@ public class AcknowledgmentActivity extends BaseActivity {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                Log.i(LOG_TAG, "Acknowledgment SeekBar tracking touch started!");
+                Log.ui(LOG_TAG, AcknowledgmentActivity.this,
+                        "Acknowledgment SeekBar tracking touch started!");
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                Log.i(LOG_TAG, "Acknowledgment SeekBar tracking touch stopped!  "
-                        + "Initializing response for selection: " + mSelection);
+                Log.ui(LOG_TAG, AcknowledgmentActivity.this,
+                        "Acknowledgment SeekBar tracking touch stopped!  "
+                        + "Final selection: " + mSelection);
 
                 Intent intent;
                 switch (mSelection) {
                     case REMIND_ME_LATER:
+                        Log.ui(LOG_TAG, AcknowledgmentActivity.this,
+                                "User selected 'Remind me later'.");
+
                         // Set acknowledgment reminder
                         ((SmartPrompter)getApplication()).setAlarmReminder(mAlarm,
                                 Alarm.REMINDER.Acknowledgment);
@@ -96,6 +101,9 @@ public class AcknowledgmentActivity extends BaseActivity {
                         finish();
                         break;
                     case ON_MY_WAY:
+                        Log.ui(LOG_TAG, AcknowledgmentActivity.this,
+                                "User selected 'On my way'.");
+
                         // if an acknowledgment reminder exists for this alarm, cancel it
                         ((SmartPrompter)getApplication()).cancelAlarm(mAlarm);
 
@@ -115,10 +123,6 @@ public class AcknowledgmentActivity extends BaseActivity {
 
     private void populateView() {
         mAlarm = ((SmartPrompter)getApplication()).getAlarm(mAlarmGUID);
-        if (mAlarm.getStatus().equals(Alarm.STATUS.Active))
-            ((SmartPrompter)getApplication()).updateAlarmStatus(mAlarmGUID,
-                    Alarm.STATUS.Unacknowledged);
-
         TextView taskText = findViewById(R.id.task_text);
         taskText.setText(mAlarm.getDesc());
     }

@@ -74,17 +74,22 @@ public class CompletionActivity extends BaseActivity {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                Log.i(LOG_TAG, "Completion SeekBar tracking touch started!");
+                Log.ui(LOG_TAG, CompletionActivity.this,
+                        "Completion SeekBar tracking touch started!");
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                Log.i(LOG_TAG, "Completion SeekBar tracking touch stopped!  "
-                        + "Initializing response for selection: " + mSelection);
+                Log.ui(LOG_TAG, CompletionActivity.this,
+                        "Completion SeekBar tracking touch stopped!  "
+                                + "Final selection: " + mSelection);
 
                 Intent intent;
                 switch (mSelection) {
                     case REMIND_ME_LATER:
+                        Log.ui(LOG_TAG, CompletionActivity.this,
+                                "User selected 'Remind me later'.");
+
                         // Set completion reminder
                         ((SmartPrompter)getApplication()).setAlarmReminder(mAlarm,
                                 Alarm.REMINDER.Completion);
@@ -98,6 +103,9 @@ public class CompletionActivity extends BaseActivity {
                         finish();
                         break;
                     case READY:
+                        Log.ui(LOG_TAG, CompletionActivity.this,
+                                "User selected 'Ready to take picture'.");
+
                         // progress to camera screen (do not update alarm status until picture is taken!!)
                         intent = new Intent(CompletionActivity.this,
                                 CameraActivity.class);

@@ -8,7 +8,7 @@ import android.content.Intent;
 
 import java.util.concurrent.TimeUnit;
 
-import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.DateTimeUtil;
 import edu.temple.sp_res_lib.utils.Log;
 
 import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
@@ -33,7 +33,7 @@ public class DownloadEventReceiver extends BroadcastReceiver {
         long nextWakeupTime = (System.currentTimeMillis() + JOB_INTERVAL);
         alarmMgr.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, nextWakeupTime, pendingIntent);
         Log.e(LOG_TAG, "Next download scheduled for: "
-                + Constants.formatTimeInMillis(nextWakeupTime, Constants.DATE_TIME_FORMAT));
+                + DateTimeUtil.formatTimeInMillis(nextWakeupTime, DateTimeUtil.FORMAT.DateTime));
     }
 
 }

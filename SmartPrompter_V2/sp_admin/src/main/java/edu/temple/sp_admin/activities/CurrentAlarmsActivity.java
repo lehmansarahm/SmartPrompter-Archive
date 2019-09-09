@@ -43,15 +43,24 @@ public class CurrentAlarmsActivity extends BaseActivity
 
     @Override
     public void OnListItemSelected(Alarm alarm) {
+        Log.ui(LOG_TAG, this,"List item selected for alarm with GUID: " + alarm.getGuid()
+            + " \t Description: " + alarm.getDesc()
+            + " \t Original Date-Time: " + alarm.getAlarmDateTimeString()
+            + " \t Status: " + alarm.getStatus());
         showDetailsFragment(alarm.getGuid());
     }
 
     @Override
     public void OnButtonClicked(AlarmDetailsFragment.ACTION_BUTTON button, Alarm alarm) {
-        Log.i(LOG_TAG, "Button Clicked: " + button.toString()
-                + " for alarm with GUID: " + alarm.getGuid());
+        Log.ui(LOG_TAG, this, "Button clicked: " + button.toString());
+
         switch(button) {
             case Save:
+                Log.ui(LOG_TAG, this,"Saved alarm with GUID: " + alarm.getGuid()
+                        + " \t Description: " + alarm.getDesc()
+                        + " \t Original Date-Time: " + alarm.getAlarmDateTimeString()
+                        + " \t Status: " + alarm.getStatus());
+
                 Alarm oldAlarm = ((SpAdmin)getApplicationContext()).getAlarm(alarm.getGuid());
                 if (alarm.getAlarmTimeMillis() != oldAlarm.getAlarmTimeMillis()) {
                     Log.e(LOG_TAG, "User has updated alarm time!  Resetting alarm status to ACTIVE.");
@@ -64,11 +73,21 @@ public class CurrentAlarmsActivity extends BaseActivity
                 showDefaultFragment();
                 break;
             case Cancel:
+                Log.ui(LOG_TAG, this,"Canceled changes to alarm with GUID: " + alarm.getGuid()
+                        + " \t Description: " + alarm.getDesc()
+                        + " \t Original Date-Time: " + alarm.getAlarmDateTimeString()
+                        + " \t Status: " + alarm.getStatus());
+
                 // have to explicitly pop the back stack before refreshing fragment
                 getSupportFragmentManager().popBackStack();
                 showDetailsFragment(alarm.getGuid());
                 break;
             case Delete:
+                Log.ui(LOG_TAG, this,"Deleted alarm with GUID: " + alarm.getGuid()
+                        + " \t Description: " + alarm.getDesc()
+                        + " \t Original Date-Time: " + alarm.getAlarmDateTimeString()
+                        + " \t Status: " + alarm.getStatus());
+
                 ((SpAdmin)getApplicationContext()).deleteAlarm(alarm);
                 getSupportFragmentManager().popBackStack();
                 getCurrentAlarms();
@@ -85,7 +104,7 @@ public class CurrentAlarmsActivity extends BaseActivity
 
     @Override
     public void onDatePickerRequested(String alarmGUID, int[] date) {
-        Log.i(Constants.LOG_TAG, "User wants to view a date picker dialog with default date: "
+        Log.ui(Constants.LOG_TAG, this, "DatePickerDialog requested with default date: "
                 + date[1] + "/" + date[2] + "/" + date[0]);
         DialogFragment newFragment = DatePickerFragment.newInstance(alarmGUID, date);
         newFragment.show(getSupportFragmentManager(), "datePicker");
@@ -93,9 +112,8 @@ public class CurrentAlarmsActivity extends BaseActivity
 
     @Override
     public void onDatePicked(String alarmGUID, int year, int month, int day) {
-        Log.i(Constants.LOG_TAG, "User selected the following date from the picker: "
-                + month + "/" + day + "/" + year + " \t\t for current alarm: "
-                + alarmGUID);
+        Log.ui(Constants.LOG_TAG, this,"Date picked: " + month + "/" + day + "/" + year
+                + " \t\t for current alarm: " + alarmGUID);
         detailsFrag.updateDate(year, month, day);
     }
 
@@ -107,7 +125,7 @@ public class CurrentAlarmsActivity extends BaseActivity
 
     @Override
     public void onTimePickerRequested(String alarmGUID, int[] time) {
-        Log.i(Constants.LOG_TAG, "User wants to view a time picker dialog with default time: "
+        Log.ui(Constants.LOG_TAG, this,"TimePickerDialog requested with default time: "
                 + time[0] + ":" + time[1]);
         DialogFragment newFragment = TimePickerFragment.newInstance(alarmGUID, time);
         newFragment.show(getSupportFragmentManager(), "timePicker");
@@ -115,9 +133,8 @@ public class CurrentAlarmsActivity extends BaseActivity
 
     @Override
     public void onTimePicked(String alarmGUID, int hourOfDay, int minute) {
-        Log.i(Constants.LOG_TAG, "User selected the following time from the picker: "
-                + hourOfDay + ":" + minute + " \t\t for current alarm: "
-                + alarmGUID);
+        Log.ui(Constants.LOG_TAG, this,"Time picked: " + hourOfDay + ":" + minute
+                + " \t\t for current alarm: " + alarmGUID);
         detailsFrag.updateTime(hourOfDay, minute);
     }
 

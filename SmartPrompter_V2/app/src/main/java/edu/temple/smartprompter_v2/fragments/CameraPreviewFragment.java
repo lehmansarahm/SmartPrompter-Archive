@@ -178,6 +178,8 @@ public class CameraPreviewFragment extends Fragment {
         takePictureButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.ui(LOG_TAG, CameraPreviewFragment.this.getActivity(),
+                        "Camera button clicked!");
                 takePicture();
             }
         });

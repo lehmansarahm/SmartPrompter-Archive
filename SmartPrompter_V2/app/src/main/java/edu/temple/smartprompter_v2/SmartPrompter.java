@@ -15,6 +15,7 @@ import edu.temple.smartprompter_v2.activities.MainActivity;
 import edu.temple.smartprompter_v2.receivers.AlarmAlertReceiver;
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.DateTimeUtil;
 import edu.temple.sp_res_lib.utils.Log;
 import edu.temple.sp_res_lib.utils.MediaUtil;
 import edu.temple.sp_res_lib.utils.StorageUtil;
@@ -85,7 +86,9 @@ public class SmartPrompter extends Application {
         for (Alarm alarm : futureAlarms) {
             if (alarm.getGuid().equals(guid)) {
                 if (alarm.getStatus().equals(Alarm.STATUS.Active)) {
-                    alarm.updateStatus(Alarm.STATUS.Unacknowledged);
+                    Log.i(LOG_TAG, "First time getting alert for this alarm.  Setting "
+                            + "status to UNACKNOWLEDGED.");
+                    updateAlarmStatus(guid, Alarm.STATUS.Unacknowledged);
                     futureAlarms.remove(alarm);
                     currentAlarms.add(alarm);
                 }
@@ -136,7 +139,7 @@ public class SmartPrompter extends Application {
 
     private void setAlarmClocks() {
         Calendar now = Calendar.getInstance();
-        Log.i(LOG_TAG, "Current time: " + Constants.DATE_TIME_FORMAT.format(now.getTime()));
+        Log.i(LOG_TAG, "Current time: " + DateTimeUtil.formatTime(now, DateTimeUtil.FORMAT.DateTime));
 
         for (Alarm alarm : futureAlarms) {
             Log.i(LOG_TAG, "Setting new alarm clock for future task: " + alarm.getDesc()

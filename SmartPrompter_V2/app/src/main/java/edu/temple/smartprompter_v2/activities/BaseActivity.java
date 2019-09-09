@@ -4,6 +4,7 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
@@ -18,22 +19,40 @@ import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 public class BaseActivity extends AppCompatActivity {
 
     @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        Log.ui(LOG_TAG, this, "Created");
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
     public void onPause() {
-        Log.i(LOG_TAG, this.getLocalClassName() + " paused!");
+        Log.ui(LOG_TAG, this, "Paused");
         super.onPause();
     }
 
     @Override
+    public void onResume() {
+        Log.ui(LOG_TAG, this, "Resumed");
+        super.onResume();
+    }
+
+    @Override
     public void onStop() {
-        Log.i(LOG_TAG, this.getLocalClassName() + " stopped!");
+        Log.ui(LOG_TAG, this, "Stopped");
         Log.dump(this);
         super.onStop();
     }
 
     @Override
     public void onDestroy() {
-        Log.i(LOG_TAG, this.getLocalClassName() + " destroyed!");
+        Log.ui(LOG_TAG, this, "Destroyed");
         super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Log.ui(LOG_TAG, this, "Back button pressed");
+        super.onBackPressed();
     }
 
     protected void wakeup(Context context) {

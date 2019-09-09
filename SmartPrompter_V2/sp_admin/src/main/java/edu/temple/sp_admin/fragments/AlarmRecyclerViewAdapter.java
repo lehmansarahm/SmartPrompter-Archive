@@ -34,6 +34,7 @@ public class AlarmRecyclerViewAdapter extends RecyclerView.Adapter<AlarmRecycler
         holder.mItem = mValues.get(position);
         holder.mIdView.setText(String.valueOf(position + 1));
         holder.mContentView.setText(mValues.get(position).toString());
+        holder.mDateTimeView.setText(mValues.get(position).getAlarmDateTimeString());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +55,7 @@ public class AlarmRecyclerViewAdapter extends RecyclerView.Adapter<AlarmRecycler
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
+        public final TextView mDateTimeView;
         public Alarm mItem;
 
         public ViewHolder(View view) {
@@ -61,6 +63,7 @@ public class AlarmRecyclerViewAdapter extends RecyclerView.Adapter<AlarmRecycler
             mView = view;
             mIdView = (TextView) view.findViewById(R.id.item_number);
             mContentView = (TextView) view.findViewById(R.id.content);
+            mDateTimeView = (TextView) view.findViewById(R.id.dateTime);
         }
 
         @Override

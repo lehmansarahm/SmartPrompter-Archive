@@ -93,6 +93,7 @@ public class CameraReviewFragment extends Fragment {
         acceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.ui(LOG_TAG, CameraReviewFragment.this.getActivity(), "Camera image accepted!");
                 mListener.onImageAccepted(mAlarmID, mImageBytes);
             }
         });
@@ -101,6 +102,7 @@ public class CameraReviewFragment extends Fragment {
         rejectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.ui(LOG_TAG, CameraReviewFragment.this.getActivity(), "Camera image rejected!");
                 mListener.onImageRejected(mAlarmID);
             }
         });

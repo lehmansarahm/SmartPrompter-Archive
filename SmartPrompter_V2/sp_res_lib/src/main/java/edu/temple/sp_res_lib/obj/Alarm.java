@@ -13,6 +13,7 @@ import java.util.Calendar;
 import java.util.UUID;
 
 import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.DateTimeUtil;
 import edu.temple.sp_res_lib.utils.Log;
 
 public class Alarm implements Parcelable {
@@ -101,19 +102,20 @@ public class Alarm implements Parcelable {
             case Incomplete:
                 timeAcknowledged = Calendar.getInstance();
                 Log.i(Constants.LOG_TAG, "Alarm with GUID: " + uuid + "\t was acknowledged at time: "
-                        + Constants.DATE_TIME_FORMAT.format(timeAcknowledged.getTime()));
+                        + DateTimeUtil.formatTime(timeAcknowledged, DateTimeUtil.FORMAT.DateTime));
                 break;
             case Complete:
                 timeCompleted = Calendar.getInstance();
                 Log.i(Constants.LOG_TAG, "Alarm with GUID: " + uuid + "\t was completed at time: "
-                        + Constants.DATE_TIME_FORMAT.format(timeCompleted.getTime()));
+                        + DateTimeUtil.formatTime(timeCompleted, DateTimeUtil.FORMAT.DateTime));
                 archived = true;
                 break;
         }
     }
 
     public String getPhotoPath() {
-        String timeCompletedString = Constants.DATE_TIME_FORMAT.format(timeCompleted.getTime());
+        String timeCompletedString =
+                DateTimeUtil.formatTime(timeCompleted, DateTimeUtil.FORMAT.DateTime);
         boolean invalidTime = (timeCompletedString == null || timeCompletedString.isEmpty());
         boolean invalidLabel = (desc == null || desc.isEmpty());
 
@@ -186,7 +188,9 @@ public class Alarm implements Parcelable {
         };
     }
 
-    public String getAlarmDateString() { return Constants.DATE_FORMAT.format(alarmTime.getTime()); }
+    public String getAlarmDateString() {
+        return DateTimeUtil.formatTime(alarmTime, DateTimeUtil.FORMAT.Date);
+    }
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
@@ -208,25 +212,27 @@ public class Alarm implements Parcelable {
         return alarmTime.getTimeInMillis();
     }
 
-    public String getAlarmTimeString() { return Constants.TIME_FORMAT.format(alarmTime.getTime()); }
+    public String getAlarmTimeString() {
+        return DateTimeUtil.formatTime(alarmTime, DateTimeUtil.FORMAT.Time);
+    }
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
     public String getAlarmDateTimeString() {
-        return Constants.DATE_TIME_FORMAT.format(alarmTime.getTime());
+        return DateTimeUtil.formatTime(alarmTime, DateTimeUtil.FORMAT.DateTime);
     }
 
     public String getReminderDateTimeString() {
-        return Constants.DATE_TIME_FORMAT.format(reminderTime.getTime());
+        return DateTimeUtil.formatTime(reminderTime, DateTimeUtil.FORMAT.DateTime);
     }
 
     public String getAcknowledgedDateTimeString() {
-        return Constants.DATE_TIME_FORMAT.format(timeAcknowledged.getTime());
+        return DateTimeUtil.formatTime(timeAcknowledged, DateTimeUtil.FORMAT.DateTime);
     }
 
     public String getCompletionDateTimeString() {
-        return Constants.DATE_TIME_FORMAT.format(timeCompleted.getTime());
+        return DateTimeUtil.formatTime(timeCompleted, DateTimeUtil.FORMAT.DateTime);
     }
 
     // --------------------------------------------------------------------------------------

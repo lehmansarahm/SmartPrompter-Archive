@@ -37,22 +37,33 @@ public class NewAlarmActivity extends BaseActivity
 
     @Override
     public void OnButtonClicked(AlarmDetailsFragment.ACTION_BUTTON button, Alarm alarm) {
-        Log.i(LOG_TAG, "Button Clicked: " + button.toString()
-                + " for alarm with GUID: " + alarm.getGuid());
+        Log.ui(LOG_TAG, this, "Button clicked: " + button.toString());
+
         switch(button) {
             case Save:
+                Log.ui(LOG_TAG, this,
+                        "Saved new alarm with description: " + alarm.getDesc()
+                        + " \t and time: " + alarm.getAlarmDateTimeString());
                 ((SpAdmin)getApplicationContext()).saveAlarm(alarm);
                 startActivity(new Intent(NewAlarmActivity.this,
                         CurrentAlarmsActivity.class));
+                finish();
                 break;
             case Cancel:
+                Log.ui(LOG_TAG, this,
+                        "Canceled changes to alarm with description: " + alarm.getDesc()
+                        + " \t and time: " + alarm.getAlarmDateTimeString());
                 // no need to explicitly pop back stack for single-fragment activity
                 showDefaultFragment();
                 break;
             case Delete:
+                Log.ui(LOG_TAG, this,
+                        "Deleted new alarm with description: " + alarm.getDesc()
+                                + " \t and time: " + alarm.getAlarmDateTimeString());
                 ((SpAdmin)getApplicationContext()).deleteAlarm(alarm);
                 startActivity(new Intent(NewAlarmActivity.this,
                         CurrentAlarmsActivity.class));
+                finish();
                 break;
         }
     }
@@ -65,7 +76,7 @@ public class NewAlarmActivity extends BaseActivity
 
     @Override
     public void onDatePickerRequested(String alarmGUID, int[] date) {
-        Log.i(Constants.LOG_TAG, "User wants to view a date picker dialog with default date: "
+        Log.ui(Constants.LOG_TAG, this, "DatePickerDialog requested with default date: "
                 + date[1] + "/" + date[2] + "/" + date[0]);
         DialogFragment newFragment = DatePickerFragment.newInstance(alarmGUID, date);
         newFragment.show(getSupportFragmentManager(), "datePicker");
@@ -73,9 +84,8 @@ public class NewAlarmActivity extends BaseActivity
 
     @Override
     public void onDatePicked(String alarmGUID, int year, int month, int day) {
-        Log.i(Constants.LOG_TAG, "User selected the following date from the picker: "
-                + month + "/" + day + "/" + year + " \t\t for current alarm: "
-                + alarmGUID);
+        Log.ui(Constants.LOG_TAG, this,"Date picked: " + month + "/" + day + "/" + year
+                + " \t\t for current alarm: " + alarmGUID);
         detailsFrag.updateDate(year, month, day);
     }
 
@@ -87,7 +97,7 @@ public class NewAlarmActivity extends BaseActivity
 
     @Override
     public void onTimePickerRequested(String alarmGUID, int[] time) {
-        Log.i(Constants.LOG_TAG, "User wants to view a time picker dialog with default time: "
+        Log.ui(Constants.LOG_TAG, this,"TimePickerDialog requested with default time: "
                 + time[0] + ":" + time[1]);
         DialogFragment newFragment = TimePickerFragment.newInstance(alarmGUID, time);
         newFragment.show(getSupportFragmentManager(), "timePicker");
@@ -95,9 +105,8 @@ public class NewAlarmActivity extends BaseActivity
 
     @Override
     public void onTimePicked(String alarmGUID, int hourOfDay, int minute) {
-        Log.i(Constants.LOG_TAG, "User selected the following time from the picker: "
-                + hourOfDay + ":" + minute + " \t\t for current alarm: "
-                + alarmGUID);
+        Log.ui(Constants.LOG_TAG, this,"Time picked: " + hourOfDay + ":" + minute
+                + " \t\t for current alarm: " + alarmGUID);
         detailsFrag.updateTime(hourOfDay, minute);
     }
 

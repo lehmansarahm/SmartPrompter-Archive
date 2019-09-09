@@ -8,6 +8,9 @@ import android.widget.ImageView;
 
 import edu.temple.smartprompter_v2.R;
 import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.Log;
+
+import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 
 public class ConfirmationActivity extends BaseActivity {
 
@@ -27,8 +30,8 @@ public class ConfirmationActivity extends BaseActivity {
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ConfirmationActivity.this,
-                        MainActivity.class);
+                Log.ui(LOG_TAG, ConfirmationActivity.this, "Confirmation return button clicked.");
+                Intent intent = new Intent(ConfirmationActivity.this, MainActivity.class);
                 intent.putExtra(Constants.BUNDLE_TASK_COMPLETE, true);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
                 startActivity(intent);

@@ -42,16 +42,14 @@ public class MainActivity extends BaseActivity implements AlarmListFragment.OnLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.i(LOG_TAG, "Main activity created!");
 
         showClockFragment();
         if (checkPermissions()) showDefaultFragment();
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
-        Log.i(LOG_TAG, "Main activity resumed!");
         Intent intent = getIntent();
 
         if (intent.hasExtra(Constants.BUNDLE_REMIND_ME_LATER_ACK)) {
@@ -120,12 +118,12 @@ public class MainActivity extends BaseActivity implements AlarmListFragment.OnLi
         // select response activity according to the current record status
         Intent intent;
         if (item.getStatus().equals(Alarm.STATUS.Incomplete)) {
-            Log.i(LOG_TAG, "List item selected!  Launching completion activity for alarm: "
-                    + item.getGuid());
+            Log.ui(LOG_TAG, MainActivity.this,
+                    "User resumed task completion for alarm: " + item.getGuid());
             intent = new Intent(MainActivity.this, CompletionActivity.class);
         } else {
-            Log.i(LOG_TAG, "List item selected!  Launching acknowledgment activity for alarm: "
-                    + item.getGuid());
+            Log.ui(LOG_TAG, MainActivity.this,
+                    "User resumed task acknowledgment for alarm: " + item.getGuid());
             intent = new Intent(MainActivity.this, AcknowledgmentActivity.class);
         }
 

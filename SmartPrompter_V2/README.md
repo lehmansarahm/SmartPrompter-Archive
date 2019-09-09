@@ -19,7 +19,5 @@ Responding to alarms:
 - ALARM TASK IS ONLY COMPLETED WHEN YOU HAVE TAKEN / SAVED A PICTURE (i.e. when the high-fiving dog appears)
 
 
-OUTSTANDING FEATURES:
-- Acknowledgment, completion reminders are a little buggy ...
-- Taking pictures on physical Pixel 2 is a little buggy... (but works fine in the emulator???)
-- Automated "download", file observer / alarm scheduler service
+Retrieving output files:
+- Run "pull_output_files.sh" (Developer Mode / USB debugging required)

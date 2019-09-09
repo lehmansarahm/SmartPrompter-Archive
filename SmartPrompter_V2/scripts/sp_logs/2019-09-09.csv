@@ -1,0 +1,486 @@
+2019-09-09,11:19 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:19AM
+2019-09-09,11:19 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  true
+2019-09-09,11:19 AM,Info,SpResLib,Deleted file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,11:19 AM,Info,SmartPrompterV2,Retrieving alarm records from storage!
+2019-09-09,11:19 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-09,11:19 AM,Info,SmartPrompterV2,Current time: 2019-09-09 11:19AM
+2019-09-09,11:19 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:19 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:19AM
+2019-09-09,11:19 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:20AM
+2019-09-09,11:19 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  true
+2019-09-09,11:19 AM,Info,SpResLib,Deleted file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,11:19 AM,Info,SmartPrompterV2,Retrieving alarm records from storage!
+2019-09-09,11:19 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-09,11:19 AM,Info,SpResLib,Scanning file: 0203767584913257337404221371036710560346
+2019-09-09,11:19 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":11,"minute":21,"second":0},"archived":false,"desc":"Set it and forget it","status":"Active","uuid":"0203767584913257337404221371036710560346"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0203767584913257337404221371036710560346
+2019-09-09,11:19 AM,Info,SmartPrompterV2,Current time: 2019-09-09 11:19AM
+2019-09-09,11:19 AM,Info,SmartPrompterV2,Setting new alarm clock for future task: Set it and forget it
+ 	 Current time millis: 1568042386517
+ 	 Alarm time millis: 1568042460000
+2019-09-09,11:19 AM,Error,SmartPrompterV2,Setting alarm for task: Set it and forget it 	 	 and GUID-int: 975266394 	 	 with date/time: 2019-09-09 11:21AM
+2019-09-09,11:19 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:19 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:20AM
+2019-09-09,11:20 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:20AM
+2019-09-09,11:20 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  true
+2019-09-09,11:20 AM,Info,SpResLib,Deleted file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,11:20 AM,Info,SmartPrompterV2,Retrieving alarm records from storage!
+2019-09-09,11:20 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-09,11:20 AM,Info,SpResLib,Scanning file: 0203767584913257337404221371036710560346
+2019-09-09,11:20 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":11,"minute":21,"second":0},"archived":false,"desc":"Set it and forget it","status":"Active","uuid":"0203767584913257337404221371036710560346"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0203767584913257337404221371036710560346
+2019-09-09,11:20 AM,Info,SmartPrompterV2,Current time: 2019-09-09 11:20AM
+2019-09-09,11:20 AM,Info,SmartPrompterV2,Setting new alarm clock for future task: Set it and forget it
+ 	 Current time millis: 1568042401500
+ 	 Alarm time millis: 1568042460000
+2019-09-09,11:20 AM,Error,SmartPrompterV2,Setting alarm for task: Set it and forget it 	 	 and GUID-int: 975266394 	 	 with date/time: 2019-09-09 11:21AM
+2019-09-09,11:20 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:20 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:20AM
+2019-09-09,11:20 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:20AM
+2019-09-09,11:20 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:20 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:20 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:20AM
+2019-09-09,11:20 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:20AM
+2019-09-09,11:20 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:20 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:20 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:20AM
+2019-09-09,11:20 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:21AM
+2019-09-09,11:20 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:20 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:20 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:21AM
+2019-09-09,11:21 AM,Info,SmartPrompterV2,Retrieving alarm records from storage!
+2019-09-09,11:21 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-09,11:21 AM,Info,SpResLib,Scanning file: 0203767584913257337404221371036710560346
+2019-09-09,11:21 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":11,"minute":21,"second":0},"archived":false,"desc":"Set it and forget it","status":"Active","uuid":"0203767584913257337404221371036710560346"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0203767584913257337404221371036710560346
+2019-09-09,11:21 AM,Error,SmartPrompterV2,ALARM ALERT BROADCAST RECEIVED FOR GUID: 0203767584913257337404221371036710560346 	 AND GUID-INT: 975266394 	 WITH ORIG ALARM TIME: 2019-09-09 11:21AM 	 AND STATUS: Unacknowledged
+2019-09-09,11:21 AM,Info,SmartPrompterV2,Launching acknowledgment activity for alarm: 0203767584913257337404221371036710560346
+2019-09-09,11:21 AM,Info,SmartPrompterV2,Playing alarm alerts...
+2019-09-09,11:21 AM,Info,SmartPrompterV2,Playing alarm alert tone!
+2019-09-09,11:21 AM,Info,SmartPrompterV2,Starting alarm alert vibrate!
+2019-09-09,11:21 AM,Info,SmartPrompterV2,Waking up the device screen...
+2019-09-09,11:21 AM,Info,SmartPrompterV2,activities.AcknowledgmentActivity paused!
+2019-09-09,11:21 AM,Info,SmartPrompterV2,activities.AcknowledgmentActivity stopped!
+2019-09-09,11:21 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:21AM
+2019-09-09,11:21 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:21 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:21 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:21AM
+2019-09-09,11:21 AM,Info,SmartPrompterV2,Stopping alarm alert tone!
+2019-09-09,11:21 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:21AM
+2019-09-09,11:21 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:21 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:21 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:21AM
+2019-09-09,11:21 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:21AM
+2019-09-09,11:21 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:21 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:21 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:21AM
+2019-09-09,11:21 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:22AM
+2019-09-09,11:21 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:21 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:21 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:22AM
+2019-09-09,11:22 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:22AM
+2019-09-09,11:22 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:22 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:22 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:22AM
+2019-09-09,11:22 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:22AM
+2019-09-09,11:22 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:22 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:22 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:22AM
+2019-09-09,11:22 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:22AM
+2019-09-09,11:22 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:22 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:22 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:22AM
+2019-09-09,11:22 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:23AM
+2019-09-09,11:22 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:22 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:22 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:23AM
+2019-09-09,11:23 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:23AM
+2019-09-09,11:23 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:23 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:23 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:23AM
+2019-09-09,11:23 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:23AM
+2019-09-09,11:23 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:23 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:23 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:23AM
+2019-09-09,11:23 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:23AM
+2019-09-09,11:23 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:23 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:23 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:23AM
+2019-09-09,11:23 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:24AM
+2019-09-09,11:23 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:23 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:23 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:24AM
+2019-09-09,11:24 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:24AM
+2019-09-09,11:24 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:24 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:24 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:24AM
+2019-09-09,11:24 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:24AM
+2019-09-09,11:24 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:24 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:24 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:24AM
+2019-09-09,11:24 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:24AM
+2019-09-09,11:24 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:24 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:24 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:24AM
+2019-09-09,11:24 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:25AM
+2019-09-09,11:24 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:24 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:24 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:25AM
+2019-09-09,11:25 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:25AM
+2019-09-09,11:25 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:25 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:25 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:25AM
+2019-09-09,11:25 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:25AM
+2019-09-09,11:25 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:25 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:25 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:25AM
+2019-09-09,11:25 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:25AM
+2019-09-09,11:25 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:25 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:25 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:25AM
+2019-09-09,11:25 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:26AM
+2019-09-09,11:25 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:25 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:25 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:26AM
+2019-09-09,11:26 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:26AM
+2019-09-09,11:26 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:26 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:26 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:26AM
+2019-09-09,11:26 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:26AM
+2019-09-09,11:26 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:26 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:26 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:26AM
+2019-09-09,11:26 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:26AM
+2019-09-09,11:26 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:26 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:26 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:26AM
+2019-09-09,11:26 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:27AM
+2019-09-09,11:26 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:26 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:26 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:27AM
+2019-09-09,11:27 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:27AM
+2019-09-09,11:27 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:27 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:27 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:27AM
+2019-09-09,11:27 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:27AM
+2019-09-09,11:27 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:27 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:27 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:27AM
+2019-09-09,11:27 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:27AM
+2019-09-09,11:27 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:27 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:27 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:27AM
+2019-09-09,11:27 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:28AM
+2019-09-09,11:27 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:27 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:27 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:28AM
+2019-09-09,11:28 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:28AM
+2019-09-09,11:28 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:28 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:28 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:28AM
+2019-09-09,11:28 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:28AM
+2019-09-09,11:28 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:28 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:28 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:28AM
+2019-09-09,11:28 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:28AM
+2019-09-09,11:28 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:28 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:28 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:28AM
+2019-09-09,11:28 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:29AM
+2019-09-09,11:28 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:28 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:28 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:29AM
+2019-09-09,11:29 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:29AM
+2019-09-09,11:29 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:29 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:29 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:29AM
+2019-09-09,11:29 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:29AM
+2019-09-09,11:29 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:29 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:29 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:29AM
+2019-09-09,11:29 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:29AM
+2019-09-09,11:29 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:29 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:29 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:29AM
+2019-09-09,11:29 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:30AM
+2019-09-09,11:29 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:29 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:29 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:30AM
+2019-09-09,11:30 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:30AM
+2019-09-09,11:30 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:30 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:30 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:30AM
+2019-09-09,11:30 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:30AM
+2019-09-09,11:30 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:30 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:30 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:30AM
+2019-09-09,11:30 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:30AM
+2019-09-09,11:30 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:30 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:30 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:30AM
+2019-09-09,11:30 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:31AM
+2019-09-09,11:30 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:30 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:30 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:31AM
+2019-09-09,11:31 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:31AM
+2019-09-09,11:31 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:31 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:31 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:31AM
+2019-09-09,11:31 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:31AM
+2019-09-09,11:31 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:31 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:31 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:31AM
+2019-09-09,11:31 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:31AM
+2019-09-09,11:31 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:31 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:31 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:31AM
+2019-09-09,11:31 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:32AM
+2019-09-09,11:31 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:31 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:31 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:32AM
+2019-09-09,11:32 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:32AM
+2019-09-09,11:32 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:32 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:32 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:32AM
+2019-09-09,11:32 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:32AM
+2019-09-09,11:32 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:32 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:32 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:32AM
+2019-09-09,11:32 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:32AM
+2019-09-09,11:32 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:32 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:32 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:32AM
+2019-09-09,11:32 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:33AM
+2019-09-09,11:32 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:32 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:32 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:33AM
+2019-09-09,11:33 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:33AM
+2019-09-09,11:33 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:33 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:33 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:33AM
+2019-09-09,11:33 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:33AM
+2019-09-09,11:33 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:33 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:33 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:33AM
+2019-09-09,11:33 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:33AM
+2019-09-09,11:33 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:33 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:33 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:33AM
+2019-09-09,11:33 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:34AM
+2019-09-09,11:33 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:33 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:33 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:34AM
+2019-09-09,11:34 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:34AM
+2019-09-09,11:34 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:34 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:34 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:34AM
+2019-09-09,11:34 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:34AM
+2019-09-09,11:34 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:34 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:34 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:34AM
+2019-09-09,11:34 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:34AM
+2019-09-09,11:34 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:34 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:34 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:34AM
+2019-09-09,11:34 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:35AM
+2019-09-09,11:34 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:34 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:34 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:35AM
+2019-09-09,11:35 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:35AM
+2019-09-09,11:35 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:35 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:35 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:35AM
+2019-09-09,11:35 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:35AM
+2019-09-09,11:35 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:35 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:35 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:35AM
+2019-09-09,11:35 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:35AM
+2019-09-09,11:35 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:35 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:35 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:35AM
+2019-09-09,11:35 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:36AM
+2019-09-09,11:35 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:35 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:35 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:36AM
+2019-09-09,11:36 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:36AM
+2019-09-09,11:36 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:36 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:36 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:36AM
+2019-09-09,11:36 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:36AM
+2019-09-09,11:36 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:36 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:36 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:36AM
+2019-09-09,11:36 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:36AM
+2019-09-09,11:36 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:36 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:36 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:36AM
+2019-09-09,11:36 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:37AM
+2019-09-09,11:36 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:36 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:36 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:37AM
+2019-09-09,11:37 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:37AM
+2019-09-09,11:37 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:37 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:37 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:37AM
+2019-09-09,11:37 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:37AM
+2019-09-09,11:37 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:37 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:37 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:37AM
+2019-09-09,11:37 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:37AM
+2019-09-09,11:37 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:37 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:37 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:37AM
+2019-09-09,11:37 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:38AM
+2019-09-09,11:37 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:37 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:37 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:38AM
+2019-09-09,11:38 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:38AM
+2019-09-09,11:38 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:38 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:38 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:38AM
+2019-09-09,11:38 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:38AM
+2019-09-09,11:38 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:38 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:38 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:38AM
+2019-09-09,11:38 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:38AM
+2019-09-09,11:38 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:38 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:38 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:38AM
+2019-09-09,11:38 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:39AM
+2019-09-09,11:38 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:38 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:38 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:39AM
+2019-09-09,11:39 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:39AM
+2019-09-09,11:39 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:39 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:39 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:39AM
+2019-09-09,11:39 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:39AM
+2019-09-09,11:39 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:39 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:39 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:39AM
+2019-09-09,11:39 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:39AM
+2019-09-09,11:39 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:39 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:39 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:39AM
+2019-09-09,11:39 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:40AM
+2019-09-09,11:39 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:39 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:39 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:40AM
+2019-09-09,11:40 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:40AM
+2019-09-09,11:40 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:40 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:40 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:40AM
+2019-09-09,11:40 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:40AM
+2019-09-09,11:40 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:40 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:40 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:40AM
+2019-09-09,11:40 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:40AM
+2019-09-09,11:40 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:40 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:40 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:40AM
+2019-09-09,11:40 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:41AM
+2019-09-09,11:40 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:40 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:40 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:41AM
+2019-09-09,11:41 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:41AM
+2019-09-09,11:41 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:41 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:41 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:41AM
+2019-09-09,11:41 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:41AM
+2019-09-09,11:41 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:41 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:41 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:41AM
+2019-09-09,11:41 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:41AM
+2019-09-09,11:41 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:41 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:41 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:41AM
+2019-09-09,11:41 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:42AM
+2019-09-09,11:41 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:41 AM,Info,SmartPrompterV2,activities.AcknowledgmentActivity paused!
+2019-09-09,11:41 AM,Info,SmartPrompterV2,activities.AcknowledgmentActivity stopped!
+2019-09-09,11:41 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:41 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:42AM
+2019-09-09,11:42 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:42AM
+2019-09-09,11:42 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:42 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:42 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:42AM
+2019-09-09,11:42 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:42AM
+2019-09-09,11:42 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:42 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:42 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:42AM
+2019-09-09,11:42 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:42AM
+2019-09-09,11:42 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:42 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:42 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:42AM
+2019-09-09,11:42 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:43AM
+2019-09-09,11:42 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:42 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:42 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:43AM
+2019-09-09,11:43 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:43AM
+2019-09-09,11:43 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:43 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:43 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:43AM
+2019-09-09,11:43 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:43AM
+2019-09-09,11:43 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:43 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:43 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:43AM
+2019-09-09,11:43 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:43AM
+2019-09-09,11:43 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:43 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:43 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:43AM
+2019-09-09,11:43 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:44AM
+2019-09-09,11:43 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:43 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:43 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:44AM
+2019-09-09,11:44 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:44AM
+2019-09-09,11:44 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:44 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:44 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:44AM
+2019-09-09,11:44 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:44AM
+2019-09-09,11:44 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:44 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:44 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:44AM
+2019-09-09,11:44 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:44AM
+2019-09-09,11:44 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:44 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:44 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:44AM
+2019-09-09,11:44 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:45AM
+2019-09-09,11:44 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:44 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:44 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:45AM
+2019-09-09,11:45 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:45AM
+2019-09-09,11:45 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:45 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:45 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:45AM
+2019-09-09,11:45 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:45AM
+2019-09-09,11:45 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:45 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:45 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:45AM
+2019-09-09,11:45 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:45AM
+2019-09-09,11:45 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:45 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:45 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:45AM
+2019-09-09,11:45 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:46AM
+2019-09-09,11:45 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:45 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:45 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:46AM
+2019-09-09,11:46 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:46AM
+2019-09-09,11:46 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:46 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:46 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:46AM
+2019-09-09,11:46 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:46AM
+2019-09-09,11:46 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:46 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:46 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:46AM
+2019-09-09,11:46 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:46AM
+2019-09-09,11:46 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:46 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:46 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:46AM
+2019-09-09,11:46 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:47AM
+2019-09-09,11:46 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:46 AM,Info,SmartPrompterV2,Download broadcast received.
+2019-09-09,11:46 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:47AM
+2019-09-09,11:47 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:47AM
+2019-09-09,11:47 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-09,11:47 AM,Info,SmartPrompterV2,activities.AcknowledgmentActivity paused!
+2019-09-09,11:47 AM,Info,SmartPrompterV2,activities.AcknowledgmentActivity stopped!

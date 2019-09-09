@@ -24,14 +24,17 @@ public class PastAlarmsActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_past_alarms);
-
         getPastAlarms();
         showDefaultFragment();
     }
 
     @Override
     public void OnListItemSelected(Alarm item) {
-        Log.i(LOG_TAG, "List item selected!  Item GUID: " + item.getGuid());
+        Log.ui(LOG_TAG, this,"List item selected for alarm with GUID: " + item.getGuid()
+                + " \t Description: " + item.getDesc()
+                + " \t Original Date-Time: " + item.getAlarmDateTimeString()
+                + " \t Status: " + item.getStatus());
+
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         AlarmLogFragment fragment = AlarmLogFragment.newInstance(item.getGuid());
 
