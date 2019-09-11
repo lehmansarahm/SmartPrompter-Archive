@@ -25,7 +25,7 @@ public class DownloadEventReceiver extends BroadcastReceiver {
     }
 
     public static void scheduleNextDownload(Context context) {
-        Intent dialogIntent = new Intent(context, DownloadEventReceiver.class);
+        Intent dialogIntent = getDialogIntent(context);
         AlarmManager alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context,
                 REQUEST_CODE, dialogIntent,PendingIntent.FLAG_CANCEL_CURRENT);
@@ -34,6 +34,18 @@ public class DownloadEventReceiver extends BroadcastReceiver {
         alarmMgr.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, nextWakeupTime, pendingIntent);
         Log.e(LOG_TAG, "Next download scheduled for: "
                 + DateTimeUtil.formatTimeInMillis(nextWakeupTime, DateTimeUtil.FORMAT.DateTime));
+    }
+
+    public static boolean isDownloadScheduled(Context context) {
+        Intent dialogIntent = getDialogIntent(context);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, REQUEST_CODE,
+                dialogIntent, PendingIntent.FLAG_NO_CREATE);
+        return (pendingIntent != null);
+    }
+
+    private static Intent getDialogIntent(Context context) {
+        Intent dialogIntent = new Intent(context, DownloadEventReceiver.class);
+        return dialogIntent;
     }
 
 }

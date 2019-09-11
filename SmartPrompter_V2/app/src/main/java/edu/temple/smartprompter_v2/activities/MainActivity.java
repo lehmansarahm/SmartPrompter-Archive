@@ -12,6 +12,8 @@ import java.util.ArrayList;
 
 import edu.temple.smartprompter_v2.R;
 import edu.temple.smartprompter_v2.SmartPrompter;
+import edu.temple.smartprompter_v2.receivers.AlarmDirEventReceiver;
+import edu.temple.smartprompter_v2.receivers.DownloadEventReceiver;
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.smartprompter_v2.fragments.AlarmListFragment;
 import edu.temple.smartprompter_v2.fragments.ClockFragment;
@@ -42,6 +44,11 @@ public class MainActivity extends BaseActivity implements AlarmListFragment.OnLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (periodicServicesScheduled()) {
+            getSupportActionBar().setIcon(R.drawable.ic_actionbar);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
         showClockFragment();
         if (checkPermissions()) showDefaultFragment();
@@ -170,6 +177,16 @@ public class MainActivity extends BaseActivity implements AlarmListFragment.OnLi
         MissingPermissionsFragment fragment = new MissingPermissionsFragment();
         ft.replace(R.id.alarm_container, fragment);
         ft.commit();
+    }
+
+    private boolean periodicServicesScheduled() {
+        if (!AlarmDirEventReceiver.isDirectoryCheckScheduled(this))
+            AlarmDirEventReceiver.scheduleNextDirectoryCheck(this);
+        if (!DownloadEventReceiver.isDownloadScheduled(this))
+            DownloadEventReceiver.scheduleNextDownload(this);
+
+        return (AlarmDirEventReceiver.isDirectoryCheckScheduled(this) &&
+                DownloadEventReceiver.isDownloadScheduled(this));
     }
 
 }

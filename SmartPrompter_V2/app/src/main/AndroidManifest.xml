@@ -22,9 +22,9 @@
     <application
         android:name=".SmartPrompter"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_square"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_circle"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
@@ -67,7 +67,9 @@
         <receiver android:name=".receivers.AlarmAlertReceiver" />
         <receiver android:name=".receivers.AlarmDirEventReceiver" />
         <receiver android:name=".receivers.DownloadEventReceiver" />
-        <receiver android:name=".receivers.RebootReceiver">
+        <receiver android:name=".receivers.RebootReceiver"
+            android:enabled="true"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />

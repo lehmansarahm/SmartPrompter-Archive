@@ -14,7 +14,6 @@ import java.util.List;
 import edu.temple.smartprompter_v2.activities.MainActivity;
 import edu.temple.smartprompter_v2.receivers.AlarmAlertReceiver;
 import edu.temple.sp_res_lib.obj.Alarm;
-import edu.temple.sp_res_lib.utils.Constants;
 import edu.temple.sp_res_lib.utils.DateTimeUtil;
 import edu.temple.sp_res_lib.utils.Log;
 import edu.temple.sp_res_lib.utils.MediaUtil;
@@ -34,6 +33,8 @@ public class SmartPrompter extends Application {
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
+
+    // TODO - figure out how to guarantee that SP patient app is always checking for updates
 
     public void initializeFromReboot() {
         getAlarmsFromStorage();
