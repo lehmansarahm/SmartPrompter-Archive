@@ -1,486 +1,565 @@
-2019-09-09,11:19 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:19AM
-2019-09-09,11:19 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  true
-2019-09-09,11:19 AM,Info,SpResLib,Deleted file: /storage/emulated/0/Documents/sp_alarms/dirty
-2019-09-09,11:19 AM,Info,SmartPrompterV2,Retrieving alarm records from storage!
-2019-09-09,11:19 AM,Info,SpResLib,Retrieving alarm records from storage!
-2019-09-09,11:19 AM,Info,SmartPrompterV2,Current time: 2019-09-09 11:19AM
-2019-09-09,11:19 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:19 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:19AM
-2019-09-09,11:19 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:20AM
-2019-09-09,11:19 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  true
-2019-09-09,11:19 AM,Info,SpResLib,Deleted file: /storage/emulated/0/Documents/sp_alarms/dirty
-2019-09-09,11:19 AM,Info,SmartPrompterV2,Retrieving alarm records from storage!
-2019-09-09,11:19 AM,Info,SpResLib,Retrieving alarm records from storage!
-2019-09-09,11:19 AM,Info,SpResLib,Scanning file: 0203767584913257337404221371036710560346
-2019-09-09,11:19 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":11,"minute":21,"second":0},"archived":false,"desc":"Set it and forget it","status":"Active","uuid":"0203767584913257337404221371036710560346"}
- 	 from file: /storage/emulated/0/Documents/sp_alarms/0203767584913257337404221371036710560346
-2019-09-09,11:19 AM,Info,SmartPrompterV2,Current time: 2019-09-09 11:19AM
-2019-09-09,11:19 AM,Info,SmartPrompterV2,Setting new alarm clock for future task: Set it and forget it
- 	 Current time millis: 1568042386517
- 	 Alarm time millis: 1568042460000
-2019-09-09,11:19 AM,Error,SmartPrompterV2,Setting alarm for task: Set it and forget it 	 	 and GUID-int: 975266394 	 	 with date/time: 2019-09-09 11:21AM
-2019-09-09,11:19 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:19 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:20AM
-2019-09-09,11:20 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:20AM
-2019-09-09,11:20 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  true
-2019-09-09,11:20 AM,Info,SpResLib,Deleted file: /storage/emulated/0/Documents/sp_alarms/dirty
-2019-09-09,11:20 AM,Info,SmartPrompterV2,Retrieving alarm records from storage!
-2019-09-09,11:20 AM,Info,SpResLib,Retrieving alarm records from storage!
-2019-09-09,11:20 AM,Info,SpResLib,Scanning file: 0203767584913257337404221371036710560346
-2019-09-09,11:20 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":11,"minute":21,"second":0},"archived":false,"desc":"Set it and forget it","status":"Active","uuid":"0203767584913257337404221371036710560346"}
- 	 from file: /storage/emulated/0/Documents/sp_alarms/0203767584913257337404221371036710560346
-2019-09-09,11:20 AM,Info,SmartPrompterV2,Current time: 2019-09-09 11:20AM
-2019-09-09,11:20 AM,Info,SmartPrompterV2,Setting new alarm clock for future task: Set it and forget it
- 	 Current time millis: 1568042401500
- 	 Alarm time millis: 1568042460000
-2019-09-09,11:20 AM,Error,SmartPrompterV2,Setting alarm for task: Set it and forget it 	 	 and GUID-int: 975266394 	 	 with date/time: 2019-09-09 11:21AM
-2019-09-09,11:20 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:20 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:20AM
-2019-09-09,11:20 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:20AM
-2019-09-09,11:20 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:20 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:20 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:20AM
-2019-09-09,11:20 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:20AM
-2019-09-09,11:20 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:20 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:20 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:20AM
-2019-09-09,11:20 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:21AM
-2019-09-09,11:20 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:20 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:20 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:21AM
-2019-09-09,11:21 AM,Info,SmartPrompterV2,Retrieving alarm records from storage!
-2019-09-09,11:21 AM,Info,SpResLib,Retrieving alarm records from storage!
-2019-09-09,11:21 AM,Info,SpResLib,Scanning file: 0203767584913257337404221371036710560346
-2019-09-09,11:21 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":11,"minute":21,"second":0},"archived":false,"desc":"Set it and forget it","status":"Active","uuid":"0203767584913257337404221371036710560346"}
- 	 from file: /storage/emulated/0/Documents/sp_alarms/0203767584913257337404221371036710560346
-2019-09-09,11:21 AM,Error,SmartPrompterV2,ALARM ALERT BROADCAST RECEIVED FOR GUID: 0203767584913257337404221371036710560346 	 AND GUID-INT: 975266394 	 WITH ORIG ALARM TIME: 2019-09-09 11:21AM 	 AND STATUS: Unacknowledged
-2019-09-09,11:21 AM,Info,SmartPrompterV2,Launching acknowledgment activity for alarm: 0203767584913257337404221371036710560346
-2019-09-09,11:21 AM,Info,SmartPrompterV2,Playing alarm alerts...
-2019-09-09,11:21 AM,Info,SmartPrompterV2,Playing alarm alert tone!
-2019-09-09,11:21 AM,Info,SmartPrompterV2,Starting alarm alert vibrate!
-2019-09-09,11:21 AM,Info,SmartPrompterV2,Waking up the device screen...
-2019-09-09,11:21 AM,Info,SmartPrompterV2,activities.AcknowledgmentActivity paused!
-2019-09-09,11:21 AM,Info,SmartPrompterV2,activities.AcknowledgmentActivity stopped!
-2019-09-09,11:21 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:21AM
-2019-09-09,11:21 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:21 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:21 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:21AM
-2019-09-09,11:21 AM,Info,SmartPrompterV2,Stopping alarm alert tone!
-2019-09-09,11:21 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:21AM
-2019-09-09,11:21 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:21 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:21 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:21AM
-2019-09-09,11:21 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:21AM
-2019-09-09,11:21 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:21 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:21 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:21AM
-2019-09-09,11:21 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:22AM
-2019-09-09,11:21 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:21 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:21 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:22AM
-2019-09-09,11:22 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:22AM
-2019-09-09,11:22 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:22 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:22 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:22AM
-2019-09-09,11:22 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:22AM
-2019-09-09,11:22 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:22 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:22 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:22AM
-2019-09-09,11:22 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:22AM
-2019-09-09,11:22 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:22 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:22 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:22AM
-2019-09-09,11:22 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:23AM
-2019-09-09,11:22 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:22 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:22 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:23AM
-2019-09-09,11:23 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:23AM
-2019-09-09,11:23 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:23 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:23 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:23AM
-2019-09-09,11:23 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:23AM
-2019-09-09,11:23 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:23 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:23 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:23AM
-2019-09-09,11:23 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:23AM
-2019-09-09,11:23 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:23 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:23 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:23AM
-2019-09-09,11:23 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:24AM
-2019-09-09,11:23 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:23 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:23 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:24AM
-2019-09-09,11:24 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:24AM
-2019-09-09,11:24 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:24 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:24 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:24AM
-2019-09-09,11:24 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:24AM
-2019-09-09,11:24 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:24 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:24 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:24AM
-2019-09-09,11:24 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:24AM
-2019-09-09,11:24 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:24 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:24 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:24AM
-2019-09-09,11:24 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:25AM
-2019-09-09,11:24 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:24 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:24 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:25AM
-2019-09-09,11:25 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:25AM
-2019-09-09,11:25 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:25 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:25 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:25AM
-2019-09-09,11:25 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:25AM
-2019-09-09,11:25 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:25 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:25 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:25AM
-2019-09-09,11:25 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:25AM
-2019-09-09,11:25 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:25 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:25 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:25AM
-2019-09-09,11:25 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:26AM
-2019-09-09,11:25 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:25 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:25 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:26AM
-2019-09-09,11:26 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:26AM
-2019-09-09,11:26 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:26 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:26 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:26AM
-2019-09-09,11:26 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:26AM
-2019-09-09,11:26 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:26 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:26 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:26AM
-2019-09-09,11:26 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:26AM
-2019-09-09,11:26 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:26 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:26 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:26AM
-2019-09-09,11:26 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:27AM
-2019-09-09,11:26 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:26 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:26 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:27AM
-2019-09-09,11:27 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:27AM
-2019-09-09,11:27 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:27 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:27 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:27AM
-2019-09-09,11:27 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:27AM
-2019-09-09,11:27 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:27 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:27 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:27AM
-2019-09-09,11:27 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:27AM
-2019-09-09,11:27 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:27 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:27 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:27AM
-2019-09-09,11:27 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:28AM
-2019-09-09,11:27 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:27 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:27 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:28AM
-2019-09-09,11:28 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:28AM
-2019-09-09,11:28 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:28 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:28 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:28AM
-2019-09-09,11:28 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:28AM
-2019-09-09,11:28 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:28 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:28 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:28AM
-2019-09-09,11:28 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:28AM
-2019-09-09,11:28 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:28 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:28 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:28AM
-2019-09-09,11:28 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:29AM
-2019-09-09,11:28 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:28 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:28 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:29AM
-2019-09-09,11:29 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:29AM
-2019-09-09,11:29 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:29 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:29 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:29AM
-2019-09-09,11:29 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:29AM
-2019-09-09,11:29 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:29 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:29 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:29AM
-2019-09-09,11:29 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:29AM
-2019-09-09,11:29 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:29 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:29 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:29AM
-2019-09-09,11:29 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:30AM
-2019-09-09,11:29 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:29 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:29 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:30AM
-2019-09-09,11:30 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:30AM
-2019-09-09,11:30 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:30 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:30 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:30AM
-2019-09-09,11:30 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:30AM
-2019-09-09,11:30 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:30 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:30 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:30AM
-2019-09-09,11:30 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:30AM
-2019-09-09,11:30 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:30 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:30 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:30AM
-2019-09-09,11:30 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:31AM
-2019-09-09,11:30 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:30 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:30 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:31AM
-2019-09-09,11:31 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:31AM
-2019-09-09,11:31 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:31 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:31 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:31AM
-2019-09-09,11:31 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:31AM
-2019-09-09,11:31 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:31 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:31 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:31AM
-2019-09-09,11:31 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:31AM
-2019-09-09,11:31 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:31 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:31 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:31AM
-2019-09-09,11:31 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:32AM
-2019-09-09,11:31 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:31 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:31 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:32AM
-2019-09-09,11:32 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:32AM
-2019-09-09,11:32 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:32 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:32 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:32AM
-2019-09-09,11:32 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:32AM
-2019-09-09,11:32 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:32 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:32 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:32AM
-2019-09-09,11:32 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:32AM
-2019-09-09,11:32 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:32 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:32 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:32AM
-2019-09-09,11:32 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:33AM
-2019-09-09,11:32 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:32 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:32 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:33AM
-2019-09-09,11:33 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:33AM
-2019-09-09,11:33 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:33 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:33 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:33AM
-2019-09-09,11:33 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:33AM
-2019-09-09,11:33 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:33 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:33 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:33AM
-2019-09-09,11:33 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:33AM
-2019-09-09,11:33 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:33 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:33 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:33AM
-2019-09-09,11:33 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:34AM
-2019-09-09,11:33 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:33 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:33 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:34AM
-2019-09-09,11:34 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:34AM
-2019-09-09,11:34 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:34 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:34 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:34AM
-2019-09-09,11:34 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:34AM
-2019-09-09,11:34 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:34 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:34 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:34AM
-2019-09-09,11:34 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:34AM
-2019-09-09,11:34 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:34 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:34 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:34AM
-2019-09-09,11:34 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:35AM
-2019-09-09,11:34 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:34 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:34 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:35AM
-2019-09-09,11:35 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:35AM
-2019-09-09,11:35 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:35 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:35 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:35AM
-2019-09-09,11:35 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:35AM
-2019-09-09,11:35 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:35 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:35 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:35AM
-2019-09-09,11:35 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:35AM
-2019-09-09,11:35 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:35 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:35 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:35AM
-2019-09-09,11:35 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:36AM
-2019-09-09,11:35 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:35 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:35 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:36AM
-2019-09-09,11:36 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:36AM
-2019-09-09,11:36 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:36 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:36 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:36AM
-2019-09-09,11:36 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:36AM
-2019-09-09,11:36 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:36 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:36 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:36AM
-2019-09-09,11:36 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:36AM
-2019-09-09,11:36 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:36 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:36 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:36AM
-2019-09-09,11:36 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:37AM
-2019-09-09,11:36 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:36 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:36 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:37AM
-2019-09-09,11:37 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:37AM
-2019-09-09,11:37 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:37 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:37 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:37AM
-2019-09-09,11:37 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:37AM
-2019-09-09,11:37 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:37 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:37 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:37AM
-2019-09-09,11:37 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:37AM
-2019-09-09,11:37 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:37 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:37 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:37AM
-2019-09-09,11:37 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:38AM
-2019-09-09,11:37 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:37 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:37 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:38AM
-2019-09-09,11:38 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:38AM
-2019-09-09,11:38 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:38 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:38 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:38AM
-2019-09-09,11:38 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:38AM
-2019-09-09,11:38 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:38 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:38 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:38AM
-2019-09-09,11:38 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:38AM
-2019-09-09,11:38 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:38 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:38 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:38AM
-2019-09-09,11:38 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:39AM
-2019-09-09,11:38 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:38 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:38 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:39AM
-2019-09-09,11:39 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:39AM
-2019-09-09,11:39 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:39 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:39 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:39AM
-2019-09-09,11:39 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:39AM
-2019-09-09,11:39 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:39 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:39 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:39AM
-2019-09-09,11:39 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:39AM
-2019-09-09,11:39 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:39 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:39 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:39AM
-2019-09-09,11:39 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:40AM
-2019-09-09,11:39 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:39 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:39 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:40AM
-2019-09-09,11:40 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:40AM
-2019-09-09,11:40 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:40 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:40 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:40AM
-2019-09-09,11:40 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:40AM
-2019-09-09,11:40 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:40 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:40 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:40AM
-2019-09-09,11:40 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:40AM
-2019-09-09,11:40 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:40 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:40 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:40AM
-2019-09-09,11:40 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:41AM
-2019-09-09,11:40 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:40 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:40 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:41AM
-2019-09-09,11:41 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:41AM
-2019-09-09,11:41 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:41 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:41 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:41AM
-2019-09-09,11:41 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:41AM
-2019-09-09,11:41 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:41 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:41 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:41AM
-2019-09-09,11:41 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:41AM
-2019-09-09,11:41 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:41 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:41 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:41AM
-2019-09-09,11:41 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:42AM
-2019-09-09,11:41 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:41 AM,Info,SmartPrompterV2,activities.AcknowledgmentActivity paused!
-2019-09-09,11:41 AM,Info,SmartPrompterV2,activities.AcknowledgmentActivity stopped!
-2019-09-09,11:41 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:41 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:42AM
-2019-09-09,11:42 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:42AM
-2019-09-09,11:42 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:42 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:42 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:42AM
-2019-09-09,11:42 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:42AM
-2019-09-09,11:42 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:42 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:42 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:42AM
-2019-09-09,11:42 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:42AM
-2019-09-09,11:42 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:42 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:42 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:42AM
-2019-09-09,11:42 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:43AM
-2019-09-09,11:42 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:42 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:42 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:43AM
-2019-09-09,11:43 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:43AM
-2019-09-09,11:43 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:43 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:43 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:43AM
-2019-09-09,11:43 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:43AM
-2019-09-09,11:43 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:43 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:43 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:43AM
-2019-09-09,11:43 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:43AM
-2019-09-09,11:43 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:43 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:43 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:43AM
-2019-09-09,11:43 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:44AM
-2019-09-09,11:43 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:43 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:43 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:44AM
-2019-09-09,11:44 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:44AM
-2019-09-09,11:44 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:44 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:44 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:44AM
-2019-09-09,11:44 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:44AM
-2019-09-09,11:44 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:44 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:44 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:44AM
-2019-09-09,11:44 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:44AM
-2019-09-09,11:44 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:44 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:44 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:44AM
-2019-09-09,11:44 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:45AM
-2019-09-09,11:44 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:44 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:44 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:45AM
-2019-09-09,11:45 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:45AM
-2019-09-09,11:45 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:45 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:45 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:45AM
-2019-09-09,11:45 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:45AM
-2019-09-09,11:45 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:45 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:45 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:45AM
-2019-09-09,11:45 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:45AM
-2019-09-09,11:45 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:45 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:45 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:45AM
-2019-09-09,11:45 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:46AM
-2019-09-09,11:45 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:45 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:45 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:46AM
-2019-09-09,11:46 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:46AM
-2019-09-09,11:46 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:46 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:46 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:46AM
-2019-09-09,11:46 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:46AM
-2019-09-09,11:46 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:46 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:46 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:46AM
-2019-09-09,11:46 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:46AM
-2019-09-09,11:46 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:46 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:46 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:46AM
-2019-09-09,11:46 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:47AM
-2019-09-09,11:46 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:46 AM,Info,SmartPrompterV2,Download broadcast received.
-2019-09-09,11:46 AM,Error,SmartPrompterV2,Next download scheduled for: 2019-09-09 11:47AM
-2019-09-09,11:47 AM,Error,SmartPrompterV2,Next alarm directory check scheduled for: 2019-09-09 11:47AM
-2019-09-09,11:47 AM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
-2019-09-09,11:47 AM,Info,SmartPrompterV2,activities.AcknowledgmentActivity paused!
-2019-09-09,11:47 AM,Info,SmartPrompterV2,activities.AcknowledgmentActivity stopped!
+2019-09-08,03:21 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-08,03:21 PM,Info,SpResLib,Scanning file: 0297960759014230573603232342642082735411
+2019-09-08,03:21 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":6,"hourOfDay":17,"minute":39,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-08,03:21 PM,Info,SpResLib,Scanning file: 0183215483401421971237150662107271605605
+2019-09-08,03:21 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":6,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-08,03:21 PM,Info,SpResLib,Scanning file: dirty
+2019-09-08,03:21 PM,Info,SpResLib,Read contents: 
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-08,03:21 PM,Info,SpResLib,Scanning file: 0045379552223459457278106083814171701828
+2019-09-08,03:21 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":6,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-08,03:21 PM,Info,SpResLib,Retrieving log records from storage!
+2019-09-08,03:21 PM,Info,SpResLib,Scanning file: 2019-09-06.csv
+2019-09-08,03:21 PM,Info,SpResLib,Scanning file: 0183215483401421971237150662107271605605
+2019-09-08,03:21 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":6,"hourOfDay":18,"minute":10,"second":0},"archived":true,"desc":"b","status":"Complete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":6,"hourOfDay":20,"minute":23,"second":25},"timeCompleted":{"year":2019,"month":8,"dayOfMonth":6,"hourOfDay":20,"minute":23,"second":40},"uuid":"0183215483401421971237150662107271605605"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0183215483401421971237150662107271605605
+2019-09-08,03:21 PM,Info,SpResLib,Scanning file: 2019-09-07.csv
+2019-09-08,03:21 PM,Info,SpResLib,Scanning file: 2019-09-08.csv
+2019-09-08,03:21 PM,Info,SpResLib,Retrieving survey questions from storage!
+2019-09-08,03:21 PM,Info,SmartPrompter-Admin,Main Activity created!
+2019-09-08,03:21 PM,Info,SmartPrompter-Admin,View-Current button clicked.
+2019-09-08,03:21 PM,Info,SmartPrompter-Admin,activities.MainActivity paused!
+2019-09-08,03:21 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:21 PM,Info,SmartPrompter-Admin,activities.MainActivity stopped!
+2019-09-08,03:21 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:21 PM,Info,SmartPrompter-Admin,User clicked DATE field for alarm GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:21 PM,Info,SpResLib,User wants to view a date picker dialog with default date: 8/6/2019
+2019-09-08,03:22 PM,Info,SpResLib,User selected the following date from the picker: 8/8/2019 		 for current alarm: 0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Button Clicked: Save for alarm with GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Error,SmartPrompter-Admin,User has updated alarm time!  Resetting alarm status to ACTIVE.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: 0297960759014230573603232342642082735411	 Description: a	 Date: 2019-09-08	 Time: 05:39 PM	 Status: Active	 Is Archived: false
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Updating details for existing alarm: a
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Button Clicked: Save for alarm with GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: 0297960759014230573603232342642082735411	 Description: a	 Date: 2019-09-08	 Time: 05:39 PM	 Status: Active	 Is Archived: false
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Updating details for existing alarm: a
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0183215483401421971237150662107271605605
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,User clicked DATE field for alarm GUID: 0183215483401421971237150662107271605605
+2019-09-08,03:22 PM,Info,SpResLib,User wants to view a date picker dialog with default date: 8/6/2019
+2019-09-08,03:22 PM,Info,SpResLib,User selected the following date from the picker: 8/8/2019 		 for current alarm: 0183215483401421971237150662107271605605
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Button Clicked: Save for alarm with GUID: 0183215483401421971237150662107271605605
+2019-09-08,03:22 PM,Error,SmartPrompter-Admin,User has updated alarm time!  Resetting alarm status to ACTIVE.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: 0183215483401421971237150662107271605605	 Description: b	 Date: 2019-09-08	 Time: 06:10 PM	 Status: Active	 Is Archived: false
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Updating details for existing alarm: b
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0045379552223459457278106083814171701828
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,User clicked DATE field for alarm GUID: 0045379552223459457278106083814171701828
+2019-09-08,03:22 PM,Info,SpResLib,User wants to view a date picker dialog with default date: 8/6/2019
+2019-09-08,03:22 PM,Info,SpResLib,User selected the following date from the picker: 8/8/2019 		 for current alarm: 0045379552223459457278106083814171701828
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Button Clicked: Save for alarm with GUID: 0045379552223459457278106083814171701828
+2019-09-08,03:22 PM,Error,SmartPrompter-Admin,User has updated alarm time!  Resetting alarm status to ACTIVE.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: 0045379552223459457278106083814171701828	 Description: c	 Date: 2019-09-08	 Time: 10:00 PM	 Status: Active	 Is Archived: false
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Updating details for existing alarm: c
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-08,03:22 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":17,"minute":39,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":17,"minute":39,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-08,03:22 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity destroyed!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,View-Current button clicked.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.MainActivity paused!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.MainActivity stopped!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-08,03:22 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":17,"minute":39,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":17,"minute":39,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-08,03:22 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity destroyed!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.MainActivity paused!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.MainActivity stopped!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,View-Current button clicked.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.MainActivity paused!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.MainActivity stopped!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-08,03:22 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":17,"minute":39,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":17,"minute":39,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-08,03:22 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity destroyed!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,View-Past button clicked.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.MainActivity paused!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Populating activities.PastAlarmsActivity with alarm-list fragment.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.MainActivity stopped!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0183215483401421971237150662107271605605
+2019-09-08,03:22 PM,Info,SpResLib,Image file exists!  Attempting to retrieve from absolute path: 		 /storage/emulated/0/Documents/sp_photos/20190906_0823PM_b.jpg
+2019-09-08,03:22 PM,Info,SpResLib,Attempt to retrieve completion image was successful.  Forwarding Bitmap to image viewer.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.PastAlarmsActivity paused!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.PastAlarmsActivity stopped!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.PastAlarmsActivity destroyed!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,View-Current button clicked.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.MainActivity paused!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.MainActivity stopped!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,User clicked TIME field for alarm GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Info,SpResLib,User wants to view a time picker dialog with default time: 17:39
+2019-09-08,03:23 PM,Info,SpResLib,User selected the following time from the picker: 15:50 		 for current alarm: 0297960759014230573603232342642082735411
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Button Clicked: Save for alarm with GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:23 PM,Error,SmartPrompter-Admin,User has updated alarm time!  Resetting alarm status to ACTIVE.
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: 0297960759014230573603232342642082735411	 Description: a	 Date: 2019-09-08	 Time: 03:50 PM	 Status: Active	 Is Archived: false
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Updating details for existing alarm: a
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Button Clicked: Save for alarm with GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: 0297960759014230573603232342642082735411	 Description: a	 Date: 2019-09-08	 Time: 03:50 PM	 Status: Active	 Is Archived: false
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Updating details for existing alarm: a
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,User clicked TIME field for alarm GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:23 PM,Info,SpResLib,User wants to view a time picker dialog with default time: 15:50
+2019-09-08,03:23 PM,Info,SpResLib,User selected the following time from the picker: 16:50 		 for current alarm: 0297960759014230573603232342642082735411
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Button Clicked: Save for alarm with GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:23 PM,Error,SmartPrompter-Admin,User has updated alarm time!  Resetting alarm status to ACTIVE.
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: 0297960759014230573603232342642082735411	 Description: a	 Date: 2019-09-08	 Time: 04:50 PM	 Status: Active	 Is Archived: false
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Updating details for existing alarm: a
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0045379552223459457278106083814171701828
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,User clicked TIME field for alarm GUID: 0045379552223459457278106083814171701828
+2019-09-08,03:23 PM,Info,SpResLib,User wants to view a time picker dialog with default time: 22:0
+2019-09-08,03:23 PM,Info,SpResLib,User selected the following time from the picker: 15:50 		 for current alarm: 0045379552223459457278106083814171701828
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Button Clicked: Save for alarm with GUID: 0045379552223459457278106083814171701828
+2019-09-08,03:23 PM,Error,SmartPrompter-Admin,User has updated alarm time!  Resetting alarm status to ACTIVE.
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: 0045379552223459457278106083814171701828	 Description: c	 Date: 2019-09-08	 Time: 03:50 PM	 Status: Active	 Is Archived: false
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Updating details for existing alarm: c
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-08,03:23 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-08,03:23 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-08,03:23 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-08,03:23 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-08,03:23 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-08,03:23 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-08,03:23 PM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-08,09:24 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0183215483401421971237150662107271605605
+2019-09-08,09:24 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0045379552223459457278106083814171701828
+2019-09-08,09:24 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-08,09:24 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-08,09:24 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-08,09:24 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-08,09:24 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-08,09:24 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-08,09:24 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-08,09:24 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-08,09:24 PM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-08,09:24 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,Button Clicked: Cancel for alarm with GUID: 0297960759014230573603232342642082735411
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,Button Clicked: Cancel for alarm with GUID: 0297960759014230573603232342642082735411
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,Button Clicked: Cancel for alarm with GUID: 0297960759014230573603232342642082735411
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,Button Clicked: Cancel for alarm with GUID: 0297960759014230573603232342642082735411
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,Button Clicked: Cancel for alarm with GUID: 0297960759014230573603232342642082735411
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-09,09:34 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-09,09:34 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-09,09:34 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-09,09:34 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-09,09:34 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-09,09:34 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-09,09:34 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-09,09:34 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-09,09:34 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity destroyed!
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,Create-New button clicked.
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,activities.MainActivity paused!
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,Populating activities.NewAlarmActivity with Alarm-Details fragment.
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,activities.MainActivity stopped!
+2019-09-09,09:34 AM,Info,SpResLib,User clicked LABEL field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,User clicked TIME field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-09-09,09:34 AM,Info,SpResLib,User wants to view a time picker dialog with default time: 9:34
+2019-09-09,09:34 AM,Info,SpResLib,User selected the following time from the picker: 10:34 		 for current alarm: XXXX-YYYY-ZZZZ
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,Button Clicked: Save for alarm with GUID: XXXX-YYYY-ZZZZ
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: XXXX-YYYY-ZZZZ	 Description: a	 Date: 2019-09-09	 Time: 10:34 AM	 Status: Active	 Is Archived: false
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,Creating new record for alarm: a
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,activities.NewAlarmActivity paused!
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-09,09:34 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-09,09:34 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-09,09:34 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-09,09:34 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0161712555213017708143603137447458897402
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,activities.NewAlarmActivity stopped!
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-09,09:34 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-09,09:34 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-09,09:34 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-09,09:34 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0161712555213017708143603137447458897402
+2019-09-09,09:34 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,09:34 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-09,10:49 AM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-09,10:50 AM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0161712555213017708143603137447458897402
+2019-09-09,10:50 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-09,10:50 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-09,10:50 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-09,10:50 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-09,10:50 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-09,10:50 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-09,10:50 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-09,10:50 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+2019-09-09,10:50 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0161712555213017708143603137447458897402
+2019-09-09,10:50 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,10:50 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-09,11:07 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-09,11:07 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-09,11:07 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-09,11:07 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-09,11:07 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-09,11:07 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-09,11:07 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-09,11:07 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+2019-09-09,11:07 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0161712555213017708143603137447458897402
+2019-09-09,11:07 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,11:07 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-09,11:07 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity destroyed!
+2019-09-09,11:08 AM,Info,SmartPrompter-Admin,activities.NewAlarmActivity paused!
+2019-09-09,11:08 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-09,11:08 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-09,11:08 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-09,11:08 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-09,11:08 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-09,11:08 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-09,11:08 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+2019-09-09,11:08 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0161712555213017708143603137447458897402
+2019-09-09,11:08 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,11:08 AM,Info,SmartPrompter-Admin,activities.NewAlarmActivity stopped!
+2019-09-09,11:08 AM,Info,SmartPrompter-Admin,activities.NewAlarmActivity destroyed!
+2019-09-09,11:08 AM,Info,SmartPrompter-Admin,View-Current button clicked.
+2019-09-09,11:08 AM,Info,SmartPrompter-Admin,activities.MainActivity paused!
+2019-09-09,11:08 AM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-09,11:08 AM,Info,SmartPrompter-Admin,activities.MainActivity stopped!
+2019-09-09,11:08 AM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0161712555213017708143603137447458897402
+2019-09-09,11:08 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-09,11:08 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-09,11:08 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-09,11:08 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-09,11:08 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-09,11:08 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-09,11:08 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-09,11:08 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+2019-09-09,11:08 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0161712555213017708143603137447458897402
+2019-09-09,11:08 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,11:08 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-09,11:09 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-09,11:09 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-09,11:09 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-09,11:09 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-09,11:09 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-09,11:09 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-09,11:09 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-09,11:09 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+2019-09-09,11:09 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0161712555213017708143603137447458897402
+2019-09-09,11:09 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,11:09 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-09,11:11 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-09,11:11 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-09,11:11 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-09,11:11 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-09,11:11 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-09,11:11 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-09,11:11 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-09,11:11 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+2019-09-09,11:11 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0161712555213017708143603137447458897402
+2019-09-09,11:11 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,11:11 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-09,11:11 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity destroyed!
+2019-09-09,11:11 AM,Info,SmartPrompter-Admin,View-Past button clicked.
+2019-09-09,11:11 AM,Info,SmartPrompter-Admin,activities.MainActivity paused!
+2019-09-09,11:11 AM,Info,SmartPrompter-Admin,Populating activities.PastAlarmsActivity with alarm-list fragment.
+2019-09-09,11:11 AM,Info,SmartPrompter-Admin,activities.MainActivity stopped!
+2019-09-09,11:11 AM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0183215483401421971237150662107271605605
+2019-09-09,11:11 AM,Info,SpResLib,Image file exists!  Attempting to retrieve from absolute path: 		 /storage/emulated/0/Documents/sp_photos/20190906_0823PM_b.jpg
+2019-09-09,11:11 AM,Info,SpResLib,Attempt to retrieve completion image was successful.  Forwarding Bitmap to image viewer.
+2019-09-09,11:11 AM,Info,SmartPrompter-Admin,activities.PastAlarmsActivity paused!
+2019-09-09,11:11 AM,Info,SmartPrompter-Admin,activities.PastAlarmsActivity stopped!
+2019-09-09,11:11 AM,Info,SmartPrompter-Admin,activities.PastAlarmsActivity destroyed!
+2019-09-09,11:12 AM,Info,SmartPrompter-Admin,View-Past button clicked.
+2019-09-09,11:12 AM,Info,SmartPrompter-Admin,activities.MainActivity paused!
+2019-09-09,11:12 AM,Info,SmartPrompter-Admin,Populating activities.PastAlarmsActivity with alarm-list fragment.
+2019-09-09,11:12 AM,Info,SmartPrompter-Admin,activities.MainActivity stopped!
+2019-09-09,11:12 AM,Info,SmartPrompter-Admin,activities.PastAlarmsActivity paused!
+2019-09-09,11:12 AM,Info,SmartPrompter-Admin,activities.PastAlarmsActivity stopped!
+2019-09-09,11:12 AM,Info,SmartPrompter-Admin,activities.PastAlarmsActivity destroyed!
+2019-09-09,11:12 AM,Info,SmartPrompter-Admin,activities.MainActivity paused!
+2019-09-09,11:12 AM,Info,SmartPrompter-Admin,activities.MainActivity stopped!
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,Create-New button clicked.
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,activities.MainActivity paused!
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,Populating activities.NewAlarmActivity with Alarm-Details fragment.
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,activities.MainActivity stopped!
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,Button Clicked: Save for alarm with GUID: XXXX-YYYY-ZZZZ
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: XXXX-YYYY-ZZZZ	 Description: New Alarm	 Date: 2019-09-09	 Time: 11:14 AM	 Status: Active	 Is Archived: false
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,Creating new record for alarm: New Alarm
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,activities.NewAlarmActivity paused!
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0161712555213017708143603137447458897402
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":11,"minute":14,"second":0},"archived":false,"desc":"New Alarm","status":"Active","uuid":"0013220731604065728062220971823220211563"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":11,"minute":14,"second":0},"archived":false,"desc":"New Alarm","status":"Active","uuid":"0013220731604065728062220971823220211563"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0013220731604065728062220971823220211563
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,activities.NewAlarmActivity stopped!
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0161712555213017708143603137447458897402
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":11,"minute":14,"second":0},"archived":false,"desc":"New Alarm","status":"Active","uuid":"0013220731604065728062220971823220211563"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":11,"minute":14,"second":0},"archived":false,"desc":"New Alarm","status":"Active","uuid":"0013220731604065728062220971823220211563"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0013220731604065728062220971823220211563
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity destroyed!
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,User clicked TIME field for alarm GUID: 0013220731604065728062220971823220211563
+2019-09-09,11:14 AM,Info,SpResLib,User wants to view a time picker dialog with default time: 11:14
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,Button Clicked: Save for alarm with GUID: 0013220731604065728062220971823220211563
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: 0013220731604065728062220971823220211563	 Description: New Alarm	 Date: 2019-09-09	 Time: 11:14 AM	 Status: Active	 Is Archived: false
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,Updating details for existing alarm: New Alarm
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,activities.NewAlarmActivity paused!
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0161712555213017708143603137447458897402
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":11,"minute":14,"second":0},"archived":false,"desc":"New Alarm","status":"Active","uuid":"0013220731604065728062220971823220211563"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":11,"minute":14,"second":0},"archived":false,"desc":"New Alarm","status":"Active","uuid":"0013220731604065728062220971823220211563"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0013220731604065728062220971823220211563
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,activities.NewAlarmActivity stopped!
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0161712555213017708143603137447458897402
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":11,"minute":14,"second":0},"archived":false,"desc":"New Alarm","status":"Active","uuid":"0013220731604065728062220971823220211563"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":11,"minute":14,"second":0},"archived":false,"desc":"New Alarm","status":"Active","uuid":"0013220731604065728062220971823220211563"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0013220731604065728062220971823220211563
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0013220731604065728062220971823220211563
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0161712555213017708143603137447458897402
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":11,"minute":14,"second":0},"archived":false,"desc":"New Alarm","status":"Active","uuid":"0013220731604065728062220971823220211563"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":11,"minute":14,"second":0},"archived":false,"desc":"New Alarm","status":"Active","uuid":"0013220731604065728062220971823220211563"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0013220731604065728062220971823220211563
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity destroyed!
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,User clicked TIME field for alarm GUID: 0013220731604065728062220971823220211563
+2019-09-09,11:14 AM,Info,SpResLib,User wants to view a time picker dialog with default time: 11:14
+2019-09-09,11:14 AM,Info,SpResLib,User selected the following time from the picker: 3:14 		 for current alarm: 0013220731604065728062220971823220211563
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,Button Clicked: Save for alarm with GUID: 0013220731604065728062220971823220211563
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: 0013220731604065728062220971823220211563	 Description: New Alarm	 Date: 2019-09-09	 Time: 03:14 AM	 Status: Active	 Is Archived: false
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,Updating details for existing alarm: New Alarm
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,activities.NewAlarmActivity paused!
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0161712555213017708143603137447458897402
+2019-09-09,11:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":3,"minute":14,"second":0},"archived":false,"desc":"New Alarm","status":"Active","uuid":"0013220731604065728062220971823220211563"}
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":3,"minute":14,"second":0},"archived":false,"desc":"New Alarm","status":"Active","uuid":"0013220731604065728062220971823220211563"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0013220731604065728062220971823220211563
+2019-09-09,11:14 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,activities.NewAlarmActivity stopped!
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0013220731604065728062220971823220211563
+2019-09-09,11:14 AM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0013220731604065728062220971823220211563
+2019-09-09,11:15 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-09,11:15 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-09,11:15 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-09,11:15 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-09,11:15 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-09,11:15 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-09,11:15 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-09,11:15 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+2019-09-09,11:15 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":10,"minute":34,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0161712555213017708143603137447458897402"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0161712555213017708143603137447458897402
+2019-09-09,11:15 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":3,"minute":14,"second":0},"archived":false,"desc":"New Alarm","status":"Active","uuid":"0013220731604065728062220971823220211563"}
+2019-09-09,11:15 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":3,"minute":14,"second":0},"archived":false,"desc":"New Alarm","status":"Active","uuid":"0013220731604065728062220971823220211563"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0013220731604065728062220971823220211563
+2019-09-09,11:15 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-09,11:15 AM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!

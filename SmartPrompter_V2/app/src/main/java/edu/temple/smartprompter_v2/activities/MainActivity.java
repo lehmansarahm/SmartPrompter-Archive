@@ -12,8 +12,6 @@ import java.util.ArrayList;
 
 import edu.temple.smartprompter_v2.R;
 import edu.temple.smartprompter_v2.SmartPrompter;
-import edu.temple.smartprompter_v2.receivers.AlarmDirEventReceiver;
-import edu.temple.smartprompter_v2.receivers.DownloadEventReceiver;
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.smartprompter_v2.fragments.AlarmListFragment;
 import edu.temple.smartprompter_v2.fragments.ClockFragment;
@@ -45,44 +43,33 @@ public class MainActivity extends BaseActivity implements AlarmListFragment.OnLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (periodicServicesScheduled()) {
-            getSupportActionBar().setIcon(R.drawable.ic_actionbar);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-        }
-
         showClockFragment();
         if (checkPermissions()) showDefaultFragment();
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        Intent intent = getIntent();
-
+    protected void onNewIntent(Intent intent) {
+        Log.i(LOG_TAG, "New intent received!");
         if (intent.hasExtra(Constants.BUNDLE_REMIND_ME_LATER_ACK)) {
             if (intent.getBooleanExtra(Constants.BUNDLE_REMIND_ME_LATER_ACK, false)) {
                 Log.e(LOG_TAG, "User has chosen to 'snooze' acknowledgment phase of task alarm!");
                 Toast.makeText(this, "Acknowledgment reminder set!",
                         Toast.LENGTH_LONG).show();
             }
-        }
-
-        if (intent.hasExtra(Constants.BUNDLE_REMIND_ME_LATER_COMP)) {
+        } else if (intent.hasExtra(Constants.BUNDLE_REMIND_ME_LATER_COMP)) {
             if (intent.getBooleanExtra(Constants.BUNDLE_REMIND_ME_LATER_COMP, false)) {
                 Log.e(LOG_TAG, "User has chosen to 'snooze' completion phase of task alarm!");
                 Toast.makeText(this, "Completion reminder set!",
                         Toast.LENGTH_LONG).show();
             }
-        }
-
-        if (intent.hasExtra(Constants.BUNDLE_TASK_COMPLETE)) {
+        } else if (intent.hasExtra(Constants.BUNDLE_TASK_COMPLETE)) {
             if (intent.getBooleanExtra(Constants.BUNDLE_TASK_COMPLETE, false)) {
                 Log.i(LOG_TAG, "User has completed an alarm task!");
                 Toast.makeText(this, "Task complete! Great work!",
                         Toast.LENGTH_LONG).show();
-                showDefaultFragment();
             }
         }
+        showDefaultFragment();
     }
 
     // --------------------------------------------------------------------------------------
@@ -95,9 +82,12 @@ public class MainActivity extends BaseActivity implements AlarmListFragment.OnLi
                     (checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED);
         }
 
-        if (permissionsGranted)
+        if (permissionsGranted) {
+            Log.i(LOG_TAG, "All permissions granted!  Let us continue...");
             return true;
+        }
 
+        Log.i(LOG_TAG, "Missing some permissions!  Time to request from the user...");
         ActivityCompat.requestPermissions(this, PERMISSIONS,
                 PERMISSION_REQUEST_CODE);
         return false;
@@ -110,8 +100,10 @@ public class MainActivity extends BaseActivity implements AlarmListFragment.OnLi
             case PERMISSION_REQUEST_CODE: {
                 if (grantResults.length > 0 &&
                         grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Log.i(LOG_TAG, "User has granted all required permissions!");
                     showDefaultFragment();
                 } else {
+                    Log.i(LOG_TAG, "Missing some permissions!  Cannot continue...");
                     showMissingPermissionsFragment();
                 }
             }
@@ -152,10 +144,7 @@ public class MainActivity extends BaseActivity implements AlarmListFragment.OnLi
     }
 
     private void showDefaultFragment() {
-        Log.i(LOG_TAG, "We have all required permissions!  Determining "
-                + "whether there are alarms to show ...");
-
-        mActiveAlarms = ((SmartPrompter) getApplication()).getAlarms();
+        mActiveAlarms = ((SmartPrompter) getApplicationContext()).getAlarms();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
         if (mActiveAlarms != null && mActiveAlarms.size() > 0) {
@@ -168,7 +157,7 @@ public class MainActivity extends BaseActivity implements AlarmListFragment.OnLi
             ft.replace(R.id.alarm_container, fragment);
         }
 
-        ft.commit();
+        ft.commitAllowingStateLoss();
     }
 
     private void showMissingPermissionsFragment() {
@@ -177,16 +166,6 @@ public class MainActivity extends BaseActivity implements AlarmListFragment.OnLi
         MissingPermissionsFragment fragment = new MissingPermissionsFragment();
         ft.replace(R.id.alarm_container, fragment);
         ft.commit();
-    }
-
-    private boolean periodicServicesScheduled() {
-        if (!AlarmDirEventReceiver.isDirectoryCheckScheduled(this))
-            AlarmDirEventReceiver.scheduleNextDirectoryCheck(this);
-        if (!DownloadEventReceiver.isDownloadScheduled(this))
-            DownloadEventReceiver.scheduleNextDownload(this);
-
-        return (AlarmDirEventReceiver.isDirectoryCheckScheduled(this) &&
-                DownloadEventReceiver.isDownloadScheduled(this));
     }
 
 }

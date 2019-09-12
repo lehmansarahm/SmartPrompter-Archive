@@ -33,14 +33,13 @@ public class CurrentAlarmsActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_alarms);
-        getCurrentAlarms();
-        showDefaultFragment();
     }
 
     @Override
-    public void onStop() {
-        ((SpAdmin)getApplication()).commitChanges();
-        super.onStop();
+    public void onResume() {
+        super.onResume();
+        getCurrentAlarms();
+        showDefaultFragment();
     }
 
     @Override

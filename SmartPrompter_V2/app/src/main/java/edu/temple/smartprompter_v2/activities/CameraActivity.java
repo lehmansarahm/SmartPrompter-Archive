@@ -21,17 +21,13 @@ public class CameraActivity extends BaseActivity implements
 
     private CameraPreviewFragment previewFrag;
     private CameraReviewFragment reviewFrag;
-    private String mAlarmGUID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
-        mAlarmGUID = getIntent().getStringExtra(Constants.BUNDLE_ARG_ALARM_GUID);
         Log.i(LOG_TAG, "Launching camera preview for alarm GUID: " + mAlarmGUID);
-
-        Log.i(LOG_TAG, "Populating camera fragment...");
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         previewFrag = CameraPreviewFragment.newInstance(mAlarmGUID);
         ft.replace(R.id.camera_container, previewFrag)
@@ -66,6 +62,7 @@ public class CameraActivity extends BaseActivity implements
         Log.i(LOG_TAG, "Task complete for GUID: " + alarmGUID
                 + "  Showing confirmation screen...");
         Intent intent = new Intent(CameraActivity.this, ConfirmationActivity.class);
+        intent.putExtra(Constants.BUNDLE_ARG_ALARM_WAKEUP, mWakeup);
         intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, mAlarmGUID);
         startActivity(intent);
         finish();

@@ -1,0 +1,187 @@
+2019-09-08,03:21 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-08,03:21 PM,Info,SpResLib,Scanning file: 0297960759014230573603232342642082735411
+2019-09-08,03:21 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":6,"hourOfDay":17,"minute":39,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-08,03:21 PM,Info,SpResLib,Scanning file: 0183215483401421971237150662107271605605
+2019-09-08,03:21 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":6,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-08,03:21 PM,Info,SpResLib,Scanning file: dirty
+2019-09-08,03:21 PM,Info,SpResLib,Read contents: 
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-08,03:21 PM,Info,SpResLib,Scanning file: 0045379552223459457278106083814171701828
+2019-09-08,03:21 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":6,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-08,03:21 PM,Info,SpResLib,Retrieving log records from storage!
+2019-09-08,03:21 PM,Info,SpResLib,Scanning file: 2019-09-06.csv
+2019-09-08,03:21 PM,Info,SpResLib,Scanning file: 0183215483401421971237150662107271605605
+2019-09-08,03:21 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":6,"hourOfDay":18,"minute":10,"second":0},"archived":true,"desc":"b","status":"Complete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":6,"hourOfDay":20,"minute":23,"second":25},"timeCompleted":{"year":2019,"month":8,"dayOfMonth":6,"hourOfDay":20,"minute":23,"second":40},"uuid":"0183215483401421971237150662107271605605"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0183215483401421971237150662107271605605
+2019-09-08,03:21 PM,Info,SpResLib,Scanning file: 2019-09-07.csv
+2019-09-08,03:21 PM,Info,SpResLib,Scanning file: 2019-09-08.csv
+2019-09-08,03:21 PM,Info,SpResLib,Retrieving survey questions from storage!
+2019-09-08,03:21 PM,Info,SmartPrompter-Admin,Main Activity created!
+2019-09-08,03:21 PM,Info,SmartPrompter-Admin,View-Current button clicked.
+2019-09-08,03:21 PM,Info,SmartPrompter-Admin,activities.MainActivity paused!
+2019-09-08,03:21 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:21 PM,Info,SmartPrompter-Admin,activities.MainActivity stopped!
+2019-09-08,03:21 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:21 PM,Info,SmartPrompter-Admin,User clicked DATE field for alarm GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:21 PM,Info,SpResLib,User wants to view a date picker dialog with default date: 8/6/2019
+2019-09-08,03:22 PM,Info,SpResLib,User selected the following date from the picker: 8/8/2019 		 for current alarm: 0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Button Clicked: Save for alarm with GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Error,SmartPrompter-Admin,User has updated alarm time!  Resetting alarm status to ACTIVE.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: 0297960759014230573603232342642082735411	 Description: a	 Date: 2019-09-08	 Time: 05:39 PM	 Status: Active	 Is Archived: false
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Updating details for existing alarm: a
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Button Clicked: Save for alarm with GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: 0297960759014230573603232342642082735411	 Description: a	 Date: 2019-09-08	 Time: 05:39 PM	 Status: Active	 Is Archived: false
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Updating details for existing alarm: a
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0183215483401421971237150662107271605605
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,User clicked DATE field for alarm GUID: 0183215483401421971237150662107271605605
+2019-09-08,03:22 PM,Info,SpResLib,User wants to view a date picker dialog with default date: 8/6/2019
+2019-09-08,03:22 PM,Info,SpResLib,User selected the following date from the picker: 8/8/2019 		 for current alarm: 0183215483401421971237150662107271605605
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Button Clicked: Save for alarm with GUID: 0183215483401421971237150662107271605605
+2019-09-08,03:22 PM,Error,SmartPrompter-Admin,User has updated alarm time!  Resetting alarm status to ACTIVE.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: 0183215483401421971237150662107271605605	 Description: b	 Date: 2019-09-08	 Time: 06:10 PM	 Status: Active	 Is Archived: false
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Updating details for existing alarm: b
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0045379552223459457278106083814171701828
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,User clicked DATE field for alarm GUID: 0045379552223459457278106083814171701828
+2019-09-08,03:22 PM,Info,SpResLib,User wants to view a date picker dialog with default date: 8/6/2019
+2019-09-08,03:22 PM,Info,SpResLib,User selected the following date from the picker: 8/8/2019 		 for current alarm: 0045379552223459457278106083814171701828
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Button Clicked: Save for alarm with GUID: 0045379552223459457278106083814171701828
+2019-09-08,03:22 PM,Error,SmartPrompter-Admin,User has updated alarm time!  Resetting alarm status to ACTIVE.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: 0045379552223459457278106083814171701828	 Description: c	 Date: 2019-09-08	 Time: 10:00 PM	 Status: Active	 Is Archived: false
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Updating details for existing alarm: c
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-08,03:22 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":17,"minute":39,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":17,"minute":39,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-08,03:22 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity destroyed!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,View-Current button clicked.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.MainActivity paused!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.MainActivity stopped!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-08,03:22 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":17,"minute":39,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":17,"minute":39,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-08,03:22 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity destroyed!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.MainActivity paused!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.MainActivity stopped!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,View-Current button clicked.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.MainActivity paused!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.MainActivity stopped!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-08,03:22 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":17,"minute":39,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":17,"minute":39,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-08,03:22 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-08,03:22 PM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity destroyed!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,View-Past button clicked.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.MainActivity paused!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Populating activities.PastAlarmsActivity with alarm-list fragment.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.MainActivity stopped!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0183215483401421971237150662107271605605
+2019-09-08,03:22 PM,Info,SpResLib,Image file exists!  Attempting to retrieve from absolute path: 		 /storage/emulated/0/Documents/sp_photos/20190906_0823PM_b.jpg
+2019-09-08,03:22 PM,Info,SpResLib,Attempt to retrieve completion image was successful.  Forwarding Bitmap to image viewer.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.PastAlarmsActivity paused!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.PastAlarmsActivity stopped!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.PastAlarmsActivity destroyed!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,View-Current button clicked.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.MainActivity paused!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,activities.MainActivity stopped!
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Info,SmartPrompter-Admin,User clicked TIME field for alarm GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:22 PM,Info,SpResLib,User wants to view a time picker dialog with default time: 17:39
+2019-09-08,03:23 PM,Info,SpResLib,User selected the following time from the picker: 15:50 		 for current alarm: 0297960759014230573603232342642082735411
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Button Clicked: Save for alarm with GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:23 PM,Error,SmartPrompter-Admin,User has updated alarm time!  Resetting alarm status to ACTIVE.
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: 0297960759014230573603232342642082735411	 Description: a	 Date: 2019-09-08	 Time: 03:50 PM	 Status: Active	 Is Archived: false
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Updating details for existing alarm: a
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Button Clicked: Save for alarm with GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: 0297960759014230573603232342642082735411	 Description: a	 Date: 2019-09-08	 Time: 03:50 PM	 Status: Active	 Is Archived: false
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Updating details for existing alarm: a
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,User clicked TIME field for alarm GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:23 PM,Info,SpResLib,User wants to view a time picker dialog with default time: 15:50
+2019-09-08,03:23 PM,Info,SpResLib,User selected the following time from the picker: 16:50 		 for current alarm: 0297960759014230573603232342642082735411
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Button Clicked: Save for alarm with GUID: 0297960759014230573603232342642082735411
+2019-09-08,03:23 PM,Error,SmartPrompter-Admin,User has updated alarm time!  Resetting alarm status to ACTIVE.
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: 0297960759014230573603232342642082735411	 Description: a	 Date: 2019-09-08	 Time: 04:50 PM	 Status: Active	 Is Archived: false
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Updating details for existing alarm: a
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0045379552223459457278106083814171701828
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,User clicked TIME field for alarm GUID: 0045379552223459457278106083814171701828
+2019-09-08,03:23 PM,Info,SpResLib,User wants to view a time picker dialog with default time: 22:0
+2019-09-08,03:23 PM,Info,SpResLib,User selected the following time from the picker: 15:50 		 for current alarm: 0045379552223459457278106083814171701828
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Button Clicked: Save for alarm with GUID: 0045379552223459457278106083814171701828
+2019-09-08,03:23 PM,Error,SmartPrompter-Admin,User has updated alarm time!  Resetting alarm status to ACTIVE.
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: 0045379552223459457278106083814171701828	 Description: c	 Date: 2019-09-08	 Time: 03:50 PM	 Status: Active	 Is Archived: false
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Updating details for existing alarm: c
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-08,03:23 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-08,03:23 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-08,03:23 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-08,03:23 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-08,03:23 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-08,03:23 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-08,03:23 PM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-08,03:23 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!
+2019-09-08,09:24 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0183215483401421971237150662107271605605
+2019-09-08,09:24 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0045379552223459457278106083814171701828
+2019-09-08,09:24 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0297960759014230573603232342642082735411
+2019-09-08,09:24 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity paused!
+2019-09-08,09:24 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+2019-09-08,09:24 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":16,"minute":50,"second":0},"archived":false,"desc":"a","status":"Active","uuid":"0297960759014230573603232342642082735411"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0297960759014230573603232342642082735411
+2019-09-08,09:24 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+2019-09-08,09:24 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":18,"minute":10,"second":0},"archived":false,"desc":"b","status":"Active","uuid":"0183215483401421971237150662107271605605"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0183215483401421971237150662107271605605
+2019-09-08,09:24 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+2019-09-08,09:24 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":8,"hourOfDay":15,"minute":50,"second":0},"archived":false,"desc":"c","status":"Active","uuid":"0045379552223459457278106083814171701828"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0045379552223459457278106083814171701828
+2019-09-08,09:24 PM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-08,09:24 PM,Info,SmartPrompter-Admin,activities.CurrentAlarmsActivity stopped!

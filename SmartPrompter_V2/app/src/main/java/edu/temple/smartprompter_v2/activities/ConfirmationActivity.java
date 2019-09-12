@@ -20,7 +20,6 @@ public class ConfirmationActivity extends BaseActivity {
         setContentView(R.layout.activity_confirmation);
 
         // TODO - flesh out game features (FUTURE)
-
         // TODO - flesh out survey questions (FUTURE)
 
         ImageView confirmationImage = findViewById(R.id.confirmation_image);

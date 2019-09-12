@@ -63,6 +63,7 @@
         android:id="@+id/configure_survey_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="invisible"
         android:textSize="18sp"
         android:padding="12dp"
         android:text="@string/configure_survey_text" />

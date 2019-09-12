@@ -19,19 +19,6 @@ public class SpAdmin extends Application {
     private ArrayList<Alarm> alarms, logs;
     private ArrayList<SurveyQuestion> questions;
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        alarms = StorageUtil.getAlarmsFromStorage(this);
-        logs = StorageUtil.getLogsFromStorage(this);
-        questions = StorageUtil.getSurveyQuestionsFromStorage();
-    }
-
-    public void commitChanges() {
-        StorageUtil.writeAlarmsToStorage(this, alarms);
-        StorageUtil.writeDirtyFlag(this);
-    }
-
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
@@ -52,14 +39,17 @@ public class SpAdmin extends Application {
     }
 
     public ArrayList<Alarm> getCurrentAlarms() {
+        alarms = StorageUtil.getAlarmsFromStorage(this);
         return alarms;
     }
 
     public ArrayList<Alarm> getArchivedAlarms() {
+        logs = StorageUtil.getLogsFromStorage(this);
         return logs;
     }
 
     public ArrayList<SurveyQuestion> getQuestions() {
+        questions = StorageUtil.getSurveyQuestionsFromStorage();
         return this.questions;
     }
 
@@ -85,6 +75,8 @@ public class SpAdmin extends Application {
             if (oldAlarmIndex != DEFAULT_ALARM_ID)
                 alarms.set(oldAlarmIndex, newAlarm);
         }
+
+        commitChanges();
     }
 
     public void deleteAlarm(Alarm alarm) {
@@ -98,6 +90,14 @@ public class SpAdmin extends Application {
         if (oldAlarmIndex != DEFAULT_ALARM_ID)
             alarms.remove(oldAlarmIndex);
     }
+
+    public void commitChanges() {
+        StorageUtil.writeAlarmsToStorage(this, alarms);
+        StorageUtil.writeDirtyFlag(this);
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
 
     private int getAlarmIndex(Alarm alarm) {
         for (Alarm oldAlarm : alarms) {

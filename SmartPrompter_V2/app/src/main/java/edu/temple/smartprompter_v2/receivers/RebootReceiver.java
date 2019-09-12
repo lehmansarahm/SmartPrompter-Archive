@@ -16,11 +16,11 @@ public class RebootReceiver extends BroadcastReceiver {
         if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
             Log.e(LOG_TAG, "REBOOT RECEIVED!!");
 
-            Log.i(LOG_TAG, "Starting up broadcast receiver for remote downloads...");
-            DownloadEventReceiver.scheduleNextDownload(context);
+            // Log.i(LOG_TAG, "Starting up broadcast receiver for remote downloads...");
+            // DownloadEventReceiver.scheduleNextDownload(context);
 
-            Log.i(LOG_TAG, "Starting up broadcast receiver for alarm directory...");
-            AlarmDirEventReceiver.scheduleNextDirectoryCheck(context);
+            // Log.i(LOG_TAG, "Starting up broadcast receiver for alarm directory...");
+            // AlarmDirEventReceiver.scheduleNextDirectoryCheck(context);
 
             Log.i(LOG_TAG, "Resetting any local alarms...");
             SmartPrompter app = (SmartPrompter)context.getApplicationContext();

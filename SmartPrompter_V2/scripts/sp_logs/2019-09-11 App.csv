@@ -1,0 +1,17 @@
+2019-09-11,08:22 PM,Info,SmartPrompterV2,Populating current activity with clock fragment.
+2019-09-11,08:22 PM,Info,SmartPrompterV2,Missing some permissions!  Time to request from the user...
+2019-09-11,08:22 PM,Info,SmartPrompterV2,DownloadService is working!
+2019-09-11,08:22 PM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-11,08:22 PM,Info,SmartPrompterV2,User has granted all required permissions!
+2019-09-11,08:22 PM,Info,SmartPrompterV2,Retrieving alarm records from storage!
+2019-09-11,08:22 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-11,08:22 PM,Info,SpResLib,Scanning file: 0332438014942041283038443867057569122845
+2019-09-11,08:22 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":11,"hourOfDay":19,"minute":36,"second":0},"archived":false,"desc":"Test Case 1","status":"Active","uuid":"0332438014942041283038443867057569122845"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0332438014942041283038443867057569122845
+2019-09-11,08:22 PM,Info,SmartPrompterV2,Populating current activity with empty-list fragment.
+2019-09-11,08:22 PM,Info,SmartPrompterV2,DownloadService is working!
+2019-09-11,08:22 PM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-11,08:23 PM,Info,SmartPrompterV2,DownloadService is working!
+2019-09-11,08:23 PM,Info,SmartPrompterV2,Is Alarms folder dirty:  false
+2019-09-11,08:23 PM,Info,SmartPrompterV2,DownloadService is working!
+2019-09-11,08:23 PM,Info,SmartPrompterV2,Is Alarms folder dirty:  false

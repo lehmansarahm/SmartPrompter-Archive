@@ -33,12 +33,6 @@ public class NewAlarmActivity extends BaseActivity
     }
 
     @Override
-    public void onStop() {
-        ((SpAdmin)getApplication()).commitChanges();
-        super.onStop();
-    }
-
-    @Override
     public void OnButtonClicked(AlarmDetailsFragment.ACTION_BUTTON button, Alarm alarm) {
         Log.ui(LOG_TAG, this, "Button clicked: " + button.toString());
 

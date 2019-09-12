@@ -24,6 +24,11 @@ public class PastAlarmsActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_past_alarms);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         getPastAlarms();
         showDefaultFragment();
     }

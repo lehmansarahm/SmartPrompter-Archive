@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="45sp"
+        android:textSize="40sp"
         android:padding="10dp"
         android:text="@string/current_time" />
 
@@ -21,7 +21,7 @@
         android:layout_below="@id/current_time_text"
         android:gravity="center"
         android:format12Hour="hh:mm:ss a"
-        android:textSize="45sp"
+        android:textSize="35sp"
         android:padding="10dp" />
 
     <TextView
