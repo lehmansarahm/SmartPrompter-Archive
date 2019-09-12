@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="32sp"
+        android:textSize="@dimen/title_size"
         android:textStyle="bold"
         android:text="MISSING PERMISSIONS" />
 
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="26sp"
+        android:textSize="@dimen/subtitle_size"
         android:text="Please review provided app permissions before attempting to use." />
 
 </LinearLayout>

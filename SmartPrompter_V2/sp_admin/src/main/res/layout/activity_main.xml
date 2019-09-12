@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="32sp"
+        android:textSize="@dimen/title_size"
         android:textStyle="bold"
         android:text="@string/welcome_intro" />
 
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="24sp"
+        android:textSize="@dimen/subtitle_size"
         android:text="@string/welcome_instructions" />
 
     <TextView
@@ -39,33 +39,32 @@
         android:id="@+id/create_new_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:padding="12dp"
+        android:textSize="@dimen/button_size"
+        android:padding="@dimen/button_padding"
         android:text="@string/create_new_text" />
 
     <Button
         android:id="@+id/view_current_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:padding="12dp"
+        android:textSize="@dimen/button_size"
+        android:padding="@dimen/button_padding"
         android:text="@string/view_current_text" />
 
     <Button
         android:id="@+id/view_past_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:padding="12dp"
+        android:textSize="@dimen/button_size"
+        android:padding="@dimen/button_padding"
         android:text="@string/view_past_text" />
 
     <Button
         android:id="@+id/configure_survey_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:textSize="18sp"
-        android:padding="12dp"
+        android:textSize="@dimen/button_size"
+        android:padding="@dimen/button_padding"
         android:text="@string/configure_survey_text" />
 
 </LinearLayout>

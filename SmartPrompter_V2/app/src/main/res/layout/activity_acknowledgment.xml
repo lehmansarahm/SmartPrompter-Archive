@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="22sp"
+        android:textSize="@dimen/subtitle_size"
         android:text="@string/acknowledgment_text" />
 
     <TextView
@@ -27,32 +27,32 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textStyle="bold"
-        android:textSize="22sp"
-        android:padding="10dp"
+        android:textSize="@dimen/subtitle_size"
+        android:padding="@dimen/title_padding"
         android:text="Water the plants" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="15sp"
-        android:padding="10dp"
+        android:textSize="@dimen/line_break_size"
+        android:padding="@dimen/title_padding"
         android:text="@string/whitespace_single" />
 
     <TextView
         android:id="@+id/instruction_text"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="18sp"
-        android:padding="10dp"
+        android:textSize="@dimen/content_size"
+        android:padding="@dimen/title_padding"
         android:text="@string/acknowledgment_instruction_text" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="15sp"
+        android:textSize="@dimen/line_break_size"
         android:text="@string/whitespace_single" />
 
     <edu.temple.sp_res_lib.obj.Slider
@@ -62,7 +62,7 @@
         android:thumb="@drawable/selection_thumb_style"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/slider_margin_top"
         android:max="2"
         android:progress="1" />
 

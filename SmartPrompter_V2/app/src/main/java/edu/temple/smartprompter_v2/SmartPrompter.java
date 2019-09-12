@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.os.PowerManager;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
 import java.util.ArrayList;
@@ -69,6 +70,12 @@ public class SmartPrompter extends Application {
             startService(downloadServiceIntent);
             startService(fileMonitorServiceIntent);
         }
+
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        float dpHeight = displayMetrics.heightPixels / displayMetrics.density;
+        float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
+        Log.e(LOG_TAG, "Launching on device with dp height: " + dpHeight
+                + " \t\t and dp width: " + dpWidth);
     }
 
     public void wakeup(Activity context) {

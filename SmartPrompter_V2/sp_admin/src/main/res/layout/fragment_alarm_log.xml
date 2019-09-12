@@ -25,8 +25,8 @@
                 android:layout_height="wrap_content"
                 android:text="Alarm Log:"
                 android:gravity="center"
-                android:textSize="35sp"
-                android:padding="10dp" />
+                android:textSize="@dimen/title_size"
+                android:padding="@dimen/title_padding" />
 
             <LinearLayout
                 android:id="@+id/label_layout"
@@ -38,7 +38,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/subtitle_size"
                     android:textStyle="bold"
                     android:text="@string/alarm_orig_label" />
 
@@ -47,14 +47,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/subtitle_size"
                     android:text="Feed the dog" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/line_break_size"
                     android:text="@string/line_break_single" />
 
             </LinearLayout>
@@ -72,7 +72,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/subtitle_size"
                     android:textStyle="bold"
                     android:text="@string/alarm_field_status" />
 
@@ -81,14 +81,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/subtitle_size"
                     android:text="Complete" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/line_break_size"
                     android:text="@string/line_break_single" />
 
             </LinearLayout>
@@ -106,7 +106,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/subtitle_size"
                     android:textStyle="bold"
                     android:text="@string/alarm_orig_date_time" />
 
@@ -115,14 +115,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/subtitle_size"
                     android:text="5:00 PM on 8/25/2019" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/line_break_size"
                     android:text="@string/line_break_single" />
 
             </LinearLayout>
@@ -140,7 +140,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/subtitle_size"
                     android:textStyle="bold"
                     android:text="@string/alarm_time_acknowledged" />
 
@@ -149,14 +149,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/subtitle_size"
                     android:text="5:10 PM on 8/25/2019" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/line_break_size"
                     android:text="@string/line_break_single" />
 
             </LinearLayout>
@@ -174,7 +174,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/subtitle_size"
                     android:textStyle="bold"
                     android:text="@string/alarm_time_completed" />
 
@@ -183,14 +183,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/subtitle_size"
                     android:text="5:20 PM on 8/25/2019" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/line_break_size"
                     android:text="@string/line_break_single" />
 
             </LinearLayout>
@@ -208,7 +208,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/subtitle_size"
                     android:textStyle="bold"
                     android:text="@string/alarm_photo_path" />
 
@@ -217,14 +217,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/subtitle_size"
                     android:text="xx/yy/zz.jpg" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/line_break_size"
                     android:text="@string/line_break_single" />
 
                 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -240,7 +240,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:textSize="24sp"
+                        android:textSize="@dimen/subtitle_size"
                         android:textStyle="bold"
                         android:text="@string/alarm_field_image" />
 
@@ -256,7 +256,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:textSize="24sp"
+                        android:textSize="@dimen/subtitle_size"
                         android:text="@string/not_applicable" />
 
                 </LinearLayout>
@@ -264,6 +264,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/line_break_size"
                     android:gravity="center"
                     android:text="@string/line_break_single" />
 

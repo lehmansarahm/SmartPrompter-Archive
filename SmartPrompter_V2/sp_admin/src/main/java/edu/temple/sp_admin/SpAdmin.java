@@ -1,6 +1,7 @@
 package edu.temple.sp_admin;
 
 import android.app.Application;
+import android.util.DisplayMetrics;
 
 import java.util.ArrayList;
 
@@ -21,6 +22,16 @@ public class SpAdmin extends Application {
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
+
+    @Override
+    public void onCreate() {
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        float dpHeight = displayMetrics.heightPixels / displayMetrics.density;
+        float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
+        Log.e(LOG_TAG, "Launching on device with dp height: " + dpHeight
+                + " \t\t and dp width: " + dpWidth);
+        super.onCreate();
+    }
 
     public Alarm getAlarm(String guid) {
         for (Alarm alarm : alarms) {
