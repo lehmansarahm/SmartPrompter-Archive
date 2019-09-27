@@ -10,13 +10,14 @@ import edu.temple.smartprompter_v2.SmartPrompter;
 import edu.temple.smartprompter_v2.fragments.CameraPreviewFragment;
 import edu.temple.smartprompter_v2.fragments.CameraReviewFragment;
 import edu.temple.sp_res_lib.obj.Alarm;
+import edu.temple.sp_res_lib.utils.CameraUtil;
 import edu.temple.sp_res_lib.utils.Constants;
 import edu.temple.sp_res_lib.utils.Log;
 
 import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 
 public class CameraActivity extends BaseActivity implements
-        CameraPreviewFragment.ImageCaptureListener,
+        CameraUtil.ImageCaptureListener,
         CameraReviewFragment.ImageReviewListener {
 
     private CameraPreviewFragment previewFrag;
@@ -30,9 +31,7 @@ public class CameraActivity extends BaseActivity implements
         Log.i(LOG_TAG, "Launching camera preview for alarm GUID: " + mAlarmGUID);
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         previewFrag = CameraPreviewFragment.newInstance(mAlarmGUID);
-        ft.replace(R.id.camera_container, previewFrag)
-                .addToBackStack(null)
-                .commit();
+        ft.replace(R.id.camera_container, previewFrag).commit();
     }
 
     @Override

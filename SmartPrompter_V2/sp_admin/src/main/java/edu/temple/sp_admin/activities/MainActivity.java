@@ -19,6 +19,7 @@ public class MainActivity extends BaseActivity {
     private static final String[] PERMISSIONS = new String[] {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.RECORD_AUDIO
     };
 
     private Button createNewButton, viewCurrentButton,
@@ -99,7 +100,7 @@ public class MainActivity extends BaseActivity {
             public void onClick(View view) {
                 Log.ui(LOG_TAG, MainActivity.this, "Configure-Surveys button clicked.");
                 startActivity(new Intent(MainActivity.this,
-                        SurveyConfigActivity.class));
+                        AudioEmailConfigActivity.class));
             }
         });
     }

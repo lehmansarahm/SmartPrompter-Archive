@@ -1,0 +1,18 @@
+2019-09-20,01:31 PM,Error,SmartPrompter-Admin,Launching on device with dp height: 683.4286 		 and dp width: 411.42856
+2019-09-20,01:31 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-20,01:31 PM,Info,SpResLib,Retrieving log records from storage!
+2019-09-20,01:31 PM,Info,SpResLib,Scanning file: 2019-09-20 UI.csv
+2019-09-20,01:31 PM,Info,SpResLib,Scanning file: 2019-09-20 App.csv
+2019-09-20,01:31 PM,Info,SpResLib,Scanning file: 0292258488265155602954802092818011734397
+2019-09-20,01:31 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":20,"hourOfDay":12,"minute":15,"second":0},"archived":true,"desc":"test","status":"Complete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":20,"hourOfDay":12,"minute":15,"second":3},"timeCompleted":{"year":2019,"month":8,"dayOfMonth":20,"hourOfDay":13,"minute":31,"second":10},"uuid":"0292258488265155602954802092818011734397"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0292258488265155602954802092818011734397
+2019-09-20,01:31 PM,Info,SpResLib,Retrieving survey questions from storage!
+2019-09-20,01:31 PM,Info,SpResLib,Retrieving log records from storage!
+2019-09-20,01:31 PM,Info,SpResLib,Scanning file: 2019-09-20 UI.csv
+2019-09-20,01:31 PM,Info,SpResLib,Scanning file: 2019-09-20 App.csv
+2019-09-20,01:31 PM,Info,SpResLib,Scanning file: 0292258488265155602954802092818011734397
+2019-09-20,01:31 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":20,"hourOfDay":12,"minute":15,"second":0},"archived":true,"desc":"test","status":"Complete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":20,"hourOfDay":12,"minute":15,"second":3},"timeCompleted":{"year":2019,"month":8,"dayOfMonth":20,"hourOfDay":13,"minute":31,"second":10},"uuid":"0292258488265155602954802092818011734397"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0292258488265155602954802092818011734397
+2019-09-20,01:31 PM,Info,SmartPrompter-Admin,Populating activities.PastAlarmsActivity with alarm-list fragment.
+2019-09-20,01:31 PM,Info,SpResLib,Image file exists!  Attempting to retrieve from absolute path: 		 /storage/emulated/0/Documents/sp_photos/09202019______0131PM_test.jpg
+2019-09-20,01:31 PM,Info,SpResLib,Attempt to retrieve completion image was successful.  Forwarding Bitmap to image viewer.

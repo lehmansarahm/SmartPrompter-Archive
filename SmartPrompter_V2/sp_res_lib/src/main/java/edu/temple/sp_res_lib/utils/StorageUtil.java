@@ -16,26 +16,50 @@ import java.util.List;
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.obj.SurveyQuestion;
 
+import static edu.temple.sp_res_lib.utils.Constants.LOG_TAG;
+
 public class StorageUtil {
 
     private static final String ALARMS_DIR = "sp_alarms";
+    private static final String AUDIO_DIR = "sp_audio";
     private static final String PHOTOS_DIR = "sp_photos";
     private static final String LOGS_DIR = "sp_logs";
 
     private static final String DIRTY_FLAG = "dirty";
+
+    public static File getAudioFile(Context ctx, String filename) {
+        File audioDir = verifyOutputDir(ctx, AUDIO_DIR);
+        return (new File(audioDir, filename));
+    }
+
+    public static String[] getLogsDirContents(Context context) {
+        Log.i(LOG_TAG, "Retrieving names of files currently in SP_LOGS directory.");
+        File logsDir = verifyOutputDir(context, LOGS_DIR);
+
+        if (logsDir.exists() && logsDir.list() != null && logsDir.list().length > 0) {
+            String[] logs = logsDir.list();
+            for (int i = 0; i < logs.length; i++) {
+                File logFile = new File(logsDir, logs[i]);
+                logs[i] = logFile.getAbsolutePath();
+            }
+            return logs;
+        } else {
+            return new String[]{};
+        }
+    }
 
     public static File getAlarmsDirectory(Context context) {
         return verifyOutputDir(context, ALARMS_DIR);
     }
 
     public static ArrayList<Alarm> getAlarmsFromStorage(Context ctx) {
-        Log.i(Constants.LOG_TAG, "Retrieving alarm records from storage!");
+        Log.i(LOG_TAG, "Retrieving alarm records from storage!");
         ArrayList<Alarm> alarms = new ArrayList<>();
         File alarmsDir = verifyOutputDir(ctx, ALARMS_DIR);
 
         if (alarmsDir.exists() && alarmsDir.list() != null && alarmsDir.list().length > 0) {
             for (String alarmFile : alarmsDir.list()) {
-                Log.i(Constants.LOG_TAG, "Scanning file: " + alarmFile);
+                Log.i(LOG_TAG, "Scanning file: " + alarmFile);
                 String jsonAlarm = StorageUtil.readFile(ctx, ALARMS_DIR, alarmFile);
                 if (jsonAlarm != null && !jsonAlarm.equals("")) {
                     Alarm alarm = Alarm.importFromJson(jsonAlarm);
@@ -60,7 +84,7 @@ public class StorageUtil {
     public static void writeAlarmsToStorage(Context ctx, ArrayList<Alarm> alarms) {
         for (Alarm alarm : alarms) {
             String jsonAlarm = Alarm.exportToJson(alarm);
-            Log.i(Constants.LOG_TAG, "Writing alarm to storage: " + jsonAlarm);
+            Log.i(LOG_TAG, "Writing alarm to storage: " + jsonAlarm);
 
             if (alarm.isArchived()) {
                 StorageUtil.deleteAlarmFromStorage(ctx, alarm);
@@ -83,13 +107,13 @@ public class StorageUtil {
     // --------------------------------------------------------------------------------------
 
     public static ArrayList<Alarm> getLogsFromStorage(Context ctx) {
-        Log.i(Constants.LOG_TAG, "Retrieving log records from storage!");
+        Log.i(LOG_TAG, "Retrieving log records from storage!");
         ArrayList<Alarm> alarms = new ArrayList<>();
         File alarmsDir = verifyOutputDir(ctx, LOGS_DIR);
 
         if (alarmsDir.exists() && alarmsDir.list() != null && alarmsDir.list().length > 0) {
             for (String alarmFile : alarmsDir.list()) {
-                Log.i(Constants.LOG_TAG, "Scanning file: " + alarmFile);
+                Log.i(LOG_TAG, "Scanning file: " + alarmFile);
                 if (!alarmFile.endsWith(".csv")) {
                     String jsonAlarm = StorageUtil.readFile(ctx, LOGS_DIR, alarmFile);
                     Alarm alarm = Alarm.importFromJson(jsonAlarm);
@@ -116,7 +140,7 @@ public class StorageUtil {
             if (!outputFile.exists())
                 outputFile.createNewFile();
 
-            Log.i(Constants.LOG_TAG, "Attempting to write image to file at location: "
+            Log.i(LOG_TAG, "Attempting to write image to file at location: "
                     + outputFile.getAbsolutePath());
 
             FileOutputStream out = new FileOutputStream(outputFile);
@@ -124,10 +148,10 @@ public class StorageUtil {
             out.flush();
             out.close();
 
-            Log.i(Constants.LOG_TAG, "Wrote contents to file: "
+            Log.i(LOG_TAG, "Wrote contents to file: "
                     + outputFile.getAbsolutePath());
         } catch (Exception ex) {
-            Log.e(Constants.LOG_TAG, "An error occurred while writing data to file: "
+            Log.e(LOG_TAG, "An error occurred while writing data to file: "
                     + filename, ex);
         }
     }
@@ -138,24 +162,24 @@ public class StorageUtil {
         try {
             File imageFile = new File(outputDir, filename);
             if (!imageFile.exists()) {
-                Log.e(Constants.LOG_TAG, "Image file does not exist at path: "
+                Log.e(LOG_TAG, "Image file does not exist at path: "
                         + imageFile.getAbsolutePath());
                 return null;
             }
 
-            Log.i(Constants.LOG_TAG, "Image file exists!  Attempting to retrieve "
+            Log.i(LOG_TAG, "Image file exists!  Attempting to retrieve "
                     + "from absolute path: \t\t " + imageFile.getAbsolutePath());
             BitmapFactory.Options options = new BitmapFactory.Options();
             return BitmapFactory.decodeFile(imageFile.getAbsolutePath(), options);
         } catch (Exception ex) {
-            Log.e(Constants.LOG_TAG, "An error occurred while retrieving image file: "
+            Log.e(LOG_TAG, "An error occurred while retrieving image file: "
                     + filename, ex);
             return null;
         }
     }
 
     public static ArrayList<SurveyQuestion> getSurveyQuestionsFromStorage() {
-        Log.i(Constants.LOG_TAG, "Retrieving survey questions from storage!");
+        Log.i(LOG_TAG, "Retrieving survey questions from storage!");
 
         // TODO - populate survey question list for real
         ArrayList<SurveyQuestion> questions = new ArrayList<>();
@@ -176,14 +200,14 @@ public class StorageUtil {
                 BufferedReader br = new BufferedReader(new FileReader(outputFile));
                 while ((line = br.readLine()) != null) contents += line;
             } else {
-                Log.e(Constants.LOG_TAG, "Cannot read from file: "
+                Log.e(LOG_TAG, "Cannot read from file: "
                         + filename + "\t if it doesn't exist!");
             }
 
-            Log.i(Constants.LOG_TAG, "Read contents: " + contents
+            Log.i(LOG_TAG, "Read contents: " + contents
                     + "\n \t from file: " + outputFile.getAbsolutePath());
         } catch (Exception ex) {
-            Log.e(Constants.LOG_TAG, "An error occurred while reading data from file: "
+            Log.e(LOG_TAG, "An error occurred while reading data from file: "
                     + filename, ex);
         }
 
@@ -203,10 +227,10 @@ public class StorageUtil {
             writer.flush();
             writer.close();
 
-            Log.i(Constants.LOG_TAG, "Wrote contents: " + content
+            Log.i(LOG_TAG, "Wrote contents: " + content
                     + "\n \t to file: " + outputFile.getAbsolutePath());
         } catch (Exception ex) {
-            Log.e(Constants.LOG_TAG, "An error occurred while writing data to file: "
+            Log.e(LOG_TAG, "An error occurred while writing data to file: "
                     + filename, ex);
         }
     }
@@ -225,7 +249,7 @@ public class StorageUtil {
             writer.flush();
             writer.close();
         } catch (Exception ex) {
-            Log.e(Constants.LOG_TAG, "An error occurred while appending data to file: "
+            Log.e(LOG_TAG, "An error occurred while appending data to file: "
                     + filename, ex);
         }
     }
@@ -238,12 +262,12 @@ public class StorageUtil {
             if (outputFile.exists())
                 outputFile.delete();
             else
-                Log.e(Constants.LOG_TAG, "Can't delete file: " + filename
+                Log.e(LOG_TAG, "Can't delete file: " + filename
                         + "\t if it doesn't exist!");
 
-            Log.i(Constants.LOG_TAG, "Deleted file: " + outputFile.getAbsolutePath());
+            Log.i(LOG_TAG, "Deleted file: " + outputFile.getAbsolutePath());
         } catch (Exception ex) {
-            Log.e(Constants.LOG_TAG, "An error occurred while deleting file: "
+            Log.e(LOG_TAG, "An error occurred while deleting file: "
                     + filename, ex);
         }
     }
@@ -251,7 +275,7 @@ public class StorageUtil {
     private static File verifyOutputDir(Context ctx, String dirName) {
         File outputDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), dirName);
         if (!outputDir.exists()) {
-            Log.e(Constants.LOG_TAG, "Output dir does not exist.  Creating output dir: "
+            Log.e(LOG_TAG, "Output dir does not exist.  Creating output dir: "
                     + outputDir.getAbsolutePath());
             outputDir.mkdir();
         }

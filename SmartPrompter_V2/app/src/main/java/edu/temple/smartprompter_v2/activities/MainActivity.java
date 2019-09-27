@@ -53,13 +53,13 @@ public class MainActivity extends BaseActivity implements AlarmListFragment.OnLi
         if (intent.hasExtra(Constants.BUNDLE_REMIND_ME_LATER_ACK)) {
             if (intent.getBooleanExtra(Constants.BUNDLE_REMIND_ME_LATER_ACK, false)) {
                 Log.e(LOG_TAG, "User has chosen to 'snooze' acknowledgment phase of task alarm!");
-                Toast.makeText(this, "Acknowledgment reminder set!",
+                Toast.makeText(this, "Explicit reminder set!",
                         Toast.LENGTH_LONG).show();
             }
         } else if (intent.hasExtra(Constants.BUNDLE_REMIND_ME_LATER_COMP)) {
             if (intent.getBooleanExtra(Constants.BUNDLE_REMIND_ME_LATER_COMP, false)) {
                 Log.e(LOG_TAG, "User has chosen to 'snooze' completion phase of task alarm!");
-                Toast.makeText(this, "Completion reminder set!",
+                Toast.makeText(this, "Implicit reminder set!",
                         Toast.LENGTH_LONG).show();
             }
         } else if (intent.hasExtra(Constants.BUNDLE_TASK_COMPLETE)) {
@@ -144,7 +144,7 @@ public class MainActivity extends BaseActivity implements AlarmListFragment.OnLi
     }
 
     private void showDefaultFragment() {
-        mActiveAlarms = ((SmartPrompter) getApplicationContext()).getAlarms();
+        mActiveAlarms = ((SmartPrompter) getApplicationContext()).getCurrentAlarms();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
         if (mActiveAlarms != null && mActiveAlarms.size() > 0) {

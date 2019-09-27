@@ -6,13 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import edu.temple.smartprompter_v2.SmartPrompter;
 import edu.temple.sp_res_lib.utils.Constants;
 import edu.temple.sp_res_lib.utils.Log;
+import edu.temple.sp_res_lib.utils.MediaUtil;
 
 import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 
 public class BaseActivity extends AppCompatActivity {
 
     protected String mAlarmGUID;
-    protected boolean mWakeup;
+    protected boolean mWakeup, mPlayAlerts;
+    protected MediaUtil.AUDIO_TYPE mAlertType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +22,13 @@ public class BaseActivity extends AppCompatActivity {
 
         mAlarmGUID = getIntent().getStringExtra(Constants.BUNDLE_ARG_ALARM_GUID);
         mWakeup = getIntent().getBooleanExtra(Constants.BUNDLE_ARG_ALARM_WAKEUP, false);
-        if (mWakeup) ((SmartPrompter)getApplicationContext()).wakeup(this);
+        mPlayAlerts = getIntent().getBooleanExtra(Constants.BUNDLE_ARG_PLAY_ALERTS, false);
 
+        String alertType = getIntent().getStringExtra(Constants.BUNDLE_ARG_ALERT_TYPE);
+        mAlertType = (alertType == null || alertType.equals(""))
+                ? MediaUtil.AUDIO_TYPE.None : MediaUtil.AUDIO_TYPE.valueOf(alertType);
+
+        if (mWakeup) ((SmartPrompter)getApplicationContext()).wakeup(this, mPlayAlerts, mAlertType);
         super.onCreate(savedInstanceState);
     }
 

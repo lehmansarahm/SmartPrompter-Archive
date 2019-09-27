@@ -26,7 +26,7 @@ public class CompletionActivity extends BaseActivity {
     private SeekBar.OnSeekBarChangeListener changeListener = new SeekBar.OnSeekBarChangeListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-            Log.i(LOG_TAG, "Completion SeekBar progress changed: " + i);
+            Log.i(LOG_TAG, "Implicit SeekBar progress changed: " + i);
             updateSliderFlavor(i);
             processSliderSelection(i);
         }
@@ -34,13 +34,13 @@ public class CompletionActivity extends BaseActivity {
         @Override
         public void onStartTrackingTouch(SeekBar seekBar) {
             Log.ui(LOG_TAG, CompletionActivity.this,
-                    "Completion SeekBar tracking touch started!");
+                    "Implicit SeekBar tracking touch started!");
         }
 
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {
             Log.ui(LOG_TAG, CompletionActivity.this,
-                    "Completion SeekBar tracking touch stopped!");
+                    "Implicit SeekBar tracking touch stopped!");
         }
     };
 
@@ -104,7 +104,7 @@ public class CompletionActivity extends BaseActivity {
 
                 // Set completion reminder
                 ((SmartPrompter)getApplication()).setAlarmReminder(mAlarm,
-                        Alarm.REMINDER.Completion);
+                        Alarm.REMINDER.Explicit);
 
                 // Shut down the completion screen, return to main activity
                 intent = new Intent(CompletionActivity.this,
@@ -124,7 +124,6 @@ public class CompletionActivity extends BaseActivity {
                 intent.putExtra(Constants.BUNDLE_ARG_ALARM_WAKEUP, mWakeup);
                 intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, mAlarmGUID);
                 startActivity(intent);
-                finish();
                 break;
         }
     }

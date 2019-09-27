@@ -15,17 +15,21 @@ import java.util.UUID;
 import edu.temple.sp_res_lib.utils.Constants;
 import edu.temple.sp_res_lib.utils.DateTimeUtil;
 import edu.temple.sp_res_lib.utils.Log;
+import edu.temple.sp_res_lib.utils.MediaUtil;
+
+import static edu.temple.sp_res_lib.utils.Constants.LOG_TAG;
 
 public class Alarm implements Parcelable {
 
     public enum STATUS { New, Active, Unacknowledged, Incomplete, Complete }
 
-    public enum REMINDER { None, Acknowledgment, Completion }
+    public enum REMINDER { None, Explicit, Implicit}
 
     private String uuid;
     private String desc;
     private Calendar alarmTime, reminderTime;
     private REMINDER reminderType;
+    private int reminderCount;
     private Calendar timeAcknowledged, timeCompleted;
     private STATUS status;
     private boolean archived;
@@ -101,12 +105,12 @@ public class Alarm implements Parcelable {
         switch (newStatus) {
             case Incomplete:
                 timeAcknowledged = Calendar.getInstance();
-                Log.i(Constants.LOG_TAG, "Alarm with GUID: " + uuid + "\t was acknowledged at time: "
+                Log.i(LOG_TAG, "Alarm with GUID: " + uuid + "\t was acknowledged at time: "
                         + DateTimeUtil.formatTime(timeAcknowledged, DateTimeUtil.FORMAT.DateTime));
                 break;
             case Complete:
                 timeCompleted = Calendar.getInstance();
-                Log.i(Constants.LOG_TAG, "Alarm with GUID: " + uuid + "\t was completed at time: "
+                Log.i(LOG_TAG, "Alarm with GUID: " + uuid + "\t was completed at time: "
                         + DateTimeUtil.formatTime(timeCompleted, DateTimeUtil.FORMAT.DateTime));
                 archived = true;
                 break;
@@ -120,7 +124,7 @@ public class Alarm implements Parcelable {
         boolean invalidLabel = (desc == null || desc.isEmpty());
 
         if (!status.equals(STATUS.Complete) || invalidTime || invalidLabel) {
-            Log.e(Constants.LOG_TAG, "Can't return a photo path for an invalid record!");
+            Log.e(LOG_TAG, "Can't return a photo path for an invalid record!");
             return "";
         }
 
@@ -147,19 +151,22 @@ public class Alarm implements Parcelable {
     }
 
     public void setReminder(REMINDER type) {
+        reminderCount++;
+        Log.i(LOG_TAG, "Setting reminder #" + reminderCount + " for alarm: " + desc);
+
         reminderType = type;
         switch (type) {
-            case Acknowledgment:
-                Calendar ackReminder = Calendar.getInstance();
-                ackReminder.set(Calendar.SECOND, 0);
-                ackReminder.add(Calendar.MILLISECOND, Constants.REMINDER_DURATION_ACK.intValue());
-                reminderTime = ackReminder;
+            case Explicit:
+                Calendar expReminder = Calendar.getInstance();
+                expReminder.set(Calendar.SECOND, 0);
+                expReminder.add(Calendar.MILLISECOND, Constants.REMINDER_DURATION_EXP.intValue());
+                reminderTime = expReminder;
                 break;
-            case Completion:
-                Calendar compReminder = Calendar.getInstance();
-                compReminder.set(Calendar.SECOND, 0);
-                compReminder.add(Calendar.MILLISECOND, Constants.REMINDER_DURATION_COMP.intValue());
-                reminderTime = compReminder;
+            case Implicit:
+                Calendar impReminder = Calendar.getInstance();
+                impReminder.set(Calendar.SECOND, 0);
+                impReminder.add(Calendar.MILLISECOND, Constants.REMINDER_DURATION_IMP.intValue());
+                reminderTime = impReminder;
                 break;
             case None:
                 reminderTime = null;
@@ -169,6 +176,10 @@ public class Alarm implements Parcelable {
 
     public long getReminderTimeMillis() {
         return reminderTime.getTimeInMillis();
+    }
+
+    public boolean isReminderLimitReached() {
+        return (reminderCount > Constants.REMINDER_COUNT_LIMIT);
     }
 
     // --------------------------------------------------------------------------------------
@@ -271,9 +282,12 @@ public class Alarm implements Parcelable {
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
-    public PendingIntent getPI(Context context, Class<?> responseClass) {
+    public PendingIntent getPI(Context context, Class<?> responseClass, boolean isReminder) {
         Intent intent = new Intent(context, responseClass);
         intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, getGuid());
+        intent.putExtra(Constants.BUNDLE_ARG_ALERT_TYPE, isReminder
+                ? MediaUtil.AUDIO_TYPE.Reminder.toString()
+                : MediaUtil.AUDIO_TYPE.Alarm.toString());
         return PendingIntent.getBroadcast(context, getGuidInt() /* request code */,
                 intent, PendingIntent.FLAG_CANCEL_CURRENT);
     }

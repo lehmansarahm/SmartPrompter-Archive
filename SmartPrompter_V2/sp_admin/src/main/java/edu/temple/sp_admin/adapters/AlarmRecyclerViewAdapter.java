@@ -1,4 +1,4 @@
-package edu.temple.sp_admin.fragments;
+package edu.temple.sp_admin.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import edu.temple.sp_admin.R;
+import edu.temple.sp_admin.fragments.AlarmListFragment;
 import edu.temple.sp_res_lib.obj.Alarm;
 
 import java.util.List;

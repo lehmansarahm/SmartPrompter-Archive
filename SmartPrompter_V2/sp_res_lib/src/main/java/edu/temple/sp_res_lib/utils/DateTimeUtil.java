@@ -29,7 +29,7 @@ public class DateTimeUtil {
                 SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("hh:mm a");
                 return TIME_FORMAT;
             case DateTime:
-                SimpleDateFormat DATE_TIME_FORMAT = new SimpleDateFormat("yyyy-MM-dd hh:mma");
+                SimpleDateFormat DATE_TIME_FORMAT = new SimpleDateFormat("MM-dd-yyyy      hh:mma");
                 return DATE_TIME_FORMAT;
         }
         return null;

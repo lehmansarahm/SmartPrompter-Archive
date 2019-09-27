@@ -26,7 +26,7 @@ public class AcknowledgmentActivity extends BaseActivity {
     private SeekBar.OnSeekBarChangeListener changeListener = new SeekBar.OnSeekBarChangeListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int selection, boolean b) {
-            Log.i(LOG_TAG, "Acknowledgment SeekBar progress changed: " + selection);
+            Log.i(LOG_TAG, "Explicit SeekBar progress changed: " + selection);
             updateSliderFlavor(selection);
             processSliderSelection(selection);
         }
@@ -34,13 +34,13 @@ public class AcknowledgmentActivity extends BaseActivity {
         @Override
         public void onStartTrackingTouch(SeekBar seekBar) {
             Log.ui(LOG_TAG, AcknowledgmentActivity.this,
-                    "Acknowledgment SeekBar tracking touch started!");
+                    "Explicit SeekBar tracking touch started!");
         }
 
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {
             Log.ui(LOG_TAG, AcknowledgmentActivity.this,
-                    "Acknowledgment SeekBar tracking touch stopped!");
+                    "Explicit SeekBar tracking touch stopped!");
         }
     };
 
@@ -102,7 +102,7 @@ public class AcknowledgmentActivity extends BaseActivity {
 
                 // Set acknowledgment reminder
                 ((SmartPrompter)getApplication()).setAlarmReminder(mAlarm,
-                        Alarm.REMINDER.Acknowledgment);
+                        Alarm.REMINDER.Explicit);
 
                 // Shut down the acknowledgment screen, return to main activity
                 intent = new Intent(AcknowledgmentActivity.this,

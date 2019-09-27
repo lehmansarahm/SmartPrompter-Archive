@@ -30,6 +30,11 @@ public class SpAdmin extends Application {
         float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
         Log.e(LOG_TAG, "Launching on device with dp height: " + dpHeight
                 + " \t\t and dp width: " + dpWidth);
+
+        getCurrentAlarms();
+        getArchivedAlarms();
+        getQuestions();
+
         super.onCreate();
     }
 

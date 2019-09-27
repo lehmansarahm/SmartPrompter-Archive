@@ -3,8 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="edu.temple.sp_admin">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:name=".SpAdmin"
@@ -26,7 +28,7 @@
         <activity android:name=".activities.NewAlarmActivity" />
         <activity android:name=".activities.CurrentAlarmsActivity" />
         <activity android:name=".activities.PastAlarmsActivity" />
-        <activity android:name=".activities.SurveyConfigActivity" />
+        <activity android:name=".activities.AudioEmailConfigActivity" />
 
     </application>
 

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.temple.sp_admin.R;
+import edu.temple.sp_admin.adapters.AlarmRecyclerViewAdapter;
 import edu.temple.sp_res_lib.obj.Alarm;
 
 public class AlarmListFragment extends Fragment {

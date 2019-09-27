@@ -26,4 +26,9 @@
     <string name="alarm_photo_path">Image Path</string>
     <string name="alarm_field_image">Image</string>
     <string name="not_applicable">N/A</string>
+    <string-array name="audio_type_array">
+        <item>Alarm</item>
+        <item>Reminder</item>
+        <item>Reward</item>
+    </string-array>
 </resources>
