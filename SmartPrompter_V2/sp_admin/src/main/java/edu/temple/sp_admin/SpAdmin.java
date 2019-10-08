@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.obj.SurveyQuestion;
+import edu.temple.sp_res_lib.utils.AlarmUtil;
 import edu.temple.sp_res_lib.utils.Constants;
 import edu.temple.sp_res_lib.utils.Log;
 import edu.temple.sp_res_lib.utils.StorageUtil;
@@ -55,7 +56,7 @@ public class SpAdmin extends Application {
     }
 
     public ArrayList<Alarm> getCurrentAlarms() {
-        alarms = StorageUtil.getAlarmsFromStorage(this);
+        alarms = AlarmUtil.getAlarmsFromStorage(this);
         return alarms;
     }
 

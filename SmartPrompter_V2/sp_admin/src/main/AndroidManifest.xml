@@ -28,7 +28,8 @@
         <activity android:name=".activities.NewAlarmActivity" />
         <activity android:name=".activities.CurrentAlarmsActivity" />
         <activity android:name=".activities.PastAlarmsActivity" />
-        <activity android:name=".activities.AudioEmailConfigActivity" />
+        <activity android:name=".activities.ConfigAudioActivity" />
+        <activity android:name=".activities.ConfigEmailActivity" />
 
     </application>
 

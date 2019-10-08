@@ -21,11 +21,37 @@ import static edu.temple.sp_res_lib.utils.Constants.LOG_TAG;
 public class StorageUtil {
 
     private static final String ALARMS_DIR = "sp_alarms";
+    private static final String ARCHIVE_DIR = "sp_archive";
     private static final String AUDIO_DIR = "sp_audio";
     private static final String PHOTOS_DIR = "sp_photos";
     private static final String LOGS_DIR = "sp_logs";
 
+    private static final String EXPORT_CHECK_FILENAME = "export_check.txt";
+    private static final String DEVICE_LABEL_FILENAME = "device_label.txt";
+
     private static final String DIRTY_FLAG = "dirty";
+
+    // ------------------------------------------------------------------------------------------
+
+    public static void updateExportCheck(Context ctx, String dateTime) {
+        writeToFile(ctx, ALARMS_DIR, EXPORT_CHECK_FILENAME, dateTime);
+    }
+
+    public static String getNextExportCheck(Context ctx) {
+        String exportCheck = readFile(ctx, ALARMS_DIR, EXPORT_CHECK_FILENAME);
+        return (exportCheck == null ? "" : exportCheck);
+    }
+
+    public static void updateDeviceLabel(Context ctx, String label) {
+        writeToFile(ctx, ALARMS_DIR, DEVICE_LABEL_FILENAME, label);
+    }
+
+    public static String getDeviceLabel(Context ctx) {
+        String deviceLabel = readFile(ctx, ALARMS_DIR, DEVICE_LABEL_FILENAME);
+        return (deviceLabel == null ? "NO LABEL ASSIGNED" : deviceLabel);
+    }
+
+    // ------------------------------------------------------------------------------------------
 
     public static File getAudioFile(Context ctx, String filename) {
         File audioDir = verifyOutputDir(ctx, AUDIO_DIR);
@@ -48,6 +74,26 @@ public class StorageUtil {
         }
     }
 
+    public static void archiveLogsDirContents(Context context) {
+        Log.i(LOG_TAG, "Archiving contents of SP_LOGS directory.");
+        File logsDir = verifyOutputDir(context, LOGS_DIR);
+        File archiveDir = verifyOutputDir(context, ARCHIVE_DIR);
+
+        if (logsDir.exists() && logsDir.list() != null && logsDir.list().length > 0) {
+            for (String log : logsDir.list()) {
+                File oldLog = new File(logsDir, log);
+                if (oldLog.renameTo(new File(archiveDir, log))) {
+                    Log.i(LOG_TAG, "Log file successfully archived!");
+                    oldLog.delete();
+                } else {
+                    Log.e(LOG_TAG, "Something went wrong while attempting to archive "
+                            + "old log file: " + oldLog.getAbsolutePath());
+                }
+            }
+        }
+        else Log.e(LOG_TAG, "No contents in SP_LOGS to archive!");
+    }
+
     public static File getAlarmsDirectory(Context context) {
         return verifyOutputDir(context, ALARMS_DIR);
     }
@@ -60,6 +106,9 @@ public class StorageUtil {
         if (alarmsDir.exists() && alarmsDir.list() != null && alarmsDir.list().length > 0) {
             for (String alarmFile : alarmsDir.list()) {
                 Log.i(LOG_TAG, "Scanning file: " + alarmFile);
+                if (alarmFile.endsWith(".txt"))
+                    continue;
+
                 String jsonAlarm = StorageUtil.readFile(ctx, ALARMS_DIR, alarmFile);
                 if (jsonAlarm != null && !jsonAlarm.equals("")) {
                     Alarm alarm = Alarm.importFromJson(jsonAlarm);
@@ -83,15 +132,19 @@ public class StorageUtil {
 
     public static void writeAlarmsToStorage(Context ctx, ArrayList<Alarm> alarms) {
         for (Alarm alarm : alarms) {
-            String jsonAlarm = Alarm.exportToJson(alarm);
-            Log.i(LOG_TAG, "Writing alarm to storage: " + jsonAlarm);
+            writeAlarmToStorage(ctx, alarm);
+        }
+    }
 
-            if (alarm.isArchived()) {
-                StorageUtil.deleteAlarmFromStorage(ctx, alarm);
-                StorageUtil.writeToFile(ctx, LOGS_DIR, alarm.getGuid(), jsonAlarm);
-            } else {
-                StorageUtil.writeToFile(ctx, ALARMS_DIR, alarm.getGuid(), jsonAlarm);
-            }
+    public static void writeAlarmToStorage(Context ctx, Alarm alarm) {
+        String jsonAlarm = Alarm.exportToJson(alarm);
+        Log.i(LOG_TAG, "Writing alarm to storage: " + jsonAlarm);
+
+        if (alarm.isArchived()) {
+            StorageUtil.deleteAlarmFromStorage(ctx, alarm);
+            StorageUtil.writeToFile(ctx, LOGS_DIR, alarm.getGuid(), jsonAlarm);
+        } else {
+            StorageUtil.writeToFile(ctx, ALARMS_DIR, alarm.getGuid(), jsonAlarm);
         }
     }
 

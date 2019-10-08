@@ -19,12 +19,18 @@ public class EmailTask extends AsyncTask<String, Void, Boolean> {
     private Context context;
     private String subject, body;
     private String[] logs;
+    private TaskCompletionListener listener;
 
-    public EmailTask(Context context, String subject, String body, String[] logs) {
+    public interface TaskCompletionListener {
+        void onTaskComplete(boolean success);
+    }
+
+    public EmailTask(Context context, String subject, String body, String[] logs, TaskCompletionListener listener) {
         this.context = context;
         this.subject = subject;
         this.body = body;
         this.logs = logs;
+        this.listener = listener;
     }
 
     protected Boolean doInBackground(String... params) {
@@ -44,11 +50,7 @@ public class EmailTask extends AsyncTask<String, Void, Boolean> {
     }
 
     protected void onPostExecute(Boolean success) {
-        if (success) {
-            Toast.makeText(context, "Email sent!", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(context, "Email failed to send!", Toast.LENGTH_SHORT).show();
-        }
+        listener.onTaskComplete(success);
     }
 
 }

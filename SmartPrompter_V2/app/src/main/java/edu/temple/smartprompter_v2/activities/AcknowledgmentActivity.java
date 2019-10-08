@@ -91,8 +91,9 @@ public class AcknowledgmentActivity extends BaseActivity {
     }
 
     private void processSliderSelection(int selection) {
+        SmartPrompter sp = ((SmartPrompter)getApplicationContext());
+        sp.stopWakeup();
         Intent intent;
-        ((SmartPrompter)getApplicationContext()).stopWakeup();
 
         Log.i(LOG_TAG, "Processing final slider selection: " + selection);
         switch (selection) {
@@ -101,8 +102,7 @@ public class AcknowledgmentActivity extends BaseActivity {
                         "User selected 'Remind me later'.");
 
                 // Set acknowledgment reminder
-                ((SmartPrompter)getApplication()).setAlarmReminder(mAlarm,
-                        Alarm.REMINDER.Explicit);
+                sp.setAlarmReminder(mAlarm, Alarm.REMINDER.Explicit);
 
                 // Shut down the acknowledgment screen, return to main activity
                 intent = new Intent(AcknowledgmentActivity.this,
@@ -117,11 +117,16 @@ public class AcknowledgmentActivity extends BaseActivity {
                         "User selected 'On my way'.");
 
                 // if an acknowledgment reminder exists for this alarm, cancel it
-                ((SmartPrompter)getApplication()).cancelAlarm(mAlarm);
+                sp.cancelAlarm(mAlarm);
+
+                // reset the reminder count in preparation for the next phase
+                mAlarm.resetReminderCount();
+
+                // restart implicit reminders
+                sp.setAlarmReminder(mAlarm, Alarm.REMINDER.Implicit);
 
                 // Update alarm status and progress to completion screen
-                ((SmartPrompter)getApplication()).updateAlarmStatus(mAlarmGUID,
-                        Alarm.STATUS.Incomplete);
+                sp.updateAlarm(mAlarmGUID, Alarm.STATUS.Incomplete);
                 intent = new Intent(AcknowledgmentActivity.this,
                         CompletionActivity.class);
                 intent.putExtra(Constants.BUNDLE_ARG_ALARM_WAKEUP, mWakeup);

@@ -7,6 +7,7 @@ import android.content.Intent;
 import edu.temple.smartprompter_v2.SmartPrompter;
 import edu.temple.smartprompter_v2.activities.AcknowledgmentActivity;
 import edu.temple.smartprompter_v2.activities.CompletionActivity;
+import edu.temple.smartprompter_v2.utils.AlarmClockUtil;
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.sp_res_lib.utils.Constants;
 import edu.temple.sp_res_lib.utils.Log;
@@ -19,15 +20,19 @@ public class AlarmAlertReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        SmartPrompter sp = ((SmartPrompter)context.getApplicationContext());
         // confirm the received alarm details ...
         String guid = intent.getStringExtra(Constants.BUNDLE_ARG_ALARM_GUID);
-        Alarm alarm = ((SmartPrompter)context.getApplicationContext()).getAlarm(guid, true);
+        Alarm alarm = sp.getAlarm(guid, true);
         assert(alarm != null);
 
         Log.e(LOG_TAG, "ALARM ALERT BROADCAST RECEIVED FOR GUID: " + guid
                 + " \t AND GUID-INT: " + alarm.getGuidInt()
                 + " \t WITH ORIG ALARM TIME: " + alarm.getAlarmDateTimeString()
                 + " \t AND STATUS: " + alarm.getStatus());
+
+        // set implicit reminder
+        sp.setAlarmReminder(alarm, Alarm.REMINDER.Implicit);
 
         // select the appropriate response activity ...
         Intent newIntent;

@@ -52,7 +52,7 @@ public class CameraActivity extends BaseActivity implements
         Log.i(LOG_TAG, "User has successfully taken and approved a task "
                 + "completion picture.  Updating alarm and saving image to storage.");
         SmartPrompter spApp = ((SmartPrompter)getApplication());
-        spApp.updateAlarmStatus(alarmGUID, Alarm.STATUS.Complete);
+        spApp.updateAlarm(alarmGUID, Alarm.STATUS.Complete);
         String photoPath = (spApp.getAlarm(alarmGUID)).getPhotoPath();
 
         Log.e(LOG_TAG, "Attempting to save photo to path: " + photoPath);

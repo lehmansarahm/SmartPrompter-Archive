@@ -1,0 +1,217 @@
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Created
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Create-New button clicked.
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Created
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Resumed
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-09-22,12:24 PM,Info,SpResLib-UI,NewAlarmActivity - 	 User clicked LABEL field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-09-22,12:24 PM,Info,SpResLib-UI,NewAlarmActivity - 	 Updated alarm label: get paper towels
+2019-09-22,12:24 PM,Info,SpResLib-UI,NewAlarmActivity - 	 DatePickerDialog requested with default date: 8/22/2019
+2019-09-22,12:24 PM,Info,SpResLib-UI,NewAlarmActivity - 	 Date picked: 8/22/2019 		 for current alarm: XXXX-YYYY-ZZZZ
+2019-09-22,12:24 PM,Info,SpResLib-UI,NewAlarmActivity - 	 TimePickerDialog requested with default time: 12:24
+2019-09-22,12:24 PM,Info,SpResLib-UI,NewAlarmActivity - 	 Time picked: 12:35 		 for current alarm: XXXX-YYYY-ZZZZ
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Button clicked: Save
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Saved new alarm with description: get paper towels 	 and time: 09-22-2019      12:35PM
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Paused
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Created
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Stopped
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Destroyed
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Back button pressed
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Destroyed
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Create-New button clicked.
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Created
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Resumed
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-09-22,12:24 PM,Info,SpResLib-UI,NewAlarmActivity - 	 User clicked LABEL field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-09-22,12:24 PM,Info,SpResLib-UI,NewAlarmActivity - 	 Updated alarm label: make dinner
+2019-09-22,12:25 PM,Info,SpResLib-UI,NewAlarmActivity - 	 TimePickerDialog requested with default time: 12:24
+2019-09-22,12:25 PM,Info,SpResLib-UI,NewAlarmActivity - 	 Time picked: 17:24 		 for current alarm: XXXX-YYYY-ZZZZ
+2019-09-22,12:25 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Button clicked: Save
+2019-09-22,12:25 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Saved new alarm with description: make dinner 	 and time: 09-22-2019      05:24PM
+2019-09-22,12:25 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Paused
+2019-09-22,12:25 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Created
+2019-09-22,12:25 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-09-22,12:25 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Stopped
+2019-09-22,12:25 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Destroyed
+2019-09-22,12:25 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Back button pressed
+2019-09-22,12:25 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-09-22,12:25 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-09-22,12:25 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-09-22,12:25 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Destroyed
+2019-09-22,12:25 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Back button pressed
+2019-09-22,12:25 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-09-22,12:25 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-09-22,12:25 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Destroyed
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Created
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Create-New button clicked.
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Created
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Resumed
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-09-23,08:14 AM,Info,SpResLib-UI,NewAlarmActivity - 	 User clicked LABEL field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-09-23,08:14 AM,Info,SpResLib-UI,NewAlarmActivity - 	 Updated alarm label: get money
+2019-09-23,08:14 AM,Info,SpResLib-UI,NewAlarmActivity - 	 TimePickerDialog requested with default time: 8:14
+2019-09-23,08:14 AM,Info,SpResLib-UI,NewAlarmActivity - 	 Time picked: 9:0 		 for current alarm: XXXX-YYYY-ZZZZ
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Button clicked: Save
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Saved new alarm with description: get money 	 and time: 09-23-2019      09:00AM
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Paused
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Created
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Stopped
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Destroyed
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 List item selected for alarm with GUID: 0044365972027009559979168004356505897888 	 Description: get paper towels 	 Original Date-Time: 09-22-2019      12:35PM 	 Status: Active
+2019-09-23,08:15 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-09-23,08:15 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Back button pressed
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Back button pressed
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Destroyed
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Create-New button clicked.
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Created
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Resumed
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-09-23,08:29 AM,Info,SpResLib-UI,NewAlarmActivity - 	 User clicked LABEL field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-09-23,08:29 AM,Info,SpResLib-UI,NewAlarmActivity - 	 Updated alarm label: order coffee
+2019-09-23,08:29 AM,Info,SpResLib-UI,NewAlarmActivity - 	 DatePickerDialog requested with default date: 8/23/2019
+2019-09-23,08:29 AM,Info,SpResLib-UI,NewAlarmActivity - 	 Date picked: 8/23/2019 		 for current alarm: XXXX-YYYY-ZZZZ
+2019-09-23,08:29 AM,Info,SpResLib-UI,NewAlarmActivity - 	 TimePickerDialog requested with default time: 8:29
+2019-09-23,08:29 AM,Info,SpResLib-UI,NewAlarmActivity - 	 Time picked: 9:40 		 for current alarm: XXXX-YYYY-ZZZZ
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Button clicked: Save
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Saved new alarm with description: order coffee 	 and time: 09-23-2019      09:40AM
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Paused
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Created
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Stopped
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Destroyed
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Back button pressed
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Destroyed
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Create-New button clicked.
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Created
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Resumed
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-09-23,08:29 AM,Info,SpResLib-UI,NewAlarmActivity - 	 User clicked LABEL field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-09-23,08:30 AM,Info,SpResLib-UI,NewAlarmActivity - 	 Updated alarm label: get the coffee
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Button clicked: Cancel
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Canceled changes to alarm with description: get the coffee 	 and time: 09-23-2019      08:29AM
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Button clicked: Cancel
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Canceled changes to alarm with description: New Alarm 	 and time: 09-23-2019      08:30AM
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Button clicked: Delete
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Deleted new alarm with description: New Alarm 	 and time: 09-23-2019      08:30AM
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Paused
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Created
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Stopped
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Destroyed
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Back button pressed
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Destroyed
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Back button pressed
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Destroyed
+2019-09-25,12:38 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Created
+2019-09-25,12:38 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-09-25,12:38 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 View-Current button clicked.
+2019-09-25,12:38 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-09-25,12:38 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Created
+2019-09-25,12:38 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-09-25,12:38 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-09-25,12:38 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 List item selected for alarm with GUID: 0044365972027009559979168004356505897888 	 Description: get paper towels 	 Original Date-Time: 09-22-2019      12:35PM 	 Status: Active
+2019-09-25,12:38 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Back button pressed
+2019-09-25,12:38 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-09-25,12:38 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-09-26,12:07 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-09-26,12:08 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 List item selected for alarm with GUID: 0044365972027009559979168004356505897888 	 Description: get paper towels 	 Original Date-Time: 09-22-2019      12:35PM 	 Status: Active
+2019-09-26,12:08 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-09-26,12:08 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-09-26,12:08 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-09-26,12:08 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-09-26,12:08 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 List item selected for alarm with GUID: 0044365972027009559979168004356505897888 	 Description: get paper towels 	 Original Date-Time: 09-22-2019      12:35PM 	 Status: Active
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Button clicked: Delete
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Deleted alarm with GUID: 0044365972027009559979168004356505897888 	 Description: get paper towels 	 Original Date-Time: 09-22-2019      12:35PM 	 Status: Active
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 List item selected for alarm with GUID: 0159625109538601209877025789852680026211 	 Description: make dinner 	 Original Date-Time: 09-22-2019      05:24PM 	 Status: Active
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Back button pressed
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Back button pressed
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Back button pressed
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Destroyed
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 View-Past button clicked.
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 Created
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 Resumed
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 List item selected for alarm with GUID: 0044365972027009559979168004356505897888 	 Description: get paper towels 	 Original Date-Time: 09-22-2019      12:35PM 	 Status: Complete
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 Back button pressed
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 List item selected for alarm with GUID: 0159625109538601209877025789852680026211 	 Description: make dinner 	 Original Date-Time: 09-22-2019      05:24PM 	 Status: Complete
+2019-09-26,12:10 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 Back button pressed
+2019-09-26,12:10 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 List item selected for alarm with GUID: 0036580376260667645702667991673975604718 	 Description: get money 	 Original Date-Time: 09-23-2019      09:00AM 	 Status: Complete
+2019-09-26,12:10 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 Back button pressed
+2019-09-26,12:10 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 Back button pressed
+2019-09-26,12:10 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 Paused
+2019-09-26,12:10 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-09-26,12:10 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 Stopped
+2019-09-26,12:10 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 Destroyed
+2019-09-26,12:10 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 View-Current button clicked.
+2019-09-26,12:10 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-09-26,12:10 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Created
+2019-09-26,12:10 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-09-26,12:10 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-09-26,12:10 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Back button pressed
+2019-09-26,12:10 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-09-26,12:10 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-09-26,12:10 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-09-26,12:10 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Destroyed
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 View-Past button clicked.
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 Created
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 Resumed
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 Back button pressed
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 Paused
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 Stopped
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 Destroyed
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 View-Current button clicked.
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Created
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Back button pressed
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Destroyed
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 View-Past button clicked.
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 Created
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 Resumed
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 Paused
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin-UI,PastAlarmsActivity - 	 Stopped

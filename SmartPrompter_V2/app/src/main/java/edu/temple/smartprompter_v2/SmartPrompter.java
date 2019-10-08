@@ -1,9 +1,12 @@
 package edu.temple.smartprompter_v2;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.Application;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.PowerManager;
@@ -11,13 +14,18 @@ import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import edu.temple.smartprompter_v2.receivers.ExportReceiver;
 import edu.temple.smartprompter_v2.utils.AlarmClockUtil;
 import edu.temple.smartprompter_v2.services.DownloadService;
 import edu.temple.sp_res_lib.obj.Alarm;
 import edu.temple.smartprompter_v2.services.FileMonitorService;
+import edu.temple.sp_res_lib.utils.AlarmUtil;
+import edu.temple.sp_res_lib.utils.Constants;
+import edu.temple.sp_res_lib.utils.DateTimeUtil;
 import edu.temple.sp_res_lib.utils.Log;
 import edu.temple.sp_res_lib.utils.MediaUtil;
 import edu.temple.sp_res_lib.utils.StorageUtil;
@@ -28,7 +36,6 @@ public class SmartPrompter extends Application {
     public static final String WAKELOCK_TAG = "smartprompter:wakelock";
 
     private static final long WAKELOCK_TIMEOUT = TimeUnit.SECONDS.toMillis(30);
-
     private static final int ALERT_FLAGS = (WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
             WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
             WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
@@ -41,14 +48,18 @@ public class SmartPrompter extends Application {
     private ArrayList<Alarm> futureAlarms, currentAlarms;
     private PowerManager.WakeLock wakeLock;
 
+    private Context appCtx;
+
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
     @Override
     public void onCreate() {
         super.onCreate();
-        Intent downloadServiceIntent = new Intent(this, DownloadService.class);
-        Intent fileMonitorServiceIntent = new Intent(this, FileMonitorService.class);
+        appCtx = getApplicationContext();
+
+        Intent downloadServiceIntent = new Intent(appCtx, DownloadService.class);
+        Intent fileMonitorServiceIntent = new Intent(appCtx, FileMonitorService.class);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startForegroundService(downloadServiceIntent);
@@ -57,6 +68,8 @@ public class SmartPrompter extends Application {
             startService(downloadServiceIntent);
             startService(fileMonitorServiceIntent);
         }
+
+        ExportReceiver.scheduleExport(appCtx);
     }
 
     public void wakeup(Activity context, boolean playAlerts, MediaUtil.AUDIO_TYPE audioType) {
@@ -85,21 +98,16 @@ public class SmartPrompter extends Application {
             wakeLock.release();
         }
 
-        MediaUtil.stopAlarmAlerts(getApplicationContext());
+        MediaUtil.stopAlarmAlerts(appCtx);
     }
 
     public void initializeFromReboot() {
-        // TODO - figure out how to guarantee that SP patient app is always checking for updates
-        getAlarmsFromStorage();
-        AlarmClockUtil.setAllAlarms(getApplicationContext(), currentAlarms);
-        AlarmClockUtil.setAllAlarms(getApplicationContext(), futureAlarms);
+        updateAllAlarmsFromStorage();
     }
 
     public void cleanupDirtyAlarms() {
-        StorageUtil.deleteDirtyFlag(this);
-        getAlarmsFromStorage();
-        AlarmClockUtil.setAllAlarms(getApplicationContext(), currentAlarms);
-        AlarmClockUtil.setAllAlarms(getApplicationContext(), futureAlarms);
+        StorageUtil.deleteDirtyFlag(appCtx);
+        updateAllAlarmsFromStorage();
     }
 
     public Alarm getAlarm(String guid) {
@@ -108,15 +116,13 @@ public class SmartPrompter extends Application {
 
     public Alarm getAlarm(String guid, boolean forAlert) {
         if (forAlert) {
-            // TODO - figure out a better way to do this because this is gross ...
-            getAlarmsFromStorage();
-
+            updateAllAlarmsFromStorage();
             for (Alarm alarm : futureAlarms) {
                 if (alarm.getGuid().equals(guid)) {
                     if (alarm.getStatus().equals(Alarm.STATUS.Active)) {
                         futureAlarms.remove(alarm);
                         currentAlarms.add(alarm);
-                        updateAlarmStatus(guid, Alarm.STATUS.Unacknowledged);
+                        updateAlarm(guid, Alarm.STATUS.Unacknowledged);
                         Log.i(LOG_TAG, "First time getting alert for this alarm.  Status "
                                 + "set to UNACKNOWLEDGED.");
                     }
@@ -134,48 +140,42 @@ public class SmartPrompter extends Application {
     }
 
     public ArrayList<Alarm> getCurrentAlarms() {
-        getAlarmsFromStorage();
+        currentAlarms = AlarmUtil.getAlarmsFromStorage(appCtx, CURRENT_STATUSES);
         return currentAlarms;
     }
 
-    public void updateAlarmStatus(String alarmGUID, Alarm.STATUS newStatus) {
+    public void updateAlarm(String alarmGUID, Alarm.STATUS newStatus) {
         for (Alarm alarm : currentAlarms) {
-            if (alarm.getGuid().equals(alarmGUID))
-                alarm.updateStatus(newStatus);
+            if (alarm.getGuid().equals(alarmGUID)) {
+                AlarmUtil.updateStatus(appCtx, alarm, newStatus);
+            }
         }
-        StorageUtil.writeAlarmsToStorage(this, currentAlarms);
+    }
+
+    public void setAlarmReminder(Alarm alarm, Alarm.REMINDER type) {
+        AlarmClockUtil.setReminder(appCtx, alarm, type);
+    }
+
+    public void cancelAlarm(Alarm alarm) {
+        AlarmClockUtil.cancelAlarm(appCtx, alarm);
     }
 
     public void saveTaskImage(String filename, byte[] bytes) {
         Log.i(LOG_TAG, "Attempting to save file: " + filename);
         Bitmap media = MediaUtil.convertToBitmap(bytes);
-        StorageUtil.writeImageToFile(this, filename, media);
+        StorageUtil.writeImageToFile(appCtx, filename, media);
     }
 
-    public void setAlarmReminder(Alarm alarm, Alarm.REMINDER type) {
-        alarm.setReminder(type);
-        AlarmClockUtil.setAlarm(getApplicationContext(), alarm, true);
-    }
 
-    public void cancelAlarm(Alarm alarm) {
-        AlarmClockUtil.cancelAlarm(getApplicationContext(), alarm);
-    }
+    // ========================================================================================
 
-    // --------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------
 
-    private void getAlarmsFromStorage() {
-        // TODO - come back to this, I don't like how it's laid out ...
+    private void updateAllAlarmsFromStorage() {
+        currentAlarms = AlarmUtil.getAlarmsFromStorage(appCtx, CURRENT_STATUSES);
+        AlarmClockUtil.setAllAlarms(appCtx, currentAlarms);
 
-        Log.i(LOG_TAG, "Retrieving alarm records from storage!");
-        futureAlarms = new ArrayList<>();       // these alarms will be going off in the future
-        currentAlarms = new ArrayList<>();      // these alarms have gone off, user must complete
-
-        ArrayList<Alarm> allAlarms = StorageUtil.getAlarmsFromStorage(this);
-        for (Alarm alarm : allAlarms) {
-            if (FUTURE_STATUSES.contains(alarm.getStatus())) futureAlarms.add(alarm);
-            else if (CURRENT_STATUSES.contains(alarm.getStatus())) currentAlarms.add(alarm);
-        }
+        futureAlarms = AlarmUtil.getAlarmsFromStorage(appCtx, FUTURE_STATUSES);
+        AlarmClockUtil.setAllAlarms(appCtx, futureAlarms);
     }
 
 }

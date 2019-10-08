@@ -23,7 +23,7 @@ public class Alarm implements Parcelable {
 
     public enum STATUS { New, Active, Unacknowledged, Incomplete, Complete }
 
-    public enum REMINDER { None, Explicit, Implicit}
+    public enum REMINDER { None, Explicit, Implicit }
 
     private String uuid;
     private String desc;
@@ -36,6 +36,17 @@ public class Alarm implements Parcelable {
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
+
+    public static PendingIntent getPI(Context context, Alarm alarm,
+                                      Class<?> responseClass, boolean isReminder) {
+        Intent intent = new Intent(context, responseClass);
+        intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, alarm.getGuid());
+        intent.putExtra(Constants.BUNDLE_ARG_ALERT_TYPE, isReminder
+                ? MediaUtil.AUDIO_TYPE.Reminder.toString()
+                : MediaUtil.AUDIO_TYPE.Alarm.toString());
+        return PendingIntent.getBroadcast(context, alarm.getGuidInt() /* request code */,
+                intent, PendingIntent.FLAG_CANCEL_CURRENT);
+    }
 
     public static String exportToJson(Alarm alarm) {
         return (new Gson()).toJson(alarm);
@@ -62,9 +73,19 @@ public class Alarm implements Parcelable {
         desc = in.readString();
         alarmTime = Calendar.getInstance();
         alarmTime.setTimeInMillis(in.readLong());
+        reminderCount = in.readInt();
 
-        // NOTE - don't need reminder time, time acknowledged, or time completed for parcel ops ...
-        // Only using parcelable methods for displaying records in a list
+        String remType = in.readString();
+        if (!remType.equals("")) reminderType = REMINDER.valueOf(remType);
+
+        long remTime = in.readLong();
+        if (remTime != 0) reminderTime.setTimeInMillis(remTime);
+
+        long ackTime = in.readLong();
+        if (ackTime != 0) timeAcknowledged.setTimeInMillis(ackTime);
+
+        long compTime = in.readLong();
+        if (compTime != 0) timeCompleted.setTimeInMillis(compTime);
 
         status = STATUS.valueOf(in.readString());
         archived = (in.readInt() == 1);
@@ -76,8 +97,6 @@ public class Alarm implements Parcelable {
     public void setNewGuid() {
         this.uuid = String.format("%040d", new BigInteger(UUID.randomUUID()
                 .toString().replace("-", ""), 16));
-        // this.uuid = Integer.parseInt(lUUID);
-        // this.uuid = UUID.randomUUID().toString();
     }
 
     public String getGuid() {
@@ -89,6 +108,9 @@ public class Alarm implements Parcelable {
         return bigInt.intValue();
     }
 
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
     public String getDesc() {
         return desc;
     }
@@ -97,25 +119,20 @@ public class Alarm implements Parcelable {
         desc = newDesc;
     }
 
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
     public STATUS getStatus() { return status; }
 
     public void updateStatus(STATUS newStatus) {
-        this.status = newStatus;
-
-        switch (newStatus) {
-            case Incomplete:
-                timeAcknowledged = Calendar.getInstance();
-                Log.i(LOG_TAG, "Alarm with GUID: " + uuid + "\t was acknowledged at time: "
-                        + DateTimeUtil.formatTime(timeAcknowledged, DateTimeUtil.FORMAT.DateTime));
-                break;
-            case Complete:
-                timeCompleted = Calendar.getInstance();
-                Log.i(LOG_TAG, "Alarm with GUID: " + uuid + "\t was completed at time: "
-                        + DateTimeUtil.formatTime(timeCompleted, DateTimeUtil.FORMAT.DateTime));
-                archived = true;
-                break;
-        }
+        status = newStatus;
     }
+
+    public void setArchived(boolean archived) {
+        this.archived = archived;
+    }
+
+    public boolean isArchived() { return archived; }
 
     public String getPhotoPath() {
         String timeCompletedString =
@@ -136,8 +153,6 @@ public class Alarm implements Parcelable {
         return (formattedTime + "_" + formattedDesc + ".jpg");
     }
 
-    public boolean isArchived() { return archived; }
-
     @Override
     public String toString() {
         return desc + " (" + status.toString() + ")";
@@ -146,40 +161,41 @@ public class Alarm implements Parcelable {
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
+    public int incrementReminderCount() {
+        reminderCount++;
+        return reminderCount;
+    }
+
+    public void resetReminderCount() {
+        reminderCount = 0;
+    }
+
+    public boolean isReminderLimitReached() {
+        return (reminderCount > Constants.REMINDER_COUNT_LIMIT);
+    }
+
+    public REMINDER getReminderType() {
+        return reminderType;
+    }
+
+    public void setReminderType(REMINDER type) {
+        reminderType = type;
+    }
+
     public boolean hasReminder() {
         return (reminderTime != null);
     }
 
-    public void setReminder(REMINDER type) {
-        reminderCount++;
-        Log.i(LOG_TAG, "Setting reminder #" + reminderCount + " for alarm: " + desc);
-
-        reminderType = type;
-        switch (type) {
-            case Explicit:
-                Calendar expReminder = Calendar.getInstance();
-                expReminder.set(Calendar.SECOND, 0);
-                expReminder.add(Calendar.MILLISECOND, Constants.REMINDER_DURATION_EXP.intValue());
-                reminderTime = expReminder;
-                break;
-            case Implicit:
-                Calendar impReminder = Calendar.getInstance();
-                impReminder.set(Calendar.SECOND, 0);
-                impReminder.add(Calendar.MILLISECOND, Constants.REMINDER_DURATION_IMP.intValue());
-                reminderTime = impReminder;
-                break;
-            case None:
-                reminderTime = null;
-                break;
-        }
+    public void setReminderTime(Calendar expReminder) {
+        reminderTime = expReminder;
     }
 
     public long getReminderTimeMillis() {
         return reminderTime.getTimeInMillis();
     }
 
-    public boolean isReminderLimitReached() {
-        return (reminderCount > Constants.REMINDER_COUNT_LIMIT);
+    public String getReminderDateTimeString() {
+        return DateTimeUtil.formatTime(reminderTime, DateTimeUtil.FORMAT.DateTime);
     }
 
     // --------------------------------------------------------------------------------------
@@ -191,24 +207,17 @@ public class Alarm implements Parcelable {
         alarmTime.set(Calendar.DAY_OF_MONTH, d);
     }
 
+    public void updateAlarmTime(int h, int m) {
+        alarmTime.set(Calendar.HOUR_OF_DAY, h);
+        alarmTime.set(Calendar.MINUTE, m);
+    }
+
     public int[] getAlarmDate() {
         return new int[] {
                 alarmTime.get(Calendar.YEAR),
                 alarmTime.get(Calendar.MONTH),
                 alarmTime.get(Calendar.DAY_OF_MONTH)
         };
-    }
-
-    public String getAlarmDateString() {
-        return DateTimeUtil.formatTime(alarmTime, DateTimeUtil.FORMAT.Date);
-    }
-
-    // --------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------
-
-    public void updateAlarmTime(int h, int m) {
-        alarmTime.set(Calendar.HOUR_OF_DAY, h);
-        alarmTime.set(Calendar.MINUTE, m);
     }
 
     public int[] getAlarmTime() {
@@ -223,23 +232,31 @@ public class Alarm implements Parcelable {
         return alarmTime.getTimeInMillis();
     }
 
+    public String getAlarmDateString() {
+        return DateTimeUtil.formatTime(alarmTime, DateTimeUtil.FORMAT.Date);
+    }
+
     public String getAlarmTimeString() {
         return DateTimeUtil.formatTime(alarmTime, DateTimeUtil.FORMAT.Time);
     }
-
-    // --------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------
 
     public String getAlarmDateTimeString() {
         return DateTimeUtil.formatTime(alarmTime, DateTimeUtil.FORMAT.DateTime);
     }
 
-    public String getReminderDateTimeString() {
-        return DateTimeUtil.formatTime(reminderTime, DateTimeUtil.FORMAT.DateTime);
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    public void setTimeAcknowledged() {
+        timeAcknowledged = Calendar.getInstance();
     }
 
     public String getAcknowledgedDateTimeString() {
         return DateTimeUtil.formatTime(timeAcknowledged, DateTimeUtil.FORMAT.DateTime);
+    }
+
+    public void setTimeCompleted() {
+        timeCompleted = Calendar.getInstance();
     }
 
     public String getCompletionDateTimeString() {
@@ -259,9 +276,19 @@ public class Alarm implements Parcelable {
         parcel.writeString(uuid);
         parcel.writeString(desc);
         parcel.writeLong(alarmTime.getTimeInMillis());
+        parcel.writeInt(reminderCount);
 
-        // NOTE - don't need reminder time, time acknowledged, or time completed for parcel ops ...
-        // Only using parcelable methods for displaying records in a list
+        if (reminderType != null) parcel.writeString(reminderType.toString());
+        else parcel.writeString("");
+
+        if (reminderTime != null) parcel.writeLong(reminderTime.getTimeInMillis());
+        else parcel.writeLong(0);
+
+        if (timeAcknowledged != null) parcel.writeLong(timeAcknowledged.getTimeInMillis());
+        else parcel.writeLong(0);
+
+        if (timeCompleted != null) parcel.writeLong(timeCompleted.getTimeInMillis());
+        else parcel.writeLong(0);
 
         parcel.writeString(status.toString());
         parcel.writeInt(archived ? 1 : 0);
@@ -278,18 +305,5 @@ public class Alarm implements Parcelable {
             return new Alarm[size];
         }
     };
-
-    // --------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------
-
-    public PendingIntent getPI(Context context, Class<?> responseClass, boolean isReminder) {
-        Intent intent = new Intent(context, responseClass);
-        intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, getGuid());
-        intent.putExtra(Constants.BUNDLE_ARG_ALERT_TYPE, isReminder
-                ? MediaUtil.AUDIO_TYPE.Reminder.toString()
-                : MediaUtil.AUDIO_TYPE.Alarm.toString());
-        return PendingIntent.getBroadcast(context, getGuidInt() /* request code */,
-                intent, PendingIntent.FLAG_CANCEL_CURRENT);
-    }
 
 }

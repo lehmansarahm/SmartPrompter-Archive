@@ -10,27 +10,46 @@ import java.util.List;
 import edu.temple.smartprompter_v2.activities.MainActivity;
 import edu.temple.smartprompter_v2.receivers.AlarmAlertReceiver;
 import edu.temple.sp_res_lib.obj.Alarm;
+import edu.temple.sp_res_lib.utils.AlarmUtil;
 import edu.temple.sp_res_lib.utils.DateTimeUtil;
 import edu.temple.sp_res_lib.utils.Log;
+import edu.temple.sp_res_lib.utils.StorageUtil;
 
 import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 
 public class AlarmClockUtil {
 
-    public static void setAlarm(Context context, Alarm alarm, boolean isReminder) {
-        AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+    public static void setAlarm(Context context, Alarm alarm) {
+        long alarmTime = alarm.getAlarmTimeMillis();
+        String alarmString = alarm.getAlarmDateTimeString();
 
-        long alarmTime = (isReminder ? alarm.getReminderTimeMillis() : alarm.getAlarmTimeMillis());
-        String alarmString = (isReminder ? alarm.getReminderDateTimeString() : alarm.getAlarmDateTimeString());
+        Log.e(LOG_TAG, "Setting alarm for task: " + alarm.getDesc()
+                + " \t \t and GUID-int: " + alarm.getGuidInt()
+                + " \t \t with date/time: " + alarmString);
+        setAlarmClock(context, alarm, alarmTime, false);
+    }
 
-        if (manager != null) {
-            Log.e(LOG_TAG, "Setting " + (isReminder ? "reminder" : "alarm")
-                    + " for task: " + alarm.getDesc()
+    public static void setReminder(Context context, Alarm alarm, Alarm.REMINDER type) {
+        if (type == Alarm.REMINDER.Explicit) {
+            Log.i(LOG_TAG, "User has explicitly snoozed alarm.  Resetting reminder count.");
+            alarm.resetReminderCount();
+        }
+
+        if (!alarm.isReminderLimitReached()) {
+            Log.i(LOG_TAG, "Alarm reminder limit hasn't been exceeded.  Setting "
+                    + "reminder with type: " + type.toString());
+            alarm.setReminderType(type);
+
+            AlarmUtil.setReminderTime(alarm, type);
+            long reminderTime = alarm.getReminderTimeMillis();
+            String reminderString = alarm.getReminderDateTimeString();
+
+            Log.e(LOG_TAG, "Setting reminder for task: " + alarm.getDesc()
                     + " \t \t and GUID-int: " + alarm.getGuidInt()
-                    + " \t \t with date/time: " + alarmString);
-            PendingIntent notificationPI = alarm.getPI(context, MainActivity.class, isReminder);
-            PendingIntent receiverPI = alarm.getPI(context, AlarmAlertReceiver.class, isReminder);
-            manager.setAlarmClock(new AlarmManager.AlarmClockInfo(alarmTime, notificationPI), receiverPI);
+                    + " \t \t with date/time: " + reminderString);
+
+            setAlarmClock(context, alarm, reminderTime, true);
+            StorageUtil.writeAlarmToStorage(context, alarm);
         }
     }
 
@@ -45,13 +64,13 @@ public class AlarmClockUtil {
 
             long currentTime = Calendar.getInstance().getTimeInMillis();
             if (alarm.getAlarmTimeMillis() > currentTime)
-                setAlarm(context, alarm, false);
+                setAlarm(context, alarm);
             else {
                 Log.i(LOG_TAG, "Original alarm time has passed... Checking for active reminders...");
                 if (alarm.hasReminder()) {
                     if (alarm.getReminderTimeMillis() < currentTime)
                         Log.e(LOG_TAG, "Alarm has active reminder, but reminder time has passed.");
-                    else setAlarm(context, alarm, true);
+                    else setReminder(context, alarm, alarm.getReminderType());
                 }
             }
         }
@@ -61,8 +80,21 @@ public class AlarmClockUtil {
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         if (manager != null) {
             Log.i(LOG_TAG, "Cancelling existing alarms for GUID-int: " + alarm.getGuidInt());
-            manager.cancel(alarm.getPI(context, AlarmAlertReceiver.class, false));
+            manager.cancel(Alarm.getPI(context, alarm, AlarmAlertReceiver.class, false));
         }
+    }
+
+
+    // ====================================================================================
+
+
+    private static void setAlarmClock(Context context, Alarm alarm, long alarmTime, boolean isReminder) {
+        AlarmManager mgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        assert (mgr != null);
+
+        PendingIntent notificationPI = Alarm.getPI(context, alarm, MainActivity.class, isReminder);
+        PendingIntent receiverPI = Alarm.getPI(context, alarm, AlarmAlertReceiver.class, isReminder);
+        mgr.setAlarmClock(new AlarmManager.AlarmClockInfo(alarmTime, notificationPI), receiverPI);
     }
 
 }

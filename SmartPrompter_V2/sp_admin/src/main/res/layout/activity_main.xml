@@ -60,11 +60,19 @@
         android:text="@string/view_past_text" />
 
     <Button
-        android:id="@+id/configure_survey_button"
+        android:id="@+id/configure_audio_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/button_size"
         android:padding="@dimen/button_padding"
-        android:text="Configure Audio / Email" />
+        android:text="Configure Audio" />
+
+    <Button
+        android:id="@+id/configure_email_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/button_size"
+        android:padding="@dimen/button_padding"
+        android:text="Configure Email" />
 
 </LinearLayout>

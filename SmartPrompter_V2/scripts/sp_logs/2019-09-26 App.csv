@@ -1,0 +1,306 @@
+2019-09-22,12:24 PM,Error,SmartPrompter-Admin,Launching on device with dp height: 609.7778 		 and dp width: 320.0
+2019-09-22,12:24 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-22,12:24 PM,Info,SpResLib,Retrieving log records from storage!
+2019-09-22,12:24 PM,Info,SpResLib,Scanning file: 2019-09-20 App.csv
+2019-09-22,12:24 PM,Info,SpResLib,Scanning file: 2019-09-20 UI.csv
+2019-09-22,12:24 PM,Info,SpResLib,Retrieving survey questions from storage!
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin,Populating activities.NewAlarmActivity with Alarm-Details fragment.
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin,User clicked DATE field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin,User clicked TIME field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: XXXX-YYYY-ZZZZ	 Description: get paper towels	 Date: 2019-09-22	 Time: 12:35 PM	 Status: Active	 Is Archived: false
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin,Creating new record for alarm: get paper towels
+2019-09-22,12:24 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":false,"desc":"get paper towels","status":"Active","uuid":"0044365972027009559979168004356505897888"}
+2019-09-22,12:24 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":false,"desc":"get paper towels","status":"Active","uuid":"0044365972027009559979168004356505897888"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0044365972027009559979168004356505897888
+2019-09-22,12:24 PM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-22,12:24 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-22,12:24 PM,Info,SpResLib,Scanning file: 0044365972027009559979168004356505897888
+2019-09-22,12:24 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":false,"desc":"get paper towels","status":"Active","uuid":"0044365972027009559979168004356505897888"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0044365972027009559979168004356505897888
+2019-09-22,12:24 PM,Info,SpResLib,Scanning file: dirty
+2019-09-22,12:24 PM,Info,SpResLib,Read contents: 
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-22,12:24 PM,Info,SmartPrompter-Admin,Populating activities.NewAlarmActivity with Alarm-Details fragment.
+2019-09-22,12:25 PM,Info,SmartPrompter-Admin,User clicked TIME field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-09-22,12:25 PM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: XXXX-YYYY-ZZZZ	 Description: make dinner	 Date: 2019-09-22	 Time: 05:24 PM	 Status: Active	 Is Archived: false
+2019-09-22,12:25 PM,Info,SmartPrompter-Admin,Creating new record for alarm: make dinner
+2019-09-22,12:25 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":false,"desc":"get paper towels","status":"Active","uuid":"0044365972027009559979168004356505897888"}
+2019-09-22,12:25 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":false,"desc":"get paper towels","status":"Active","uuid":"0044365972027009559979168004356505897888"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0044365972027009559979168004356505897888
+2019-09-22,12:25 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+2019-09-22,12:25 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0159625109538601209877025789852680026211
+2019-09-22,12:25 PM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-22,12:25 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-22,12:25 PM,Info,SpResLib,Scanning file: 0044365972027009559979168004356505897888
+2019-09-22,12:25 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":false,"desc":"get paper towels","status":"Active","uuid":"0044365972027009559979168004356505897888"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0044365972027009559979168004356505897888
+2019-09-22,12:25 PM,Info,SpResLib,Scanning file: 0159625109538601209877025789852680026211
+2019-09-22,12:25 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0159625109538601209877025789852680026211
+2019-09-22,12:25 PM,Info,SpResLib,Scanning file: dirty
+2019-09-22,12:25 PM,Info,SpResLib,Read contents: 
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-22,12:25 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin,Populating activities.NewAlarmActivity with Alarm-Details fragment.
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin,User clicked TIME field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: XXXX-YYYY-ZZZZ	 Description: get money	 Date: 2019-09-23	 Time: 09:00 AM	 Status: Active	 Is Archived: false
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin,Creating new record for alarm: get money
+2019-09-23,08:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":false,"desc":"get paper towels","status":"Active","uuid":"0044365972027009559979168004356505897888"}
+2019-09-23,08:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":false,"desc":"get paper towels","status":"Active","uuid":"0044365972027009559979168004356505897888"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0044365972027009559979168004356505897888
+2019-09-23,08:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+2019-09-23,08:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0159625109538601209877025789852680026211
+2019-09-23,08:14 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":0,"second":0},"archived":false,"desc":"get money","status":"Active","uuid":"0036580376260667645702667991673975604718"}
+2019-09-23,08:14 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":0,"second":0},"archived":false,"desc":"get money","status":"Active","uuid":"0036580376260667645702667991673975604718"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0036580376260667645702667991673975604718
+2019-09-23,08:14 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-23,08:14 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-23,08:14 AM,Info,SpResLib,Scanning file: 0044365972027009559979168004356505897888
+2019-09-23,08:14 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":false,"desc":"get paper towels","status":"Active","uuid":"0044365972027009559979168004356505897888"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0044365972027009559979168004356505897888
+2019-09-23,08:14 AM,Info,SpResLib,Scanning file: 0159625109538601209877025789852680026211
+2019-09-23,08:14 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0159625109538601209877025789852680026211
+2019-09-23,08:14 AM,Info,SpResLib,Scanning file: 0036580376260667645702667991673975604718
+2019-09-23,08:14 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":0,"second":0},"archived":false,"desc":"get money","status":"Active","uuid":"0036580376260667645702667991673975604718"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0036580376260667645702667991673975604718
+2019-09-23,08:14 AM,Info,SpResLib,Scanning file: dirty
+2019-09-23,08:14 AM,Info,SpResLib,Read contents: 
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-23,08:14 AM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0044365972027009559979168004356505897888
+2019-09-23,08:29 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-23,08:29 AM,Info,SpResLib,Scanning file: 0044365972027009559979168004356505897888
+2019-09-23,08:29 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":false,"desc":"get paper towels","status":"Active","uuid":"0044365972027009559979168004356505897888"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0044365972027009559979168004356505897888
+2019-09-23,08:29 AM,Info,SpResLib,Scanning file: 0159625109538601209877025789852680026211
+2019-09-23,08:29 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0159625109538601209877025789852680026211
+2019-09-23,08:29 AM,Info,SpResLib,Scanning file: 0036580376260667645702667991673975604718
+2019-09-23,08:29 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":0,"second":0},"archived":false,"desc":"get money","status":"Active","uuid":"0036580376260667645702667991673975604718"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0036580376260667645702667991673975604718
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-23,08:29 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-23,08:29 AM,Info,SpResLib,Scanning file: 0044365972027009559979168004356505897888
+2019-09-23,08:29 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":false,"desc":"get paper towels","status":"Active","uuid":"0044365972027009559979168004356505897888"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0044365972027009559979168004356505897888
+2019-09-23,08:29 AM,Info,SpResLib,Scanning file: 0159625109538601209877025789852680026211
+2019-09-23,08:29 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0159625109538601209877025789852680026211
+2019-09-23,08:29 AM,Info,SpResLib,Scanning file: 0036580376260667645702667991673975604718
+2019-09-23,08:29 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":0,"second":0},"archived":false,"desc":"get money","status":"Active","uuid":"0036580376260667645702667991673975604718"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0036580376260667645702667991673975604718
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin,Populating activities.NewAlarmActivity with Alarm-Details fragment.
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin,User clicked DATE field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin,User clicked TIME field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: XXXX-YYYY-ZZZZ	 Description: order coffee	 Date: 2019-09-23	 Time: 09:40 AM	 Status: Active	 Is Archived: false
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin,Creating new record for alarm: order coffee
+2019-09-23,08:29 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":false,"desc":"get paper towels","status":"Active","uuid":"0044365972027009559979168004356505897888"}
+2019-09-23,08:29 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":false,"desc":"get paper towels","status":"Active","uuid":"0044365972027009559979168004356505897888"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0044365972027009559979168004356505897888
+2019-09-23,08:29 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+2019-09-23,08:29 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0159625109538601209877025789852680026211
+2019-09-23,08:29 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":0,"second":0},"archived":false,"desc":"get money","status":"Active","uuid":"0036580376260667645702667991673975604718"}
+2019-09-23,08:29 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":0,"second":0},"archived":false,"desc":"get money","status":"Active","uuid":"0036580376260667645702667991673975604718"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0036580376260667645702667991673975604718
+2019-09-23,08:29 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":0},"archived":false,"desc":"order coffee","status":"Active","uuid":"0243290573165752448325230103654387518707"}
+2019-09-23,08:29 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":0},"archived":false,"desc":"order coffee","status":"Active","uuid":"0243290573165752448325230103654387518707"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0243290573165752448325230103654387518707
+2019-09-23,08:29 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-23,08:29 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-23,08:29 AM,Info,SpResLib,Scanning file: 0044365972027009559979168004356505897888
+2019-09-23,08:29 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":false,"desc":"get paper towels","status":"Active","uuid":"0044365972027009559979168004356505897888"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0044365972027009559979168004356505897888
+2019-09-23,08:29 AM,Info,SpResLib,Scanning file: 0159625109538601209877025789852680026211
+2019-09-23,08:29 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0159625109538601209877025789852680026211
+2019-09-23,08:29 AM,Info,SpResLib,Scanning file: 0036580376260667645702667991673975604718
+2019-09-23,08:29 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":0,"second":0},"archived":false,"desc":"get money","status":"Active","uuid":"0036580376260667645702667991673975604718"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0036580376260667645702667991673975604718
+2019-09-23,08:29 AM,Info,SpResLib,Scanning file: 0243290573165752448325230103654387518707
+2019-09-23,08:29 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":0},"archived":false,"desc":"order coffee","status":"Active","uuid":"0243290573165752448325230103654387518707"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0243290573165752448325230103654387518707
+2019-09-23,08:29 AM,Info,SpResLib,Scanning file: dirty
+2019-09-23,08:29 AM,Info,SpResLib,Read contents: 
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-23,08:29 AM,Info,SmartPrompter-Admin,Populating activities.NewAlarmActivity with Alarm-Details fragment.
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin,Populating activities.NewAlarmActivity with Alarm-Details fragment.
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin,Populating activities.NewAlarmActivity with Alarm-Details fragment.
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin,Attempting to delete alarm record with: 	 GUID: XXXX-YYYY-ZZZZ	 Description: New Alarm
+2019-09-23,08:30 AM,Error,SpResLib,Can't delete file: XXXX-YYYY-ZZZZ	 if it doesn't exist!
+2019-09-23,08:30 AM,Info,SpResLib,Deleted file: /storage/emulated/0/Documents/sp_alarms/XXXX-YYYY-ZZZZ
+2019-09-23,08:30 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-23,08:30 AM,Info,SpResLib,Scanning file: 0044365972027009559979168004356505897888
+2019-09-23,08:30 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":false,"desc":"get paper towels","status":"Active","uuid":"0044365972027009559979168004356505897888"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0044365972027009559979168004356505897888
+2019-09-23,08:30 AM,Info,SpResLib,Scanning file: 0159625109538601209877025789852680026211
+2019-09-23,08:30 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0159625109538601209877025789852680026211
+2019-09-23,08:30 AM,Info,SpResLib,Scanning file: 0036580376260667645702667991673975604718
+2019-09-23,08:30 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":0,"second":0},"archived":false,"desc":"get money","status":"Active","uuid":"0036580376260667645702667991673975604718"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0036580376260667645702667991673975604718
+2019-09-23,08:30 AM,Info,SpResLib,Scanning file: 0243290573165752448325230103654387518707
+2019-09-23,08:30 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":0},"archived":false,"desc":"order coffee","status":"Active","uuid":"0243290573165752448325230103654387518707"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0243290573165752448325230103654387518707
+2019-09-23,08:30 AM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-25,12:38 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-25,12:38 PM,Info,SpResLib,Scanning file: 0044365972027009559979168004356505897888
+2019-09-25,12:38 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":false,"desc":"get paper towels","status":"Active","uuid":"0044365972027009559979168004356505897888"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0044365972027009559979168004356505897888
+2019-09-25,12:38 PM,Info,SpResLib,Scanning file: 0159625109538601209877025789852680026211
+2019-09-25,12:38 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0159625109538601209877025789852680026211
+2019-09-25,12:38 PM,Info,SpResLib,Scanning file: 0243290573165752448325230103654387518707
+2019-09-25,12:38 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":0},"archived":false,"desc":"order coffee","status":"Incomplete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":15},"uuid":"0243290573165752448325230103654387518707"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0243290573165752448325230103654387518707
+2019-09-25,12:38 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-25,12:38 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0044365972027009559979168004356505897888
+2019-09-26,12:07 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-26,12:07 PM,Info,SpResLib,Scanning file: 0044365972027009559979168004356505897888
+2019-09-26,12:07 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":false,"desc":"get paper towels","status":"Active","uuid":"0044365972027009559979168004356505897888"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0044365972027009559979168004356505897888
+2019-09-26,12:07 PM,Info,SpResLib,Scanning file: 0159625109538601209877025789852680026211
+2019-09-26,12:07 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0159625109538601209877025789852680026211
+2019-09-26,12:07 PM,Info,SpResLib,Scanning file: 0243290573165752448325230103654387518707
+2019-09-26,12:07 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":0},"archived":false,"desc":"order coffee","status":"Incomplete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":15},"uuid":"0243290573165752448325230103654387518707"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0243290573165752448325230103654387518707
+2019-09-26,12:07 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-26,12:08 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0044365972027009559979168004356505897888
+2019-09-26,12:08 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-26,12:08 PM,Info,SpResLib,Scanning file: 0044365972027009559979168004356505897888
+2019-09-26,12:08 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":false,"desc":"get paper towels","status":"Active","uuid":"0044365972027009559979168004356505897888"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0044365972027009559979168004356505897888
+2019-09-26,12:08 PM,Info,SpResLib,Scanning file: 0159625109538601209877025789852680026211
+2019-09-26,12:08 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0159625109538601209877025789852680026211
+2019-09-26,12:08 PM,Info,SpResLib,Scanning file: 0243290573165752448325230103654387518707
+2019-09-26,12:08 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":0},"archived":false,"desc":"order coffee","status":"Incomplete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":15},"uuid":"0243290573165752448325230103654387518707"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0243290573165752448325230103654387518707
+2019-09-26,12:08 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-26,12:09 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-26,12:09 PM,Info,SpResLib,Scanning file: 0044365972027009559979168004356505897888
+2019-09-26,12:09 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":false,"desc":"get paper towels","status":"Active","uuid":"0044365972027009559979168004356505897888"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0044365972027009559979168004356505897888
+2019-09-26,12:09 PM,Info,SpResLib,Scanning file: 0159625109538601209877025789852680026211
+2019-09-26,12:09 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0159625109538601209877025789852680026211
+2019-09-26,12:09 PM,Info,SpResLib,Scanning file: 0243290573165752448325230103654387518707
+2019-09-26,12:09 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":0},"archived":false,"desc":"order coffee","status":"Incomplete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":15},"uuid":"0243290573165752448325230103654387518707"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0243290573165752448325230103654387518707
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0044365972027009559979168004356505897888
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin,Attempting to delete alarm record with: 	 GUID: 0044365972027009559979168004356505897888	 Description: get paper towels
+2019-09-26,12:09 PM,Info,SpResLib,Deleted file: /storage/emulated/0/Documents/sp_alarms/0044365972027009559979168004356505897888
+2019-09-26,12:09 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-26,12:09 PM,Info,SpResLib,Scanning file: 0159625109538601209877025789852680026211
+2019-09-26,12:09 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0159625109538601209877025789852680026211
+2019-09-26,12:09 PM,Info,SpResLib,Scanning file: 0243290573165752448325230103654387518707
+2019-09-26,12:09 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":0},"archived":false,"desc":"order coffee","status":"Incomplete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":15},"uuid":"0243290573165752448325230103654387518707"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0243290573165752448325230103654387518707
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0159625109538601209877025789852680026211
+2019-09-26,12:09 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-26,12:09 PM,Info,SpResLib,Scanning file: 0159625109538601209877025789852680026211
+2019-09-26,12:09 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0159625109538601209877025789852680026211
+2019-09-26,12:09 PM,Info,SpResLib,Scanning file: 0243290573165752448325230103654387518707
+2019-09-26,12:09 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":0},"archived":false,"desc":"order coffee","status":"Incomplete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":15},"uuid":"0243290573165752448325230103654387518707"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0243290573165752448325230103654387518707
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-26,12:09 PM,Info,SpResLib,Retrieving log records from storage!
+2019-09-26,12:09 PM,Info,SpResLib,Scanning file: 2019-09-20 App.csv
+2019-09-26,12:09 PM,Info,SpResLib,Scanning file: 2019-09-20 UI.csv
+2019-09-26,12:09 PM,Info,SpResLib,Scanning file: 2019-09-22 App.csv
+2019-09-26,12:09 PM,Info,SpResLib,Scanning file: 2019-09-22 UI.csv
+2019-09-26,12:09 PM,Info,SpResLib,Scanning file: 0044365972027009559979168004356505897888
+2019-09-26,12:09 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":true,"desc":"get paper towels","status":"Complete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":30},"timeCompleted":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":41},"uuid":"0044365972027009559979168004356505897888"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0044365972027009559979168004356505897888
+2019-09-26,12:09 PM,Info,SpResLib,Scanning file: 2019-09-23 App.csv
+2019-09-26,12:09 PM,Info,SpResLib,Scanning file: 2019-09-23 UI.csv
+2019-09-26,12:09 PM,Info,SpResLib,Scanning file: 0159625109538601209877025789852680026211
+2019-09-26,12:09 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":true,"desc":"make dinner","status":"Complete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":7,"minute":47,"second":32},"timeCompleted":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":7,"minute":47,"second":40},"uuid":"0159625109538601209877025789852680026211"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0159625109538601209877025789852680026211
+2019-09-26,12:09 PM,Info,SpResLib,Scanning file: 0036580376260667645702667991673975604718
+2019-09-26,12:09 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":0,"second":0},"archived":true,"desc":"get money","status":"Complete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":1,"second":14},"timeCompleted":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":31},"uuid":"0036580376260667645702667991673975604718"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0036580376260667645702667991673975604718
+2019-09-26,12:09 PM,Info,SpResLib,Scanning file: 2019-09-25 App.csv
+2019-09-26,12:09 PM,Info,SpResLib,Scanning file: 2019-09-25 UI.csv
+2019-09-26,12:09 PM,Info,SpResLib,Scanning file: 2019-09-26 App.csv
+2019-09-26,12:09 PM,Info,SpResLib,Scanning file: 2019-09-26 UI.csv
+2019-09-26,12:09 PM,Info,SmartPrompter-Admin,Populating activities.PastAlarmsActivity with alarm-list fragment.
+2019-09-26,12:09 PM,Info,SpResLib,Image file exists!  Attempting to retrieve from absolute path: 		 /storage/emulated/0/Documents/sp_photos/09222019______1235PM_getpapertowels.jpg
+2019-09-26,12:09 PM,Info,SpResLib,Attempt to retrieve completion image was successful.  Forwarding Bitmap to image viewer.
+2019-09-26,12:09 PM,Info,SpResLib,Image file exists!  Attempting to retrieve from absolute path: 		 /storage/emulated/0/Documents/sp_photos/09232019______0747AM_makedinner.jpg
+2019-09-26,12:09 PM,Info,SpResLib,Attempt to retrieve completion image was successful.  Forwarding Bitmap to image viewer.
+2019-09-26,12:10 PM,Info,SpResLib,Image file exists!  Attempting to retrieve from absolute path: 		 /storage/emulated/0/Documents/sp_photos/09232019______0940AM_getmoney.jpg
+2019-09-26,12:10 PM,Info,SpResLib,Attempt to retrieve completion image was successful.  Forwarding Bitmap to image viewer.
+2019-09-26,12:10 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-26,12:10 PM,Info,SpResLib,Scanning file: 0159625109538601209877025789852680026211
+2019-09-26,12:10 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0159625109538601209877025789852680026211
+2019-09-26,12:10 PM,Info,SpResLib,Scanning file: 0243290573165752448325230103654387518707
+2019-09-26,12:10 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":0},"archived":false,"desc":"order coffee","status":"Incomplete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":15},"uuid":"0243290573165752448325230103654387518707"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0243290573165752448325230103654387518707
+2019-09-26,12:10 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-26,12:11 PM,Info,SpResLib,Retrieving log records from storage!
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 2019-09-20 App.csv
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 2019-09-20 UI.csv
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 2019-09-22 App.csv
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 2019-09-22 UI.csv
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 0044365972027009559979168004356505897888
+2019-09-26,12:11 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":true,"desc":"get paper towels","status":"Complete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":30},"timeCompleted":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":41},"uuid":"0044365972027009559979168004356505897888"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0044365972027009559979168004356505897888
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 2019-09-23 App.csv
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 2019-09-23 UI.csv
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 0159625109538601209877025789852680026211
+2019-09-26,12:11 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":true,"desc":"make dinner","status":"Complete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":7,"minute":47,"second":32},"timeCompleted":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":7,"minute":47,"second":40},"uuid":"0159625109538601209877025789852680026211"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0159625109538601209877025789852680026211
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 0036580376260667645702667991673975604718
+2019-09-26,12:11 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":0,"second":0},"archived":true,"desc":"get money","status":"Complete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":1,"second":14},"timeCompleted":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":31},"uuid":"0036580376260667645702667991673975604718"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0036580376260667645702667991673975604718
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 2019-09-25 App.csv
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 2019-09-25 UI.csv
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 2019-09-26 App.csv
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 2019-09-26 UI.csv
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin,Populating activities.PastAlarmsActivity with alarm-list fragment.
+2019-09-26,12:11 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 0159625109538601209877025789852680026211
+2019-09-26,12:11 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0159625109538601209877025789852680026211
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 0243290573165752448325230103654387518707
+2019-09-26,12:11 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":0},"archived":false,"desc":"order coffee","status":"Incomplete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":15},"uuid":"0243290573165752448325230103654387518707"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0243290573165752448325230103654387518707
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-26,12:11 PM,Info,SpResLib,Retrieving log records from storage!
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 2019-09-20 App.csv
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 2019-09-20 UI.csv
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 2019-09-22 App.csv
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 2019-09-22 UI.csv
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 0044365972027009559979168004356505897888
+2019-09-26,12:11 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":0},"archived":true,"desc":"get paper towels","status":"Complete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":30},"timeCompleted":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":12,"minute":35,"second":41},"uuid":"0044365972027009559979168004356505897888"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0044365972027009559979168004356505897888
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 2019-09-23 App.csv
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 2019-09-23 UI.csv
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 0159625109538601209877025789852680026211
+2019-09-26,12:11 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":true,"desc":"make dinner","status":"Complete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":7,"minute":47,"second":32},"timeCompleted":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":7,"minute":47,"second":40},"uuid":"0159625109538601209877025789852680026211"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0159625109538601209877025789852680026211
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 0036580376260667645702667991673975604718
+2019-09-26,12:11 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":0,"second":0},"archived":true,"desc":"get money","status":"Complete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":1,"second":14},"timeCompleted":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":31},"uuid":"0036580376260667645702667991673975604718"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0036580376260667645702667991673975604718
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 2019-09-25 App.csv
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 2019-09-25 UI.csv
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 2019-09-26 App.csv
+2019-09-26,12:11 PM,Info,SpResLib,Scanning file: 2019-09-26 UI.csv
+2019-09-26,12:11 PM,Info,SmartPrompter-Admin,Populating activities.PastAlarmsActivity with alarm-list fragment.

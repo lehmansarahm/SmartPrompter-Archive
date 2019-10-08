@@ -23,7 +23,7 @@ public class MainActivity extends BaseActivity {
     };
 
     private Button createNewButton, viewCurrentButton,
-            viewPastButton, configureQuestionsButton;
+            viewPastButton, configAudioButton, configEmailButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,13 +94,23 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        configureQuestionsButton = findViewById(R.id.configure_survey_button);
-        configureQuestionsButton.setOnClickListener(new View.OnClickListener() {
+        configAudioButton = findViewById(R.id.configure_audio_button);
+        configAudioButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.ui(LOG_TAG, MainActivity.this, "Configure-Surveys button clicked.");
+                Log.ui(LOG_TAG, MainActivity.this, "Configure-Audio button clicked.");
                 startActivity(new Intent(MainActivity.this,
-                        AudioEmailConfigActivity.class));
+                        ConfigAudioActivity.class));
+            }
+        });
+
+        configEmailButton = findViewById(R.id.configure_email_button);
+        configEmailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.ui(LOG_TAG, MainActivity.this, "Configure-Email button clicked.");
+                startActivity(new Intent(MainActivity.this,
+                        ConfigEmailActivity.class));
             }
         });
     }
@@ -109,7 +119,8 @@ public class MainActivity extends BaseActivity {
         createNewButton.setEnabled(enabled);
         viewCurrentButton.setEnabled(enabled);
         viewPastButton.setEnabled(enabled);
-        configureQuestionsButton.setEnabled(enabled);
+        configAudioButton.setEnabled(enabled);
+        configEmailButton.setEnabled(enabled);
     }
 
 }

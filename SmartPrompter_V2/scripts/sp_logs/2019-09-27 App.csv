@@ -1,0 +1,31 @@
+2019-09-27,11:51 AM,Info,SmartPrompterV2,Populating current activity with clock fragment.
+2019-09-27,11:51 AM,Info,SmartPrompterV2,Missing some permissions!  Time to request from the user...
+2019-09-27,11:51 AM,Info,SmartPrompterV2,DownloadService is working!
+2019-09-27,11:51 AM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-09-27,11:51 AM,Info,SmartPrompterV2,User has granted all required permissions!
+2019-09-27,11:51 AM,Info,SmartPrompterV2,Retrieving alarm records from storage!
+2019-09-27,11:51 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-27,11:51 AM,Info,SpResLib,Scanning file: 0159625109538601209877025789852680026211
+2019-09-27,11:51 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0159625109538601209877025789852680026211
+2019-09-27,11:51 AM,Info,SpResLib,Scanning file: 0243290573165752448325230103654387518707
+2019-09-27,11:51 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":0},"archived":false,"desc":"order coffee","reminderCount":4,"reminderTime":{"year":2019,"month":8,"dayOfMonth":27,"hourOfDay":11,"minute":51,"second":0},"reminderType":"Implicit","status":"Incomplete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":15},"uuid":"0243290573165752448325230103654387518707"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0243290573165752448325230103654387518707
+2019-09-27,11:51 AM,Info,SmartPrompterV2,Populating current activity with alarm-list fragment.
+2019-09-27,11:51 AM,Info,SmartPrompterV2,Cancelling existing alarms for GUID-int: -952267533
+2019-09-27,11:51 AM,Info,SmartPrompterV2,Implicit SeekBar progress changed: 0
+2019-09-27,11:51 AM,Info,SmartPrompterV2,Updating flavor for slider selection: 0
+2019-09-27,11:51 AM,Info,SpResLib,Stopping vibrate!
+2019-09-27,11:51 AM,Info,SmartPrompterV2,Processing final slider selection: 0
+2019-09-27,11:51 AM,Info,SmartPrompterV2,Populating current activity with clock fragment.
+2019-09-27,11:51 AM,Info,SmartPrompterV2,Missing some permissions!  Time to request from the user...
+2019-09-27,11:51 AM,Info,SmartPrompterV2,User has granted all required permissions!
+2019-09-27,11:51 AM,Info,SmartPrompterV2,Retrieving alarm records from storage!
+2019-09-27,11:51 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-27,11:51 AM,Info,SpResLib,Scanning file: 0159625109538601209877025789852680026211
+2019-09-27,11:51 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":22,"hourOfDay":17,"minute":24,"second":0},"archived":false,"desc":"make dinner","status":"Active","uuid":"0159625109538601209877025789852680026211"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0159625109538601209877025789852680026211
+2019-09-27,11:51 AM,Info,SpResLib,Scanning file: 0243290573165752448325230103654387518707
+2019-09-27,11:51 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":0},"archived":false,"desc":"order coffee","reminderCount":4,"reminderTime":{"year":2019,"month":8,"dayOfMonth":27,"hourOfDay":11,"minute":51,"second":0},"reminderType":"Implicit","status":"Incomplete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":23,"hourOfDay":9,"minute":40,"second":15},"uuid":"0243290573165752448325230103654387518707"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0243290573165752448325230103654387518707
+2019-09-27,11:51 AM,Info,SmartPrompterV2,Populating current activity with alarm-list fragment.

@@ -16,6 +16,7 @@ import edu.temple.sp_admin.fragments.DatePickerFragment;
 import edu.temple.sp_admin.fragments.EmptyAlarmListFragment;
 import edu.temple.sp_admin.fragments.TimePickerFragment;
 import edu.temple.sp_res_lib.obj.Alarm;
+import edu.temple.sp_res_lib.utils.AlarmUtil;
 import edu.temple.sp_res_lib.utils.Constants;
 import edu.temple.sp_res_lib.utils.Log;
 
@@ -72,7 +73,7 @@ public class CurrentAlarmsActivity extends BaseActivity
                     }
 
                     Log.e(LOG_TAG, "User has updated alarm time!  Resetting alarm status to ACTIVE.");
-                    alarm.updateStatus(Alarm.STATUS.Active);
+                    AlarmUtil.updateStatus(CurrentAlarmsActivity.this, alarm, Alarm.STATUS.Active);
                 }
 
                 ((SpAdmin)getApplicationContext()).saveAlarm(alarm);

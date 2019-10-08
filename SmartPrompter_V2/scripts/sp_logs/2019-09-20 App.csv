@@ -1,18 +1,38 @@
-2019-09-20,01:31 PM,Error,SmartPrompter-Admin,Launching on device with dp height: 683.4286 		 and dp width: 411.42856
-2019-09-20,01:31 PM,Info,SpResLib,Retrieving alarm records from storage!
-2019-09-20,01:31 PM,Info,SpResLib,Retrieving log records from storage!
-2019-09-20,01:31 PM,Info,SpResLib,Scanning file: 2019-09-20 UI.csv
-2019-09-20,01:31 PM,Info,SpResLib,Scanning file: 2019-09-20 App.csv
-2019-09-20,01:31 PM,Info,SpResLib,Scanning file: 0292258488265155602954802092818011734397
-2019-09-20,01:31 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":20,"hourOfDay":12,"minute":15,"second":0},"archived":true,"desc":"test","status":"Complete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":20,"hourOfDay":12,"minute":15,"second":3},"timeCompleted":{"year":2019,"month":8,"dayOfMonth":20,"hourOfDay":13,"minute":31,"second":10},"uuid":"0292258488265155602954802092818011734397"}
- 	 from file: /storage/emulated/0/Documents/sp_logs/0292258488265155602954802092818011734397
-2019-09-20,01:31 PM,Info,SpResLib,Retrieving survey questions from storage!
-2019-09-20,01:31 PM,Info,SpResLib,Retrieving log records from storage!
-2019-09-20,01:31 PM,Info,SpResLib,Scanning file: 2019-09-20 UI.csv
-2019-09-20,01:31 PM,Info,SpResLib,Scanning file: 2019-09-20 App.csv
-2019-09-20,01:31 PM,Info,SpResLib,Scanning file: 0292258488265155602954802092818011734397
-2019-09-20,01:31 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":20,"hourOfDay":12,"minute":15,"second":0},"archived":true,"desc":"test","status":"Complete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":20,"hourOfDay":12,"minute":15,"second":3},"timeCompleted":{"year":2019,"month":8,"dayOfMonth":20,"hourOfDay":13,"minute":31,"second":10},"uuid":"0292258488265155602954802092818011734397"}
- 	 from file: /storage/emulated/0/Documents/sp_logs/0292258488265155602954802092818011734397
-2019-09-20,01:31 PM,Info,SmartPrompter-Admin,Populating activities.PastAlarmsActivity with alarm-list fragment.
-2019-09-20,01:31 PM,Info,SpResLib,Image file exists!  Attempting to retrieve from absolute path: 		 /storage/emulated/0/Documents/sp_photos/09202019______0131PM_test.jpg
-2019-09-20,01:31 PM,Info,SpResLib,Attempt to retrieve completion image was successful.  Forwarding Bitmap to image viewer.
+2019-09-20,01:32 PM,Error,SmartPrompter-Admin,Launching on device with dp height: 609.7778 		 and dp width: 320.0
+2019-09-20,01:32 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-20,01:32 PM,Info,SpResLib,Retrieving log records from storage!
+2019-09-20,01:32 PM,Info,SpResLib,Scanning file: 2019-09-20 App.csv
+2019-09-20,01:32 PM,Info,SpResLib,Scanning file: 2019-09-20 UI.csv
+2019-09-20,01:32 PM,Info,SpResLib,Retrieving survey questions from storage!
+2019-09-20,01:32 PM,Info,SmartPrompter-Admin,Populating activities.NewAlarmActivity with Alarm-Details fragment.
+2019-09-20,01:32 PM,Info,SmartPrompter-Admin,User clicked TIME field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-09-20,01:33 PM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: XXXX-YYYY-ZZZZ	 Description: test	 Date: 2019-09-20	 Time: 01:34 PM	 Status: Active	 Is Archived: false
+2019-09-20,01:33 PM,Info,SmartPrompter-Admin,Creating new record for alarm: test
+2019-09-20,01:33 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":20,"hourOfDay":13,"minute":34,"second":0},"archived":false,"desc":"test","status":"Active","uuid":"0207994049539791219505797731117708165916"}
+2019-09-20,01:33 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":20,"hourOfDay":13,"minute":34,"second":0},"archived":false,"desc":"test","status":"Active","uuid":"0207994049539791219505797731117708165916"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0207994049539791219505797731117708165916
+2019-09-20,01:33 PM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-20,01:33 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-20,01:33 PM,Info,SpResLib,Scanning file: 0207994049539791219505797731117708165916
+2019-09-20,01:33 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":20,"hourOfDay":13,"minute":34,"second":0},"archived":false,"desc":"test","status":"Active","uuid":"0207994049539791219505797731117708165916"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0207994049539791219505797731117708165916
+2019-09-20,01:33 PM,Info,SpResLib,Scanning file: dirty
+2019-09-20,01:33 PM,Info,SpResLib,Read contents: 
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-09-20,01:33 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-09-20,01:34 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-20,01:34 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with empty-list fragment.
+2019-09-20,01:34 PM,Info,SpResLib,Retrieving log records from storage!
+2019-09-20,01:34 PM,Info,SpResLib,Scanning file: 2019-09-20 App.csv
+2019-09-20,01:34 PM,Info,SpResLib,Scanning file: 2019-09-20 UI.csv
+2019-09-20,01:34 PM,Info,SpResLib,Scanning file: 0207994049539791219505797731117708165916
+2019-09-20,01:34 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":20,"hourOfDay":13,"minute":34,"second":0},"archived":true,"desc":"test","status":"Complete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":20,"hourOfDay":13,"minute":34,"second":2},"timeCompleted":{"year":2019,"month":8,"dayOfMonth":20,"hourOfDay":13,"minute":34,"second":8},"uuid":"0207994049539791219505797731117708165916"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0207994049539791219505797731117708165916
+2019-09-20,01:34 PM,Info,SmartPrompter-Admin,Populating activities.PastAlarmsActivity with alarm-list fragment.
+2019-09-20,01:34 PM,Info,SpResLib,Image file exists!  Attempting to retrieve from absolute path: 		 /storage/emulated/0/Documents/sp_photos/09202019______0134PM_test.jpg
+2019-09-20,01:34 PM,Info,SpResLib,Attempt to retrieve completion image was successful.  Forwarding Bitmap to image viewer.
+2019-09-20,01:34 PM,Info,SpResLib,Retrieving log records from storage!
+2019-09-20,01:34 PM,Info,SpResLib,Scanning file: 2019-09-20 App.csv
+2019-09-20,01:34 PM,Info,SpResLib,Scanning file: 2019-09-20 UI.csv
+2019-09-20,01:34 PM,Info,SmartPrompter-Admin,Populating activities.PastAlarmsActivity with empty-list fragment.

@@ -68,6 +68,7 @@
         <service android:name=".services.FileMonitorService" />
 
         <receiver android:name=".receivers.AlarmAlertReceiver" />
+        <receiver android:name=".receivers.ExportReceiver" />
         <receiver android:name=".receivers.RebootReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
