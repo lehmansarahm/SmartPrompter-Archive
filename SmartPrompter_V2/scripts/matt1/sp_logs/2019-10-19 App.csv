@@ -1,0 +1,41 @@
+2019-10-19,11:17 AM,Error,SmartPrompter-Admin,Launching on device with dp height: 683.4286 		 and dp width: 411.42856
+2019-10-19,11:17 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-19,11:17 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-19,11:17 AM,Info,SpResLib,Scanning file: dirty
+2019-10-19,11:17 AM,Info,SpResLib,Read contents: 
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-10-19,11:17 AM,Info,SpResLib,Scanning file: device_label.txt
+2019-10-19,11:17 AM,Info,SpResLib,Scanning file: 0101533947931532491882820851159587100570
+2019-10-19,11:17 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":19,"hourOfDay":19,"minute":45,"second":0},"archived":false,"desc":"Shower","reminderCount":0,"status":"Active","uuid":"0101533947931532491882820851159587100570"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0101533947931532491882820851159587100570
+2019-10-19,11:17 AM,Info,SpResLib,Scanning file: export_check.txt
+2019-10-19,11:17 AM,Info,SpResLib,Retrieving log records from storage!
+2019-10-19,11:17 AM,Info,SpResLib,Scanning file: 2019-10-18 App.csv
+2019-10-19,11:17 AM,Info,SpResLib,Scanning file: 2019-10-08 UI.csv
+2019-10-19,11:17 AM,Info,SpResLib,Scanning file: 2019-10-18 UI.csv
+2019-10-19,11:17 AM,Info,SpResLib,Scanning file: 2019-10-08 App.csv
+2019-10-19,11:17 AM,Info,SpResLib,Scanning file: 2019-10-16 UI.csv
+2019-10-19,11:17 AM,Info,SpResLib,Scanning file: 2019-10-16 App.csv
+2019-10-19,11:17 AM,Info,SpResLib,Retrieving survey questions from storage!
+2019-10-19,11:17 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-19,11:17 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-19,11:17 AM,Info,SpResLib,Scanning file: dirty
+2019-10-19,11:17 AM,Info,SpResLib,Read contents: 
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-10-19,11:17 AM,Info,SpResLib,Scanning file: device_label.txt
+2019-10-19,11:17 AM,Info,SpResLib,Scanning file: 0101533947931532491882820851159587100570
+2019-10-19,11:17 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":19,"hourOfDay":19,"minute":45,"second":0},"archived":false,"desc":"Shower","reminderCount":0,"status":"Active","uuid":"0101533947931532491882820851159587100570"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0101533947931532491882820851159587100570
+2019-10-19,11:17 AM,Info,SpResLib,Scanning file: export_check.txt
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin,List item selected!  Item GUID: 0101533947931532491882820851159587100570
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin,Attempting to delete alarm record with: 	 GUID: 0101533947931532491882820851159587100570	 Description: Shower
+2019-10-19,11:17 AM,Info,SpResLib,Deleted file: /storage/emulated/0/Documents/sp_alarms/0101533947931532491882820851159587100570
+2019-10-19,11:17 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-19,11:17 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-19,11:17 AM,Info,SpResLib,Scanning file: dirty
+2019-10-19,11:17 AM,Info,SpResLib,Read contents: 
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-10-19,11:17 AM,Info,SpResLib,Scanning file: device_label.txt
+2019-10-19,11:17 AM,Info,SpResLib,Scanning file: export_check.txt
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with empty-list fragment.

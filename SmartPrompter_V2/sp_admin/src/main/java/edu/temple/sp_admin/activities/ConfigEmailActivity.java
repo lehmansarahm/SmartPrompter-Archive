@@ -24,7 +24,7 @@ import edu.temple.sp_res_lib.utils.StorageUtil;
 
 import static edu.temple.sp_admin.SpAdmin.LOG_TAG;
 
-public class ConfigEmailActivity extends BaseActivity {
+public class ConfigEmailActivity extends BaseActivity implements EmailUtil.EmailUtilListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +47,21 @@ public class ConfigEmailActivity extends BaseActivity {
                 EmailUtil emailUtil = new EmailUtil();
                 emailUtil.send(ConfigEmailActivity.this,
                         "Daily Logs",
-                        "\n \n \n SmartPrompter - a Temple University application");
-                Toast.makeText(ConfigEmailActivity.this, "Log email sent!",
-                        Toast.LENGTH_LONG).show();
+                        "\n \n \n SmartPrompter - a Temple University application",
+                        ConfigEmailActivity.this);
             }
         });
+    }
+
+    @Override
+    public void onSendComplete(boolean success) {
+        if (success) {
+            Toast.makeText(ConfigEmailActivity.this, "Log email sent!",
+                    Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(ConfigEmailActivity.this, "Email send failed!",
+                    Toast.LENGTH_LONG).show();
+        }
     }
 
     private void initLabel() {

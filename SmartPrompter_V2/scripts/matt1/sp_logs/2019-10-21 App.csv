@@ -1,0 +1,94 @@
+2019-10-21,09:44 AM,Error,SmartPrompter-Admin,Launching on device with dp height: 683.4286 		 and dp width: 411.42856
+2019-10-21,09:44 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-21,09:44 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: device_label.txt
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 0127945022381710687107261889067411247437
+2019-10-21,09:44 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":7,"minute":47,"second":0},"archived":false,"desc":"2","reminderCount":0,"status":"Active","uuid":"0127945022381710687107261889067411247437"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0127945022381710687107261889067411247437
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 0265217848887423512703843156784967413148
+2019-10-21,09:44 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":7,"minute":46,"second":0},"archived":false,"desc":"1","reminderCount":0,"status":"Active","uuid":"0265217848887423512703843156784967413148"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0265217848887423512703843156784967413148
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 0238371621572013068499982391024663959998
+2019-10-21,09:44 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":7,"minute":41,"second":0},"archived":false,"desc":"Up","reminderCount":0,"status":"Active","uuid":"0238371621572013068499982391024663959998"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0238371621572013068499982391024663959998
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: export_check.txt
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 0227804910792487076437156649946896826199
+2019-10-21,09:44 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":7,"minute":48,"second":0},"archived":false,"desc":"3","reminderCount":0,"status":"Active","uuid":"0227804910792487076437156649946896826199"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0227804910792487076437156649946896826199
+2019-10-21,09:44 AM,Info,SpResLib,Retrieving log records from storage!
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 2019-10-18 App.csv
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 2019-10-08 UI.csv
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 2019-10-18 UI.csv
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 2019-10-21 App.csv
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 2019-10-21 UI.csv
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 2019-10-19 App.csv
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 2019-10-08 App.csv
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 2019-10-16 UI.csv
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 2019-10-16 App.csv
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 2019-10-19 UI.csv
+2019-10-21,09:44 AM,Info,SpResLib,Retrieving survey questions from storage!
+2019-10-21,09:44 AM,Info,SmartPrompter-Admin,Populating activities.NewAlarmActivity with Alarm-Details fragment.
+2019-10-21,09:44 AM,Info,SmartPrompter-Admin,User clicked TIME field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-10-21,09:44 AM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: XXXX-YYYY-ZZZZ	 Description: New Alarm	 Date: 2019-10-21	 Time: 09:46 AM	 Status: Active	 Is Archived: false
+2019-10-21,09:44 AM,Info,SmartPrompter-Admin,Creating new record for alarm: New Alarm
+2019-10-21,09:44 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":7,"minute":47,"second":0},"archived":false,"desc":"2","reminderCount":0,"status":"Active","uuid":"0127945022381710687107261889067411247437"}
+2019-10-21,09:44 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":7,"minute":47,"second":0},"archived":false,"desc":"2","reminderCount":0,"status":"Active","uuid":"0127945022381710687107261889067411247437"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0127945022381710687107261889067411247437
+2019-10-21,09:44 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":7,"minute":46,"second":0},"archived":false,"desc":"1","reminderCount":0,"status":"Active","uuid":"0265217848887423512703843156784967413148"}
+2019-10-21,09:44 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":7,"minute":46,"second":0},"archived":false,"desc":"1","reminderCount":0,"status":"Active","uuid":"0265217848887423512703843156784967413148"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0265217848887423512703843156784967413148
+2019-10-21,09:44 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":7,"minute":41,"second":0},"archived":false,"desc":"Up","reminderCount":0,"status":"Active","uuid":"0238371621572013068499982391024663959998"}
+2019-10-21,09:44 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":7,"minute":41,"second":0},"archived":false,"desc":"Up","reminderCount":0,"status":"Active","uuid":"0238371621572013068499982391024663959998"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0238371621572013068499982391024663959998
+2019-10-21,09:44 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":7,"minute":48,"second":0},"archived":false,"desc":"3","reminderCount":0,"status":"Active","uuid":"0227804910792487076437156649946896826199"}
+2019-10-21,09:44 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":7,"minute":48,"second":0},"archived":false,"desc":"3","reminderCount":0,"status":"Active","uuid":"0227804910792487076437156649946896826199"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0227804910792487076437156649946896826199
+2019-10-21,09:44 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":9,"minute":46,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0124793342716000584076852480006386305274"}
+2019-10-21,09:44 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":9,"minute":46,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0124793342716000584076852480006386305274"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0124793342716000584076852480006386305274
+2019-10-21,09:44 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-10-21,09:44 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-21,09:44 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: dirty
+2019-10-21,09:44 AM,Info,SpResLib,Read contents: 
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: device_label.txt
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 0124793342716000584076852480006386305274
+2019-10-21,09:44 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":9,"minute":46,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0124793342716000584076852480006386305274"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0124793342716000584076852480006386305274
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 0127945022381710687107261889067411247437
+2019-10-21,09:44 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":7,"minute":47,"second":0},"archived":false,"desc":"2","reminderCount":0,"status":"Active","uuid":"0127945022381710687107261889067411247437"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0127945022381710687107261889067411247437
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 0265217848887423512703843156784967413148
+2019-10-21,09:44 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":7,"minute":46,"second":0},"archived":false,"desc":"1","reminderCount":0,"status":"Active","uuid":"0265217848887423512703843156784967413148"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0265217848887423512703843156784967413148
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 0238371621572013068499982391024663959998
+2019-10-21,09:44 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":7,"minute":41,"second":0},"archived":false,"desc":"Up","reminderCount":0,"status":"Active","uuid":"0238371621572013068499982391024663959998"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0238371621572013068499982391024663959998
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: export_check.txt
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 0227804910792487076437156649946896826199
+2019-10-21,09:44 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":7,"minute":48,"second":0},"archived":false,"desc":"3","reminderCount":0,"status":"Active","uuid":"0227804910792487076437156649946896826199"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0227804910792487076437156649946896826199
+2019-10-21,09:44 AM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-10-21,09:44 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-21,09:44 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: device_label.txt
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 0124793342716000584076852480006386305274
+2019-10-21,09:44 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":9,"minute":46,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0124793342716000584076852480006386305274"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0124793342716000584076852480006386305274
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 0127945022381710687107261889067411247437
+2019-10-21,09:44 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":7,"minute":47,"second":0},"archived":false,"desc":"2","reminderCount":0,"status":"Active","uuid":"0127945022381710687107261889067411247437"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0127945022381710687107261889067411247437
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 0265217848887423512703843156784967413148
+2019-10-21,09:44 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":7,"minute":46,"second":0},"archived":false,"desc":"1","reminderCount":0,"status":"Active","uuid":"0265217848887423512703843156784967413148"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0265217848887423512703843156784967413148
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 0238371621572013068499982391024663959998
+2019-10-21,09:44 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":7,"minute":41,"second":0},"archived":false,"desc":"Up","reminderCount":0,"status":"Active","uuid":"0238371621572013068499982391024663959998"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0238371621572013068499982391024663959998
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: export_check.txt
+2019-10-21,09:44 AM,Info,SpResLib,Scanning file: 0227804910792487076437156649946896826199
+2019-10-21,09:44 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":7,"minute":48,"second":0},"archived":false,"desc":"3","reminderCount":0,"status":"Active","uuid":"0227804910792487076437156649946896826199"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0227804910792487076437156649946896826199
+2019-10-21,09:44 AM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-10-21,09:44 AM,Info,SpResLib,Found audio file: /storage/emulated/0/Documents/sp_audio/sp_audio_alarm.mpeg4

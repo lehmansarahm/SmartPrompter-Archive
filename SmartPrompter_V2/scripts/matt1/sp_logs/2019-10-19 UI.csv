@@ -1,0 +1,17 @@
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Created
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 View-Current button clicked.
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Created
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 List item selected for alarm with GUID: 0101533947931532491882820851159587100570 	 Description: Shower 	 Original Date-Time: 10-19-2019      07:45PM 	 Status: Active
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Button clicked: Delete
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Deleted alarm with GUID: 0101533947931532491882820851159587100570 	 Description: Shower 	 Original Date-Time: 10-19-2019      07:45PM 	 Status: Active
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Back button pressed
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Destroyed
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-10-19,11:17 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped

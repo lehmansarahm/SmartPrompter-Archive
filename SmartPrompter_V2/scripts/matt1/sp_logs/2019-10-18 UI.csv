@@ -1,0 +1,58 @@
+2019-10-18,11:24 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Created
+2019-10-18,11:24 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Create-New button clicked.
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Created
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Resumed
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-10-18,11:25 PM,Info,SpResLib-UI,NewAlarmActivity - 	 User clicked LABEL field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-10-18,11:25 PM,Info,SpResLib-UI,NewAlarmActivity - 	 Updated alarm label: Shower
+2019-10-18,11:25 PM,Info,SpResLib-UI,NewAlarmActivity - 	 DatePickerDialog requested with default date: 9/18/2019
+2019-10-18,11:25 PM,Info,SpResLib-UI,NewAlarmActivity - 	 Date picked: 9/19/2019 		 for current alarm: XXXX-YYYY-ZZZZ
+2019-10-18,11:25 PM,Info,SpResLib-UI,NewAlarmActivity - 	 TimePickerDialog requested with default time: 23:25
+2019-10-18,11:25 PM,Info,SpResLib-UI,NewAlarmActivity - 	 Time picked: 19:45 		 for current alarm: XXXX-YYYY-ZZZZ
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Button clicked: Save
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Saved new alarm with description: Shower 	 and time: 10-19-2019      07:45PM
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Paused
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Created
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Stopped
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Destroyed
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Back button pressed
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Destroyed
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 View-Current button clicked.
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Created
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Back button pressed
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Destroyed
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Configure-Audio button clicked.
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Created
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Resumed
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Back button pressed
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Paused
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Stopped
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Destroyed
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Configure-Email button clicked.
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,ConfigEmailActivity - 	 Created
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,ConfigEmailActivity - 	 Resumed
+2019-10-18,11:25 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-10-18,11:26 PM,Info,SmartPrompter-Admin-UI,ConfigEmailActivity - 	 Back button pressed
+2019-10-18,11:26 PM,Info,SmartPrompter-Admin-UI,ConfigEmailActivity - 	 Paused
+2019-10-18,11:26 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-18,11:26 PM,Info,SmartPrompter-Admin-UI,ConfigEmailActivity - 	 Stopped
+2019-10-18,11:26 PM,Info,SmartPrompter-Admin-UI,ConfigEmailActivity - 	 Destroyed
+2019-10-18,11:26 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Back button pressed
+2019-10-18,11:26 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-10-18,11:26 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped

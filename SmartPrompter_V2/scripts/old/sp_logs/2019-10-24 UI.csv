@@ -1,0 +1,134 @@
+2019-10-24,09:05 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Created
+2019-10-24,09:05 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-24,09:05 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Configure-Audio button clicked.
+2019-10-24,09:05 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-10-24,09:05 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Created
+2019-10-24,09:05 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Resumed
+2019-10-24,09:05 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-10-24,09:05 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 User has opted to update the Reminder audio.
+2019-10-24,09:05 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 User has opted to update the Reward audio.
+2019-10-24,09:05 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 User has opted to update the Reminder audio.
+2019-10-24,09:05 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Back button pressed
+2019-10-24,09:05 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Paused
+2019-10-24,09:05 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-24,09:05 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Stopped
+2019-10-24,09:05 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Destroyed
+2019-10-24,09:06 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Configure-Audio button clicked.
+2019-10-24,09:06 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-10-24,09:06 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Created
+2019-10-24,09:06 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Resumed
+2019-10-24,09:06 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-10-24,09:06 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 User has opted to update the Reward audio.
+2019-10-24,09:06 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 User has opted to update the Reminder audio.
+2019-10-24,09:06 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Back button pressed
+2019-10-24,09:06 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Paused
+2019-10-24,09:06 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-24,09:06 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Stopped
+2019-10-24,09:06 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Destroyed
+2019-10-24,09:06 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-10-24,09:06 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-10-24,09:06 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Create-New button clicked.
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Created
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Resumed
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-10-24,09:07 AM,Info,SpResLib-UI,NewAlarmActivity - 	 TimePickerDialog requested with default time: 9:7
+2019-10-24,09:07 AM,Info,SpResLib-UI,NewAlarmActivity - 	 Time picked: 9:9 		 for current alarm: XXXX-YYYY-ZZZZ
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Button clicked: Save
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Saved new alarm with description: New Alarm 	 and time: 10-24-2019      09:09AM
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Paused
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Created
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Stopped
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Destroyed
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Back button pressed
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Destroyed
+2019-10-24,09:09 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-10-24,09:09 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-10-24,09:09 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Configure-Audio button clicked.
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Created
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Resumed
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 User clicked the record button.
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 User clicked the record button.
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 User clicked the play button.
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Back button pressed
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Paused
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Stopped
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Destroyed
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Create-New button clicked.
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Created
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Resumed
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-10-24,09:10 AM,Info,SpResLib-UI,NewAlarmActivity - 	 TimePickerDialog requested with default time: 9:10
+2019-10-24,09:10 AM,Info,SpResLib-UI,NewAlarmActivity - 	 Time picked: 9:11 		 for current alarm: XXXX-YYYY-ZZZZ
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Button clicked: Save
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Saved new alarm with description: New Alarm 	 and time: 10-24-2019      09:11AM
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Paused
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Created
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Stopped
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Destroyed
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Back button pressed
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Destroyed
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Configure-Audio button clicked.
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Created
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Resumed
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 User clicked the delete button.
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 User has opted to update the Reminder audio.
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 User has opted to update the Alarm audio.
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 User clicked the play button.
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 User clicked the play button.
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Paused
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Stopped
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Resumed
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Back button pressed
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Paused
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Stopped
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin-UI,ConfigAudioActivity - 	 Destroyed
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Create-New button clicked.
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Created
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Resumed
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-10-24,09:12 AM,Info,SpResLib-UI,NewAlarmActivity - 	 TimePickerDialog requested with default time: 9:12
+2019-10-24,09:12 AM,Info,SpResLib-UI,NewAlarmActivity - 	 Time picked: 9:13 		 for current alarm: XXXX-YYYY-ZZZZ
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Button clicked: Save
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Saved new alarm with description: New Alarm 	 and time: 10-24-2019      09:13AM
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Paused
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Created
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Stopped
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Destroyed
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped
+2019-10-24,09:15 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-10-24,09:15 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Back button pressed
+2019-10-24,09:15 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-10-24,09:15 AM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-24,09:15 AM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped

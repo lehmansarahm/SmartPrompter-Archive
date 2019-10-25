@@ -50,8 +50,10 @@ public class SmartPrompter extends Application {
 
     private Context appCtx;
 
+
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
+
 
     @Override
     public void onCreate() {
@@ -110,13 +112,19 @@ public class SmartPrompter extends Application {
         updateAllAlarmsFromStorage();
     }
 
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+
     public Alarm getAlarm(String guid) {
         return getAlarm(guid, false);
     }
 
     public Alarm getAlarm(String guid, boolean forAlert) {
+        updateAllAlarmsFromStorage();
+
         if (forAlert) {
-            updateAllAlarmsFromStorage();
             for (Alarm alarm : futureAlarms) {
                 if (alarm.getGuid().equals(guid)) {
                     if (alarm.getStatus().equals(Alarm.STATUS.Active)) {
@@ -144,6 +152,51 @@ public class SmartPrompter extends Application {
         return currentAlarms;
     }
 
+    public ArrayList<Alarm> getTodaysActiveAlarms() {
+        Calendar today = Calendar.getInstance();
+        ArrayList<Alarm> todaysAlarms = new ArrayList<>();
+
+        ArrayList<Alarm> allAlarms = AlarmUtil.getAlarmsFromStorage(appCtx);
+        for (Alarm alarm : allAlarms) {
+            int[] alarmDate = alarm.getAlarmDate();
+            Log.e(LOG_TAG, "Examining record: " + alarm.toString());
+
+            if (alarmDate[0] == today.get(Calendar.YEAR) &&
+                    alarmDate[1] == today.get(Calendar.MONTH) &&
+                    alarmDate[2] == today.get(Calendar.DAY_OF_MONTH)) {
+                Log.e(LOG_TAG, "Found matching record for today: " + alarm.toString());
+                todaysAlarms.add(alarm);
+            }
+        }
+
+        return todaysAlarms;
+    }
+
+    public ArrayList<Alarm> getTodaysPastAlarms() {
+        Calendar today = Calendar.getInstance();
+        ArrayList<Alarm> todaysAlarms = new ArrayList<>();
+
+        ArrayList<Alarm> allAlarms = StorageUtil.getLogsFromStorage(appCtx);
+        for (Alarm alarm : allAlarms) {
+            int[] alarmDate = alarm.getAlarmDate();
+            Log.e(LOG_TAG, "Examining record: " + alarm.toString());
+
+            if (alarmDate[0] == today.get(Calendar.YEAR) &&
+                    alarmDate[1] == today.get(Calendar.MONTH) &&
+                    alarmDate[2] == today.get(Calendar.DAY_OF_MONTH)) {
+                Log.e(LOG_TAG, "Found matching record for today: " + alarm.toString());
+                todaysAlarms.add(alarm);
+            }
+        }
+
+        return todaysAlarms;
+    }
+
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+
     public void updateAlarm(String alarmGUID, Alarm.STATUS newStatus) {
         for (Alarm alarm : currentAlarms) {
             if (alarm.getGuid().equals(alarmGUID)) {
@@ -167,7 +220,8 @@ public class SmartPrompter extends Application {
     }
 
 
-    // ========================================================================================
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
 
 
     private void updateAllAlarmsFromStorage() {

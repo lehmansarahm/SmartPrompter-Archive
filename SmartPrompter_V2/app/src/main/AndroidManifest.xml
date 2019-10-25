@@ -55,13 +55,13 @@
             android:launchMode="singleTask" />
 
         <activity
-            android:name=".activities.CameraActivity"
-            android:label="@string/title_activity_camera"
-            android:theme="@style/AppTheme.NoActionBar"
+            android:name=".activities.ConfirmationActivity"
             android:launchMode="singleTask" />
 
         <activity
-            android:name=".activities.ConfirmationActivity"
+            android:name=".activities.CameraActivity"
+            android:label="@string/title_activity_camera"
+            android:theme="@style/AppTheme.NoActionBar"
             android:launchMode="singleTask" />
 
         <service android:name=".services.DownloadService" />

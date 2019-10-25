@@ -1,8 +1,0 @@
-2019-09-09,01:09 PM,Info,SpResLib,Retrieving alarm records from storage!
-2019-09-09,01:09 PM,Info,SpResLib,Scanning file: 0228618257813707128738424867747726584109
-2019-09-09,01:09 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":9,"hourOfDay":13,"minute":9,"second":0},"archived":false,"desc":"New Alarm","status":"Active","uuid":"0228618257813707128738424867747726584109"}
- 	 from file: /storage/emulated/0/Documents/sp_alarms/0228618257813707128738424867747726584109
-2019-09-09,01:09 PM,Info,SpResLib,Retrieving log records from storage!
-2019-09-09,01:09 PM,Info,SpResLib,Scanning file: 2019-09-09 App.csv
-2019-09-09,01:09 PM,Info,SpResLib,Scanning file: 2019-09-09 UI.csv
-2019-09-09,01:09 PM,Info,SpResLib,Retrieving survey questions from storage!
