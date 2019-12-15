@@ -1,0 +1,41 @@
+2019-10-31,09:32 PM,Error,SmartPrompter-Admin,Launching on device with dp height: 731.4286 		 and dp width: 411.42856
+2019-10-31,09:32 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-31,09:32 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-31,09:32 PM,Info,SpResLib,Scanning file: export_check.txt
+2019-10-31,09:32 PM,Info,SpResLib,Retrieving log records from storage!
+2019-10-31,09:32 PM,Info,SpResLib,Scanning file: 2019-10-25 App.csv
+2019-10-31,09:32 PM,Info,SpResLib,Scanning file: 2019-10-25 UI.csv
+2019-10-31,09:32 PM,Info,SpResLib,Scanning file: 2019-10-29 App.csv
+2019-10-31,09:32 PM,Info,SpResLib,Scanning file: 2019-10-29 UI.csv
+2019-10-31,09:32 PM,Info,SpResLib,Scanning file: 0189894287564217612957431462493133492835
+2019-10-31,09:32 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":0,"second":0},"archived":true,"desc":"Set alarm tonight with audio","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":8,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":7,"second":7},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":7,"second":16},"uuid":"0189894287564217612957431462493133492835"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0189894287564217612957431462493133492835
+2019-10-31,09:32 PM,Info,SpResLib,Scanning file: 0268028665513260374932433580371176469287
+2019-10-31,09:32 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":27,"second":0},"archived":true,"desc":"homework","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":28,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":27,"second":4},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":27,"second":12},"uuid":"0268028665513260374932433580371176469287"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0268028665513260374932433580371176469287
+2019-10-31,09:32 PM,Info,SpResLib,Scanning file: 2019-10-31 App.csv
+2019-10-31,09:32 PM,Info,SpResLib,Scanning file: 2019-10-31 UI.csv
+2019-10-31,09:32 PM,Info,SpResLib,Scanning file: 0292920177211928289999879658037375605893
+2019-10-31,09:32 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":31,"hourOfDay":13,"minute":30,"second":0},"archived":true,"desc":"Affective Neuro reading ","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":31,"hourOfDay":13,"minute":32,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":31,"hourOfDay":13,"minute":31,"second":16},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":31,"hourOfDay":13,"minute":31,"second":24},"uuid":"0292920177211928289999879658037375605893"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0292920177211928289999879658037375605893
+2019-10-31,09:32 PM,Info,SpResLib,Retrieving survey questions from storage!
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin,Populating activities.NewAlarmActivity with Alarm-Details fragment.
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin,User clicked TIME field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin,User clicked DATE field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: XXXX-YYYY-ZZZZ	 Description: Drop check off to office 	 Date: 2019-11-01	 Time: 10:30 AM	 Status: Active	 Is Archived: false
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin,Creating new record for alarm: Drop check off to office 
+2019-10-31,09:32 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":1,"hourOfDay":10,"minute":30,"second":0},"archived":false,"desc":"Drop check off to office ","reminderCount":0,"status":"Active","uuid":"0272394152314290199877561908901293226083"}
+2019-10-31,09:32 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":1,"hourOfDay":10,"minute":30,"second":0},"archived":false,"desc":"Drop check off to office ","reminderCount":0,"status":"Active","uuid":"0272394152314290199877561908901293226083"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0272394152314290199877561908901293226083
+2019-10-31,09:32 PM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-10-31,09:32 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-31,09:32 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-31,09:32 PM,Info,SpResLib,Scanning file: export_check.txt
+2019-10-31,09:32 PM,Info,SpResLib,Scanning file: 0272394152314290199877561908901293226083
+2019-10-31,09:32 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":1,"hourOfDay":10,"minute":30,"second":0},"archived":false,"desc":"Drop check off to office ","reminderCount":0,"status":"Active","uuid":"0272394152314290199877561908901293226083"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0272394152314290199877561908901293226083
+2019-10-31,09:32 PM,Info,SpResLib,Scanning file: dirty
+2019-10-31,09:32 PM,Info,SpResLib,Read contents: 
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.

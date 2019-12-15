@@ -39,13 +39,17 @@ public class Alarm implements Parcelable {
 
     public static PendingIntent getPI(Context context, Alarm alarm,
                                       Class<?> responseClass, boolean isReminder) {
-        Intent intent = new Intent(context, responseClass);
-        intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, alarm.getGuid());
-        intent.putExtra(Constants.BUNDLE_ARG_ALERT_TYPE, isReminder
-                ? MediaUtil.AUDIO_TYPE.Reminder.toString()
-                : MediaUtil.AUDIO_TYPE.Alarm.toString());
+        Intent intent = alarm.getIntent(context, responseClass, isReminder);
         return PendingIntent.getBroadcast(context, alarm.getGuidInt() /* request code */,
                 intent, PendingIntent.FLAG_CANCEL_CURRENT);
+    }
+
+    public static boolean isAlarmSet(Context context, Alarm alarm,
+                                      Class<?> responseClass, boolean isReminder) {
+        Intent intent = alarm.getIntent(context, responseClass, isReminder);
+        PendingIntent alarmPI = PendingIntent.getBroadcast(context, alarm.getGuidInt() /* request code */,
+                intent, PendingIntent.FLAG_NO_CREATE);
+        return (alarmPI != null);
     }
 
     public static String exportToJson(Alarm alarm) {
@@ -89,6 +93,26 @@ public class Alarm implements Parcelable {
 
         status = STATUS.valueOf(in.readString());
         archived = (in.readInt() == 1);
+    }
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+    public Intent getIntent(Context context, Class<?> responseClass, boolean isReminder) {
+        Intent intent = new Intent(context, responseClass);
+        intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, getGuid());
+        intent.putExtra(Constants.BUNDLE_ARG_ALERT_TYPE, isReminder
+                ? MediaUtil.AUDIO_TYPE.Reminder.toString()
+                : MediaUtil.AUDIO_TYPE.Alarm.toString());
+        return intent;
+    }
+
+    public boolean isScheduledForToday() {
+        Calendar today = Calendar.getInstance();
+        int[] alarmDate = getAlarmDate();
+        return (alarmDate[0] == today.get(Calendar.YEAR) &&
+                alarmDate[1] == today.get(Calendar.MONTH) &&
+                alarmDate[2] == today.get(Calendar.DAY_OF_MONTH));
     }
 
     // --------------------------------------------------------------------------------------
@@ -160,6 +184,10 @@ public class Alarm implements Parcelable {
 
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
+
+    public int getReminderCount() {
+        return reminderCount;
+    }
 
     public int incrementReminderCount() {
         reminderCount++;

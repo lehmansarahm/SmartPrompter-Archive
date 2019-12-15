@@ -5,8 +5,9 @@
     <string name="line_break_double">\n\n</string>
     <string name="welcome_instructions">Please select an operation from the options below:</string>
     <string name="create_new_text">Create New Alarm</string>
-    <string name="view_current_text">View Current Alarms</string>
-    <string name="view_past_text">View Past Alarms</string>
+    <string name="view_current_text">View Active Alarms</string>
+    <string name="view_past_text">View Complete Alarms</string>
+    <string name="view_archived_text">View Archived Alarms</string>
     <string name="configure_survey_text">Configure Survey Questions</string>
     <string name="alarm_field_label">Label</string>
     <string name="alarm_field_date">Date</string>

@@ -51,7 +51,7 @@ public class NewAlarmActivity extends BaseActivity
 
                 ((SpAdmin)getApplicationContext()).saveAlarm(alarm);
                 startActivity(new Intent(NewAlarmActivity.this,
-                        CurrentAlarmsActivity.class));
+                        ActiveAlarmsActivity.class));
                 finish();
                 break;
             case Cancel:
@@ -67,7 +67,7 @@ public class NewAlarmActivity extends BaseActivity
                                 + " \t and time: " + alarm.getAlarmDateTimeString());
                 ((SpAdmin)getApplicationContext()).deleteAlarm(alarm);
                 startActivity(new Intent(NewAlarmActivity.this,
-                        CurrentAlarmsActivity.class));
+                        ActiveAlarmsActivity.class));
                 finish();
                 break;
         }

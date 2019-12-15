@@ -1,0 +1,30 @@
+2019-11-19,12:37 PM,Error,SmartPrompter-Admin,Launching on device with dp height: 592.0 		 and dp width: 360.0
+2019-11-19,12:37 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-19,12:37 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-19,12:37 PM,Info,SpResLib,Retrieving inactive records from storage!
+2019-11-19,12:37 PM,Info,SpResLib,Scanning file: 2019-09-12 App.csv
+2019-11-19,12:37 PM,Info,SpResLib,Scanning file: 2019-09-12 UI.csv
+2019-11-19,12:37 PM,Info,SpResLib,Scanning file: 2019-11-19 App.csv
+2019-11-19,12:37 PM,Info,SpResLib,Scanning file: 2019-11-19 UI.csv
+2019-11-19,12:37 PM,Info,SpResLib,Scanning file: 0249370752888907589455546425653974796730
+2019-11-19,12:37 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":3,"hourOfDay":13,"minute":9,"second":0},"archived":true,"desc":"New Alarm","reminderCount":0,"reminderTime":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":12,"minute":40,"second":0},"reminderType":"Explicit","status":"Complete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":3,"hourOfDay":13,"minute":9,"second":8},"timeCompleted":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":12,"minute":25,"second":21},"uuid":"0249370752888907589455546425653974796730"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0249370752888907589455546425653974796730
+2019-11-19,12:37 PM,Info,SpResLib,Scanning file: 0093772397935517056395290358729619288838
+2019-11-19,12:37 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":3,"hourOfDay":15,"minute":55,"second":0},"archived":true,"desc":"test","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":12,"minute":40,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":12,"minute":35,"second":40},"timeCompleted":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":12,"minute":35,"second":46},"uuid":"0093772397935517056395290358729619288838"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0093772397935517056395290358729619288838
+2019-11-19,12:37 PM,Info,SpResLib,Retrieving survey questions from storage!
+2019-11-19,12:37 PM,Info,SpResLib,Retrieving archived records from storage!
+2019-11-19,12:37 PM,Error,SpResLib,Output dir does not exist.  Creating output dir: /storage/emulated/0/Documents/sp_archive
+2019-11-19,12:37 PM,Info,SmartPrompter-Admin,Populating activities.ArchivedAlarmsActivity with empty-list fragment.
+2019-11-19,12:37 PM,Info,SpResLib,Retrieving inactive records from storage!
+2019-11-19,12:37 PM,Info,SpResLib,Scanning file: 2019-09-12 App.csv
+2019-11-19,12:37 PM,Info,SpResLib,Scanning file: 2019-09-12 UI.csv
+2019-11-19,12:37 PM,Info,SpResLib,Scanning file: 2019-11-19 App.csv
+2019-11-19,12:37 PM,Info,SpResLib,Scanning file: 2019-11-19 UI.csv
+2019-11-19,12:37 PM,Info,SpResLib,Scanning file: 0249370752888907589455546425653974796730
+2019-11-19,12:37 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":3,"hourOfDay":13,"minute":9,"second":0},"archived":true,"desc":"New Alarm","reminderCount":0,"reminderTime":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":12,"minute":40,"second":0},"reminderType":"Explicit","status":"Complete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":3,"hourOfDay":13,"minute":9,"second":8},"timeCompleted":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":12,"minute":25,"second":21},"uuid":"0249370752888907589455546425653974796730"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0249370752888907589455546425653974796730
+2019-11-19,12:37 PM,Info,SpResLib,Scanning file: 0093772397935517056395290358729619288838
+2019-11-19,12:37 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":3,"hourOfDay":15,"minute":55,"second":0},"archived":true,"desc":"test","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":12,"minute":40,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":12,"minute":35,"second":40},"timeCompleted":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":12,"minute":35,"second":46},"uuid":"0093772397935517056395290358729619288838"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0093772397935517056395290358729619288838
+2019-11-19,12:37 PM,Info,SmartPrompter-Admin,Populating activities.CompleteAlarmsActivity with alarm-list fragment.

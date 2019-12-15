@@ -1,0 +1,84 @@
+2019-11-19,09:25 AM,Error,SmartPrompter-Admin,Launching on device with dp height: 731.4286 		 and dp width: 411.42856
+2019-11-19,09:25 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-19,09:25 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: export_check.txt
+2019-11-19,09:25 AM,Info,SpResLib,Retrieving inactive records from storage!
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: 2019-10-25 App.csv
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: 2019-10-25 UI.csv
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: 2019-10-29 App.csv
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: 2019-10-29 UI.csv
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: 0189894287564217612957431462493133492835
+2019-11-19,09:25 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":0,"second":0},"archived":true,"desc":"Set alarm tonight with audio","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":8,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":7,"second":7},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":7,"second":16},"uuid":"0189894287564217612957431462493133492835"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0189894287564217612957431462493133492835
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: 0268028665513260374932433580371176469287
+2019-11-19,09:25 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":27,"second":0},"archived":true,"desc":"homework","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":28,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":27,"second":4},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":27,"second":12},"uuid":"0268028665513260374932433580371176469287"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0268028665513260374932433580371176469287
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: 2019-10-31 App.csv
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: 2019-10-31 UI.csv
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: 0292920177211928289999879658037375605893
+2019-11-19,09:25 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":31,"hourOfDay":13,"minute":30,"second":0},"archived":true,"desc":"Affective Neuro reading ","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":31,"hourOfDay":13,"minute":32,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":31,"hourOfDay":13,"minute":31,"second":16},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":31,"hourOfDay":13,"minute":31,"second":24},"uuid":"0292920177211928289999879658037375605893"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0292920177211928289999879658037375605893
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: 2019-11-01 App.csv
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: 2019-11-01 UI.csv
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: 0272394152314290199877561908901293226083
+2019-11-19,09:25 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":1,"hourOfDay":10,"minute":30,"second":0},"archived":true,"desc":"Drop check off to office ","reminderCount":0,"status":"Complete","timeCompleted":{"year":2019,"month":10,"dayOfMonth":1,"hourOfDay":10,"minute":51,"second":49},"uuid":"0272394152314290199877561908901293226083"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0272394152314290199877561908901293226083
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: 2019-11-18 App.csv
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: 2019-11-18 UI.csv
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: 0224693529173619643040437001208027813872
+2019-11-19,09:25 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":0,"second":0},"archived":true,"desc":"go to gym","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":5,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":0,"second":15},"timeCompleted":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":0,"second":45},"uuid":"0224693529173619643040437001208027813872"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0224693529173619643040437001208027813872
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: 0015306533137243457714555511465400004727
+2019-11-19,09:25 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":20,"minute":30,"second":0},"archived":true,"desc":"check to see if you have homework","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":20,"minute":35,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":20,"minute":30,"second":2},"timeCompleted":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":20,"minute":30,"second":9},"uuid":"0015306533137243457714555511465400004727"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0015306533137243457714555511465400004727
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: 0230515277598659387221376261261105410882
+2019-11-19,09:25 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":21,"minute":0,"second":0},"archived":true,"desc":"shower","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":21,"minute":5,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":21,"minute":0,"second":7},"timeCompleted":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":21,"minute":0,"second":17},"uuid":"0230515277598659387221376261261105410882"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0230515277598659387221376261261105410882
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: 0004529871525411373630087207594376989151
+2019-11-19,09:25 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":true,"desc":"sleep","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":5,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":4},"timeCompleted":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":19},"uuid":"0004529871525411373630087207594376989151"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0004529871525411373630087207594376989151
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: 2019-11-19 App.csv
+2019-11-19,09:25 AM,Info,SpResLib,Scanning file: 2019-11-19 UI.csv
+2019-11-19,09:25 AM,Info,SpResLib,Retrieving survey questions from storage!
+2019-11-19,09:26 AM,Info,SpResLib,Retrieving inactive records from storage!
+2019-11-19,09:26 AM,Info,SpResLib,Scanning file: 2019-10-25 App.csv
+2019-11-19,09:26 AM,Info,SpResLib,Scanning file: 2019-10-25 UI.csv
+2019-11-19,09:26 AM,Info,SpResLib,Scanning file: 2019-10-29 App.csv
+2019-11-19,09:26 AM,Info,SpResLib,Scanning file: 2019-10-29 UI.csv
+2019-11-19,09:26 AM,Info,SpResLib,Scanning file: 0189894287564217612957431462493133492835
+2019-11-19,09:26 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":0,"second":0},"archived":true,"desc":"Set alarm tonight with audio","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":8,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":7,"second":7},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":7,"second":16},"uuid":"0189894287564217612957431462493133492835"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0189894287564217612957431462493133492835
+2019-11-19,09:26 AM,Info,SpResLib,Scanning file: 0268028665513260374932433580371176469287
+2019-11-19,09:26 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":27,"second":0},"archived":true,"desc":"homework","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":28,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":27,"second":4},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":29,"hourOfDay":20,"minute":27,"second":12},"uuid":"0268028665513260374932433580371176469287"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0268028665513260374932433580371176469287
+2019-11-19,09:26 AM,Info,SpResLib,Scanning file: 2019-10-31 App.csv
+2019-11-19,09:26 AM,Info,SpResLib,Scanning file: 2019-10-31 UI.csv
+2019-11-19,09:26 AM,Info,SpResLib,Scanning file: 0292920177211928289999879658037375605893
+2019-11-19,09:26 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":31,"hourOfDay":13,"minute":30,"second":0},"archived":true,"desc":"Affective Neuro reading ","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":31,"hourOfDay":13,"minute":32,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":31,"hourOfDay":13,"minute":31,"second":16},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":31,"hourOfDay":13,"minute":31,"second":24},"uuid":"0292920177211928289999879658037375605893"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0292920177211928289999879658037375605893
+2019-11-19,09:26 AM,Info,SpResLib,Scanning file: 2019-11-01 App.csv
+2019-11-19,09:26 AM,Info,SpResLib,Scanning file: 2019-11-01 UI.csv
+2019-11-19,09:26 AM,Info,SpResLib,Scanning file: 0272394152314290199877561908901293226083
+2019-11-19,09:26 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":1,"hourOfDay":10,"minute":30,"second":0},"archived":true,"desc":"Drop check off to office ","reminderCount":0,"status":"Complete","timeCompleted":{"year":2019,"month":10,"dayOfMonth":1,"hourOfDay":10,"minute":51,"second":49},"uuid":"0272394152314290199877561908901293226083"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0272394152314290199877561908901293226083
+2019-11-19,09:26 AM,Info,SpResLib,Scanning file: 2019-11-18 App.csv
+2019-11-19,09:26 AM,Info,SpResLib,Scanning file: 2019-11-18 UI.csv
+2019-11-19,09:26 AM,Info,SpResLib,Scanning file: 0224693529173619643040437001208027813872
+2019-11-19,09:26 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":0,"second":0},"archived":true,"desc":"go to gym","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":5,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":0,"second":15},"timeCompleted":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":0,"second":45},"uuid":"0224693529173619643040437001208027813872"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0224693529173619643040437001208027813872
+2019-11-19,09:26 AM,Info,SpResLib,Scanning file: 0015306533137243457714555511465400004727
+2019-11-19,09:26 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":20,"minute":30,"second":0},"archived":true,"desc":"check to see if you have homework","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":20,"minute":35,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":20,"minute":30,"second":2},"timeCompleted":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":20,"minute":30,"second":9},"uuid":"0015306533137243457714555511465400004727"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0015306533137243457714555511465400004727
+2019-11-19,09:26 AM,Info,SpResLib,Scanning file: 0230515277598659387221376261261105410882
+2019-11-19,09:26 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":21,"minute":0,"second":0},"archived":true,"desc":"shower","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":21,"minute":5,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":21,"minute":0,"second":7},"timeCompleted":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":21,"minute":0,"second":17},"uuid":"0230515277598659387221376261261105410882"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0230515277598659387221376261261105410882
+2019-11-19,09:26 AM,Info,SpResLib,Scanning file: 0004529871525411373630087207594376989151
+2019-11-19,09:26 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":true,"desc":"sleep","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":5,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":4},"timeCompleted":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":19},"uuid":"0004529871525411373630087207594376989151"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0004529871525411373630087207594376989151
+2019-11-19,09:26 AM,Info,SpResLib,Scanning file: 2019-11-19 App.csv
+2019-11-19,09:26 AM,Info,SpResLib,Scanning file: 2019-11-19 UI.csv
+2019-11-19,09:26 AM,Info,SmartPrompter-Admin,Populating activities.CompleteAlarmsActivity with alarm-list fragment.
+2019-11-19,09:26 AM,Info,SpResLib,Image file exists!  Attempting to retrieve from absolute path: 		 /storage/emulated/0/Documents/sp_photos/10292019______0807PM_Setalarmtonightwithaudio.jpg
+2019-11-19,09:26 AM,Info,SpResLib,Attempt to retrieve completion image was successful.  Forwarding Bitmap to image viewer.
+2019-11-19,09:26 AM,Error,SpResLib,Image file does not exist at path: /storage/emulated/0/Documents/sp_photos/11182019______0900PM_shower.jpg
+2019-11-19,09:26 AM,Info,SpResLib,Unable to retrieve completion image.  Displaying default text.

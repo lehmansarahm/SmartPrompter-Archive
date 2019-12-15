@@ -15,7 +15,7 @@ import edu.temple.sp_res_lib.utils.Log;
 
 import static edu.temple.sp_admin.SpAdmin.LOG_TAG;
 
-public class PastAlarmsActivity extends BaseActivity
+public class CompleteAlarmsActivity extends BaseActivity
         implements AlarmListFragment.OnListItemSelectionListener {
 
     ArrayList<Alarm> mPastAlarms;
@@ -51,7 +51,7 @@ public class PastAlarmsActivity extends BaseActivity
 
     private void getPastAlarms() {
         SpAdmin spa = (SpAdmin) getApplicationContext();
-        mPastAlarms = spa.getArchivedAlarms();
+        mPastAlarms = spa.getInactiveAlarms();
     }
 
     private void showDefaultFragment() {

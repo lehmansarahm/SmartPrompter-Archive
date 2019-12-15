@@ -32,7 +32,7 @@ public class EmailUtil implements EmailTask.TaskCompletionListener {
             Log.e(LOG_TAG, "Email task completed!  Was successful: " + success);
         }
         listener.onSendComplete(success);
-        StorageUtil.archiveLogsDirContents(context);
+        StorageUtil.archiveTodaysAlarms(context);
     }
 
 }

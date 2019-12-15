@@ -1,0 +1,22 @@
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Created
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Resumed
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Create-New button clicked.
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Paused
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Created
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Resumed
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin-UI,MainActivity - 	 Stopped
+2019-10-31,09:32 PM,Info,SpResLib-UI,NewAlarmActivity - 	 User clicked LABEL field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-10-31,09:32 PM,Info,SpResLib-UI,NewAlarmActivity - 	 Updated alarm label: Drop check off to office 
+2019-10-31,09:32 PM,Info,SpResLib-UI,NewAlarmActivity - 	 TimePickerDialog requested with default time: 21:32
+2019-10-31,09:32 PM,Info,SpResLib-UI,NewAlarmActivity - 	 Time picked: 10:30 		 for current alarm: XXXX-YYYY-ZZZZ
+2019-10-31,09:32 PM,Info,SpResLib-UI,NewAlarmActivity - 	 DatePickerDialog requested with default date: 9/31/2019
+2019-10-31,09:32 PM,Info,SpResLib-UI,NewAlarmActivity - 	 Date picked: 10/1/2019 		 for current alarm: XXXX-YYYY-ZZZZ
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Button clicked: Save
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Saved new alarm with description: Drop check off to office  	 and time: 11-01-2019      10:30AM
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Paused
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Created
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Resumed
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Stopped
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin-UI,NewAlarmActivity - 	 Destroyed
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Paused
+2019-10-31,09:32 PM,Info,SmartPrompter-Admin-UI,CurrentAlarmsActivity - 	 Stopped

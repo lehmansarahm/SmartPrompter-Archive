@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import edu.temple.sp_res_lib.obj.Alarm;
@@ -74,11 +75,35 @@ public class StorageUtil {
         }
     }
 
-    public static void archiveLogsDirContents(Context context) {
-        Log.i(LOG_TAG, "Archiving contents of SP_LOGS directory.");
-        File logsDir = verifyOutputDir(context, LOGS_DIR);
+    public static void archiveTodaysAlarms(Context context) {
         File archiveDir = verifyOutputDir(context, ARCHIVE_DIR);
 
+        Log.i(LOG_TAG, "Archiving today's incomplete records from SP_ALARMS directory.");
+        File alarmsDir = verifyOutputDir(context, ALARMS_DIR);
+        if (alarmsDir.exists() && alarmsDir.list() != null && alarmsDir.list().length > 0) {
+            for (String alarmFilename : alarmsDir.list()) {
+                String jsonAlarm = StorageUtil.readFile(context, ALARMS_DIR, alarmFilename);
+                if (jsonAlarm != null && !jsonAlarm.equals("")) {
+                    Alarm alarm = Alarm.importFromJson(jsonAlarm);
+                    if (alarm.isScheduledForToday()) {
+                        Log.e(LOG_TAG, "Found matching record for today: " + alarm.toString());
+                        File oldAlarmFile = new File(alarmsDir, alarmFilename);
+                        if (oldAlarmFile.renameTo(new File(archiveDir, alarmFilename))) {
+                            Log.i(LOG_TAG, "Alarm file successfully archived!");
+                            oldAlarmFile.delete();
+                        } else {
+                            Log.e(LOG_TAG, "Something went wrong while attempting to archive "
+                                    + "old alarm file: " + oldAlarmFile.getAbsolutePath());
+                        }
+                    }
+                }
+
+            }
+        }
+        else Log.e(LOG_TAG, "No contents in SP_ALARMS to archive!");
+
+        Log.i(LOG_TAG, "Archiving contents of SP_LOGS directory.");
+        File logsDir = verifyOutputDir(context, LOGS_DIR);
         if (logsDir.exists() && logsDir.list() != null && logsDir.list().length > 0) {
             for (String log : logsDir.list()) {
                 File oldLog = new File(logsDir, log);
@@ -159,8 +184,8 @@ public class StorageUtil {
     // --------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------
 
-    public static ArrayList<Alarm> getLogsFromStorage(Context ctx) {
-        Log.i(LOG_TAG, "Retrieving log records from storage!");
+    public static ArrayList<Alarm> getInactiveAlarmsFromStorage(Context ctx) {
+        Log.i(LOG_TAG, "Retrieving inactive records from storage!");
         ArrayList<Alarm> alarms = new ArrayList<>();
         File alarmsDir = verifyOutputDir(ctx, LOGS_DIR);
 
@@ -169,6 +194,25 @@ public class StorageUtil {
                 Log.i(LOG_TAG, "Scanning file: " + alarmFile);
                 if (!alarmFile.endsWith(".csv")) {
                     String jsonAlarm = StorageUtil.readFile(ctx, LOGS_DIR, alarmFile);
+                    Alarm alarm = Alarm.importFromJson(jsonAlarm);
+                    alarms.add(alarm);
+                }
+            }
+        }
+
+        return alarms;
+    }
+
+    public static ArrayList<Alarm> getArchivedLogsFromStorage(Context ctx) {
+        Log.i(LOG_TAG, "Retrieving archived records from storage!");
+        ArrayList<Alarm> alarms = new ArrayList<>();
+        File alarmsDir = verifyOutputDir(ctx, ARCHIVE_DIR);
+
+        if (alarmsDir.exists() && alarmsDir.list() != null && alarmsDir.list().length > 0) {
+            for (String alarmFile : alarmsDir.list()) {
+                Log.i(LOG_TAG, "Scanning file: " + alarmFile);
+                if (!alarmFile.endsWith(".csv")) {
+                    String jsonAlarm = StorageUtil.readFile(ctx, ARCHIVE_DIR, alarmFile);
                     Alarm alarm = Alarm.importFromJson(jsonAlarm);
                     alarms.add(alarm);
                 }

@@ -18,7 +18,7 @@ public class SpAdmin extends Application {
 
     public static final String LOG_TAG = "SmartPrompter-Admin";
 
-    private ArrayList<Alarm> alarms, logs;
+    private ArrayList<Alarm> activeAlarms, inactiveAlarms;
     private ArrayList<SurveyQuestion> questions;
 
     // --------------------------------------------------------------------------------------
@@ -32,15 +32,15 @@ public class SpAdmin extends Application {
         Log.e(LOG_TAG, "Launching on device with dp height: " + dpHeight
                 + " \t\t and dp width: " + dpWidth);
 
-        getCurrentAlarms();
-        getArchivedAlarms();
+        getActiveAlarms();
+        getInactiveAlarms();
         getQuestions();
 
         super.onCreate();
     }
 
     public Alarm getAlarm(String guid) {
-        for (Alarm alarm : alarms) {
+        for (Alarm alarm : activeAlarms) {
             if (alarm.getGuid().equals(guid))
                 return alarm;
         }
@@ -48,21 +48,25 @@ public class SpAdmin extends Application {
     }
 
     public Alarm getAlarmLog(String guid) {
-        for (Alarm alarm : logs) {
+        for (Alarm alarm : inactiveAlarms) {
             if (alarm.getGuid().equals(guid))
                 return alarm;
         }
         return null;
     }
 
-    public ArrayList<Alarm> getCurrentAlarms() {
-        alarms = AlarmUtil.getAlarmsFromStorage(this);
-        return alarms;
+    public ArrayList<Alarm> getActiveAlarms() {
+        activeAlarms = AlarmUtil.getAlarmsFromStorage(this);
+        return activeAlarms;
+    }
+
+    public ArrayList<Alarm> getInactiveAlarms() {
+        inactiveAlarms = StorageUtil.getInactiveAlarmsFromStorage(this);
+        return inactiveAlarms;
     }
 
     public ArrayList<Alarm> getArchivedAlarms() {
-        logs = StorageUtil.getLogsFromStorage(this);
-        return logs;
+        return StorageUtil.getArchivedLogsFromStorage(this);
     }
 
     public ArrayList<SurveyQuestion> getQuestions() {
@@ -85,12 +89,12 @@ public class SpAdmin extends Application {
         if (newAlarm.getGuid().equals(Constants.DEFAULT_ALARM_GUID)) {
             Log.i(LOG_TAG, "Creating new record for alarm: " + newAlarm.getDesc());
             newAlarm.setNewGuid();
-            alarms.add(newAlarm);
+            activeAlarms.add(newAlarm);
         } else {
             Log.i(LOG_TAG, "Updating details for existing alarm: " + newAlarm.getDesc());
             int oldAlarmIndex = getAlarmIndex(newAlarm);
             if (oldAlarmIndex != DEFAULT_ALARM_ID)
-                alarms.set(oldAlarmIndex, newAlarm);
+                activeAlarms.set(oldAlarmIndex, newAlarm);
         }
 
         commitChanges();
@@ -105,11 +109,11 @@ public class SpAdmin extends Application {
 
         int oldAlarmIndex = getAlarmIndex(alarm);
         if (oldAlarmIndex != DEFAULT_ALARM_ID)
-            alarms.remove(oldAlarmIndex);
+            activeAlarms.remove(oldAlarmIndex);
     }
 
     public void commitChanges() {
-        StorageUtil.writeAlarmsToStorage(this, alarms);
+        StorageUtil.writeAlarmsToStorage(this, activeAlarms);
         StorageUtil.writeDirtyFlag(this);
     }
 
@@ -117,9 +121,9 @@ public class SpAdmin extends Application {
     // --------------------------------------------------------------------------------------
 
     private int getAlarmIndex(Alarm alarm) {
-        for (Alarm oldAlarm : alarms) {
+        for (Alarm oldAlarm : activeAlarms) {
             if (oldAlarm.getGuid().equals(alarm.getGuid())) {
-                return alarms.indexOf(oldAlarm);
+                return activeAlarms.indexOf(oldAlarm);
             }
         }
 

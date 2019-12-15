@@ -1,0 +1,29 @@
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,MainActivity - 	 Created
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,MainActivity - 	 Resumed
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,MainActivity - 	 Paused
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,MainActivity - 	 Resumed
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,MainActivity - 	 User resumed task acknowledgment for alarm: 0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,MainActivity - 	 Paused
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,AcknowledgmentActivity - 	 Created
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,AcknowledgmentActivity - 	 Resumed
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,MainActivity - 	 Stopped
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,MainActivity - 	 Destroyed
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,AcknowledgmentActivity - 	 Explicit SeekBar tracking touch started!
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,AcknowledgmentActivity - 	 User selected 'On my way'.
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,AcknowledgmentActivity - 	 Paused
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,CompletionActivity - 	 Created
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,CompletionActivity - 	 Resumed
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,AcknowledgmentActivity - 	 Explicit SeekBar tracking touch stopped!
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,AcknowledgmentActivity - 	 Stopped
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,AcknowledgmentActivity - 	 Destroyed
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,CompletionActivity - 	 Implicit SeekBar tracking touch started!
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,CompletionActivity - 	 User selected 'Ready to take picture'.
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,CompletionActivity - 	 Paused
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,CameraActivity - 	 Created
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,CameraActivity - 	 Resumed
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,CompletionActivity - 	 Implicit SeekBar tracking touch stopped!
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,CompletionActivity - 	 Stopped
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,CameraActivity - 	 Camera button clicked!
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,CameraActivity - 	 Camera image rejected!
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,CameraActivity - 	 Paused
+2019-11-18,06:45 PM,Info,SmartPrompterV2-UI,CameraActivity - 	 Stopped

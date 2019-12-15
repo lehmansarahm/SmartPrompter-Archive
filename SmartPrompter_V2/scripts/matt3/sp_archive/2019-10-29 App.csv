@@ -1,0 +1,20 @@
+2019-10-29,03:41 PM,Error,SmartPrompterV2,REBOOT RECEIVED!!
+2019-10-29,03:41 PM,Info,SmartPrompterV2,Resetting any local alarms...
+2019-10-29,03:41 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-29,03:41 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-29,03:41 PM,Info,SmartPrompterV2,Current time: 10-29-2019      03:41PM
+2019-10-29,03:41 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-29,03:41 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-29,03:41 PM,Info,SmartPrompterV2,Current time: 10-29-2019      03:41PM
+2019-10-29,03:41 PM,Error,SmartPrompterV2,Setting recurring auto-archive alarm for time: 10-30-2019      12:00AM		 with an interval of: 86400000 ms
+2019-10-29,03:41 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-10-29,03:42 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-10-29,03:43 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-10-29,03:44 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-10-29,03:45 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-10-29,03:46 PM,Info,SmartPrompterV2,Populating current activity with clock fragment.
+2019-10-29,03:46 PM,Info,SmartPrompterV2,Missing some permissions!  Time to request from the user...
+2019-10-29,03:46 PM,Info,SmartPrompterV2,User has granted all required permissions!
+2019-10-29,03:46 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-29,03:46 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-29,03:46 PM,Info,SmartPrompterV2,Populating current activity with empty-list fragment.

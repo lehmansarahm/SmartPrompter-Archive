@@ -55,19 +55,20 @@
             android:launchMode="singleTask" />
 
         <activity
-            android:name=".activities.ConfirmationActivity"
-            android:launchMode="singleTask" />
-
-        <activity
             android:name=".activities.CameraActivity"
             android:label="@string/title_activity_camera"
             android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".activities.ConfirmationActivity"
             android:launchMode="singleTask" />
 
         <service android:name=".services.DownloadService" />
         <service android:name=".services.FileMonitorService" />
 
         <receiver android:name=".receivers.AlarmAlertReceiver" />
+        <receiver android:name=".receivers.AutoArchiveReceiver" />
         <receiver android:name=".receivers.ExportReceiver" />
         <receiver android:name=".receivers.RebootReceiver" >
             <intent-filter>

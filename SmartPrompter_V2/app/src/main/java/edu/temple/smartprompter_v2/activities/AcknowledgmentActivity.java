@@ -85,7 +85,7 @@ public class AcknowledgmentActivity extends BaseActivity {
                 mInstructionText.setText(getString(R.string.acknowledgment_instruction_text));
                 mInstructionText.setTypeface(Typeface.DEFAULT);
                 mInstructionText.setTextSize(TypedValue.COMPLEX_UNIT_SP,18);
-                mInstructionText.setTextColor(Color.parseColor("#000"));
+                mInstructionText.setTextColor(Color.parseColor("#000000"));
                 break;
         }
     }

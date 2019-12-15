@@ -29,7 +29,7 @@ public class AlarmClockUtil {
         setAlarmClock(context, alarm, alarmTime, false);
     }
 
-    public static void setReminder(Context context, Alarm alarm, Alarm.REMINDER type) {
+    public static void setReminder(Context context, Alarm alarm, Alarm.REMINDER type, boolean increaseReminderCount) {
         if (type == Alarm.REMINDER.Explicit) {
             Log.i(LOG_TAG, "User has explicitly snoozed alarm.  Resetting reminder count.");
             alarm.resetReminderCount();
@@ -40,7 +40,7 @@ public class AlarmClockUtil {
                     + "reminder with type: " + type.toString());
             alarm.setReminderType(type);
 
-            AlarmUtil.setReminderTime(alarm, type);
+            AlarmUtil.setReminderTime(alarm, type, increaseReminderCount);
             long reminderTime = alarm.getReminderTimeMillis();
             String reminderString = alarm.getReminderDateTimeString();
 
@@ -50,6 +50,8 @@ public class AlarmClockUtil {
 
             setAlarmClock(context, alarm, reminderTime, true);
             StorageUtil.writeAlarmToStorage(context, alarm);
+        } else {
+            Log.e(LOG_TAG, "REMINDER LIMIT REACHED.  CANNOT SET MORE REMINDERS.");
         }
     }
 
@@ -70,7 +72,7 @@ public class AlarmClockUtil {
                 if (alarm.hasReminder()) {
                     if (alarm.getReminderTimeMillis() < currentTime)
                         Log.e(LOG_TAG, "Alarm has active reminder, but reminder time has passed.");
-                    else setReminder(context, alarm, alarm.getReminderType());
+                    else setReminder(context, alarm, alarm.getReminderType(), false);
                 }
             }
         }

@@ -7,6 +7,11 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 import edu.temple.sp_admin.R;
 import edu.temple.sp_res_lib.utils.Log;
@@ -22,8 +27,9 @@ public class MainActivity extends BaseActivity {
             Manifest.permission.RECORD_AUDIO
     };
 
-    private Button createNewButton, viewCurrentButton,
-            viewPastButton, configAudioButton, configEmailButton;
+    private Button createNewButton, viewActiveButton,
+            viewCompleteButton, viewArchivedButton,
+            configAudioButton; // configEmailButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,23 +80,35 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        viewCurrentButton = findViewById(R.id.view_current_button);
-        viewCurrentButton.setOnClickListener(new View.OnClickListener() {
+        viewActiveButton = findViewById(R.id.view_current_button);
+        viewActiveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.ui(LOG_TAG, MainActivity.this,"View-Current button clicked.");
+                Log.ui(LOG_TAG, MainActivity.this,"View-Active button clicked.");
                 startActivity(new Intent(MainActivity.this,
-                        CurrentAlarmsActivity.class));
+                        ActiveAlarmsActivity.class));
             }
         });
 
-        viewPastButton = findViewById(R.id.view_past_button);
-        viewPastButton.setOnClickListener(new View.OnClickListener() {
+        // TODO - consolidate "complete" and "archived" lists???
+
+        viewCompleteButton = findViewById(R.id.view_past_button);
+        viewCompleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.ui(LOG_TAG, MainActivity.this, "View-Past button clicked.");
+                Log.ui(LOG_TAG, MainActivity.this, "View-Inactive button clicked.");
                 startActivity(new Intent(MainActivity.this,
-                        PastAlarmsActivity.class));
+                        CompleteAlarmsActivity.class));
+            }
+        });
+
+        viewArchivedButton = findViewById(R.id.view_archived_button);
+        viewArchivedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.ui(LOG_TAG, MainActivity.this, "View-Archived button clicked.");
+                startActivity(new Intent(MainActivity.this,
+                        ArchivedAlarmsActivity.class));
             }
         });
 
@@ -104,7 +122,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        configEmailButton = findViewById(R.id.configure_email_button);
+        /* configEmailButton = findViewById(R.id.configure_email_button);
         configEmailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -112,15 +130,15 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(MainActivity.this,
                         ConfigEmailActivity.class));
             }
-        });
+        }); */
     }
 
     protected void setButtonStatus(boolean enabled) {
         createNewButton.setEnabled(enabled);
-        viewCurrentButton.setEnabled(enabled);
-        viewPastButton.setEnabled(enabled);
+        viewActiveButton.setEnabled(enabled);
+        viewCompleteButton.setEnabled(enabled);
         configAudioButton.setEnabled(enabled);
-        configEmailButton.setEnabled(enabled);
+        // configEmailButton.setEnabled(enabled);
     }
 
 }

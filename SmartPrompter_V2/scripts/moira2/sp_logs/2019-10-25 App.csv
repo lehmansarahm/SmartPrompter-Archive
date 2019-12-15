@@ -1,0 +1,86 @@
+2019-10-25,10:57 AM,Error,SmartPrompter-Admin,Launching on device with dp height: 731.4286 		 and dp width: 411.42856
+2019-10-25,10:57 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-25,10:57 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: export_check.txt
+2019-10-25,10:57 AM,Info,SpResLib,Retrieving log records from storage!
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-16 App.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-16 UI.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 0204186377971233880964175972348004755116
+2019-10-25,10:57 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":16,"hourOfDay":11,"minute":30,"second":0},"archived":true,"desc":"lunch","reminderCount":3,"reminderTime":{"year":2019,"month":9,"dayOfMonth":16,"hourOfDay":11,"minute":33,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":16,"hourOfDay":11,"minute":37,"second":50},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":16,"hourOfDay":11,"minute":42,"second":22},"uuid":"0204186377971233880964175972348004755116"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0204186377971233880964175972348004755116
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-17 App.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-17 UI.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 0323868654877278443187511129503945399991
+2019-10-25,10:57 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":17,"hourOfDay":0,"minute":30,"second":0},"archived":true,"desc":"Neurobiology Reading Quiz","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":17,"hourOfDay":0,"minute":31,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":17,"hourOfDay":0,"minute":30,"second":17},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":17,"hourOfDay":0,"minute":30,"second":36},"uuid":"0323868654877278443187511129503945399991"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0323868654877278443187511129503945399991
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 0160553049445982399537013477784507062119
+2019-10-25,10:57 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":17,"hourOfDay":12,"minute":30,"second":0},"archived":true,"desc":"Neurobiology Reading Quiz ","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":17,"hourOfDay":12,"minute":31,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":17,"hourOfDay":12,"minute":30,"second":36},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":17,"hourOfDay":12,"minute":30,"second":50},"uuid":"0160553049445982399537013477784507062119"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0160553049445982399537013477784507062119
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-18 App.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-18 UI.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 0194005782879253117952843942561914839429
+2019-10-25,10:57 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":18,"hourOfDay":14,"minute":0,"second":0},"archived":true,"desc":"Update CV and send Tania GPA","reminderCount":3,"reminderTime":{"year":2019,"month":9,"dayOfMonth":18,"hourOfDay":14,"minute":3,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":18,"hourOfDay":14,"minute":11,"second":31},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":18,"hourOfDay":14,"minute":11,"second":43},"uuid":"0194005782879253117952843942561914839429"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0194005782879253117952843942561914839429
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-21 App.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-21 UI.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 0204082975762389757316259028274122319252
+2019-10-25,10:57 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":9,"minute":45,"second":0},"archived":true,"desc":"breakfast","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":9,"minute":46,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":9,"minute":45,"second":29},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":9,"minute":45,"second":37},"uuid":"0204082975762389757316259028274122319252"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0204082975762389757316259028274122319252
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-23 App.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-23 UI.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 0108260427498265958992274579242856408975
+2019-10-25,10:57 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":17,"minute":1,"second":0},"archived":true,"desc":"Short Answer Assignment ","reminderCount":2,"reminderTime":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":17,"minute":3,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":17,"minute":2,"second":5},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":17,"minute":2,"second":13},"uuid":"0108260427498265958992274579242856408975"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0108260427498265958992274579242856408975
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 0298050496746212577447208279038837886320
+2019-10-25,10:57 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":19,"minute":0,"second":0},"archived":true,"desc":"Homework","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":19,"minute":1,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":19,"minute":0,"second":5},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":19,"minute":0,"second":44},"uuid":"0298050496746212577447208279038837886320"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0298050496746212577447208279038837886320
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-25 App.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-25 UI.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 0127153184193289638372562620040156343635
+2019-10-25,10:57 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":25,"hourOfDay":10,"minute":45,"second":0},"archived":true,"desc":"Meeting with Sarah","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":25,"hourOfDay":10,"minute":46,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":25,"hourOfDay":10,"minute":45,"second":12},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":25,"hourOfDay":10,"minute":45,"second":27},"uuid":"0127153184193289638372562620040156343635"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0127153184193289638372562620040156343635
+2019-10-25,10:57 AM,Info,SpResLib,Retrieving survey questions from storage!
+2019-10-25,10:57 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-25,10:57 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: export_check.txt
+2019-10-25,10:57 AM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with empty-list fragment.
+2019-10-25,10:57 AM,Info,SpResLib,Retrieving log records from storage!
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-16 App.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-16 UI.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 0204186377971233880964175972348004755116
+2019-10-25,10:57 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":16,"hourOfDay":11,"minute":30,"second":0},"archived":true,"desc":"lunch","reminderCount":3,"reminderTime":{"year":2019,"month":9,"dayOfMonth":16,"hourOfDay":11,"minute":33,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":16,"hourOfDay":11,"minute":37,"second":50},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":16,"hourOfDay":11,"minute":42,"second":22},"uuid":"0204186377971233880964175972348004755116"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0204186377971233880964175972348004755116
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-17 App.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-17 UI.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 0323868654877278443187511129503945399991
+2019-10-25,10:57 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":17,"hourOfDay":0,"minute":30,"second":0},"archived":true,"desc":"Neurobiology Reading Quiz","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":17,"hourOfDay":0,"minute":31,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":17,"hourOfDay":0,"minute":30,"second":17},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":17,"hourOfDay":0,"minute":30,"second":36},"uuid":"0323868654877278443187511129503945399991"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0323868654877278443187511129503945399991
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 0160553049445982399537013477784507062119
+2019-10-25,10:57 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":17,"hourOfDay":12,"minute":30,"second":0},"archived":true,"desc":"Neurobiology Reading Quiz ","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":17,"hourOfDay":12,"minute":31,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":17,"hourOfDay":12,"minute":30,"second":36},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":17,"hourOfDay":12,"minute":30,"second":50},"uuid":"0160553049445982399537013477784507062119"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0160553049445982399537013477784507062119
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-18 App.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-18 UI.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 0194005782879253117952843942561914839429
+2019-10-25,10:57 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":18,"hourOfDay":14,"minute":0,"second":0},"archived":true,"desc":"Update CV and send Tania GPA","reminderCount":3,"reminderTime":{"year":2019,"month":9,"dayOfMonth":18,"hourOfDay":14,"minute":3,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":18,"hourOfDay":14,"minute":11,"second":31},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":18,"hourOfDay":14,"minute":11,"second":43},"uuid":"0194005782879253117952843942561914839429"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0194005782879253117952843942561914839429
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-21 App.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-21 UI.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 0204082975762389757316259028274122319252
+2019-10-25,10:57 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":9,"minute":45,"second":0},"archived":true,"desc":"breakfast","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":9,"minute":46,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":9,"minute":45,"second":29},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":9,"minute":45,"second":37},"uuid":"0204082975762389757316259028274122319252"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0204082975762389757316259028274122319252
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-23 App.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-23 UI.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 0108260427498265958992274579242856408975
+2019-10-25,10:57 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":17,"minute":1,"second":0},"archived":true,"desc":"Short Answer Assignment ","reminderCount":2,"reminderTime":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":17,"minute":3,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":17,"minute":2,"second":5},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":17,"minute":2,"second":13},"uuid":"0108260427498265958992274579242856408975"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0108260427498265958992274579242856408975
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 0298050496746212577447208279038837886320
+2019-10-25,10:57 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":19,"minute":0,"second":0},"archived":true,"desc":"Homework","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":19,"minute":1,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":19,"minute":0,"second":5},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":19,"minute":0,"second":44},"uuid":"0298050496746212577447208279038837886320"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0298050496746212577447208279038837886320
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-25 App.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 2019-10-25 UI.csv
+2019-10-25,10:57 AM,Info,SpResLib,Scanning file: 0127153184193289638372562620040156343635
+2019-10-25,10:57 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":25,"hourOfDay":10,"minute":45,"second":0},"archived":true,"desc":"Meeting with Sarah","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":25,"hourOfDay":10,"minute":46,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":25,"hourOfDay":10,"minute":45,"second":12},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":25,"hourOfDay":10,"minute":45,"second":27},"uuid":"0127153184193289638372562620040156343635"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0127153184193289638372562620040156343635
+2019-10-25,10:57 AM,Info,SmartPrompter-Admin,Populating activities.PastAlarmsActivity with alarm-list fragment.
+2019-10-25,11:00 AM,Info,SpResLib,Retrieving log records from storage!
+2019-10-25,11:00 AM,Info,SmartPrompter-Admin,Populating activities.PastAlarmsActivity with empty-list fragment.

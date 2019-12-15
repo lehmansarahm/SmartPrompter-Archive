@@ -1,0 +1,185 @@
+2019-11-18,09:05 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  true
+2019-11-18,09:05 PM,Info,SpResLib,Deleted file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-11-18,09:05 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,09:05 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,09:05 PM,Info,SpResLib,Scanning file: export_check.txt
+2019-11-18,09:05 PM,Info,SpResLib,Scanning file: 0004529871525411373630087207594376989151
+2019-11-18,09:05 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"sleep","reminderCount":0,"status":"Active","uuid":"0004529871525411373630087207594376989151"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0004529871525411373630087207594376989151
+2019-11-18,09:05 PM,Info,SmartPrompterV2,Current time: 11-18-2019      09:05PM
+2019-11-18,09:05 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,09:05 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,09:05 PM,Info,SpResLib,Scanning file: export_check.txt
+2019-11-18,09:05 PM,Info,SpResLib,Scanning file: 0004529871525411373630087207594376989151
+2019-11-18,09:05 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"sleep","reminderCount":0,"status":"Active","uuid":"0004529871525411373630087207594376989151"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0004529871525411373630087207594376989151
+2019-11-18,09:05 PM,Info,SmartPrompterV2,Current time: 11-18-2019      09:05PM
+2019-11-18,09:05 PM,Info,SmartPrompterV2,Setting new alarm clock for task: sleep
+ 	 Current time millis: 1574129102929
+ 	 Alarm time millis: 1574132400000
+2019-11-18,09:05 PM,Error,SmartPrompterV2,Setting alarm for task: sleep 	 	 and GUID-int: -1496938017 	 	 with date/time: 11-18-2019      10:00PM
+2019-11-18,09:06 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:07 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:08 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:09 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:10 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:11 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:12 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:13 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:14 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:18 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:18 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:18 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:18 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:27 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:27 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:27 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:27 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:27 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:27 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:27 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:27 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:27 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:29 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:29 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:30 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:31 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:32 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:33 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:34 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:43 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:43 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:43 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:43 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:43 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:43 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:43 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:43 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:43 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:46 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:46 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:46 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:47 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:48 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:49 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:50 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:51 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:52 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:53 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:54 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:55 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:56 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:57 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:58 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,09:59 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,10:00 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,10:00 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,10:00 PM,Info,SpResLib,Scanning file: export_check.txt
+2019-11-18,10:00 PM,Info,SpResLib,Scanning file: 0004529871525411373630087207594376989151
+2019-11-18,10:00 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"sleep","reminderCount":0,"status":"Active","uuid":"0004529871525411373630087207594376989151"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0004529871525411373630087207594376989151
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Current time: 11-18-2019      10:00PM
+2019-11-18,10:00 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,10:00 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,10:00 PM,Info,SpResLib,Scanning file: export_check.txt
+2019-11-18,10:00 PM,Info,SpResLib,Scanning file: 0004529871525411373630087207594376989151
+2019-11-18,10:00 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"sleep","reminderCount":0,"status":"Active","uuid":"0004529871525411373630087207594376989151"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0004529871525411373630087207594376989151
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Current time: 11-18-2019      10:00PM
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Setting new alarm clock for task: sleep
+ 	 Current time millis: 1574132400276
+ 	 Alarm time millis: 1574132400000
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Original alarm time has passed... Checking for active reminders...
+2019-11-18,10:00 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"sleep","reminderCount":0,"status":"Unacknowledged","uuid":"0004529871525411373630087207594376989151"}
+2019-11-18,10:00 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"sleep","reminderCount":0,"status":"Unacknowledged","uuid":"0004529871525411373630087207594376989151"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0004529871525411373630087207594376989151
+2019-11-18,10:00 PM,Info,SmartPrompterV2,First time getting alert for this alarm.  Status set to UNACKNOWLEDGED.
+2019-11-18,10:00 PM,Error,SmartPrompterV2,ALARM ALERT BROADCAST RECEIVED FOR GUID: 0004529871525411373630087207594376989151 	 AND GUID-INT: -1496938017 	 WITH ORIG ALARM TIME: 11-18-2019      10:00PM 	 AND STATUS: Unacknowledged
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Alarm reminder limit hasn't been exceeded.  Setting reminder with type: Implicit
+2019-11-18,10:00 PM,Info,SpResLib,Setting implicit reminder #1 for alarm: sleep
+2019-11-18,10:00 PM,Error,SmartPrompterV2,Setting reminder for task: sleep 	 	 and GUID-int: -1496938017 	 	 with date/time: 11-18-2019      10:05PM
+2019-11-18,10:00 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"sleep","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":5,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0004529871525411373630087207594376989151"}
+2019-11-18,10:00 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"sleep","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":5,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0004529871525411373630087207594376989151"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0004529871525411373630087207594376989151
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Launching acknowledgment activity for alarm: 0004529871525411373630087207594376989151
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Playing alarm alerts...
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Acquiring wake lock...
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Turning on device screen...
+2019-11-18,10:00 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,10:00 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,10:00 PM,Info,SpResLib,Scanning file: export_check.txt
+2019-11-18,10:00 PM,Info,SpResLib,Scanning file: 0004529871525411373630087207594376989151
+2019-11-18,10:00 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"sleep","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":5,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0004529871525411373630087207594376989151"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0004529871525411373630087207594376989151
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Current time: 11-18-2019      10:00PM
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Setting new alarm clock for task: sleep
+ 	 Current time millis: 1574132401332
+ 	 Alarm time millis: 1574132400000
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Original alarm time has passed... Checking for active reminders...
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Alarm reminder limit hasn't been exceeded.  Setting reminder with type: Implicit
+2019-11-18,10:00 PM,Info,SpResLib,Setting implicit reminder #1 for alarm: sleep
+2019-11-18,10:00 PM,Error,SmartPrompterV2,Setting reminder for task: sleep 	 	 and GUID-int: -1496938017 	 	 with date/time: 11-18-2019      10:05PM
+2019-11-18,10:00 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"sleep","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":5,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0004529871525411373630087207594376989151"}
+2019-11-18,10:00 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"sleep","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":5,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0004529871525411373630087207594376989151"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0004529871525411373630087207594376989151
+2019-11-18,10:00 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,10:00 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,10:00 PM,Info,SpResLib,Scanning file: export_check.txt
+2019-11-18,10:00 PM,Info,SpResLib,Scanning file: 0004529871525411373630087207594376989151
+2019-11-18,10:00 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"sleep","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":5,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0004529871525411373630087207594376989151"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0004529871525411373630087207594376989151
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Current time: 11-18-2019      10:00PM
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Explicit SeekBar progress changed: 2
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Updating flavor for slider selection: 2
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Releasing wake lock!
+2019-11-18,10:00 PM,Info,SpResLib,Stopping vibrate!
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Processing final slider selection: 2
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Cancelling existing alarms for GUID-int: -1496938017
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Alarm reminder limit hasn't been exceeded.  Setting reminder with type: Implicit
+2019-11-18,10:00 PM,Info,SpResLib,Setting implicit reminder #1 for alarm: sleep
+2019-11-18,10:00 PM,Error,SmartPrompterV2,Setting reminder for task: sleep 	 	 and GUID-int: -1496938017 	 	 with date/time: 11-18-2019      10:05PM
+2019-11-18,10:00 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"sleep","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":5,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0004529871525411373630087207594376989151"}
+2019-11-18,10:00 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"sleep","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":5,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0004529871525411373630087207594376989151"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0004529871525411373630087207594376989151
+2019-11-18,10:00 PM,Info,SpResLib,Alarm with GUID: 0004529871525411373630087207594376989151	 was acknowledged at time: 11-18-2019      10:00PM
+2019-11-18,10:00 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"sleep","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":5,"second":0},"reminderType":"Implicit","status":"Incomplete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":4},"uuid":"0004529871525411373630087207594376989151"}
+2019-11-18,10:00 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"sleep","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":5,"second":0},"reminderType":"Implicit","status":"Incomplete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":4},"uuid":"0004529871525411373630087207594376989151"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0004529871525411373630087207594376989151
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Stopping alarm alerts...
+2019-11-18,10:00 PM,Info,SpResLib,Stopping vibrate!
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Acquiring wake lock...
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Turning on device screen...
+2019-11-18,10:00 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,10:00 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,10:00 PM,Info,SpResLib,Scanning file: export_check.txt
+2019-11-18,10:00 PM,Info,SpResLib,Scanning file: 0004529871525411373630087207594376989151
+2019-11-18,10:00 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"sleep","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":5,"second":0},"reminderType":"Implicit","status":"Incomplete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":4},"uuid":"0004529871525411373630087207594376989151"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0004529871525411373630087207594376989151
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Current time: 11-18-2019      10:00PM
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Setting new alarm clock for task: sleep
+ 	 Current time millis: 1574132404423
+ 	 Alarm time millis: 1574132400000
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Original alarm time has passed... Checking for active reminders...
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Alarm reminder limit hasn't been exceeded.  Setting reminder with type: Implicit
+2019-11-18,10:00 PM,Info,SpResLib,Setting implicit reminder #1 for alarm: sleep
+2019-11-18,10:00 PM,Error,SmartPrompterV2,Setting reminder for task: sleep 	 	 and GUID-int: -1496938017 	 	 with date/time: 11-18-2019      10:05PM
+2019-11-18,10:00 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"sleep","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":5,"second":0},"reminderType":"Implicit","status":"Incomplete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":4},"uuid":"0004529871525411373630087207594376989151"}
+2019-11-18,10:00 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"sleep","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":5,"second":0},"reminderType":"Implicit","status":"Incomplete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":4},"uuid":"0004529871525411373630087207594376989151"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0004529871525411373630087207594376989151
+2019-11-18,10:00 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,10:00 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,10:00 PM,Info,SpResLib,Scanning file: export_check.txt
+2019-11-18,10:00 PM,Info,SpResLib,Scanning file: 0004529871525411373630087207594376989151
+2019-11-18,10:00 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":0},"archived":false,"desc":"sleep","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":5,"second":0},"reminderType":"Implicit","status":"Incomplete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":22,"minute":0,"second":4},"uuid":"0004529871525411373630087207594376989151"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0004529871525411373630087207594376989151
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Current time: 11-18-2019      10:00PM
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Implicit SeekBar progress changed: 2
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Updating flavor for slider selection: 2
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Releasing wake lock!
+2019-11-18,10:00 PM,Info,SpResLib,Stopping vibrate!
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Processing final slider selection: 2
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Stopping alarm alerts...
+2019-11-18,10:00 PM,Info,SpResLib,Stopping vibrate!
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Acquiring wake lock...
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Turning on device screen...
+2019-11-18,10:00 PM,Info,SmartPrompterV2,Launching camera preview for alarm GUID: 0004529871525411373630087207594376989151

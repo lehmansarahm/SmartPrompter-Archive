@@ -124,6 +124,7 @@ public class CompletionActivity extends BaseActivity {
                 intent.putExtra(Constants.BUNDLE_ARG_ALARM_WAKEUP, mWakeup);
                 intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, mAlarmGUID);
                 startActivity(intent);
+                finish();
                 break;
         }
     }

@@ -1,0 +1,131 @@
+2019-10-24,09:05 AM,Error,SmartPrompter-Admin,Launching on device with dp height: 683.4286 		 and dp width: 411.42856
+2019-10-24,09:05 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-24,09:05 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-24,09:05 AM,Info,SpResLib,Scanning file: device_label.txt
+2019-10-24,09:05 AM,Info,SpResLib,Scanning file: export_check.txt
+2019-10-24,09:05 AM,Info,SpResLib,Retrieving log records from storage!
+2019-10-24,09:05 AM,Info,SpResLib,Scanning file: 2019-10-18 App.csv
+2019-10-24,09:05 AM,Info,SpResLib,Scanning file: 0318206149017892463801408136598679352925
+2019-10-24,09:05 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":7,"minute":45,"second":0},"archived":true,"desc":"Shower! ","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":7,"minute":47,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":7,"minute":46,"second":4},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":7,"minute":46,"second":9},"uuid":"0318206149017892463801408136598679352925"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0318206149017892463801408136598679352925
+2019-10-24,09:05 AM,Info,SpResLib,Scanning file: 2019-10-08 UI.csv
+2019-10-24,09:05 AM,Info,SpResLib,Scanning file: 2019-10-24 App.csv
+2019-10-24,09:05 AM,Info,SpResLib,Scanning file: 0316723787060426473190243585152757065753
+2019-10-24,09:05 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":23,"minute":0,"second":0},"archived":true,"desc":"New Alarm","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":23,"minute":2,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":23,"minute":1,"second":5},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":23,"minute":1,"second":11},"uuid":"0316723787060426473190243585152757065753"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0316723787060426473190243585152757065753
+2019-10-24,09:05 AM,Info,SpResLib,Scanning file: 2019-10-23 UI.csv
+2019-10-24,09:05 AM,Info,SpResLib,Scanning file: 2019-10-18 UI.csv
+2019-10-24,09:05 AM,Info,SpResLib,Scanning file: 2019-10-21 App.csv
+2019-10-24,09:05 AM,Info,SpResLib,Scanning file: 2019-10-21 UI.csv
+2019-10-24,09:05 AM,Info,SpResLib,Scanning file: 0207933013298691285150482237653436080770
+2019-10-24,09:05 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":22,"minute":45,"second":0},"archived":true,"desc":"test1","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":22,"minute":47,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":22,"minute":46,"second":8},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":23,"hourOfDay":22,"minute":46,"second":19},"uuid":"0207933013298691285150482237653436080770"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0207933013298691285150482237653436080770
+2019-10-24,09:05 AM,Info,SpResLib,Scanning file: 2019-10-24 UI.csv
+2019-10-24,09:05 AM,Info,SpResLib,Scanning file: 0124793342716000584076852480006386305274
+2019-10-24,09:05 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":9,"minute":46,"second":0},"archived":true,"desc":"New Alarm","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":9,"minute":47,"second":0},"reminderType":"Implicit","status":"Complete","timeAcknowledged":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":9,"minute":46,"second":36},"timeCompleted":{"year":2019,"month":9,"dayOfMonth":21,"hourOfDay":9,"minute":46,"second":46},"uuid":"0124793342716000584076852480006386305274"}
+ 	 from file: /storage/emulated/0/Documents/sp_logs/0124793342716000584076852480006386305274
+2019-10-24,09:05 AM,Info,SpResLib,Scanning file: 2019-10-19 App.csv
+2019-10-24,09:05 AM,Info,SpResLib,Scanning file: 2019-10-23 App.csv
+2019-10-24,09:05 AM,Info,SpResLib,Scanning file: 2019-10-08 App.csv
+2019-10-24,09:05 AM,Info,SpResLib,Scanning file: 2019-10-16 UI.csv
+2019-10-24,09:05 AM,Info,SpResLib,Scanning file: 2019-10-16 App.csv
+2019-10-24,09:05 AM,Info,SpResLib,Scanning file: 2019-10-19 UI.csv
+2019-10-24,09:05 AM,Info,SpResLib,Retrieving survey questions from storage!
+2019-10-24,09:05 AM,Info,SpResLib,Found audio file: /storage/emulated/0/Documents/sp_audio/sp_audio_alarm.mpeg4
+2019-10-24,09:06 AM,Info,SpResLib,Found audio file: /storage/emulated/0/Documents/sp_audio/sp_audio_alarm.mpeg4
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin,Populating activities.NewAlarmActivity with Alarm-Details fragment.
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin,User clicked TIME field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: XXXX-YYYY-ZZZZ	 Description: New Alarm	 Date: 2019-10-24	 Time: 09:09 AM	 Status: Active	 Is Archived: false
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin,Creating new record for alarm: New Alarm
+2019-10-24,09:07 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":9,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0031373196899029847496990777275971468976"}
+2019-10-24,09:07 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":9,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0031373196899029847496990777275971468976"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0031373196899029847496990777275971468976
+2019-10-24,09:07 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-10-24,09:07 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-24,09:07 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-24,09:07 AM,Info,SpResLib,Scanning file: dirty
+2019-10-24,09:07 AM,Info,SpResLib,Read contents: 
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-10-24,09:07 AM,Info,SpResLib,Scanning file: 0031373196899029847496990777275971468976
+2019-10-24,09:07 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":9,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0031373196899029847496990777275971468976"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0031373196899029847496990777275971468976
+2019-10-24,09:07 AM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin,Populating activities.NewAlarmActivity with Alarm-Details fragment.
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin,User clicked TIME field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: XXXX-YYYY-ZZZZ	 Description: New Alarm	 Date: 2019-10-24	 Time: 09:11 AM	 Status: Active	 Is Archived: false
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin,Creating new record for alarm: New Alarm
+2019-10-24,09:10 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":9,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0031373196899029847496990777275971468976"}
+2019-10-24,09:10 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":9,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0031373196899029847496990777275971468976"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0031373196899029847496990777275971468976
+2019-10-24,09:10 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":11,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0190476106066650282123117332492170869114"}
+2019-10-24,09:10 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":11,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0190476106066650282123117332492170869114"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0190476106066650282123117332492170869114
+2019-10-24,09:10 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-10-24,09:10 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-24,09:10 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-24,09:10 AM,Info,SpResLib,Scanning file: dirty
+2019-10-24,09:10 AM,Info,SpResLib,Read contents: 
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-10-24,09:10 AM,Info,SpResLib,Scanning file: export_check.txt
+2019-10-24,09:10 AM,Info,SpResLib,Scanning file: 0031373196899029847496990777275971468976
+2019-10-24,09:10 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":9,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0031373196899029847496990777275971468976"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0031373196899029847496990777275971468976
+2019-10-24,09:10 AM,Info,SpResLib,Scanning file: 0190476106066650282123117332492170869114
+2019-10-24,09:10 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":11,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0190476106066650282123117332492170869114"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0190476106066650282123117332492170869114
+2019-10-24,09:10 AM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-10-24,09:11 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-24,09:11 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-24,09:11 AM,Info,SpResLib,Scanning file: export_check.txt
+2019-10-24,09:11 AM,Info,SpResLib,Scanning file: 0031373196899029847496990777275971468976
+2019-10-24,09:11 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":9,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0031373196899029847496990777275971468976"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0031373196899029847496990777275971468976
+2019-10-24,09:11 AM,Info,SpResLib,Scanning file: 0190476106066650282123117332492170869114
+2019-10-24,09:11 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":11,"second":0},"archived":false,"desc":"New Alarm","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":12,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0190476106066650282123117332492170869114"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0190476106066650282123117332492170869114
+2019-10-24,09:11 AM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-10-24,09:11 AM,Info,SpResLib,Found audio file: /storage/emulated/0/Documents/sp_audio/sp_audio_alarm.mpeg4
+2019-10-24,09:11 AM,Info,SpResLib,Audio file deleted: /storage/emulated/0/Documents/sp_audio/sp_audio_alarm.mpeg4
+2019-10-24,09:11 AM,Error,SpResLib,Something went wrong while trying to stop the media player[Ljava.lang.StackTraceElement;@51fe9b0
+2019-10-24,09:11 AM,Error,SpResLib,Something went wrong while trying to stop the media player[Ljava.lang.StackTraceElement;@1ac934b
+2019-10-24,09:11 AM,Error,SpResLib,Can't play non-existent file: /storage/emulated/0/Documents/sp_audio/sp_audio_alarm.mpeg4 		 Playing default audio.
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin,Populating activities.NewAlarmActivity with Alarm-Details fragment.
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin,User clicked TIME field for alarm GUID: XXXX-YYYY-ZZZZ
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin,Attempting to save alarm record with: 	 GUID: XXXX-YYYY-ZZZZ	 Description: New Alarm	 Date: 2019-10-24	 Time: 09:13 AM	 Status: Active	 Is Archived: false
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin,Creating new record for alarm: New Alarm
+2019-10-24,09:12 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":9,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0031373196899029847496990777275971468976"}
+2019-10-24,09:12 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":9,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0031373196899029847496990777275971468976"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0031373196899029847496990777275971468976
+2019-10-24,09:12 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":11,"second":0},"archived":false,"desc":"New Alarm","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":12,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0190476106066650282123117332492170869114"}
+2019-10-24,09:12 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":11,"second":0},"archived":false,"desc":"New Alarm","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":12,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0190476106066650282123117332492170869114"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0190476106066650282123117332492170869114
+2019-10-24,09:12 AM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":13,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0054053706395885713315770808979390877882"}
+2019-10-24,09:12 AM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":13,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0054053706395885713315770808979390877882"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0054053706395885713315770808979390877882
+2019-10-24,09:12 AM,Info,SpResLib,Wrote contents: 
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-10-24,09:12 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-24,09:12 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-24,09:12 AM,Info,SpResLib,Scanning file: dirty
+2019-10-24,09:12 AM,Info,SpResLib,Read contents: 
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-10-24,09:12 AM,Info,SpResLib,Scanning file: 0054053706395885713315770808979390877882
+2019-10-24,09:12 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":13,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0054053706395885713315770808979390877882"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0054053706395885713315770808979390877882
+2019-10-24,09:12 AM,Info,SpResLib,Scanning file: export_check.txt
+2019-10-24,09:12 AM,Info,SpResLib,Scanning file: 0031373196899029847496990777275971468976
+2019-10-24,09:12 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":9,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0031373196899029847496990777275971468976"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0031373196899029847496990777275971468976
+2019-10-24,09:12 AM,Info,SpResLib,Scanning file: 0190476106066650282123117332492170869114
+2019-10-24,09:12 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":11,"second":0},"archived":false,"desc":"New Alarm","reminderCount":1,"reminderTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":12,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0190476106066650282123117332492170869114"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0190476106066650282123117332492170869114
+2019-10-24,09:12 AM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.
+2019-10-24,09:15 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-24,09:15 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-10-24,09:15 AM,Info,SpResLib,Scanning file: export_check.txt
+2019-10-24,09:15 AM,Info,SpResLib,Scanning file: 0031373196899029847496990777275971468976
+2019-10-24,09:15 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":9,"dayOfMonth":24,"hourOfDay":9,"minute":9,"second":0},"archived":false,"desc":"New Alarm","reminderCount":0,"status":"Active","uuid":"0031373196899029847496990777275971468976"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0031373196899029847496990777275971468976
+2019-10-24,09:15 AM,Info,SmartPrompter-Admin,Populating activities.CurrentAlarmsActivity with alarm-list fragment.

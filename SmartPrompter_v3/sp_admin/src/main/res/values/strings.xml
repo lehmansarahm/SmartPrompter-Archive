@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">SmartPrompter Admin</string>
+    <string name="welcome_intro">Welcome to SmartPrompter!</string>
+    <string name="line_break_single">\n</string>
+    <string name="line_break_double">\n\n</string>
+    <string name="login_instructions">Please login:</string>
+    <string name="welcome_instructions">Please select an operation from the options below:</string>
+    <string name="create_new_text">Create New Alarm</string>
+    <string name="view_current_text">View Active Alarms</string>
+    <string name="view_past_text">View Complete Alarms</string>
+    <string name="view_archived_text">View Archived Alarms</string>
+    <string name="configure_survey_text">Configure Survey Questions</string>
+    <string name="alarm_field_label">Label</string>
+    <string name="alarm_field_date">Date</string>
+    <string name="alarm_field_time">Time</string>
+    <string name="alarm_field_status">Status</string>
+    <string name="save_text">Save</string>
+    <string name="cancel_text">Cancel</string>
+    <string name="delete_text">Delete</string>
+    <string name="edit_text">Edit</string>
+    <string name="no_records_avail">There are no alarm records available at this time.</string>
+    <string name="whitespace_single" />
+    <string name="great_day">Have a great day!</string>
+    <string name="alarm_orig_label">Alarm Label</string>
+    <string name="alarm_orig_date_time">Original Date and Time</string>
+    <string name="alarm_time_acknowledged">Time Acknowledged</string>
+    <string name="alarm_time_completed">Time Completed</string>
+    <string name="alarm_photo_path">Image Path</string>
+    <string name="alarm_field_image">Image</string>
+    <string name="not_applicable">N/A</string>
+    <string-array name="audio_type_array">
+        <item>Alarm</item>
+        <item>Reminder</item>
+        <item>Reward</item>
+    </string-array>
+
+    <string name="role_prompt">Choose a role...</string>
+    <string-array name="roles_array">
+        <item>Researcher</item>
+        <item>Caretaker</item>
+        <item>Patient</item>
+    </string-array>
+
+</resources>

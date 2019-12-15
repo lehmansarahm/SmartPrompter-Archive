@@ -113,7 +113,8 @@ public class MediaUtil {
                 mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mediaPlayer) {
-                        listener.audioPlayComplete();
+                        if (listener != null)
+                            listener.audioPlayComplete();
                     }
                 });
                 mediaPlayer.prepare();
@@ -131,6 +132,7 @@ public class MediaUtil {
                 mediaPlayer.stop();
                 mediaPlayer.reset();
                 mediaPlayer.release();
+                mediaPlayer = null;
             } catch (Exception ex) {
                 Log.e(LOG_TAG, "Something went wrong while trying to stop the "
                         + "media player", ex);

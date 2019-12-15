@@ -32,7 +32,7 @@ public class FileMonitorService extends Service {
     private static final String NOTIFICATION_TITLE = "SmartPrompter Monitor Service";
     private static final String NOTIFICATION_MESSAGE = "SmartPrompter is monitoring for alarm updates.";
 
-    private static final long JOB_INTERVAL = TimeUnit.SECONDS.toMillis(15);
+    private static final long JOB_INTERVAL = TimeUnit.SECONDS.toMillis(60);
 
     private boolean isJobRunning = false;
 

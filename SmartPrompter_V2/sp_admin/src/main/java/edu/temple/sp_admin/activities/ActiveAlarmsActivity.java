@@ -22,7 +22,7 @@ import edu.temple.sp_res_lib.utils.Log;
 
 import static edu.temple.sp_admin.SpAdmin.LOG_TAG;
 
-public class CurrentAlarmsActivity extends BaseActivity
+public class ActiveAlarmsActivity extends BaseActivity
         implements AlarmListFragment.OnListItemSelectionListener, AlarmDetailsFragment.OnButtonClickListener,
         DatePickerFragment.DatePickerListener, TimePickerFragment.TimePickerListener {
 
@@ -67,13 +67,13 @@ public class CurrentAlarmsActivity extends BaseActivity
                 if (alarm.getAlarmTimeMillis() != oldAlarm.getAlarmTimeMillis()) {
                     if (alarm.getAlarmTimeMillis() < Calendar.getInstance().getTimeInMillis()) {
                         Log.e(LOG_TAG, "Cannot set alarm for time in the past!");
-                        Toast.makeText(CurrentAlarmsActivity.this, "Cannot set alarm "
+                        Toast.makeText(ActiveAlarmsActivity.this, "Cannot set alarm "
                                 + " for time in the past!", Toast.LENGTH_LONG).show();
                         break;
                     }
 
                     Log.e(LOG_TAG, "User has updated alarm time!  Resetting alarm status to ACTIVE.");
-                    AlarmUtil.updateStatus(CurrentAlarmsActivity.this, alarm, Alarm.STATUS.Active);
+                    AlarmUtil.updateStatus(ActiveAlarmsActivity.this, alarm, Alarm.STATUS.Active);
                 }
 
                 ((SpAdmin)getApplicationContext()).saveAlarm(alarm);
@@ -152,7 +152,7 @@ public class CurrentAlarmsActivity extends BaseActivity
 
     private void getCurrentAlarms() {
         SpAdmin spa = (SpAdmin) getApplicationContext();
-        mCurrentAlarms = spa.getCurrentAlarms();
+        mCurrentAlarms = spa.getActiveAlarms();
     }
 
     private void showDefaultFragment() {

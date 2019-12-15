@@ -1,0 +1,118 @@
+2019-11-19,09:05 AM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-19,09:14 AM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-19,09:14 AM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-19,09:15 AM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-19,09:15 AM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-19,09:15 AM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-19,09:15 AM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-19,09:15 AM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-19,09:15 AM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-19,09:15 AM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-19,09:19 AM,Info,SmartPrompterV2,Populating current activity with clock fragment.
+2019-11-19,09:19 AM,Info,SmartPrompterV2,Missing some permissions!  Time to request from the user...
+2019-11-19,09:19 AM,Info,SmartPrompterV2,User has granted all required permissions!
+2019-11-19,09:19 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-19,09:19 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-19,09:19 AM,Info,SmartPrompterV2,Populating current activity with empty-list fragment.
+2019-11-19,09:19 AM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-19,09:19 AM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-19,09:19 AM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-19,09:19 AM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-19,09:19 AM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-19,09:20 AM,Info,SmartPrompterV2,Populating current activity with clock fragment.
+2019-11-19,09:20 AM,Info,SmartPrompterV2,Missing some permissions!  Time to request from the user...
+2019-11-19,09:20 AM,Info,SmartPrompterV2,User has granted all required permissions!
+2019-11-19,09:20 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-19,09:20 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-19,09:20 AM,Info,SpResLib,Scanning file: dirty
+2019-11-19,09:20 AM,Info,SpResLib,Read contents: 
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-11-19,09:20 AM,Info,SpResLib,Scanning file: 0043412574541614068080595807381638477885
+2019-11-19,09:20 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":9,"minute":0,"second":0},"archived":false,"desc":"test","reminderCount":0,"status":"Active","uuid":"0043412574541614068080595807381638477885"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0043412574541614068080595807381638477885
+2019-11-19,09:20 AM,Info,SpResLib,Scanning file: 0332157230294610884413732270042104275436
+2019-11-19,09:20 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":9,"minute":22,"second":0},"archived":false,"desc":"test","reminderCount":0,"status":"Active","uuid":"0332157230294610884413732270042104275436"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0332157230294610884413732270042104275436
+2019-11-19,09:20 AM,Info,SmartPrompterV2,Populating current activity with empty-list fragment.
+2019-11-19,09:22 AM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  true
+2019-11-19,09:22 AM,Info,SpResLib,Deleted file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-11-19,09:22 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-19,09:22 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-19,09:22 AM,Info,SpResLib,Scanning file: 0043412574541614068080595807381638477885
+2019-11-19,09:22 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":9,"minute":0,"second":0},"archived":false,"desc":"test","reminderCount":0,"status":"Active","uuid":"0043412574541614068080595807381638477885"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0043412574541614068080595807381638477885
+2019-11-19,09:22 AM,Info,SpResLib,Scanning file: 0332157230294610884413732270042104275436
+2019-11-19,09:22 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":9,"minute":22,"second":0},"archived":false,"desc":"test","reminderCount":0,"status":"Active","uuid":"0332157230294610884413732270042104275436"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0332157230294610884413732270042104275436
+2019-11-19,09:22 AM,Info,SmartPrompterV2,Current time: 11-19-2019      09:22AM
+2019-11-19,09:22 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-19,09:22 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-19,09:22 AM,Info,SpResLib,Scanning file: 0043412574541614068080595807381638477885
+2019-11-19,09:22 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":9,"minute":0,"second":0},"archived":false,"desc":"test","reminderCount":0,"status":"Active","uuid":"0043412574541614068080595807381638477885"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0043412574541614068080595807381638477885
+2019-11-19,09:22 AM,Info,SpResLib,Scanning file: 0332157230294610884413732270042104275436
+2019-11-19,09:22 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":9,"minute":22,"second":0},"archived":false,"desc":"test","reminderCount":0,"status":"Active","uuid":"0332157230294610884413732270042104275436"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0332157230294610884413732270042104275436
+2019-11-19,09:22 AM,Info,SmartPrompterV2,Current time: 11-19-2019      09:22AM
+2019-11-19,09:22 AM,Info,SmartPrompterV2,Setting new alarm clock for task: test
+ 	 Current time millis: 1574173326583
+ 	 Alarm time millis: 1574172000000
+2019-11-19,09:22 AM,Info,SmartPrompterV2,Original alarm time has passed... Checking for active reminders...
+2019-11-19,09:22 AM,Info,SmartPrompterV2,Setting new alarm clock for task: test
+ 	 Current time millis: 1574173326583
+ 	 Alarm time millis: 1574173320000
+2019-11-19,09:22 AM,Info,SmartPrompterV2,Original alarm time has passed... Checking for active reminders...
+2019-11-19,09:22 AM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-19,09:22 AM,Info,SmartPrompterV2,Populating current activity with clock fragment.
+2019-11-19,09:22 AM,Info,SmartPrompterV2,Missing some permissions!  Time to request from the user...
+2019-11-19,09:22 AM,Info,SmartPrompterV2,User has granted all required permissions!
+2019-11-19,09:22 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-19,09:22 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-19,09:22 AM,Info,SpResLib,Scanning file: 0043412574541614068080595807381638477885
+2019-11-19,09:22 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":9,"minute":0,"second":0},"archived":false,"desc":"test","reminderCount":0,"status":"Active","uuid":"0043412574541614068080595807381638477885"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0043412574541614068080595807381638477885
+2019-11-19,09:22 AM,Info,SpResLib,Scanning file: 0332157230294610884413732270042104275436
+2019-11-19,09:22 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":9,"minute":22,"second":0},"archived":false,"desc":"test","reminderCount":0,"status":"Active","uuid":"0332157230294610884413732270042104275436"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0332157230294610884413732270042104275436
+2019-11-19,09:22 AM,Info,SmartPrompterV2,Populating current activity with empty-list fragment.
+2019-11-19,09:22 AM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-19,09:23 AM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  true
+2019-11-19,09:23 AM,Info,SpResLib,Deleted file: /storage/emulated/0/Documents/sp_alarms/dirty
+2019-11-19,09:23 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-19,09:23 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-19,09:23 AM,Info,SpResLib,Scanning file: 0043412574541614068080595807381638477885
+2019-11-19,09:23 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":9,"minute":0,"second":0},"archived":false,"desc":"test","reminderCount":0,"status":"Active","uuid":"0043412574541614068080595807381638477885"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0043412574541614068080595807381638477885
+2019-11-19,09:23 AM,Info,SpResLib,Scanning file: 0332157230294610884413732270042104275436
+2019-11-19,09:23 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":9,"minute":25,"second":0},"archived":false,"desc":"test","reminderCount":0,"status":"Active","uuid":"0332157230294610884413732270042104275436"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0332157230294610884413732270042104275436
+2019-11-19,09:23 AM,Info,SmartPrompterV2,Current time: 11-19-2019      09:23AM
+2019-11-19,09:23 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-19,09:23 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-19,09:23 AM,Info,SpResLib,Scanning file: 0043412574541614068080595807381638477885
+2019-11-19,09:23 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":9,"minute":0,"second":0},"archived":false,"desc":"test","reminderCount":0,"status":"Active","uuid":"0043412574541614068080595807381638477885"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0043412574541614068080595807381638477885
+2019-11-19,09:23 AM,Info,SpResLib,Scanning file: 0332157230294610884413732270042104275436
+2019-11-19,09:23 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":9,"minute":25,"second":0},"archived":false,"desc":"test","reminderCount":0,"status":"Active","uuid":"0332157230294610884413732270042104275436"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0332157230294610884413732270042104275436
+2019-11-19,09:23 AM,Info,SmartPrompterV2,Current time: 11-19-2019      09:23AM
+2019-11-19,09:23 AM,Info,SmartPrompterV2,Setting new alarm clock for task: test
+ 	 Current time millis: 1574173424422
+ 	 Alarm time millis: 1574172000000
+2019-11-19,09:23 AM,Info,SmartPrompterV2,Original alarm time has passed... Checking for active reminders...
+2019-11-19,09:23 AM,Info,SmartPrompterV2,Setting new alarm clock for task: test
+ 	 Current time millis: 1574173424422
+ 	 Alarm time millis: 1574173500000
+2019-11-19,09:23 AM,Error,SmartPrompterV2,Setting alarm for task: test 	 	 and GUID-int: -1709366804 	 	 with date/time: 11-19-2019      09:25AM
+2019-11-19,09:24 AM,Info,SmartPrompterV2,Populating current activity with clock fragment.
+2019-11-19,09:24 AM,Info,SmartPrompterV2,Missing some permissions!  Time to request from the user...
+2019-11-19,09:24 AM,Info,SmartPrompterV2,User has granted all required permissions!
+2019-11-19,09:24 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-19,09:24 AM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-19,09:24 AM,Info,SpResLib,Scanning file: 0043412574541614068080595807381638477885
+2019-11-19,09:24 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":9,"minute":0,"second":0},"archived":false,"desc":"test","reminderCount":0,"status":"Active","uuid":"0043412574541614068080595807381638477885"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0043412574541614068080595807381638477885
+2019-11-19,09:24 AM,Info,SpResLib,Scanning file: 0332157230294610884413732270042104275436
+2019-11-19,09:24 AM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":19,"hourOfDay":9,"minute":25,"second":0},"archived":false,"desc":"test","reminderCount":0,"status":"Active","uuid":"0332157230294610884413732270042104275436"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0332157230294610884413732270042104275436
+2019-11-19,09:24 AM,Info,SmartPrompterV2,Populating current activity with empty-list fragment.

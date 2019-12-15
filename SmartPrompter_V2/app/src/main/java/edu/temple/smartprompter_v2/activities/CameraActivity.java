@@ -52,14 +52,22 @@ public class CameraActivity extends BaseActivity implements
         Log.i(LOG_TAG, "User has successfully taken and approved a task "
                 + "completion picture.  Updating alarm and saving image to storage.");
         SmartPrompter spApp = ((SmartPrompter)getApplication());
+        Alarm alarm = spApp.getAlarm(alarmGUID);
+
+        if (alarm == null) {
+            Log.e(LOG_TAG, "Can't find matching alarm for GUID: " + alarmGUID);
+            return;
+        }
+
         spApp.updateAlarm(alarmGUID, Alarm.STATUS.Complete);
-        String photoPath = (spApp.getAlarm(alarmGUID)).getPhotoPath();
+        String photoPath = alarm.getPhotoPath();
 
         Log.e(LOG_TAG, "Attempting to save photo to path: " + photoPath);
         spApp.saveTaskImage(photoPath, bytes);
 
         Log.i(LOG_TAG, "Task complete for GUID: " + alarmGUID
                 + "  Showing confirmation screen...");
+
         Intent intent = new Intent(CameraActivity.this, ConfirmationActivity.class);
         intent.putExtra(Constants.BUNDLE_ARG_ALARM_WAKEUP, mWakeup);
         intent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, mAlarmGUID);

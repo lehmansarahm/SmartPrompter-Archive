@@ -1,0 +1,159 @@
+2019-11-18,06:06 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:09 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:09 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:09 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:18 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:18 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:18 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:18 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:18 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:18 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:18 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:18 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:18 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:21 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:21 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:21 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:22 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:34 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:34 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:34 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:34 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:34 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:34 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:34 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:34 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:34 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:34 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:34 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:34 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:35 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:40 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:40 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:40 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:40 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:40 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:44 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:44 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:44 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:44 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-11-18,06:45 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,06:45 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,06:45 PM,Info,SpResLib,Scanning file: 0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":0},"archived":false,"desc":"Laundry part 2","reminderCount":0,"status":"Active","uuid":"0098244439788406709168895030836349483834"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Current time: 11-18-2019      06:45PM
+2019-11-18,06:45 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,06:45 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,06:45 PM,Info,SpResLib,Scanning file: 0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":0},"archived":false,"desc":"Laundry part 2","reminderCount":0,"status":"Active","uuid":"0098244439788406709168895030836349483834"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Current time: 11-18-2019      06:45PM
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Setting new alarm clock for task: Laundry part 2
+ 	 Current time millis: 1574120701434
+ 	 Alarm time millis: 1574120700000
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Original alarm time has passed... Checking for active reminders...
+2019-11-18,06:45 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":0},"archived":false,"desc":"Laundry part 2","reminderCount":0,"status":"Unacknowledged","uuid":"0098244439788406709168895030836349483834"}
+2019-11-18,06:45 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":0},"archived":false,"desc":"Laundry part 2","reminderCount":0,"status":"Unacknowledged","uuid":"0098244439788406709168895030836349483834"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SmartPrompterV2,First time getting alert for this alarm.  Status set to UNACKNOWLEDGED.
+2019-11-18,06:45 PM,Error,SmartPrompterV2,ALARM ALERT BROADCAST RECEIVED FOR GUID: 0098244439788406709168895030836349483834 	 AND GUID-INT: 1482799930 	 WITH ORIG ALARM TIME: 11-18-2019      06:45PM 	 AND STATUS: Unacknowledged
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Alarm reminder limit hasn't been exceeded.  Setting reminder with type: Implicit
+2019-11-18,06:45 PM,Info,SpResLib,Setting implicit reminder #1 for alarm: Laundry part 2
+2019-11-18,06:45 PM,Error,SmartPrompterV2,Setting reminder for task: Laundry part 2 	 	 and GUID-int: 1482799930 	 	 with date/time: 11-18-2019      06:50PM
+2019-11-18,06:45 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":0},"archived":false,"desc":"Laundry part 2","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":50,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0098244439788406709168895030836349483834"}
+2019-11-18,06:45 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":0},"archived":false,"desc":"Laundry part 2","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":50,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0098244439788406709168895030836349483834"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Launching acknowledgment activity for alarm: 0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Populating current activity with clock fragment.
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Missing some permissions!  Time to request from the user...
+2019-11-18,06:45 PM,Info,SmartPrompterV2,User has granted all required permissions!
+2019-11-18,06:45 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,06:45 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,06:45 PM,Info,SpResLib,Scanning file: 0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":0},"archived":false,"desc":"Laundry part 2","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":50,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0098244439788406709168895030836349483834"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Populating current activity with alarm-list fragment.
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Cancelling existing alarms for GUID-int: 1482799930
+2019-11-18,06:45 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,06:45 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,06:45 PM,Info,SpResLib,Scanning file: 0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":0},"archived":false,"desc":"Laundry part 2","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":50,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0098244439788406709168895030836349483834"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Current time: 11-18-2019      06:45PM
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Setting new alarm clock for task: Laundry part 2
+ 	 Current time millis: 1574120725052
+ 	 Alarm time millis: 1574120700000
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Original alarm time has passed... Checking for active reminders...
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Alarm reminder limit hasn't been exceeded.  Setting reminder with type: Implicit
+2019-11-18,06:45 PM,Info,SpResLib,Setting implicit reminder #1 for alarm: Laundry part 2
+2019-11-18,06:45 PM,Error,SmartPrompterV2,Setting reminder for task: Laundry part 2 	 	 and GUID-int: 1482799930 	 	 with date/time: 11-18-2019      06:50PM
+2019-11-18,06:45 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":0},"archived":false,"desc":"Laundry part 2","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":50,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0098244439788406709168895030836349483834"}
+2019-11-18,06:45 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":0},"archived":false,"desc":"Laundry part 2","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":50,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0098244439788406709168895030836349483834"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,06:45 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,06:45 PM,Info,SpResLib,Scanning file: 0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":0},"archived":false,"desc":"Laundry part 2","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":50,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0098244439788406709168895030836349483834"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Current time: 11-18-2019      06:45PM
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Explicit SeekBar progress changed: 2
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Updating flavor for slider selection: 2
+2019-11-18,06:45 PM,Info,SpResLib,Stopping vibrate!
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Processing final slider selection: 2
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Cancelling existing alarms for GUID-int: 1482799930
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Alarm reminder limit hasn't been exceeded.  Setting reminder with type: Implicit
+2019-11-18,06:45 PM,Info,SpResLib,Setting implicit reminder #1 for alarm: Laundry part 2
+2019-11-18,06:45 PM,Error,SmartPrompterV2,Setting reminder for task: Laundry part 2 	 	 and GUID-int: 1482799930 	 	 with date/time: 11-18-2019      06:50PM
+2019-11-18,06:45 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":0},"archived":false,"desc":"Laundry part 2","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":50,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0098244439788406709168895030836349483834"}
+2019-11-18,06:45 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":0},"archived":false,"desc":"Laundry part 2","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":50,"second":0},"reminderType":"Implicit","status":"Unacknowledged","uuid":"0098244439788406709168895030836349483834"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SpResLib,Alarm with GUID: 0098244439788406709168895030836349483834	 was acknowledged at time: 11-18-2019      06:45PM
+2019-11-18,06:45 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":0},"archived":false,"desc":"Laundry part 2","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":50,"second":0},"reminderType":"Implicit","status":"Incomplete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":26},"uuid":"0098244439788406709168895030836349483834"}
+2019-11-18,06:45 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":0},"archived":false,"desc":"Laundry part 2","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":50,"second":0},"reminderType":"Implicit","status":"Incomplete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":26},"uuid":"0098244439788406709168895030836349483834"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,06:45 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,06:45 PM,Info,SpResLib,Scanning file: 0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":0},"archived":false,"desc":"Laundry part 2","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":50,"second":0},"reminderType":"Implicit","status":"Incomplete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":26},"uuid":"0098244439788406709168895030836349483834"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Current time: 11-18-2019      06:45PM
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Setting new alarm clock for task: Laundry part 2
+ 	 Current time millis: 1574120726338
+ 	 Alarm time millis: 1574120700000
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Original alarm time has passed... Checking for active reminders...
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Alarm reminder limit hasn't been exceeded.  Setting reminder with type: Implicit
+2019-11-18,06:45 PM,Info,SpResLib,Setting implicit reminder #1 for alarm: Laundry part 2
+2019-11-18,06:45 PM,Error,SmartPrompterV2,Setting reminder for task: Laundry part 2 	 	 and GUID-int: 1482799930 	 	 with date/time: 11-18-2019      06:50PM
+2019-11-18,06:45 PM,Info,SpResLib,Writing alarm to storage: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":0},"archived":false,"desc":"Laundry part 2","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":50,"second":0},"reminderType":"Implicit","status":"Incomplete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":26},"uuid":"0098244439788406709168895030836349483834"}
+2019-11-18,06:45 PM,Info,SpResLib,Wrote contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":0},"archived":false,"desc":"Laundry part 2","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":50,"second":0},"reminderType":"Implicit","status":"Incomplete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":26},"uuid":"0098244439788406709168895030836349483834"}
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,06:45 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-11-18,06:45 PM,Info,SpResLib,Scanning file: 0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":0},"archived":false,"desc":"Laundry part 2","reminderCount":1,"reminderTime":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":50,"second":0},"reminderType":"Implicit","status":"Incomplete","timeAcknowledged":{"year":2019,"month":10,"dayOfMonth":18,"hourOfDay":18,"minute":45,"second":26},"uuid":"0098244439788406709168895030836349483834"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Current time: 11-18-2019      06:45PM
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Implicit SeekBar progress changed: 2
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Updating flavor for slider selection: 2
+2019-11-18,06:45 PM,Info,SpResLib,Stopping vibrate!
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Processing final slider selection: 2
+2019-11-18,06:45 PM,Info,SmartPrompterV2,Launching camera preview for alarm GUID: 0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SpResLib,Attempting to open camera!
+2019-11-18,06:45 PM,Info,SpResLib,Are  default texture, JPEG dimensions equal?  		 true
+2019-11-18,06:45 PM,Info,SpResLib,Are default texture, preview texture dimensions equal? 		 false
+2019-11-18,06:45 PM,Info,SpResLib,Camera is open!
+2019-11-18,06:45 PM,Error,SpResLib,onOpened
+2019-11-18,06:45 PM,Error,SpResLib,Attempting to create camera capture session with width: 1080 	 and height: 1521
+2019-11-18,06:45 PM,Error,SpResLib,... Compared against CameraPreviewTexture width: 1080 	 and height: 1521
+2019-11-18,06:45 PM,Info,SpResLib,Camera capture session configured!
+2019-11-18,06:45 PM,Info,SpResLib,Attempting to set repeating request for camera preview.
+2019-11-18,06:45 PM,Info,SpResLib,User has taken a picture!  Ready to capture picture from camera preview!
+2019-11-18,06:45 PM,Error,SpResLib,Attempting to create capture session with ImageReader width: 1080 	 and height: 1521 
+ 	 ... Compared against CameraPreviewTexture width: 1080 	 and height: 1521
+2019-11-18,06:45 PM,Info,SpResLib,Camera capture session configured!
+2019-11-18,06:45 PM,Info,SpResLib,Attempting to create a new capture session image.
+2019-11-18,06:45 PM,Info,SpResLib,Capture session callback listener engaged!  Returning control to parent activity.
+2019-11-18,06:45 PM,Info,SpResLib,A new camera image is available!
+2019-11-18,06:45 PM,Info,SmartPrompterV2,User has captured an image for alarm ID: 0098244439788406709168895030836349483834
+2019-11-18,06:45 PM,Info,SmartPrompterV2,User has rejected the task completion picture they took.  Returning to camera preview fragment ...

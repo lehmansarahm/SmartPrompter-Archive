@@ -93,7 +93,9 @@ public class CameraReviewFragment extends Fragment {
         acceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.ui(LOG_TAG, CameraReviewFragment.this.getActivity(), "Camera image accepted!");
+                Log.ui(LOG_TAG, CameraReviewFragment.this.getActivity(), "Camera image "
+                        + "accepted for alarm GUID: " + mAlarmID
+                        + "\t\t Image byte array length: " + mImageBytes.length);
                 mListener.onImageAccepted(mAlarmID, mImageBytes);
             }
         });
@@ -102,7 +104,8 @@ public class CameraReviewFragment extends Fragment {
         rejectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.ui(LOG_TAG, CameraReviewFragment.this.getActivity(), "Camera image rejected!");
+                Log.ui(LOG_TAG, CameraReviewFragment.this.getActivity(), "Camera image "
+                        + "rejected for alarm GUID: " + mAlarmID);
                 mListener.onImageRejected(mAlarmID);
             }
         });
@@ -127,6 +130,7 @@ public class CameraReviewFragment extends Fragment {
         Bitmap bmpScaled = Bitmap.createScaledBitmap(bmpOrig, width, height, true);
         Bitmap bmpRotated = Bitmap.createBitmap(bmpScaled, 0, 0,
                 bmpScaled.getWidth(), bmpScaled.getHeight(), matrix, true);
+
         mImageBytes = MediaUtil.convertToByteArray(bmpRotated);
         reviewImageView.setImageBitmap(bmpRotated);
     }

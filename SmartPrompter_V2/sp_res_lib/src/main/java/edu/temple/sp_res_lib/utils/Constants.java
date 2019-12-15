@@ -13,8 +13,8 @@ public class Constants {
     public static final String DEFAULT_ALARM_GUID = "XXXX-YYYY-ZZZZ";
     public static final String DEFAULT_ALARM_DESC = "New Alarm";
 
-    public static final Long REMINDER_DURATION_EXP = TimeUnit.MINUTES.toMillis(1); // 15);
-    public static final Long REMINDER_DURATION_IMP = TimeUnit.MINUTES.toMillis(1); // 5);
+    public static final Long REMINDER_DURATION_EXP = TimeUnit.MINUTES.toMillis(15);
+    public static final Long REMINDER_DURATION_IMP = TimeUnit.MINUTES.toMillis(5);
     public static final int REMINDER_COUNT_LIMIT = 2; // zero-based ... actual value = 3
 
     public static final String BUNDLE_ARG_ALARM_GUID = "bundle_alarm_guid";

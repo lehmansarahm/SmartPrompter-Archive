@@ -49,7 +49,7 @@ public class AlarmUtil {
         StorageUtil.writeAlarmToStorage(ctx, alarm);
     }
 
-    public static void setReminderTime(Alarm alarm, Alarm.REMINDER reminderType) {
+    public static void setReminderTime(Alarm alarm, Alarm.REMINDER reminderType, boolean increaseCount) {
         Calendar reminderCal = Calendar.getInstance();
         reminderCal.set(Calendar.SECOND, 0);
 
@@ -66,7 +66,8 @@ public class AlarmUtil {
                         + "Resetting reminder count for alarm: " + alarm.getDesc());
                 break;
             case Implicit:
-                int reminderCount = alarm.incrementReminderCount();
+                int reminderCount = increaseCount ? alarm.incrementReminderCount()
+                        : alarm.getReminderCount();
                 reminderCal.add(Calendar.MILLISECOND,
                         Constants.REMINDER_DURATION_IMP.intValue());
                 Log.i(LOG_TAG, "Setting implicit reminder #"
