@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title_size">35sp</dimen>
+    <dimen name="title_padding">10dp</dimen>
+
+    <dimen name="subtitle_size">24sp</dimen>
+    <dimen name="line_break_size">12sp</dimen>
+
+    <dimen name="clock_size">40sp</dimen>
+    <dimen name="content_size">18sp</dimen>
+
+    <dimen name="button_size">18sp</dimen>
+    <dimen name="button_padding">12dp</dimen>
+    <dimen name="button_margin_end">24dp</dimen>
+
+    <dimen name="slider_margin_top">20dp</dimen>
+
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+</resources>

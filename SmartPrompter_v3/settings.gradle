@@ -1,2 +1,2 @@
-include ':app'
+include ':sp_admin', ':res_lib', ':sp_patient'
 rootProject.name='SmartPrompter'

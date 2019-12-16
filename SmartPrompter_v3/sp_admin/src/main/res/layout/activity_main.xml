@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_gravity="center"
-    tools:context=".activities.MainActivity">
+    tools:context=".MainActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -27,97 +27,48 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="@dimen/subtitle_size"
-        android:text="@string/login_instructions" />
-
-    <LinearLayout
-        android:id="@+id/email_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/button_padding"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/subtitle_size"
-            android:textStyle="bold"
-            android:inputType="textEmailAddress"
-            android:text="Email:" />
-
-        <EditText
-            android:id="@+id/email_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/subtitle_size" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/password_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/button_padding"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/subtitle_size"
-            android:textStyle="bold"
-            android:text="Password:" />
-
-        <EditText
-            android:id="@+id/password_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:textSize="@dimen/subtitle_size" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/role_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/button_padding"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/subtitle_size"
-            android:textStyle="bold"
-            android:text="Role:" />
-
-        <Spinner
-            android:id="@+id/role_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/subtitle_size" />
-
-    </LinearLayout>
+        android:text="@string/welcome_instructions" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="@dimen/line_break_size"
         android:text="@string/line_break_single" />
 
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/create_new_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/button_size"
         android:padding="@dimen/button_padding"
-        android:text="Login" />
+        android:text="@string/create_new_text" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/line_break_single" />
 
     <Button
-        android:id="@+id/force_crash_button"
+        android:id="@+id/view_current_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/button_size"
         android:padding="@dimen/button_padding"
-        android:text="Force Crash" />
+        android:text="@string/view_current_text" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/line_break_single" />
+
+    <Button
+        android:id="@+id/configure_settings_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/button_size"
+        android:padding="@dimen/button_padding"
+        android:text="Configure Settings" />
 
 </LinearLayout>

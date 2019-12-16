@@ -9,8 +9,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.NotificationCompat;
+
+import androidx.annotation.RequiresApi;
+import androidx.core.app.NotificationCompat;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -27,6 +28,7 @@ import static edu.temple.smartprompter_v2.SmartPrompter.LOG_TAG;
 public class FileMonitorService extends Service {
 
     private static final int ONGOING_NOTIFICATION_ID = 333;
+
     private static final String NOTIFICATION_CHANNEL_ID = "SpNotifs";
     private static final String NOTIFICATION_CHANNEL_NAME = "SmartPrompter Notifications";
     private static final String NOTIFICATION_TITLE = "SmartPrompter Monitor Service";

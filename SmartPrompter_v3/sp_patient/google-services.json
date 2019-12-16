@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1033223362828",
+    "firebase_url": "https://smartprompter-7743c.firebaseio.com",
+    "project_id": "smartprompter-7743c",
+    "storage_bucket": "smartprompter-7743c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1033223362828:android:a74985c79bb72b95269129",
+        "android_client_info": {
+          "package_name": "edu.temple.smartprompter_v3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1033223362828-gr6t748fi13vahkmb0k4emt9uee2mtb0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA15r_Obhx5P85woXFDXjrzy2lrL_P-Rcc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1033223362828-gr6t748fi13vahkmb0k4emt9uee2mtb0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

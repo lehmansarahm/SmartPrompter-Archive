@@ -1,0 +1,60 @@
+<resources>
+
+    <string name="app_name">SmartPrompter</string>
+    <string name="welcome_intro">Welcome to SmartPrompter!</string>
+    <string name="line_break_single">\n</string>
+    <string name="line_break_double">\n\n</string>
+
+    <string name="login_instructions">Please login below:</string>
+    <string name="label_email">Email:</string>
+    <string name="label_password">Password:</string>
+    <string name="label_role">Role:</string>
+
+    <string name="button_login">Login</string>
+    <string name="button_force_crash">Test Force Crash</string>
+    <string name="button_take_picture">Take Picture</string>
+
+    <string name="menu_sp">SmartPrompter</string>
+    <string name="menu_spa">SmartPrompter - Admin</string>
+    <string name="menu_exit">Exit</string>
+
+    <string name="welcome_instructions">Please select an operation from the options below:</string>
+    <string name="create_new_text">Create New Alarm</string>
+    <string name="view_current_text">View Current Alarms</string>
+    <string name="view_past_text">View Complete Alarms</string>
+    <string name="view_archived_text">View Archived Alarms</string>
+    <string name="configure_survey_text">Configure Survey Questions</string>
+
+    <string name="alarm_field_label">Label</string>
+    <string name="alarm_field_date">Date</string>
+    <string name="alarm_field_time">Time</string>
+    <string name="alarm_field_status">Status</string>
+
+    <string name="save_text">Save</string>
+    <string name="cancel_text">Cancel</string>
+    <string name="delete_text">Delete</string>
+    <string name="edit_text">Edit</string>
+
+    <string name="current_time">Current Time:</string>
+    <string name="current_tasks">Current Tasks:</string>
+
+    <string name="no_records_avail">There are no alarm records available at this time.</string>
+
+    <string name="whitespace_single" />
+
+    <string name="great_day">Have a great day!</string>
+    <string name="alarm_orig_label">Alarm Label</string>
+    <string name="alarm_orig_date_time">Original Date and Time</string>
+    <string name="alarm_time_acknowledged">Time Acknowledged</string>
+    <string name="alarm_time_completed">Time Completed</string>
+    <string name="alarm_photo_path">Image Path</string>
+    <string name="alarm_field_image">Image</string>
+    <string name="not_applicable">N/A</string>
+
+    <string-array name="audio_type_array">
+        <item>Alarm</item>
+        <item>Reminder</item>
+        <item>Reward</item>
+    </string-array>
+
+</resources>

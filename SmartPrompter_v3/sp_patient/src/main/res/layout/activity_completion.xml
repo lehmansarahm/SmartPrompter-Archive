@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activities.CompletionActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center" >
+
+    <ImageView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:src="@drawable/camera_black" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/subtitle_size"
+        android:text="@string/completion_text" />
+
+    <TextView
+        android:id="@+id/task_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="@dimen/subtitle_size"
+        android:padding="@dimen/title_padding"
+        android:text="Water the plants" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/line_break_size"
+        android:padding="@dimen/title_padding"
+        android:text="@string/whitespace_single" />
+
+    <TextView
+        android:id="@+id/instruction_text"
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:gravity="center"
+        android:textSize="@dimen/content_size"
+        android:padding="@dimen/title_padding"
+        android:text="@string/completion_instruction_text" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/line_break_size"
+        android:text="@string/whitespace_single" />
+
+    <edu.temple.smartprompter_v3.res_lib.widgets.Slider
+        android:id="@+id/selection_seekbar"
+        android:splitTrack="false"
+        android:progressDrawable="@drawable/selection_bar_style"
+        android:thumb="@drawable/selection_thumb_style"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/slider_margin_top"
+        android:max="2"
+        android:progress="1" />
+
+</LinearLayout>

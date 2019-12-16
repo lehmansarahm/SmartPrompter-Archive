@@ -1,9 +1,8 @@
 <resources>
     <string name="app_name">SmartPrompter Admin</string>
-    <string name="welcome_intro">Welcome to SmartPrompter!</string>
+    <string name="welcome_intro">Welcome to SmartPrompter Admin!</string>
     <string name="line_break_single">\n</string>
     <string name="line_break_double">\n\n</string>
-    <string name="login_instructions">Please login:</string>
     <string name="welcome_instructions">Please select an operation from the options below:</string>
     <string name="create_new_text">Create New Alarm</string>
     <string name="view_current_text">View Active Alarms</string>
@@ -28,17 +27,12 @@
     <string name="alarm_photo_path">Image Path</string>
     <string name="alarm_field_image">Image</string>
     <string name="not_applicable">N/A</string>
+
     <string-array name="audio_type_array">
         <item>Alarm</item>
         <item>Reminder</item>
         <item>Reward</item>
     </string-array>
 
-    <string name="role_prompt">Choose a role...</string>
-    <string-array name="roles_array">
-        <item>Researcher</item>
-        <item>Caretaker</item>
-        <item>Patient</item>
-    </string-array>
-
+    <string name="event_alarms_ready">edu.temple.smartprompter_v3.alarms.READY</string>
 </resources>

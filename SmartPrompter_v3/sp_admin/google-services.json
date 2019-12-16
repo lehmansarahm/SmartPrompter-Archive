@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "282386673424",
-    "firebase_url": "https://smart-prompter.firebaseio.com",
-    "project_id": "smart-prompter",
-    "storage_bucket": "smart-prompter.appspot.com"
+    "project_number": "1033223362828",
+    "firebase_url": "https://smartprompter-7743c.firebaseio.com",
+    "project_id": "smartprompter-7743c",
+    "storage_bucket": "smartprompter-7743c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:282386673424:android:6ac2a19429b273e0233f95",
+        "mobilesdk_app_id": "1:1033223362828:android:a74985c79bb72b95269129",
         "android_client_info": {
           "package_name": "edu.temple.smartprompter_v3"
         }
       },
       "oauth_client": [
         {
-          "client_id": "282386673424-rf8trsiff4baa0cif84kmjcobe9ndvvb.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "edu.temple.smartprompter_v3",
-            "certificate_hash": "ece813d94201e9312abde49202fc4b2b1afd218a"
-          }
-        },
-        {
-          "client_id": "282386673424-q9kae1a66e7t348k3m4gmtoubgcbd502.apps.googleusercontent.com",
+          "client_id": "1033223362828-gr6t748fi13vahkmb0k4emt9uee2mtb0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD2nMQWdp4zN-D74140_LkGTs2dKe9YSB4"
+          "current_key": "AIzaSyA15r_Obhx5P85woXFDXjrzy2lrL_P-Rcc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "282386673424-q9kae1a66e7t348k3m4gmtoubgcbd502.apps.googleusercontent.com",
+              "client_id": "1033223362828-gr6t748fi13vahkmb0k4emt9uee2mtb0.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
@@ -45,35 +37,27 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:282386673424:android:35f5caf884a68f01233f95",
+        "mobilesdk_app_id": "1:1033223362828:android:632a430f35576b13269129",
         "android_client_info": {
-          "package_name": "edu.temple.sp_admin_v3"
+          "package_name": "edu.temple.smartprompter_v3.admin"
         }
       },
       "oauth_client": [
         {
-          "client_id": "282386673424-46ieng6es1ba7495ne71m2bsopucn4id.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "edu.temple.sp_admin_v3",
-            "certificate_hash": "ece813d94201e9312abde49202fc4b2b1afd218a"
-          }
-        },
-        {
-          "client_id": "282386673424-q9kae1a66e7t348k3m4gmtoubgcbd502.apps.googleusercontent.com",
+          "client_id": "1033223362828-gr6t748fi13vahkmb0k4emt9uee2mtb0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD2nMQWdp4zN-D74140_LkGTs2dKe9YSB4"
+          "current_key": "AIzaSyA15r_Obhx5P85woXFDXjrzy2lrL_P-Rcc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "282386673424-q9kae1a66e7t348k3m4gmtoubgcbd502.apps.googleusercontent.com",
+              "client_id": "1033223362828-gr6t748fi13vahkmb0k4emt9uee2mtb0.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
