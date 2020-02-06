@@ -10,13 +10,16 @@ import edu.temple.smartprompter_v3.res_lib.data.Alarm;
 public class FbaEventLogger {
 
     protected FirebaseAnalytics mFbAnalytics;
+    protected String mUserEmail;
 
-    public FbaEventLogger(Context ctx) {
+    public FbaEventLogger(Context ctx, String userEmail) {
         mFbAnalytics = FirebaseAnalytics.getInstance(ctx.getApplicationContext());
+        mUserEmail = userEmail;
     }
 
     public void alarmTaskPhaseChange(Class callingClass, String taskPhase, Alarm alarm) {
         Bundle params = new Bundle();
+        params.putString(Constants.BUNDLE_ARG_USER_EMAIL, mUserEmail);
         params.putString(Constants.BUNDLE_ARG_ALARM_GUID, alarm.getGuid());
         params.putString(Constants.BUNDLE_ARG_ALARM_DESC, alarm.getDesc());
         mFbAnalytics.logEvent((callingClass.getSimpleName() + "_TaskPhaseChange_" + taskPhase), params);
@@ -24,6 +27,7 @@ public class FbaEventLogger {
 
     public void alarmTaskResume(Class callingClass, String taskPhase, Alarm alarm) {
         Bundle params = new Bundle();
+        params.putString(Constants.BUNDLE_ARG_USER_EMAIL, mUserEmail);
         params.putString(Constants.BUNDLE_ARG_ALARM_GUID, alarm.getGuid());
         params.putString(Constants.BUNDLE_ARG_ALARM_DESC, alarm.getDesc());
         mFbAnalytics.logEvent((callingClass.getSimpleName() + "_TaskResume_" + taskPhase), params);
@@ -31,6 +35,7 @@ public class FbaEventLogger {
 
     public void alarmTaskSnooze(Class callingClass, String taskPhase, Alarm alarm) {
         Bundle params = new Bundle();
+        params.putString(Constants.BUNDLE_ARG_USER_EMAIL, mUserEmail);
         params.putString(Constants.BUNDLE_ARG_ALARM_GUID, alarm.getGuid());
         params.putString(Constants.BUNDLE_ARG_ALARM_DESC, alarm.getDesc());
         mFbAnalytics.logEvent((callingClass.getSimpleName() + "_TaskSnooze_" + taskPhase), params);
@@ -38,18 +43,21 @@ public class FbaEventLogger {
 
     public void broadcastReceived(Class callingClass, String actionName, String alarmGuid) {
         Bundle params = new Bundle();
+        params.putString(Constants.BUNDLE_ARG_USER_EMAIL, mUserEmail);
         params.putString(Constants.BUNDLE_ARG_ALARM_GUID, alarmGuid);
         mFbAnalytics.logEvent((callingClass.getSimpleName() + "_BroadcastReceived_" + actionName), params);
     }
 
     public void buttonClick(Class callingClass, String eventName, int buttonID) {
         Bundle params = new Bundle();
+        params.putString(Constants.BUNDLE_ARG_USER_EMAIL, mUserEmail);
         params.putInt(Constants.BUNDLE_ARG_BUTTON_ID, buttonID);
         mFbAnalytics.logEvent((callingClass.getSimpleName() + "_ButtonClick_" + eventName), params);
     }
 
     public void buttonClick(Class callingClass, String eventName, Alarm alarm) {
         Bundle params = new Bundle();
+        params.putString(Constants.BUNDLE_ARG_USER_EMAIL, mUserEmail);
         params.putString(Constants.BUNDLE_ARG_ALARM_GUID, alarm.getGuid());
         params.putString(Constants.BUNDLE_ARG_ALARM_DESC, alarm.getDesc());
         mFbAnalytics.logEvent((callingClass.getSimpleName() + "_ButtonClick_" + eventName), params);
@@ -57,6 +65,7 @@ public class FbaEventLogger {
 
     public void spinnerSelection(Class callingClass, String eventName) {
         Bundle params = new Bundle();
+        params.putString(Constants.BUNDLE_ARG_USER_EMAIL, mUserEmail);
         mFbAnalytics.logEvent((callingClass.getSimpleName() + "_SpinnerSelection_" + eventName), params);
     }
 
@@ -65,6 +74,7 @@ public class FbaEventLogger {
         params.putInt(Constants.BUNDLE_ARG_FIELD_ID, fieldID);
         params.putString(Constants.BUNDLE_ARG_FIELD_OLD_VAL, fieldOldVal);
         params.putString(Constants.BUNDLE_ARG_ALARM_GUID, alarmGuid);
+        params.putString(Constants.BUNDLE_ARG_USER_EMAIL, mUserEmail);
         mFbAnalytics.logEvent((callingClass.getSimpleName() + "_FieldClick_" + eventName), params);
     }
 
@@ -74,6 +84,7 @@ public class FbaEventLogger {
         params.putString(Constants.BUNDLE_ARG_FIELD_OLD_VAL, fieldOldVal);
         params.putString(Constants.BUNDLE_ARG_ALARM_GUID, alarm.getGuid());
         params.putString(Constants.BUNDLE_ARG_ALARM_DESC, alarm.getDesc());
+        params.putString(Constants.BUNDLE_ARG_USER_EMAIL, mUserEmail);
         mFbAnalytics.logEvent((callingClass.getSimpleName() + "_FieldClick_" + eventName), params);
     }
 
@@ -82,6 +93,7 @@ public class FbaEventLogger {
         params.putInt(Constants.BUNDLE_ARG_FIELD_ID, fieldID);
         params.putString(Constants.BUNDLE_ARG_FIELD_NEW_VAL, fieldNewVal);
         params.putString(Constants.BUNDLE_ARG_ALARM_GUID, alarmGuid);
+        params.putString(Constants.BUNDLE_ARG_USER_EMAIL, mUserEmail);
         mFbAnalytics.logEvent((callingClass.getSimpleName() + "_FieldUpdate_" + eventName), params);
     }
 
@@ -91,6 +103,7 @@ public class FbaEventLogger {
         params.putString(Constants.BUNDLE_ARG_FIELD_NEW_VAL, fieldNewVal);
         params.putString(Constants.BUNDLE_ARG_ALARM_GUID, alarm.getGuid());
         params.putString(Constants.BUNDLE_ARG_ALARM_DESC, alarm.getDesc());
+        params.putString(Constants.BUNDLE_ARG_USER_EMAIL, mUserEmail);
         mFbAnalytics.logEvent((callingClass.getSimpleName() + "_FieldUpdate_" + eventName), params);
     }
 

@@ -22,16 +22,18 @@ public class AlarmLogActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         mAlarmGUID = getIntent().getStringExtra(Constants.BUNDLE_ARG_ALARM_GUID);
         FirebaseConnector.getAlarmByGuid(mAlarmGUID, result -> {
-            if (result != null) mAlarm = (Alarm)result;
-            else {
-                Log.e(BaseActivity.LOG_TAG, "Something went wrong while attempting to "
-                        + "retrieve alarm with GUID: " + mAlarmGUID
-                        + ".  Displaying default record.");
-                mAlarm = new Alarm();
-                mAlarmGUID = mAlarm.getGuid();
-            }
-            initialize();
-        });
+                if (result != null) mAlarm = (Alarm)result;
+                else {
+                    Log.e(BaseActivity.LOG_TAG, "Something went wrong while attempting to "
+                            + "retrieve alarm with GUID: " + mAlarmGUID
+                            + ".  Displaying default record.");
+                    mAlarm = new Alarm();
+                    mAlarmGUID = mAlarm.getGuid();
+                }
+                initialize();
+            },
+                (error) -> Log.e(BaseActivity.LOG_TAG, "Something went wrong while attempting to "
+                + "retrieve matching alarm record for GUID: " + mAlarmGUID, error));
     }
 
     private void initialize() {

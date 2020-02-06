@@ -14,6 +14,7 @@ public class Constants {
     public static final String BUNDLE_ARG_FIELD_OLD_VAL = "bundle_field_old_val";
     public static final String BUNDLE_ARG_FIELD_NEW_VAL = "bundle_field_new_val";
 
+    public static final String BUNDLE_ARG_USER_EMAIL = "bundle_user_email";
     public static final String BUNDLE_ARG_ALARM_GUID = "bundle_alarm_guid";
     public static final String BUNDLE_ARG_ALARM_DESC = "bundle_alarm_desc";
 

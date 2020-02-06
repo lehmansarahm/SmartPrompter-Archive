@@ -1,13 +1,10 @@
 package edu.temple.smartprompter_v3.res_lib.utils;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
-import android.os.Build;
-import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.util.Log;
 
@@ -63,18 +60,18 @@ public class MediaUtil {
         void audioPlayComplete();
     }
 
-    public static void playAlarmAlerts(Activity context, MediaUtil.AUDIO_TYPE audioType, MediaListener listener) {
+    public static void playAlarmAlerts(Context context, MediaUtil.AUDIO_TYPE audioType, MediaListener listener) {
         if (Constants.PLAY_ALARM_TONE)
             MediaUtil.playAudio(context, audioType, listener);
         if (Constants.PLAY_ALARM_VIBRATE) {
             Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-            if (vibrator != null) {
+            /*if (vibrator != null) {
                 Log.i(Constants.LOG_TAG, "Starting alarm alert vibrate!");
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                     vibrator.vibrate(VibrationEffect.createOneShot(Constants.ALARM_ALERT_DURATION,
                             VibrationEffect.DEFAULT_AMPLITUDE));
                 else vibrator.vibrate(Constants.ALARM_ALERT_DURATION);
-            }
+            } */
         }
     }
 
@@ -100,12 +97,14 @@ public class MediaUtil {
     }
 
     public static void playAudio(Context context, AUDIO_TYPE audioType, final MediaListener listener) {
+        // AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        // am.setStreamVolume(AudioManager.STREAM_MUSIC, 20, 0);
         File audioFile = getAudioFile(audioType);
-        if (audioFile == null || !audioFile.exists()) {
-            Log.e(Constants.LOG_TAG, "Can't play non-existent file: "
-                    + audioFile.getAbsolutePath() + " \t\t Playing default audio.");
-            playDefaultAudio(context, audioType);
-        } else {
+
+        //if (audioFile == null || !audioFile.exists()) {
+        //    Log.e(Constants.LOG_TAG, "Can't play non-existent file: "
+        //            + audioFile.getAbsolutePath() + " \t\t Playing default audio.");
+        // } else {
             try {
                 mediaPlayer = new MediaPlayer();
                 mediaPlayer.setDataSource(audioFile.getAbsolutePath());
@@ -118,8 +117,9 @@ public class MediaUtil {
             } catch (Exception e) {
                 Log.e(Constants.LOG_TAG, "Something went wrong while trying to play audio file: "
                         + audioFile.getAbsolutePath(), e);
+                playDefaultAudio(context, audioType);
             }
-        }
+        // }
     }
 
     public static void stopAudio() {

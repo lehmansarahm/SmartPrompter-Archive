@@ -34,7 +34,9 @@ public class AcknowledgmentActivity extends SliderBaseActivity {
 
             TextView taskText = findViewById(R.id.task_text);
             taskText.setText(mAlarm.getDesc());
-        });
+        },
+                (error) -> Log.e(BaseActivity.LOG_TAG, "Something went wrong while attempting to "
+                        + "retrieve alarms by GUID: " + mAlarmGUID, error));
 
         mInstructionText = findViewById(R.id.instruction_text);
         Slider selection = findViewById(R.id.selection_seekbar);

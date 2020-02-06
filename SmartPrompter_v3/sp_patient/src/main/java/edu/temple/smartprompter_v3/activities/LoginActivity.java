@@ -84,8 +84,11 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void forwardToMain() {
+        String email = mFbAuth.getCurrentUser().getEmail();
+        Crashlytics.setUserEmail(email);
+        mFbAnalytics.setUserProperty("Email", email);
+
         Log.i(LOG_TAG, "User is logged in - forwarding to MainActivity.");
-        Crashlytics.setUserEmail(mFbAuth.getCurrentUser().getEmail());
         startActivity(new Intent(LoginActivity.this, MainActivity.class));
         finish();
     }

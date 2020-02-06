@@ -21,6 +21,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             Manifest.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.SYSTEM_ALERT_WINDOW,
             Manifest.permission.RECORD_AUDIO
     };
 
@@ -33,7 +34,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mFbAuth = FirebaseAuth.getInstance();
         mFbAnalytics = FirebaseAnalytics.getInstance(getApplicationContext());
-        mFbaEventLogger = new FbaEventLogger(this);
+
+        String email = (mFbAuth.getCurrentUser() == null
+                ? "" : mFbAuth.getCurrentUser().getEmail());
+        mFbaEventLogger = new FbaEventLogger(this, email);
     }
 
     protected boolean checkPermissions() {

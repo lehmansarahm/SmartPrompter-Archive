@@ -75,8 +75,10 @@ public class Alarm implements FirebaseConnector.FbDataClass {
         status = STATUS.Active;
         archived = false;
 
-        FirebaseConnector.getLatestAlarm(result ->
-                requestCode = (((Alarm)result).getRequestCode() + 1));
+        FirebaseConnector.getLatestAlarm(
+                completeResult -> requestCode = (((Alarm) completeResult).getRequestCode() + 1),
+                (error) -> Log.e(LOG_TAG, "Something went wrong while trying to retrieve "
+                        + "the latest alarm GUID.", error));
     }
 
     public Alarm (DocumentSnapshot document) {
@@ -191,6 +193,7 @@ public class Alarm implements FirebaseConnector.FbDataClass {
         Date alarmDate = alarmTime.toDate();
         alarmDate.setHours(hours);
         alarmDate.setMinutes(minutes);
+        alarmDate.setSeconds(0);
         alarmTime = new Timestamp(alarmDate);
     }
 

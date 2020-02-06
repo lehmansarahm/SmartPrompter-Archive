@@ -99,11 +99,11 @@ public class CameraPreviewFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.fragment_camera_preview,
                 container, false);
 
-        cameraPreviewTexture = rootView.findViewById(R.id.camera_preview_texture);
+        cameraPreviewTexture = (TextureView)rootView.findViewById(R.id.camera_preview_texture);
         assert cameraPreviewTexture != null;
         cameraPreviewTexture.setSurfaceTextureListener(textureListener);
 
-        takePictureButton = rootView.findViewById(R.id.take_picture_button);
+        takePictureButton = (Button)rootView.findViewById(R.id.take_picture_button);
         assert takePictureButton != null;
         takePictureButton.setOnClickListener(v -> {
             Log.i(LOG_TAG, // CameraPreviewFragment.this.getActivity(),

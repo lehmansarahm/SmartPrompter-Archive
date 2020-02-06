@@ -89,7 +89,7 @@ public class CameraReviewFragment extends Fragment {
 
         initReviewImage(rootView);
 
-        Button acceptButton = rootView.findViewById(R.id.accept_button);
+        Button acceptButton = (Button)rootView.findViewById(R.id.accept_button);
         acceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,7 +101,7 @@ public class CameraReviewFragment extends Fragment {
             }
         });
 
-        Button rejectButton = rootView.findViewById(R.id.reject_button);
+        Button rejectButton = (Button)rootView.findViewById(R.id.reject_button);
         rejectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -118,12 +118,12 @@ public class CameraReviewFragment extends Fragment {
         int height = 960, width = 1280;
         Bitmap bmpOrig = MediaUtil.convertToBitmap(mImageBytes);
 
-        ImageView reviewImageView = rootView.findViewById(R.id.camera_review_image);
-        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.M) {
+        ImageView reviewImageView = (ImageView)rootView.findViewById(R.id.camera_review_image);
+        /* if (Build.VERSION.SDK_INT == Build.VERSION_CODES.M) {
             Bitmap bmpScaled = Bitmap.createScaledBitmap(bmpOrig, height, width, true);
             reviewImageView.setImageBitmap(bmpScaled);
             return;
-        }
+        } */
 
         Matrix matrix = new Matrix();
         matrix.postRotate(90);

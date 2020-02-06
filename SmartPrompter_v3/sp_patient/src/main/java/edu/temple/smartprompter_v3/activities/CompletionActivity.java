@@ -2,14 +2,9 @@ package edu.temple.smartprompter_v3.activities;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.TypedValue;
-import android.widget.SeekBar;
 import android.widget.TextView;
-
-import androidx.core.content.ContextCompat;
 
 import edu.temple.smartprompter_v3.R;
 import edu.temple.smartprompter_v3.SmartPrompter;
@@ -44,7 +39,9 @@ public class CompletionActivity extends SliderBaseActivity {
 
             TextView taskText = findViewById(R.id.task_text);
             taskText.setText(mAlarm.getDesc());
-        });
+        },
+                (error) -> Log.e(BaseActivity.LOG_TAG, "Something went wrong while attempting to "
+                        + "retrieve alarms by GUID: " + mAlarmGUID, error));
 
         mInstructionText = findViewById(R.id.instruction_text);
         mInstructionText.setTextColor(Color.parseColor("#000000"));

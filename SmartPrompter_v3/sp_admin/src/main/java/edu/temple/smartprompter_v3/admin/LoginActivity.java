@@ -63,10 +63,10 @@ public class LoginActivity extends BaseActivity {
             mFbAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            Log.i(Constants.LOG_TAG, "Login worked!");
+                            Log.i(LOG_TAG, "Login worked!");
                             forwardToMain();
                         } else {
-                            Log.e(Constants.LOG_TAG, "Something went wrong during login!",
+                            Log.e(LOG_TAG, "Something went wrong during login!",
                                     task.getException());
                         }
                     });
@@ -84,8 +84,11 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void forwardToMain() {
-        Log.i(Constants.LOG_TAG, "User is logged in - forwarding to MainActivity.");
-        Crashlytics.setUserEmail(mFbAuth.getCurrentUser().getEmail());
+        String email = mFbAuth.getCurrentUser().getEmail();
+        Crashlytics.setUserEmail(email);
+        mFbAnalytics.setUserProperty("Email", email);
+
+        Log.i(LOG_TAG, "User is logged in - forwarding to MainActivity.");
         startActivity(new Intent(LoginActivity.this, MainActivity.class));
         finish();
     }

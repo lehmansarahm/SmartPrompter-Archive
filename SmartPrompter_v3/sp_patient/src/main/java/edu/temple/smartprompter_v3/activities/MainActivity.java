@@ -36,7 +36,9 @@ public class MainActivity extends BaseActivity implements AlarmRecyclerViewAdapt
                 LinearLayout alarmListLayout = findViewById(R.id.alarm_list_layout);
                 alarmListLayout.setVisibility(View.INVISIBLE);
             }
-        });
+        },
+                (error) -> Log.e(BaseActivity.LOG_TAG, "Something went wrong while attempting to "
+                        + "retrieve alarms by email: " + email, error));
     }
 
     @Override

@@ -74,7 +74,9 @@ public class CameraActivity extends BaseActivity implements
                 startActivity(intent);
                 finish();
             }
-        });
+        },
+                (error) -> Log.e(BaseActivity.LOG_TAG, "Something went wrong while attempting to "
+                        + "retrieve alarms by GUID: " + mAlarmGUID, error));
     }
 
     @Override

@@ -32,6 +32,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             Manifest.permission.FOREGROUND_SERVICE,
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.SYSTEM_ALERT_WINDOW,
             Manifest.permission.RECORD_AUDIO,
             Manifest.permission.VIBRATE,
             Manifest.permission.CAMERA
@@ -52,7 +53,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         mFbAuth = FirebaseAuth.getInstance();
         mFbAnalytics = FirebaseAnalytics.getInstance(getApplicationContext());
-        mFbaEventLogger = new FbaEventLogger(this);
+
+        String email = (mFbAuth.getCurrentUser() == null
+                ? "" : mFbAuth.getCurrentUser().getEmail());
+        mFbaEventLogger = new FbaEventLogger(this, email);
 
         mAlarmGUID = getIntent().getStringExtra(Constants.BUNDLE_ARG_ALARM_GUID);
         mWakeup = getIntent().getBooleanExtra(Constants.BUNDLE_ARG_ALARM_WAKEUP, false);
@@ -62,7 +66,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         mAlertType = (alertType == null || alertType.equals(""))
                 ? MediaUtil.AUDIO_TYPE.None : MediaUtil.AUDIO_TYPE.valueOf(alertType);
 
-        if (mWakeup) SmartPrompter.wakeup(this, mPlayAlerts, mAlertType);
+        if (mWakeup) SmartPrompter.wakeupScreen(this);
         super.onCreate(savedInstanceState);
     }
 

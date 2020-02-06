@@ -2,19 +2,15 @@ package edu.temple.smartprompter_v3.res_lib.data;
 
 import android.util.Log;
 
-import androidx.annotation.NonNull;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.model.Document;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -38,6 +34,10 @@ public class FirebaseConnector {
         void OnResultsAvailable(FbDataClass result);
     }
 
+    public interface FbFailureListener {
+        void OnQueryFailed(Exception e);
+    }
+
     private static FirebaseFirestore mFbFirestore = FirebaseFirestore.getInstance();
 
 
@@ -46,12 +46,12 @@ public class FirebaseConnector {
 
 
     private static final List<String> ALARM_TASK_STATUSES = Arrays.asList(
-            Alarm.STATUS.Active.toString(),
             Alarm.STATUS.Unacknowledged.toString(),
             Alarm.STATUS.Incomplete.toString()
     );
 
-    public static void getLatestAlarm(final FbDocListener listener) {
+    public static void getLatestAlarm(final FbDocListener listener,
+                                      final FbFailureListener failureListener) {
         mFbFirestore.collection(Alarm.COLLECTION)
                 .orderBy(Alarm.FIELD_REQUEST_CODE, Query.Direction.DESCENDING)
                 .limit(1)
@@ -59,85 +59,96 @@ public class FirebaseConnector {
                 .addOnCompleteListener(task1 -> {
                     DocumentSnapshot documentSnapshot = task1.getResult().getDocuments().get(0);
                     listener.OnResultsAvailable(new Alarm(documentSnapshot));
-                });
+                })
+                .addOnFailureListener(failureListener::OnQueryFailed);
     }
 
-    public static void getAlarms(final FbQueryListener listener) {
+    public static void getAlarms(final FbQueryListener listener,
+                                 final FbFailureListener failureListener) {
         mFbFirestore.collection(Alarm.COLLECTION)
                 .get()
                 .addOnCompleteListener((new Alarm()).getListCompletionListener(listener))
-                .addOnFailureListener(e -> Log.e(Constants.LOG_TAG, "Something went wrong while "
-                        + "trying to retrieve documents from collection: " + Alarm.COLLECTION, e));
+                .addOnFailureListener(failureListener::OnQueryFailed);
     }
 
     public static void getAlarmByGuid(final String guid,
-                                      final FbDocListener listener) {
+                                      final FbDocListener listener,
+                                      final FbFailureListener failureListener) {
         Log.i(Constants.LOG_TAG, "Attempting to retrieve alarm by ID: " + guid);
         mFbFirestore.collection(Alarm.COLLECTION)
                 .document(guid)
                 .get()
-                .addOnCompleteListener((new Alarm()).getSingletonCompletionListener(listener))
-                .addOnFailureListener(e -> Log.e(Constants.LOG_TAG, "Something went wrong while "
-                        + "trying to retrieve documents from collection: " + Alarm.COLLECTION, e));
+                .addOnCompleteListener(task -> {
+                    Alarm newAlarm = new Alarm(task.getResult());
+                    listener.OnResultsAvailable(newAlarm);
+                })
+                .addOnFailureListener(failureListener::OnQueryFailed);
     }
 
     public static void getAlarmsByEmail(final String email,
-                                        final FbQueryListener listener) {
+                                        final FbQueryListener listener,
+                                        final FbFailureListener failureListener) {
         mFbFirestore.collection(Alarm.COLLECTION)
                 .whereEqualTo(Alarm.FIELD_USER_EMAIL, email)
                 .get()
                 .addOnCompleteListener((new Alarm()).getListCompletionListener(listener))
-                .addOnFailureListener(e -> Log.e(Constants.LOG_TAG, "Something went wrong while "
-                        + "trying to retrieve documents from collection: " + Alarm.COLLECTION, e));
+                .addOnFailureListener(failureListener::OnQueryFailed);
     }
 
     public static void getActiveAlarmTasks(final String email,
-                                           final FbQueryListener listener) {
+                                           final FbQueryListener listener,
+                                           final FbFailureListener failureListener) {
         mFbFirestore.collection(Alarm.COLLECTION)
                 .whereIn(Alarm.FIELD_STATUS, ALARM_TASK_STATUSES)
                 .whereEqualTo(Alarm.FIELD_USER_EMAIL, email)
                 .get()
                 .addOnCompleteListener((new Alarm()).getListCompletionListener(listener))
-                .addOnFailureListener(e -> Log.e(Constants.LOG_TAG, "Something went wrong while "
-                        + "trying to retrieve documents from collection: " + Alarm.COLLECTION, e));
+                .addOnFailureListener(failureListener::OnQueryFailed);
     }
 
-    public static void getAlarmsByStatus(final Alarm.STATUS status,
-                                         final FbQueryListener listener) {
+    public static void getAlarmsByStatus(final String email,
+                                         final Alarm.STATUS status,
+                                         final FbQueryListener listener,
+                                         final FbFailureListener failureListener) {
         mFbFirestore.collection(Alarm.COLLECTION)
                 .whereEqualTo(Alarm.FIELD_STATUS, status.toString())
+                .whereEqualTo(Alarm.FIELD_USER_EMAIL, email)
                 .get()
                 .addOnCompleteListener((new Alarm()).getListCompletionListener(listener))
-                .addOnFailureListener(e -> Log.e(Constants.LOG_TAG, "Something went wrong while "
-                        + "trying to retrieve documents from collection: " + Alarm.COLLECTION, e));
+                .addOnFailureListener(failureListener::OnQueryFailed);
     }
 
-    public static void saveAlarm(final Alarm alarm) {
-        Log.i(Constants.LOG_TAG, "Attempting to save alarm record with properties: "
+    public static void saveAlarm(final Alarm alarm,
+                                 final OnCompleteListener listener,
+                                 final FbFailureListener failureListener) {
+        Log.i(Constants.LOG_TAG, "Attempting to save existing alarm record with properties: "
                 + alarm.getFbPropertiesString());
-        OnFailureListener onFailureListener = e -> Log.e(Constants.LOG_TAG,
-                "Something went wrong while attempting to create alarm " +
-                " record with guid: " + alarm.getGuid());
 
-        if (alarm.getGuid().equals(Constants.DEFAULT_ALARM_GUID)) {
-            mFbFirestore.collection(Alarm.COLLECTION)
-                    .add(alarm.getFbProperties())
-                    .addOnFailureListener(onFailureListener);
-        } else {
-            mFbFirestore.collection(Alarm.COLLECTION)
-                    .document(alarm.getGuid())
-                    .set(alarm.getFbProperties())
-                    .addOnFailureListener(onFailureListener);
-        }
+        mFbFirestore.collection(Alarm.COLLECTION)
+                .document(alarm.getGuid())
+                .set(alarm.getFbProperties())
+                .addOnCompleteListener(listener)
+                .addOnFailureListener(failureListener::OnQueryFailed);
     }
 
-    public static void deleteAlarm(final String guid) {
+    public static void saveNewAlarm(final Alarm alarm,
+                                 final OnSuccessListener listener,
+                                 final FbFailureListener failureListener) {
+        Log.i(Constants.LOG_TAG, "Attempting to save new alarm record with properties: "
+                + alarm.getFbPropertiesString());
+
+        mFbFirestore.collection(Alarm.COLLECTION)
+                .add(alarm.getFbProperties())
+                .addOnSuccessListener(listener)
+                .addOnFailureListener(failureListener::OnQueryFailed);
+    }
+
+    public static void deleteAlarm(final String guid,
+                                   final FbFailureListener failureListener) {
         mFbFirestore.collection(Alarm.COLLECTION)
                 .document(guid)
                 .delete()
-                .addOnFailureListener(e -> Log.e(Constants.LOG_TAG,
-                        "Something went wrong while attempting to delete alarm " +
-                                "record with GUID: " + guid));
+                .addOnFailureListener(failureListener::OnQueryFailed);
     }
 
 
@@ -145,22 +156,22 @@ public class FirebaseConnector {
     // ---------------------------------------------------------------------------------------
 
 
-    public static void getUsers(final FbQueryListener listener) {
+    public static void getUsers(final FbQueryListener listener,
+                                final FbFailureListener failureListener) {
         mFbFirestore.collection(User.COLLECTION)
                 .get()
                 .addOnCompleteListener((new User()).getListCompletionListener(listener))
-                .addOnFailureListener(e -> Log.e(Constants.LOG_TAG, "Something went wrong while "
-                        + "trying to retrieve documents from collection: " + User.COLLECTION, e));
+                .addOnFailureListener(failureListener::OnQueryFailed);
     }
 
     public static void getUsersByEmail(final String email,
-                                       final FbQueryListener listener) {
+                                       final FbQueryListener listener,
+                                       final FbFailureListener failureListener) {
         mFbFirestore.collection(User.COLLECTION)
                 .whereEqualTo(User.FIELD_EMAIL, email)
                 .get()
                 .addOnCompleteListener((new User()).getListCompletionListener(listener))
-                .addOnFailureListener(e -> Log.e(Constants.LOG_TAG, "Something went wrong while "
-                        + "trying to retrieve documents from collection: " + User.COLLECTION, e));
+                .addOnFailureListener(failureListener::OnQueryFailed);
     }
 
 }

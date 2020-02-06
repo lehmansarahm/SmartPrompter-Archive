@@ -6,16 +6,17 @@
 
     <dist:module dist:instant="true" />
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.SET_ALARM" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -32,6 +33,14 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SET_ALARM" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SHOW_ALARMS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".activities.AcknowledgmentActivity" />
@@ -40,14 +49,16 @@
         <activity android:name=".activities.ConfirmationActivity" />
         <activity android:name=".activities.MainActivity" />
 
-        <receiver android:name=".receivers.AlarmAlertReceiver"
+        <receiver android:name="edu.temple.smartprompter_v3.receivers.AdminAlertReceiver"
             android:enabled="true" android:exported="true" >
             <intent-filter>
                 <action android:name="@string/event_alarms_ready" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".receivers.RebootReceiver" >
+        <receiver android:name="edu.temple.smartprompter_v3.receivers.AlarmAlertReceiver" />
+
+        <receiver android:name="edu.temple.smartprompter_v3.receivers.RebootReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />
@@ -55,7 +66,9 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".services.FbSnapshotListenerService" />
+        <service android:name=".services.AdminDataChangeService" />
+        <service android:name=".services.AlarmNotificationService" />
+        <service android:name=".services.RebootInitializationService" />
 
     </application>
 

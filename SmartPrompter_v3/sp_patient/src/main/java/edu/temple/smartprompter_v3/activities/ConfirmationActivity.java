@@ -32,7 +32,9 @@ public class ConfirmationActivity extends BaseActivity {
             int progressPercentage = getProgress(allAlarms);
             if (progressPercentage < 100) initProgressView(progressPercentage);
             else initConfirmationView();
-        });
+        },
+                (error) -> Log.e(BaseActivity.LOG_TAG, "Something went wrong while attempting to "
+                        + "retrieve alarms by email: " + email, error));
     }
 
     private int getProgress(List<Alarm> allAlarms) {
@@ -82,6 +84,8 @@ public class ConfirmationActivity extends BaseActivity {
         Button returnButton = findViewById(R.id.return_button);
         returnButton.setOnClickListener(view -> {
             Log.i(LOG_TAG, "Confirmation return button clicked.");
+            MediaUtil.stopAudio();
+
             Intent intent = new Intent(ConfirmationActivity.this, MainActivity.class);
             intent.putExtra(Constants.BUNDLE_TASK_COMPLETE, true);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);

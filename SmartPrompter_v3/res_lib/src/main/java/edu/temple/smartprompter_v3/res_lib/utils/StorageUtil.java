@@ -50,8 +50,8 @@ public class StorageUtil {
 
     public static Bitmap getImageFromFile(String filename) {
         try {
-            verifyOutputDir(PHOTOS_DIR);
-            File imageFile = new File(filename); // new File(outputDir, filename);
+            File outputDir = verifyOutputDir(PHOTOS_DIR);
+            File imageFile = new File(outputDir, filename);
             if (!imageFile.exists()) {
                 Log.e(Constants.LOG_TAG, "Image file does not exist at path: "
                         + imageFile.getAbsolutePath());

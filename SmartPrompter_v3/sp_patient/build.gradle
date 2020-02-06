@@ -8,8 +8,8 @@ android {
         applicationId "edu.temple.smartprompter_v3"
         minSdkVersion 28
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "3.0"
     }
 
     buildTypes {

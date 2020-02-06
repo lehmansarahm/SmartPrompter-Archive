@@ -13,8 +13,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
 
 import edu.temple.smartprompter_v3.res_lib.data.Alarm;
 import edu.temple.smartprompter_v3.res_lib.data.FirebaseConnector;
@@ -85,7 +91,9 @@ public class AlarmDetailsActivity extends BaseActivity implements
                     mAlarmGUID = mAlarm.getGuid();
                 }
                 initialize();
-            });
+            },
+                    (error) -> Log.e(BaseActivity.LOG_TAG, "Something went wrong while attempting to "
+                            + "retrieve matching alarm record for GUID: " + mAlarmGUID, error));
         }
     }
 
@@ -178,28 +186,30 @@ public class AlarmDetailsActivity extends BaseActivity implements
             public void onClick(View view) {
                 mFbaEventLogger.buttonClick(this.getClass(), "Save", mAlarm);
                 if (mAlarm.hasAlarmTimePassed()) {
-                    Log.e(Constants.LOG_TAG, "Cannot setAlarm alarm for time in the past!");
-                    Toast.makeText(AlarmDetailsActivity.this, "Cannot setAlarm alarm for time "
+                    Log.e(Constants.LOG_TAG, "Cannot set alarm for time in the past!");
+                    Toast.makeText(AlarmDetailsActivity.this, "Cannot set alarm for time "
                             + "in the past!", Toast.LENGTH_LONG).show();
                 } else {
                     Log.i(LOG_TAG, "Saving updates to record with GUID: " + mAlarm.getGuid());
                     mAlarm.updateUserEmail(mFbAuth.getCurrentUser().getEmail());
-                    FirebaseConnector.saveAlarm(mAlarm);
+                    mAlarm.updateStatus(Alarm.STATUS.Active);
 
-                    Log.i(LOG_TAG, "Sending broadcast to patient application.");
-                    Intent broadcastIntent = new Intent();
-                    broadcastIntent.setAction(getString(R.string.event_alarms_ready));
-                    broadcastIntent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, mAlarm.getGuid());
-                    broadcastIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-                    broadcastIntent.setComponent(
-                            new ComponentName("edu.temple.smartprompter_v3",
-                                    "edu.temple.smartprompter_v3.receivers.AlarmAlertReceiver"));
-                    sendBroadcast(broadcastIntent);
+                    if (mAlarm.getGuid().equals(Constants.DEFAULT_ALARM_GUID)) {
+                        FirebaseConnector.saveNewAlarm(mAlarm,
+                                (result) -> ((DocumentReference)result).get().addOnCompleteListener(
+                                        task -> {
+                                            if (task.isSuccessful())
+                                                alertPatientApp(new Alarm(task.getResult()));
+                                            else alertFailure(task.getException());
+                                        }), (error) -> alertFailure(error));
+                    } else {
+                        FirebaseConnector.saveAlarm(mAlarm,
+                                (result) -> {
+                                    if (result.isSuccessful()) alertPatientApp(mAlarm);
+                                    else alertFailure(result.getException());
+                                }, (error) -> alertFailure(error));
+                    }
 
-                    Log.i(LOG_TAG, "Returning to alarm list activity.");
-                    startActivity(new Intent(AlarmDetailsActivity.this,
-                            AlarmListActivity.class));
-                    finish();
                 }
             }
         });
@@ -225,13 +235,45 @@ public class AlarmDetailsActivity extends BaseActivity implements
                 @Override
                 public void onClick(View view) {
                     mFbaEventLogger.buttonClick(this.getClass(), "Delete", mAlarm);
-                    FirebaseConnector.deleteAlarm(mAlarm.getGuid());
-                    startActivity(new Intent(AlarmDetailsActivity.this,
-                            AlarmListActivity.class));
+                    FirebaseConnector.deleteAlarm(mAlarm.getGuid(),
+                            (error) -> Log.e(BaseActivity.LOG_TAG, "Something went wrong while "
+                                    + "attempting to save alarm record for GUID: " + mAlarm.getGuid(), error));
+
+                    Intent intent = new Intent(AlarmDetailsActivity.this,
+                            AlarmListActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
                     finish();
                 }
             });
         }
+    }
+
+    private void alertPatientApp(Alarm alarm) {
+        Log.i(LOG_TAG, "Sending broadcast to patient application with "
+                + "GUID: " + alarm.getGuid());
+
+        Intent broadcastIntent = new Intent();
+        broadcastIntent.setAction(getString(R.string.event_alarms_ready));
+        broadcastIntent.putExtra(Constants.BUNDLE_ARG_ALARM_GUID, alarm.getGuid());
+        broadcastIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        broadcastIntent.setComponent(
+                new ComponentName("edu.temple.smartprompter_v3",
+                        "edu.temple.smartprompter_v3.receivers.AdminAlertReceiver"));
+        sendBroadcast(broadcastIntent);
+
+        Log.i(LOG_TAG, "Returning to alarm list activity.");
+        startActivity(new Intent(AlarmDetailsActivity.this,
+                AlarmListActivity.class));
+        finish();
+    }
+
+    private void alertFailure(Exception ex) {
+        Log.e(BaseActivity.LOG_TAG, "Something went wrong while attempting to "
+                + "save alarm record for GUID: " + mAlarm.getGuid(), ex);
+        Toast.makeText(AlarmDetailsActivity.this,
+                "Something went wrong while attempting to save alarm "
+                        + "record.  Please try again.", Toast.LENGTH_LONG).show();
     }
 
 }

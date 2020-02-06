@@ -30,24 +30,27 @@ public class SpController {
                 intent, PendingIntent.FLAG_NO_CREATE) != null);
     }
 
-    public static void setAlarm(Context context, Alarm alarm, Class notificationClass, Class receiverClass) {
+    public static void setAlarm(Context context, Alarm alarm,
+                                Class<?> notificationClass, Class<?> receiverClass) {
         long alarmTime = alarm.getAlarmTimeMillis();
         String alarmString = alarm.getAlarmDateTimeString();
         setAlarmClock(context, alarm, notificationClass, receiverClass,
                 alarmTime, false);
 
-        Log.i(LOG_TAG, "Alarm set for task: " + alarm.getDesc()
-                + " \t \t with GUID : " + alarm.getGuid()
-                + " \t \t and request code : " + alarm.getRequestCode()
-                + " \t \t and date/time: " + alarmString);
+        Log.i(LOG_TAG, "Alarm set for record with:" +
+                " \n \t Description: " + alarm.getDesc() +
+                " \n \t GUID : " + alarm.getGuid() +
+                " \n \t Request code : " + alarm.getRequestCode() +
+                " \n \t Date/time: " + alarmString);
     }
 
-    public static void cancelAlarm(Context context, Alarm alarm, Class receiverClass) {
+    public static void cancelAlarm(Context context, Alarm alarm, Class<?> receiverClass) {
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         if (manager != null) {
-            Log.i(LOG_TAG, "Cancelling existing alarms for task: " + alarm.getDesc()
-                    + " \t \t with GUID : " + alarm.getGuid()
-                    + " \t \t and request code : " + alarm.getRequestCode());
+            Log.i(LOG_TAG, "Cancelling existing alarms for record with:" +
+                    " \n \t Description: " + alarm.getDesc() +
+                    " \n \t GUID : " + alarm.getGuid() +
+                    " \n \t Request code : " + alarm.getRequestCode());
             manager.cancel(getAlarmPI(context, alarm, receiverClass, false));
         }
     }
@@ -58,7 +61,7 @@ public class SpController {
 
 
     public static void setReminder(Context context, Alarm alarm,
-                                   Class notificationClass, Class receiverClass,
+                                   Class<?> notificationClass, Class<?> receiverClass,
                                    Alarm.REMINDER type, boolean increaseReminderCount) {
         if (type == Alarm.REMINDER.Explicit) {
             Log.i(LOG_TAG, "User has explicitly snoozed alarm.  Resetting reminder count.");
@@ -72,16 +75,30 @@ public class SpController {
             String reminderString = alarm.getReminderDateTimeString();
             long reminderTime = alarm.getReminderTimeMillis();
 
-            Log.e(LOG_TAG, "Setting reminder for task: " + alarm.getDesc()
-                    + " \t \t with GUID : " + alarm.getGuid()
-                    + " \t \t and request code : " + alarm.getRequestCode()
-                    + " \t \t and date/time: " + reminderString);
+            Log.e(LOG_TAG, "Setting reminder for record with:" +
+                    " \n \t Description: " + alarm.getDesc() +
+                    " \n \t GUID : " + alarm.getGuid() +
+                    " \n \t Request code : " + alarm.getRequestCode() +
+                    " \n \t Date/time: " + reminderString);
 
             setAlarmClock(context, alarm, notificationClass, receiverClass,
                     reminderTime, true);
-            FirebaseConnector.saveAlarm(alarm);
+            FirebaseConnector.saveAlarm(alarm, null,
+                    (error) -> Log.e(LOG_TAG, "Something went wrong while attempting to "
+                            + "save alarm with new reminder.", error));
         } else {
             Log.e(LOG_TAG, "REMINDER LIMIT REACHED.  CANNOT SET MORE REMINDERS.");
+        }
+    }
+
+    public static void cancelReminder(Context context, Alarm alarm, Class<?> receiverClass) {
+        AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        if (manager != null) {
+            Log.i(LOG_TAG, "Cancelling existing reminders for record with:" +
+                    " \n \t Description: " + alarm.getDesc() +
+                    " \n \t GUID : " + alarm.getGuid() +
+                    " \n \t Request code : " + alarm.getRequestCode());
+            manager.cancel(getAlarmPI(context, alarm, receiverClass, true));
         }
     }
 
@@ -89,9 +106,18 @@ public class SpController {
     // -----------------------------------------------------------------------------------------
     // -----------------------------------------------------------------------------------------
 
+    public static void markUnacknowledged(Alarm alarm) {
+        alarm.updateStatus(Alarm.STATUS.Unacknowledged);
+        FirebaseConnector.saveAlarm(alarm,
+                result -> Log.i(LOG_TAG, "Alarm with GUID: " + alarm.getGuid()
+                        + " has gone off.  Task is now 'unacknowledged'."),
+                (error) -> Log.e(LOG_TAG, "Something went wrong while trying to save 'unacknowledged' "
+                        + "status update for alarm with GUID: " + alarm.getGuid(), error));
+        ;
+    }
 
     public static void markAcknowledged(Context context, Alarm alarm,
-                                        Class notificationClass, Class receiverClass) {
+                                        Class<?> notificationClass, Class<?> receiverClass) {
         alarm.setTimeAcknowledged();
         alarm.resetReminderCount();
         alarm.updateStatus(Alarm.STATUS.Incomplete);
@@ -101,14 +127,18 @@ public class SpController {
         setReminder(context, alarm, notificationClass, receiverClass,
                 Alarm.REMINDER.Implicit, true);
 
-        Log.i(LOG_TAG, "Alarm with GUID: " + alarm.getGuid() + " has been 'acknowledged'.");
-        FirebaseConnector.saveAlarm(alarm);
+        FirebaseConnector.saveAlarm(alarm,
+                result -> Log.i(LOG_TAG, "Alarm with GUID: " + alarm.getGuid()
+                        + " has been acknowledged."),
+                (error) -> Log.e(LOG_TAG, "Something went wrong while trying to save 'acknowledged' "
+                        + "status update for alarm with GUID: " + alarm.getGuid(), error));
     }
 
     public static void markCompleted(Context context, Alarm alarm,
-                                     Class receiverClass, byte[] bytes) {
+                                     Class<?> receiverClass, byte[] bytes) {
         // cancel any lingering completion alarms
         cancelAlarm(context, alarm, receiverClass);
+        cancelReminder(context, alarm, receiverClass);
 
         alarm.setTimeCompleted();
         alarm.resetReminderCount();
@@ -118,8 +148,11 @@ public class SpController {
         Bitmap media = MediaUtil.convertToBitmap(bytes);
         StorageUtil.writeImageToFile(alarm.getPhotoPath(), media);
 
-        Log.i(LOG_TAG, "Alarm with GUID: " + alarm.getGuid() + " has been 'completed'.");
-        FirebaseConnector.saveAlarm(alarm);
+        FirebaseConnector.saveAlarm(alarm,
+                result -> Log.i(LOG_TAG, "Alarm with GUID: " + alarm.getGuid()
+                        + " has been completed."),
+                (error) -> Log.e(LOG_TAG, "Something went wrong while trying to save 'complete' "
+                        + "status update for alarm with GUID: " + alarm.getGuid(), error));
     }
 
 
@@ -128,7 +161,7 @@ public class SpController {
 
 
     private static void setAlarmClock(Context context, Alarm alarm,
-                                      Class notificationClass, Class receiverClass,
+                                      Class<?> notificationClass, Class<?> receiverClass,
                                       long alarmTime, boolean isReminder) {
         AlarmManager mgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         assert (mgr != null);

@@ -63,9 +63,9 @@ public class AlarmRecyclerViewAdapter extends RecyclerView.Adapter<AlarmRecycler
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = view.findViewById(R.id.item_number);
-            mContentView = view.findViewById(R.id.content);
-            mDateTimeView = view.findViewById(R.id.dateTime);
+            mIdView = (TextView)view.findViewById(R.id.item_number);
+            mContentView = (TextView)view.findViewById(R.id.content);
+            mDateTimeView = (TextView)view.findViewById(R.id.dateTime);
         }
 
         @Override

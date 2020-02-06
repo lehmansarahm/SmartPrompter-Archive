@@ -26,7 +26,7 @@ public class SmartPrompter extends Application {
 
     private static PowerManager.WakeLock wakeLock;
 
-    public static void wakeup(Activity context, boolean playAlerts, MediaUtil.AUDIO_TYPE audioType) {
+    public static void playAlertMedia(Context context, boolean playAlerts, MediaUtil.AUDIO_TYPE audioType) {
         if (playAlerts) {
             Log.i(LOG_TAG, "Playing alarm alerts...");
             MediaUtil.playAlarmAlerts(context, audioType, null);
@@ -34,7 +34,9 @@ public class SmartPrompter extends Application {
             Log.i(LOG_TAG, "Stopping alarm alerts...");
             MediaUtil.stopAlarmAlerts(context.getApplicationContext());
         }
+    }
 
+    public static void wakeupScreen(Activity context) {
         PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         if (pm != null) {
             Log.i(LOG_TAG, "Acquiring wake lock...");
@@ -43,6 +45,7 @@ public class SmartPrompter extends Application {
         }
 
         Log.i(LOG_TAG, "Turning on device screen...");
+        // TODO - how to get window when NOT using an activity??
         context.getWindow().addFlags(ALERT_FLAGS);
     }
 
@@ -51,7 +54,6 @@ public class SmartPrompter extends Application {
             Log.i(LOG_TAG, "Releasing wake lock!");
             wakeLock.release();
         }
-
         MediaUtil.stopAlarmAlerts(context.getApplicationContext());
     }
 

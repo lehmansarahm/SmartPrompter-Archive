@@ -38,16 +38,19 @@ public class AlarmListActivity extends BaseActivity implements AlarmRecyclerView
         public void onItemSelected(AdapterView<?> parentView, View selectedItemView,
                                    int position, long id) {
             mFbaEventLogger.spinnerSelection(AlarmListActivity.class, "StatusFilter");
+            String email = mFbAuth.getCurrentUser().getEmail();
             Alarm.STATUS filterStatus =
                     Alarm.STATUS.valueOf(parentView.getItemAtPosition(position).toString());
 
-            FirebaseConnector.getAlarmsByStatus(filterStatus, results -> {
+            FirebaseConnector.getAlarmsByStatus(email, filterStatus, results -> {
                 filteredAlarms = (List<Alarm>)(Object)results;
                 recyclerView.setAdapter(new AlarmRecyclerViewAdapter(filteredAlarms,
                         AlarmListActivity.this));
                 Log.i(Constants.LOG_TAG, "Displaying " + filteredAlarms.size()
                         + " alarms for status: " + filterStatus.toString());
-            });
+            },
+                    (error) -> Log.e(BaseActivity.LOG_TAG, "Something went wrong while attempting to "
+                            + "retrieve alarm records by status: " + filterStatus, error));
         }
 
         @Override
