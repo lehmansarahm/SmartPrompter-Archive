@@ -30,7 +30,6 @@ public abstract class BaseService extends Service {
         Notification notification = createNotification();
         startForeground(1, notification);
         doWork(intent);
-        stopSelf();
         return START_NOT_STICKY;
     }
 

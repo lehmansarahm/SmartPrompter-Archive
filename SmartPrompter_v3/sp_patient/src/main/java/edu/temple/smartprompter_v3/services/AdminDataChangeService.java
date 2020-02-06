@@ -36,6 +36,10 @@ public class AdminDataChangeService extends BaseService {
     protected void doWork(Intent intent) {
         mAlarmGUID = intent.getStringExtra(Constants.BUNDLE_ARG_ALARM_GUID);
         isAdminAppEvent = intent.getAction().equals(getString(R.string.event_alarms_ready));
+        if (!isAdminAppEvent) {
+            Log.e(BaseActivity.LOG_TAG, "BROADCAST RECEIVED FOR UNKNOWN EVENT: " + intent.getAction());
+            return;
+        }
 
         FirebaseAuth mFbAuth = FirebaseAuth.getInstance();
         String email = (mFbAuth.getCurrentUser() == null
@@ -44,20 +48,22 @@ public class AdminDataChangeService extends BaseService {
         eventLogger.broadcastReceived(AdminAlertReceiver.class, intent.getAction(), mAlarmGUID);
 
         FirebaseConnector.FbDocListener completionListener = (result) -> {
-            mAlarm = (Alarm)result;
-            assert(mAlarm != null);
-
-            if (isAdminAppEvent) {
-                Log.i(BaseActivity.LOG_TAG, "ALARM ALERT RECEIVED!");
-                SpController.cancelAlarm(this, mAlarm, BaseActivity.ALARM_RECEIVER_CLASS);
-                SpController.cancelReminder(this, mAlarm, BaseActivity.ALARM_RECEIVER_CLASS);
-                SpController.setAlarm(this, mAlarm, BaseActivity.ALARM_NOTIFICATION_CLASS,
-                        BaseActivity.ALARM_RECEIVER_CLASS);
-            } else {
-                Log.i(BaseActivity.LOG_TAG, "ALARM ALERT BROADCAST RECEIVED FOR GUID: " + mAlarmGUID
-                        + " \t WITH ORIG ALARM TIME: " + mAlarm.getAlarmDateTimeString()
-                        + " \t AND STATUS: " + mAlarm.getStatus());
+            if (result == null) {
+                Log.e(BaseActivity.LOG_TAG, "Something went wrong while attempting to "
+                        + "retrieve alarms by GUID: " + mAlarmGUID);
+                return;
             }
+
+            mAlarm = (Alarm)result;
+            Log.i(BaseActivity.LOG_TAG, "Received data change broadcast for alarm with GUID: "
+                    + mAlarm.getGuid() + " \t Canceling existing alarms and reminders.  Setting new alarm.");
+
+            SpController.cancelAlarm(this, mAlarm, BaseActivity.ALARM_RECEIVER_CLASS);
+            SpController.cancelReminder(this, mAlarm, BaseActivity.ALARM_RECEIVER_CLASS);
+            SpController.setAlarm(this, mAlarm, BaseActivity.ALARM_NOTIFICATION_CLASS,
+                    BaseActivity.ALARM_RECEIVER_CLASS);
+
+            AdminDataChangeService.this.stopSelf();
         };
 
         FirebaseConnector.FbFailureListener failureListener = (e) -> {
@@ -74,6 +80,7 @@ public class AdminDataChangeService extends BaseService {
             }
         };
 
+        Log.i(BaseActivity.LOG_TAG, "ALARM ALERT BROADCAST RECEIVED FOR GUID: " + mAlarmGUID);
         FirebaseConnector.getAlarmByGuid(mAlarmGUID, completionListener, failureListener);
     }
 
