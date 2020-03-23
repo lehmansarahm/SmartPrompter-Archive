@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextClock;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,6 +21,8 @@ import edu.temple.smartprompter_v3.res_lib.utils.Constants;
 
 public class MainActivity extends BaseActivity implements AlarmRecyclerViewAdapter.AlarmSelectionListener {
 
+    private static final boolean DEV_MODE = false;
+
     private List<Alarm> filteredAlarms;
     private RecyclerView recyclerView;
 
@@ -27,6 +30,9 @@ public class MainActivity extends BaseActivity implements AlarmRecyclerViewAdapt
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextClock clock = findViewById(R.id.clock);
+        clock.setFormat12Hour(DEV_MODE ? "hh:mm:ss a" : "h:mm a");
 
         String email = mFbAuth.getCurrentUser().getEmail();
         FirebaseConnector.getActiveAlarmTasks(email, results -> {

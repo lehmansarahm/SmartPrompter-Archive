@@ -39,7 +39,7 @@
             android:id="@+id/status_filter_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/subtitle_size" />
+            android:textSize="14dp" />
 
     </LinearLayout>
 

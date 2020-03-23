@@ -1,0 +1,21 @@
+2019-09-27,03:23 PM,Info,SpResLib,Wrote contents: 1569613135839
+ 	 to file: /storage/emulated/0/Documents/sp_alarms/export_check.txt
+2019-09-27,03:23 PM,Info,SmartPrompterV2,Updated export check file with value: 09-27-2019      03:38PM
+2019-09-27,03:23 PM,Info,SmartPrompterV2,Populating current activity with clock fragment.
+2019-09-27,03:23 PM,Info,SmartPrompterV2,Missing some permissions!  Time to request from the user...
+2019-09-27,03:23 PM,Info,SmartPrompterV2,DownloadService is working!
+2019-09-27,03:23 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-09-27,03:23 PM,Info,SmartPrompterV2,User has granted all required permissions!
+2019-09-27,03:23 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-27,03:23 PM,Info,SpResLib,Retrieving alarm records from storage!
+2019-09-27,03:23 PM,Info,SpResLib,Scanning file: 0077445928513345684575418043077092862036
+2019-09-27,03:23 PM,Info,SpResLib,Read contents: {"alarmTime":{"year":2019,"month":8,"dayOfMonth":27,"hourOfDay":11,"minute":55,"second":0},"archived":false,"desc":"testing reminders","reminderCount":2,"reminderTime":{"year":2019,"month":8,"dayOfMonth":27,"hourOfDay":13,"minute":36,"second":0},"reminderType":"Implicit","status":"Incomplete","timeAcknowledged":{"year":2019,"month":8,"dayOfMonth":27,"hourOfDay":13,"minute":35,"second":5},"uuid":"0077445928513345684575418043077092862036"}
+ 	 from file: /storage/emulated/0/Documents/sp_alarms/0077445928513345684575418043077092862036
+2019-09-27,03:23 PM,Info,SpResLib,Scanning file: export_check.txt
+2019-09-27,03:23 PM,Info,SmartPrompterV2,Populating current activity with alarm-list fragment.
+2019-09-27,03:24 PM,Info,SmartPrompterV2,DownloadService is working!
+2019-09-27,03:24 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-09-27,03:24 PM,Info,SmartPrompterV2,DownloadService is working!
+2019-09-27,03:24 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false
+2019-09-27,03:24 PM,Info,SmartPrompterV2,DownloadService is working!
+2019-09-27,03:24 PM,Info,SmartPrompterV2,FileMonitorService - Is Alarms folder dirty:  false

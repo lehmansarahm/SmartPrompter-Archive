@@ -107,6 +107,7 @@ public class MediaUtil {
         // } else {
             try {
                 mediaPlayer = new MediaPlayer();
+                mediaPlayer.setLooping(true);
                 mediaPlayer.setDataSource(audioFile.getAbsolutePath());
                 mediaPlayer.setOnCompletionListener(mediaPlayer -> {
                     if (listener != null)

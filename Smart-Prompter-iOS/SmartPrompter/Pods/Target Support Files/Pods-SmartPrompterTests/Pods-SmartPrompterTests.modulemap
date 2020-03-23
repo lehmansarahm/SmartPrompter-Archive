@@ -1,0 +1,6 @@
+framework module Pods_SmartPrompterTests {
+  umbrella header "Pods-SmartPrompterTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

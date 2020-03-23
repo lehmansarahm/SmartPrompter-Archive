@@ -1,0 +1,109 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXFileReference section */
+		F1584B0023FDA84C0040310F /* MANIFEST.MF */ = {isa = PBXFileReference; lastKnownFileType = text; path = MANIFEST.MF; sourceTree = "<group>"; };
+		F1584B0123FDAD0A0040310F /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
+		F1584B0523FDB9C50040310F /* App.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; path = App.java; sourceTree = "<group>"; };
+		F1584B0623FDB9CF0040310F /* Window.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; path = Window.java; sourceTree = "<group>"; };
+		F1584B0723FDC1FA0040310F /* CliRunner.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; path = CliRunner.java; sourceTree = "<group>"; };
+		F1584B0923FDC3C50040310F /* sp_admin.apk */ = {isa = PBXFileReference; lastKnownFileType = file; path = sp_admin.apk; sourceTree = "<group>"; };
+		F1584B0A23FDC3C50040310F /* sp_patient.apk */ = {isa = PBXFileReference; lastKnownFileType = file; path = sp_patient.apk; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		F1584AF423FD9AD60040310F = {
+			isa = PBXGroup;
+			children = (
+				F1584B0823FDC3640040310F /* apk */,
+				F1584AFF23FDA83C0040310F /* META-INF */,
+				F1584B0123FDAD0A0040310F /* build.sh */,
+				F1584B0423FDB9BA0040310F /* src */,
+			);
+			sourceTree = "<group>";
+		};
+		F1584AFF23FDA83C0040310F /* META-INF */ = {
+			isa = PBXGroup;
+			children = (
+				F1584B0023FDA84C0040310F /* MANIFEST.MF */,
+			);
+			path = "META-INF";
+			sourceTree = "<group>";
+		};
+		F1584B0423FDB9BA0040310F /* src */ = {
+			isa = PBXGroup;
+			children = (
+				F1584B0523FDB9C50040310F /* App.java */,
+				F1584B0623FDB9CF0040310F /* Window.java */,
+				F1584B0723FDC1FA0040310F /* CliRunner.java */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		F1584B0823FDC3640040310F /* apk */ = {
+			isa = PBXGroup;
+			children = (
+				F1584B0923FDC3C50040310F /* sp_admin.apk */,
+				F1584B0A23FDC3C50040310F /* sp_patient.apk */,
+			);
+			path = apk;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		F1584AF523FD9AD60040310F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+			};
+			buildConfigurationList = F1584AF823FD9AD60040310F /* Build configuration list for PBXProject "SmartPrompter Desktop App" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F1584AF423FD9AD60040310F;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		F1584AF923FD9AD60040310F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		F1584AFA23FD9AD60040310F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F1584AF823FD9AD60040310F /* Build configuration list for PBXProject "SmartPrompter Desktop App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1584AF923FD9AD60040310F /* Debug */,
+				F1584AFA23FD9AD60040310F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F1584AF523FD9AD60040310F /* Project object */;
+}

@@ -149,7 +149,18 @@ public class Alarm implements FirebaseConnector.FbDataClass {
 
     @Override
     public String toString() {
-        return desc + " (" + status.toString() + ")";
+        return desc + " (" + getStatusMessage() + ")";
+    }
+
+    private String getStatusMessage() {
+        switch (status) {
+            case Unacknowledged:
+                return "You missed it - Click here to do it now!";
+            case Incomplete:
+                return "Incomplete - Click here to finish now!";
+            default:
+                return status.toString();
+        }
     }
 
     // ---------------------------------------------------------------------------------------

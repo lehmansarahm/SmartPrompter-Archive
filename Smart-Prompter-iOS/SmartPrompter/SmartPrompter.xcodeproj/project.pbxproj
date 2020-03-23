@@ -1,0 +1,796 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		128DF816866D880778131049 /* Pods_SmartPrompterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9840CEF262C226AE015B341 /* Pods_SmartPrompterTests.framework */; };
+		6E27F52B232856ED00FDEAFC /* CurrentAlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E27F52A232856ED00FDEAFC /* CurrentAlarmVC.swift */; };
+		6E27F52D2328571300FDEAFC /* PastAlarmsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E27F52C2328571300FDEAFC /* PastAlarmsVC.swift */; };
+		6E27F52F23343DDB00FDEAFC /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E27F52E23343DDB00FDEAFC /* AppDatabase.swift */; };
+		6E27F5312334475D00FDEAFC /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E27F5302334475D00FDEAFC /* Alarm.swift */; };
+		6E2ABB1D2326154800AC7B86 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2ABB1C2326154800AC7B86 /* Extensions.swift */; };
+		6E2ABB1F23261C1500AC7B86 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2ABB1E23261C1500AC7B86 /* AlarmVC.swift */; };
+		6E30BF7F2320BFDD005ABEFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E30BF7E2320BFDD005ABEFC /* AppDelegate.swift */; };
+		6E30BF812320BFDD005ABEFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E30BF802320BFDD005ABEFC /* ViewController.swift */; };
+		6E30BF862320BFE0005ABEFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E30BF852320BFE0005ABEFC /* Assets.xcassets */; };
+		6E30BF892320BFE0005ABEFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E30BF872320BFE0005ABEFC /* LaunchScreen.storyboard */; };
+		6E30BF942320BFE0005ABEFC /* SmartPrompterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E30BF932320BFE0005ABEFC /* SmartPrompterTests.swift */; };
+		6E30BF9F2320BFE0005ABEFC /* SmartPrompterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E30BF9E2320BFE0005ABEFC /* SmartPrompterUITests.swift */; };
+		6E30BFAD2320D07C005ABEFC /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E30BFAC2320D07C005ABEFC /* MainVC.swift */; };
+		6E80670123F8FCA200CA7D14 /* RewardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E80670023F8FCA200CA7D14 /* RewardVC.swift */; };
+		6E95C050233D759E001AA782 /* NewAlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E95C04F233D759E001AA782 /* NewAlarmVC.swift */; };
+		6ECDC4F92383AA1A004A856F /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECDC4F82383AA1A004A856F /* SignInVC.swift */; };
+		6ED01611237A6CB5004B9DD7 /* AlarmScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED01610237A6CB5004B9DD7 /* AlarmScheduler.swift */; };
+		6ED01613237A6DA5004B9DD7 /* FirebaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED01612237A6DA5004B9DD7 /* FirebaseUtil.swift */; };
+		6EF38CBF234B01790030B169 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EF38CBE234B01790030B169 /* GoogleService-Info.plist */; };
+		C9DCD638B5C29A7A4DD52C7D /* Pods_SmartPrompterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34F2B64BD94C49E2B2A2E9D /* Pods_SmartPrompterUITests.framework */; };
+		FF698C07FFAD347C422261C2 /* Pods_SmartPrompter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F9DC58E97968C80F3F8FDA /* Pods_SmartPrompter.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6E30BF902320BFE0005ABEFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E30BF732320BFDD005ABEFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E30BF7A2320BFDD005ABEFC;
+			remoteInfo = SmartPrompter;
+		};
+		6E30BF9B2320BFE0005ABEFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E30BF732320BFDD005ABEFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E30BF7A2320BFDD005ABEFC;
+			remoteInfo = SmartPrompter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1CA8672141F9363E3ED757A3 /* Pods-SmartPrompter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPrompter.debug.xcconfig"; path = "Target Support Files/Pods-SmartPrompter/Pods-SmartPrompter.debug.xcconfig"; sourceTree = "<group>"; };
+		2EECE303BD2B0342A89C93D9 /* Pods-SmartPrompterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPrompterUITests.debug.xcconfig"; path = "Target Support Files/Pods-SmartPrompterUITests/Pods-SmartPrompterUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3EE574B6777E7C73599AB4CB /* Pods-SmartPrompter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPrompter.release.xcconfig"; path = "Target Support Files/Pods-SmartPrompter/Pods-SmartPrompter.release.xcconfig"; sourceTree = "<group>"; };
+		41E0933D7A3561136C40C96E /* Pods-SmartPrompterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPrompterUITests.release.xcconfig"; path = "Target Support Files/Pods-SmartPrompterUITests/Pods-SmartPrompterUITests.release.xcconfig"; sourceTree = "<group>"; };
+		50F9DC58E97968C80F3F8FDA /* Pods_SmartPrompter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartPrompter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E27F52A232856ED00FDEAFC /* CurrentAlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentAlarmVC.swift; sourceTree = "<group>"; };
+		6E27F52C2328571300FDEAFC /* PastAlarmsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastAlarmsVC.swift; sourceTree = "<group>"; };
+		6E27F52E23343DDB00FDEAFC /* AppDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
+		6E27F5302334475D00FDEAFC /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		6E2ABB1C2326154800AC7B86 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		6E2ABB1E23261C1500AC7B86 /* AlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
+		6E30BF7B2320BFDD005ABEFC /* SmartPrompter Patient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SmartPrompter Patient.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E30BF7E2320BFDD005ABEFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6E30BF802320BFDD005ABEFC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6E30BF852320BFE0005ABEFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6E30BF882320BFE0005ABEFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6E30BF8A2320BFE0005ABEFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E30BF8F2320BFE0005ABEFC /* SmartPrompterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartPrompterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E30BF932320BFE0005ABEFC /* SmartPrompterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartPrompterTests.swift; sourceTree = "<group>"; };
+		6E30BF952320BFE0005ABEFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E30BF9A2320BFE0005ABEFC /* SmartPrompterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartPrompterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E30BF9E2320BFE0005ABEFC /* SmartPrompterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartPrompterUITests.swift; sourceTree = "<group>"; };
+		6E30BFA02320BFE0005ABEFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E30BFAC2320D07C005ABEFC /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		6E6ADAFC23388BC400ACE15B /* SmartPrompter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmartPrompter.entitlements; sourceTree = "<group>"; };
+		6E80670023F8FCA200CA7D14 /* RewardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardVC.swift; sourceTree = "<group>"; };
+		6E95C04F233D759E001AA782 /* NewAlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAlarmVC.swift; sourceTree = "<group>"; };
+		6ECDC4F82383AA1A004A856F /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		6ED01610237A6CB5004B9DD7 /* AlarmScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmScheduler.swift; sourceTree = "<group>"; };
+		6ED01612237A6DA5004B9DD7 /* FirebaseUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUtil.swift; sourceTree = "<group>"; };
+		6EF38CBE234B01790030B169 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		988BD2957AA41F68A9660081 /* Pods-SmartPrompterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPrompterTests.debug.xcconfig"; path = "Target Support Files/Pods-SmartPrompterTests/Pods-SmartPrompterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CAF8385065181ABAA5EB9354 /* Pods-SmartPrompterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPrompterTests.release.xcconfig"; path = "Target Support Files/Pods-SmartPrompterTests/Pods-SmartPrompterTests.release.xcconfig"; sourceTree = "<group>"; };
+		D34F2B64BD94C49E2B2A2E9D /* Pods_SmartPrompterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartPrompterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9840CEF262C226AE015B341 /* Pods_SmartPrompterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartPrompterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6E30BF782320BFDD005ABEFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF698C07FFAD347C422261C2 /* Pods_SmartPrompter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E30BF8C2320BFE0005ABEFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				128DF816866D880778131049 /* Pods_SmartPrompterTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E30BF972320BFE0005ABEFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9DCD638B5C29A7A4DD52C7D /* Pods_SmartPrompterUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3FFA1AFFEB3BFD18FAA92768 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1CA8672141F9363E3ED757A3 /* Pods-SmartPrompter.debug.xcconfig */,
+				3EE574B6777E7C73599AB4CB /* Pods-SmartPrompter.release.xcconfig */,
+				988BD2957AA41F68A9660081 /* Pods-SmartPrompterTests.debug.xcconfig */,
+				CAF8385065181ABAA5EB9354 /* Pods-SmartPrompterTests.release.xcconfig */,
+				2EECE303BD2B0342A89C93D9 /* Pods-SmartPrompterUITests.debug.xcconfig */,
+				41E0933D7A3561136C40C96E /* Pods-SmartPrompterUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6E30BF722320BFDD005ABEFC = {
+			isa = PBXGroup;
+			children = (
+				6E30BF7D2320BFDD005ABEFC /* SmartPrompter */,
+				6E30BF922320BFE0005ABEFC /* SmartPrompterTests */,
+				6E30BF9D2320BFE0005ABEFC /* SmartPrompterUITests */,
+				6E30BF7C2320BFDD005ABEFC /* Products */,
+				3FFA1AFFEB3BFD18FAA92768 /* Pods */,
+				C410270453F8E9C4FB235E0C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6E30BF7C2320BFDD005ABEFC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6E30BF7B2320BFDD005ABEFC /* SmartPrompter Patient.app */,
+				6E30BF8F2320BFE0005ABEFC /* SmartPrompterTests.xctest */,
+				6E30BF9A2320BFE0005ABEFC /* SmartPrompterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6E30BF7D2320BFDD005ABEFC /* SmartPrompter */ = {
+			isa = PBXGroup;
+			children = (
+				6E6ADAFC23388BC400ACE15B /* SmartPrompter.entitlements */,
+				6E30BF7E2320BFDD005ABEFC /* AppDelegate.swift */,
+				6ECDC4F82383AA1A004A856F /* SignInVC.swift */,
+				6E30BF802320BFDD005ABEFC /* ViewController.swift */,
+				6E30BF852320BFE0005ABEFC /* Assets.xcassets */,
+				6E30BF872320BFE0005ABEFC /* LaunchScreen.storyboard */,
+				6EF38CBE234B01790030B169 /* GoogleService-Info.plist */,
+				6E30BF8A2320BFE0005ABEFC /* Info.plist */,
+				6E30BFAC2320D07C005ABEFC /* MainVC.swift */,
+				6E80670023F8FCA200CA7D14 /* RewardVC.swift */,
+				6ED01612237A6DA5004B9DD7 /* FirebaseUtil.swift */,
+				6ED01610237A6CB5004B9DD7 /* AlarmScheduler.swift */,
+				6E95C04F233D759E001AA782 /* NewAlarmVC.swift */,
+				6E2ABB1E23261C1500AC7B86 /* AlarmVC.swift */,
+				6E27F52C2328571300FDEAFC /* PastAlarmsVC.swift */,
+				6E27F52A232856ED00FDEAFC /* CurrentAlarmVC.swift */,
+				6E2ABB1C2326154800AC7B86 /* Extensions.swift */,
+				6E27F5302334475D00FDEAFC /* Alarm.swift */,
+				6E27F52E23343DDB00FDEAFC /* AppDatabase.swift */,
+			);
+			path = SmartPrompter;
+			sourceTree = "<group>";
+		};
+		6E30BF922320BFE0005ABEFC /* SmartPrompterTests */ = {
+			isa = PBXGroup;
+			children = (
+				6E30BF932320BFE0005ABEFC /* SmartPrompterTests.swift */,
+				6E30BF952320BFE0005ABEFC /* Info.plist */,
+			);
+			path = SmartPrompterTests;
+			sourceTree = "<group>";
+		};
+		6E30BF9D2320BFE0005ABEFC /* SmartPrompterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6E30BF9E2320BFE0005ABEFC /* SmartPrompterUITests.swift */,
+				6E30BFA02320BFE0005ABEFC /* Info.plist */,
+			);
+			path = SmartPrompterUITests;
+			sourceTree = "<group>";
+		};
+		C410270453F8E9C4FB235E0C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				50F9DC58E97968C80F3F8FDA /* Pods_SmartPrompter.framework */,
+				D9840CEF262C226AE015B341 /* Pods_SmartPrompterTests.framework */,
+				D34F2B64BD94C49E2B2A2E9D /* Pods_SmartPrompterUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6E30BF7A2320BFDD005ABEFC /* SmartPrompter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E30BFA32320BFE0005ABEFC /* Build configuration list for PBXNativeTarget "SmartPrompter" */;
+			buildPhases = (
+				D7A85E8270E1CF0C74E539F7 /* [CP] Check Pods Manifest.lock */,
+				6E30BF772320BFDD005ABEFC /* Sources */,
+				6E30BF782320BFDD005ABEFC /* Frameworks */,
+				6E30BF792320BFDD005ABEFC /* Resources */,
+				07B762D6FF6F558674368940 /* [CP] Embed Pods Frameworks */,
+				0DE4C4F5B219F9382918111B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmartPrompter;
+			productName = SmartPrompter;
+			productReference = 6E30BF7B2320BFDD005ABEFC /* SmartPrompter Patient.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6E30BF8E2320BFE0005ABEFC /* SmartPrompterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E30BFA62320BFE0005ABEFC /* Build configuration list for PBXNativeTarget "SmartPrompterTests" */;
+			buildPhases = (
+				6BA372881317C3C157DD32FB /* [CP] Check Pods Manifest.lock */,
+				6E30BF8B2320BFE0005ABEFC /* Sources */,
+				6E30BF8C2320BFE0005ABEFC /* Frameworks */,
+				6E30BF8D2320BFE0005ABEFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E30BF912320BFE0005ABEFC /* PBXTargetDependency */,
+			);
+			name = SmartPrompterTests;
+			productName = SmartPrompterTests;
+			productReference = 6E30BF8F2320BFE0005ABEFC /* SmartPrompterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6E30BF992320BFE0005ABEFC /* SmartPrompterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E30BFA92320BFE0005ABEFC /* Build configuration list for PBXNativeTarget "SmartPrompterUITests" */;
+			buildPhases = (
+				097019C01310B1D36CA0010E /* [CP] Check Pods Manifest.lock */,
+				6E30BF962320BFE0005ABEFC /* Sources */,
+				6E30BF972320BFE0005ABEFC /* Frameworks */,
+				6E30BF982320BFE0005ABEFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E30BF9C2320BFE0005ABEFC /* PBXTargetDependency */,
+			);
+			name = SmartPrompterUITests;
+			productName = SmartPrompterUITests;
+			productReference = 6E30BF9A2320BFE0005ABEFC /* SmartPrompterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6E30BF732320BFDD005ABEFC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = "Likhon Gomes";
+				TargetAttributes = {
+					6E30BF7A2320BFDD005ABEFC = {
+						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+					6E30BF8E2320BFE0005ABEFC = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 6E30BF7A2320BFDD005ABEFC;
+					};
+					6E30BF992320BFE0005ABEFC = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 6E30BF7A2320BFDD005ABEFC;
+					};
+				};
+			};
+			buildConfigurationList = 6E30BF762320BFDD005ABEFC /* Build configuration list for PBXProject "SmartPrompter" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6E30BF722320BFDD005ABEFC;
+			productRefGroup = 6E30BF7C2320BFDD005ABEFC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6E30BF7A2320BFDD005ABEFC /* SmartPrompter */,
+				6E30BF8E2320BFE0005ABEFC /* SmartPrompterTests */,
+				6E30BF992320BFE0005ABEFC /* SmartPrompterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6E30BF792320BFDD005ABEFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E30BF892320BFE0005ABEFC /* LaunchScreen.storyboard in Resources */,
+				6E30BF862320BFE0005ABEFC /* Assets.xcassets in Resources */,
+				6EF38CBF234B01790030B169 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E30BF8D2320BFE0005ABEFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E30BF982320BFE0005ABEFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07B762D6FF6F558674368940 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartPrompter/Pods-SmartPrompter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartPrompter/Pods-SmartPrompter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SmartPrompter/Pods-SmartPrompter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		097019C01310B1D36CA0010E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SmartPrompterUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0DE4C4F5B219F9382918111B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartPrompter/Pods-SmartPrompter-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartPrompter/Pods-SmartPrompter-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SmartPrompter/Pods-SmartPrompter-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BA372881317C3C157DD32FB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SmartPrompterTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7A85E8270E1CF0C74E539F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SmartPrompter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6E30BF772320BFDD005ABEFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E30BF812320BFDD005ABEFC /* ViewController.swift in Sources */,
+				6E30BFAD2320D07C005ABEFC /* MainVC.swift in Sources */,
+				6ED01613237A6DA5004B9DD7 /* FirebaseUtil.swift in Sources */,
+				6ED01611237A6CB5004B9DD7 /* AlarmScheduler.swift in Sources */,
+				6E27F5312334475D00FDEAFC /* Alarm.swift in Sources */,
+				6ECDC4F92383AA1A004A856F /* SignInVC.swift in Sources */,
+				6E27F52F23343DDB00FDEAFC /* AppDatabase.swift in Sources */,
+				6E27F52B232856ED00FDEAFC /* CurrentAlarmVC.swift in Sources */,
+				6E27F52D2328571300FDEAFC /* PastAlarmsVC.swift in Sources */,
+				6E2ABB1F23261C1500AC7B86 /* AlarmVC.swift in Sources */,
+				6E95C050233D759E001AA782 /* NewAlarmVC.swift in Sources */,
+				6E30BF7F2320BFDD005ABEFC /* AppDelegate.swift in Sources */,
+				6E2ABB1D2326154800AC7B86 /* Extensions.swift in Sources */,
+				6E80670123F8FCA200CA7D14 /* RewardVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E30BF8B2320BFE0005ABEFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E30BF942320BFE0005ABEFC /* SmartPrompterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E30BF962320BFE0005ABEFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E30BF9F2320BFE0005ABEFC /* SmartPrompterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6E30BF912320BFE0005ABEFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E30BF7A2320BFDD005ABEFC /* SmartPrompter */;
+			targetProxy = 6E30BF902320BFE0005ABEFC /* PBXContainerItemProxy */;
+		};
+		6E30BF9C2320BFE0005ABEFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E30BF7A2320BFDD005ABEFC /* SmartPrompter */;
+			targetProxy = 6E30BF9B2320BFE0005ABEFC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6E30BF872320BFE0005ABEFC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E30BF882320BFE0005ABEFC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6E30BFA12320BFE0005ABEFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6E30BFA22320BFE0005ABEFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6E30BFA42320BFE0005ABEFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CA8672141F9363E3ED757A3 /* Pods-SmartPrompter.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SmartPrompter/SmartPrompter.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4VJD28P74Z;
+				INFOPLIST_FILE = SmartPrompter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.temple.SmartPrompter.patient;
+				PRODUCT_NAME = "SmartPrompter Patient";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6E30BFA52320BFE0005ABEFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EE574B6777E7C73599AB4CB /* Pods-SmartPrompter.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SmartPrompter/SmartPrompter.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4VJD28P74Z;
+				INFOPLIST_FILE = SmartPrompter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.temple.SmartPrompter.patient;
+				PRODUCT_NAME = "SmartPrompter Patient";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6E30BFA72320BFE0005ABEFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 988BD2957AA41F68A9660081 /* Pods-SmartPrompterTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UJ9M2WLA9Z;
+				INFOPLIST_FILE = SmartPrompterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = gomes.likhon.SmartPrompterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartPrompter.app/SmartPrompter";
+			};
+			name = Debug;
+		};
+		6E30BFA82320BFE0005ABEFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAF8385065181ABAA5EB9354 /* Pods-SmartPrompterTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UJ9M2WLA9Z;
+				INFOPLIST_FILE = SmartPrompterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = gomes.likhon.SmartPrompterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartPrompter.app/SmartPrompter";
+			};
+			name = Release;
+		};
+		6E30BFAA2320BFE0005ABEFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EECE303BD2B0342A89C93D9 /* Pods-SmartPrompterUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UJ9M2WLA9Z;
+				INFOPLIST_FILE = SmartPrompterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = gomes.likhon.SmartPrompterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SmartPrompter;
+			};
+			name = Debug;
+		};
+		6E30BFAB2320BFE0005ABEFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41E0933D7A3561136C40C96E /* Pods-SmartPrompterUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UJ9M2WLA9Z;
+				INFOPLIST_FILE = SmartPrompterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = gomes.likhon.SmartPrompterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SmartPrompter;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6E30BF762320BFDD005ABEFC /* Build configuration list for PBXProject "SmartPrompter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E30BFA12320BFE0005ABEFC /* Debug */,
+				6E30BFA22320BFE0005ABEFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E30BFA32320BFE0005ABEFC /* Build configuration list for PBXNativeTarget "SmartPrompter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E30BFA42320BFE0005ABEFC /* Debug */,
+				6E30BFA52320BFE0005ABEFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E30BFA62320BFE0005ABEFC /* Build configuration list for PBXNativeTarget "SmartPrompterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E30BFA72320BFE0005ABEFC /* Debug */,
+				6E30BFA82320BFE0005ABEFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E30BFA92320BFE0005ABEFC /* Build configuration list for PBXNativeTarget "SmartPrompterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E30BFAA2320BFE0005ABEFC /* Debug */,
+				6E30BFAB2320BFE0005ABEFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6E30BF732320BFDD005ABEFC /* Project object */;
+}
