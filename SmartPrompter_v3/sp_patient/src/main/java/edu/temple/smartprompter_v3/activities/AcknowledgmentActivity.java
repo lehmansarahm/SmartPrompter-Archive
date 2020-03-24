@@ -1,8 +1,11 @@
 package edu.temple.smartprompter_v3.activities;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import edu.temple.smartprompter_v3.R;
@@ -11,6 +14,7 @@ import edu.temple.smartprompter_v3.res_lib.SpController;
 import edu.temple.smartprompter_v3.res_lib.data.Alarm;
 import edu.temple.smartprompter_v3.res_lib.data.FirebaseConnector;
 import edu.temple.smartprompter_v3.res_lib.utils.Constants;
+import edu.temple.smartprompter_v3.res_lib.utils.StorageUtil;
 import edu.temple.smartprompter_v3.res_lib.widgets.Slider;
 
 public class AcknowledgmentActivity extends SliderBaseActivity {
@@ -34,6 +38,15 @@ public class AcknowledgmentActivity extends SliderBaseActivity {
 
             TextView taskText = findViewById(R.id.task_text);
             taskText.setText(mAlarm.getDesc());
+
+            ImageView imageView = findViewById(R.id.alarm_desc_img);
+            Bitmap bitmap = StorageUtil.getImageFromFile(mAlarm.getDescImgPath());
+            if (bitmap != null) {
+                Log.i(Constants.LOG_TAG, "Attempt to retrieve completion image was "
+                        + "successful.  Forwarding Bitmap to image viewer.");
+                imageView.getLayoutParams().height = 450;
+                imageView.setImageBitmap(bitmap);
+            }
         },
                 (error) -> Log.e(BaseActivity.LOG_TAG, "Something went wrong while attempting to "
                         + "retrieve alarms by GUID: " + mAlarmGUID, error));

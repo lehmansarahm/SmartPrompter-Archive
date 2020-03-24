@@ -12,6 +12,7 @@
     <ImageView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:id="@+id/alarm_desc_img"
         android:src="@drawable/alarm_clock_black" />
 
     <TextView

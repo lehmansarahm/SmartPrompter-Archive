@@ -161,7 +161,6 @@
 				6EF38CBE234B01790030B169 /* GoogleService-Info.plist */,
 				6E30BF8A2320BFE0005ABEFC /* Info.plist */,
 				6E30BFAC2320D07C005ABEFC /* MainVC.swift */,
-				6E80670023F8FCA200CA7D14 /* RewardVC.swift */,
 				6ED01612237A6DA5004B9DD7 /* FirebaseUtil.swift */,
 				6ED01610237A6CB5004B9DD7 /* AlarmScheduler.swift */,
 				6E95C04F233D759E001AA782 /* NewAlarmVC.swift */,
@@ -170,6 +169,7 @@
 				6E27F52A232856ED00FDEAFC /* CurrentAlarmVC.swift */,
 				6E2ABB1C2326154800AC7B86 /* Extensions.swift */,
 				6E27F5302334475D00FDEAFC /* Alarm.swift */,
+				6E80670023F8FCA200CA7D14 /* RewardVC.swift */,
 				6E27F52E23343DDB00FDEAFC /* AppDatabase.swift */,
 			);
 			path = SmartPrompter;
@@ -640,7 +640,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = edu.temple.SmartPrompter.patient;
 				PRODUCT_NAME = "SmartPrompter Patient";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -661,7 +661,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = edu.temple.SmartPrompter.patient;
 				PRODUCT_NAME = "SmartPrompter Patient";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

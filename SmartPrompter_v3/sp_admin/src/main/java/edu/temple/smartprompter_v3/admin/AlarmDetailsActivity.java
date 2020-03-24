@@ -3,43 +3,137 @@ package edu.temple.smartprompter_v3.admin;
 import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 
+import edu.temple.smartprompter_v3.admin.fragments.AlarmDetailsFragment;
+import edu.temple.smartprompter_v3.res_lib.SpController;
 import edu.temple.smartprompter_v3.res_lib.data.Alarm;
 import edu.temple.smartprompter_v3.res_lib.data.FirebaseConnector;
+import edu.temple.smartprompter_v3.res_lib.fragments.CameraPreviewFragment;
+import edu.temple.smartprompter_v3.res_lib.fragments.CameraReviewFragment;
 import edu.temple.smartprompter_v3.res_lib.fragments.DatePickerFragment;
 import edu.temple.smartprompter_v3.res_lib.fragments.TimePickerFragment;
+import edu.temple.smartprompter_v3.res_lib.utils.CameraUtil;
 import edu.temple.smartprompter_v3.res_lib.utils.Constants;
+import edu.temple.smartprompter_v3.res_lib.utils.MediaUtil;
+import edu.temple.smartprompter_v3.res_lib.utils.StorageUtil;
+
+import static edu.temple.smartprompter_v3.res_lib.utils.Constants.LOG_TAG;
 
 public class AlarmDetailsActivity extends BaseActivity implements
-        DatePickerFragment.DatePickerListener, TimePickerFragment.TimePickerListener {
+        DatePickerFragment.DatePickerListener,
+        TimePickerFragment.TimePickerListener,
+        AlarmDetailsFragment.AlarmDetailsListener,
+        CameraUtil.ImageCaptureListener,
+        CameraReviewFragment.ImageReviewListener {
+
+    private AlarmDetailsFragment detailsFrag;
+    private CameraPreviewFragment previewFrag;
+    private CameraReviewFragment reviewFrag;
 
     private Alarm mAlarm;
     private String mAlarmGUID;
-    private TextView mDateText, mTimeText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_details);
-        showAlarmDetails();
+
+        mAlarmGUID = getIntent().getStringExtra(Constants.BUNDLE_ARG_ALARM_GUID);
+        Log.i(LOG_TAG, "Launching details fragment for alarm GUID: " + mAlarmGUID);
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        detailsFrag = AlarmDetailsFragment.newInstance(mAlarmGUID);
+        ft.replace(R.id.details_container, detailsFrag).commit();
+    }
+
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+
+    @Override
+    public void onDateRequested(String alarmGUID, int[] date) {
+        DialogFragment newFragment = DatePickerFragment.newInstance(mAlarmGUID, date);
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
+    @Override
+    public void onTimeRequested(String alarmGUID, int[] time) {
+        DialogFragment newFragment = TimePickerFragment.newInstance(mAlarmGUID, time);
+        newFragment.show(getSupportFragmentManager(), "timePicker");
+    }
+
+    @Override
+    public void onImageRequested(String alarmGUID) {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        previewFrag = CameraPreviewFragment.newInstance(alarmGUID);
+        ft.replace(R.id.details_container, previewFrag)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    @Override
+    public void onAlarmSaved(Alarm alarm) {
+        mAlarm = alarm;
+        mFbaEventLogger.buttonClick(this.getClass(), "Save", mAlarm);
+        if (mAlarm.hasAlarmTimePassed()) {
+            Log.e(Constants.LOG_TAG, "Cannot set alarm for time in the past!");
+            Toast.makeText(AlarmDetailsActivity.this, "Cannot set alarm for time "
+                    + "in the past!", Toast.LENGTH_LONG).show();
+        } else {
+            Log.i(LOG_TAG, "Saving updates to record with GUID: " + mAlarm.getGuid());
+            mAlarm.updateUserEmail(mFbAuth.getCurrentUser().getEmail());
+            mAlarm.updateStatus(Alarm.STATUS.Active);
+
+            if (mAlarm.getGuid().equals(Constants.DEFAULT_ALARM_GUID)) {
+                FirebaseConnector.saveNewAlarm(mAlarm,
+                        (result) -> ((DocumentReference)result).get().addOnCompleteListener(
+                                task -> {
+                                    if (task.isSuccessful())
+                                        alertPatientApp(new Alarm(task.getResult()));
+                                    else alertFailure(mAlarm, task.getException());
+                                }), (error) -> alertFailure(mAlarm, error));
+            } else {
+                FirebaseConnector.saveAlarm(mAlarm,
+                        (result) -> {
+                            if (result.isSuccessful()) alertPatientApp(mAlarm);
+                            else alertFailure(mAlarm, result.getException());
+                        }, (error) -> alertFailure(mAlarm, error));
+            }
+
+        }
+    }
+
+    @Override
+    public void onAlarmDeleted(Alarm alarm) {
+        mAlarm = alarm;
+        mFbaEventLogger.buttonClick(this.getClass(), "Delete", mAlarm);
+        FirebaseConnector.deleteAlarm(mAlarm.getGuid(),
+                (error) -> Log.e(BaseActivity.LOG_TAG, "Something went wrong while "
+                        + "attempting to save alarm record for GUID: " + mAlarm.getGuid(), error));
+
+        Intent intent = new Intent(AlarmDetailsActivity.this, AlarmListActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
 
 
@@ -51,18 +145,12 @@ public class AlarmDetailsActivity extends BaseActivity implements
 
     @Override
     public void onDatePicked(String alarmGuid, int year, int month, int day) {
-        mFbaEventLogger.fieldUpdate(this.getClass(), "AlarmDate", 0,
-                month + "/" + day + "/" + year, alarmGuid);
-        mAlarm.updateAlarmDate(year, month, day);
-        mDateText.setText(mAlarm.getAlarmDateString());
+        detailsFrag.onDatePicked(alarmGuid, year, month, day);
     }
 
     @Override
     public void onTimePicked(String alarmGuid, int hourOfDay, int minute) {
-        mFbaEventLogger.fieldUpdate(this.getClass(), "AlarmTime", 0,
-                hourOfDay + ":" + minute, alarmGuid);
-        mAlarm.updateAlarmTime(hourOfDay, minute);
-        mTimeText.setText(mAlarm.getAlarmTimeString());
+        detailsFrag.onTimePicked(alarmGuid, hourOfDay, minute);
     }
 
 
@@ -70,184 +158,40 @@ public class AlarmDetailsActivity extends BaseActivity implements
     // --------------------------------------------------------------------------------------
 
 
-    private void showAlarmDetails() {
-        mAlarmGUID = getIntent().getStringExtra(Constants.BUNDLE_ARG_ALARM_GUID);
-        if (mAlarmGUID == null || mAlarmGUID.equals("")) {
-            Log.e(Constants.LOG_TAG, "SHOW DEFAULT DETAILS FOR NEW ALARM.");
-            TextView headerTv = findViewById(R.id.alarm_details_header);
-            headerTv.setText("New Alarm Details");
-            mAlarm = new Alarm();
-            mAlarmGUID = mAlarm.getGuid();
-            initialize();
-        } else {
-            Log.i(BaseActivity.LOG_TAG, "Show current details for existing alarm with GUID: " + mAlarmGUID);
-            FirebaseConnector.getAlarmByGuid(mAlarmGUID, result -> {
-                if (result != null) mAlarm = (Alarm)result;
-                else {
-                    Log.e(BaseActivity.LOG_TAG, "Something went wrong while attempting to "
-                            + "retrieve alarm with GUID: " + mAlarmGUID
-                            + ".  Displaying default record.");
-                    mAlarm = new Alarm();
-                    mAlarmGUID = mAlarm.getGuid();
-                }
-                initialize();
-            },
-                    (error) -> Log.e(BaseActivity.LOG_TAG, "Something went wrong while attempting to "
-                            + "retrieve matching alarm record for GUID: " + mAlarmGUID, error));
-        }
+    @Override
+    public void onImageCaptured(String alarmGUID, byte[] imageBytes) {
+        Log.i(LOG_TAG, "User has captured an image for alarm ID: " + alarmGUID);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.popBackStack();     // remove camera preview fragment to avoid conflicts
+
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        reviewFrag = CameraReviewFragment.newInstance(alarmGUID, imageBytes);
+        ft.replace(R.id.details_container, reviewFrag)
+                .addToBackStack(null)
+                .commit();
     }
 
-    private void initialize() {
-        initLabel();
-        initSaveButton();
-        initCancelButton();
-        initDeleteButton();
+    @Override
+    public void onImageAccepted(String alarmGUID, byte[] bytes) {
+        detailsFrag.onImageAccepted(alarmGUID, bytes);
+        Log.i(LOG_TAG, "Updates saved to alarm with GUID: " + mAlarmGUID
+                + " \t\t Popping fragment stack.");
 
-        mDateText = findViewById(R.id.date_text);
-        mDateText.setText(mAlarm.getAlarmDateString());
-
-        LinearLayout dateLayout = findViewById(R.id.date_layout);
-        dateLayout.setOnClickListener(view -> {
-            int[] date = mAlarm.getAlarmDate();
-            String dateString = date[1] + "/" + date[2] + "/" + date[0];
-
-            Log.i(BaseActivity.LOG_TAG, "Attempting to launch date picker for alarm guid: " + mAlarmGUID);
-            mFbaEventLogger.fieldClick(this.getClass(), "AlarmDate", 0,
-                    dateString, mAlarmGUID);
-
-            DialogFragment newFragment = DatePickerFragment.newInstance(mAlarmGUID, date);
-            newFragment.show(getSupportFragmentManager(), "datePicker");
-        });
-
-        mTimeText = findViewById(R.id.time_text);
-        mTimeText.setText(mAlarm.getAlarmTimeString());
-
-        LinearLayout timeLayout = findViewById(R.id.time_layout);
-        timeLayout.setOnClickListener(view -> {
-            int[] time = mAlarm.getAlarmTime();
-            mFbaEventLogger.fieldClick(this.getClass(), "AlarmTime", 0,
-                    time[0] + ":" + time[1], mAlarmGUID);
-            DialogFragment newFragment = TimePickerFragment.newInstance(mAlarmGUID, time);
-            newFragment.show(getSupportFragmentManager(), "timePicker");
-        });
-
-        TextView statusText = findViewById(R.id.status_text);
-        statusText.setText(mAlarm.getStatus().toString());
-
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.popBackStack();     // remove camera review fragment
     }
 
-    private void initLabel() {
-        final TextView labelText = findViewById(R.id.label_text);
-        labelText.setText(mAlarm.getDesc());
-
-        LinearLayout labelLayout = findViewById(R.id.label_layout);
-        labelLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mFbaEventLogger.fieldClick(this.getClass(), "AlarmDescLabel",
-                        view.getId(), mAlarm.getDesc(), mAlarm);
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(AlarmDetailsActivity.this);
-                builder.setTitle("Alarm Label");
-
-                final EditText input = new EditText(AlarmDetailsActivity.this);
-                input.setInputType(InputType.TYPE_CLASS_TEXT);
-                builder.setView(input);
-
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        mFbaEventLogger.buttonClick(this.getClass(), "DialogOk", which);
-                        String label = input.getText().toString();
-                        mAlarm.updateDesc(label);
-                        labelText.setText(label);
-                        Log.i(BaseActivity.LOG_TAG, "Updated alarm label: " + label
-                                + " \t for guid: " + mAlarm.getGuid());
-                    }
-                });
-
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        mFbaEventLogger.buttonClick(this.getClass(), "DialogCancel", which);
-                        dialog.cancel();
-                    }
-                });
-
-                builder.show();
-            }
-        });
+    @Override
+    public void onImageRejected(String alarmGUID) {
+        Log.i(LOG_TAG, "User has rejected the task completion picture "
+                + "they took.  Returning to camera preview fragment ...");
+        recreate();
     }
 
-    private void initSaveButton() {
-        Button saveButton = findViewById(R.id.save_button);
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mFbaEventLogger.buttonClick(this.getClass(), "Save", mAlarm);
-                if (mAlarm.hasAlarmTimePassed()) {
-                    Log.e(Constants.LOG_TAG, "Cannot set alarm for time in the past!");
-                    Toast.makeText(AlarmDetailsActivity.this, "Cannot set alarm for time "
-                            + "in the past!", Toast.LENGTH_LONG).show();
-                } else {
-                    Log.i(LOG_TAG, "Saving updates to record with GUID: " + mAlarm.getGuid());
-                    mAlarm.updateUserEmail(mFbAuth.getCurrentUser().getEmail());
-                    mAlarm.updateStatus(Alarm.STATUS.Active);
 
-                    if (mAlarm.getGuid().equals(Constants.DEFAULT_ALARM_GUID)) {
-                        FirebaseConnector.saveNewAlarm(mAlarm,
-                                (result) -> ((DocumentReference)result).get().addOnCompleteListener(
-                                        task -> {
-                                            if (task.isSuccessful())
-                                                alertPatientApp(new Alarm(task.getResult()));
-                                            else alertFailure(task.getException());
-                                        }), (error) -> alertFailure(error));
-                    } else {
-                        FirebaseConnector.saveAlarm(mAlarm,
-                                (result) -> {
-                                    if (result.isSuccessful()) alertPatientApp(mAlarm);
-                                    else alertFailure(result.getException());
-                                }, (error) -> alertFailure(error));
-                    }
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
 
-                }
-            }
-        });
-    }
-
-    private void initCancelButton() {
-        Button cancelButton = findViewById(R.id.cancel_button);
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mFbaEventLogger.buttonClick(this.getClass(), "Cancel", mAlarm);
-                showAlarmDetails();
-            }
-        });
-    }
-
-    private void initDeleteButton() {
-        Button deleteButton = findViewById(R.id.delete_button);
-        if (mAlarmGUID.equals(Constants.DEFAULT_ALARM_GUID))
-            deleteButton.setEnabled(false);
-        else {
-            deleteButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    mFbaEventLogger.buttonClick(this.getClass(), "Delete", mAlarm);
-                    FirebaseConnector.deleteAlarm(mAlarm.getGuid(),
-                            (error) -> Log.e(BaseActivity.LOG_TAG, "Something went wrong while "
-                                    + "attempting to save alarm record for GUID: " + mAlarm.getGuid(), error));
-
-                    Intent intent = new Intent(AlarmDetailsActivity.this,
-                            AlarmListActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                    finish();
-                }
-            });
-        }
-    }
 
     private void alertPatientApp(Alarm alarm) {
         Log.i(LOG_TAG, "Sending broadcast to patient application with "
@@ -268,7 +212,7 @@ public class AlarmDetailsActivity extends BaseActivity implements
         finish();
     }
 
-    private void alertFailure(Exception ex) {
+    private void alertFailure(Alarm mAlarm, Exception ex) {
         Log.e(BaseActivity.LOG_TAG, "Something went wrong while attempting to "
                 + "save alarm record for GUID: " + mAlarm.getGuid(), ex);
         Toast.makeText(AlarmDetailsActivity.this,

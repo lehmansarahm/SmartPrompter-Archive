@@ -12,7 +12,6 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -35,6 +34,7 @@ public class Alarm implements FirebaseConnector.FbDataClass {
             COLLECTION = "alarms",
     // -------------------------------------------------
             FIELD_DESC = "desc",
+            FIELD_DESC_IMG_PATH = "descImgPath",
             FIELD_REQUEST_CODE = "requestCode",
             FIELD_ALARM_TIME = "alarmTime",
             FIELD_REMINDER_TIME = "reminderTime",
@@ -49,7 +49,8 @@ public class Alarm implements FirebaseConnector.FbDataClass {
             FIELD_ARCHIVED = "archived",
             FIELD_USER_EMAIL = "userEmail",
     // -------------------------------------------------
-            DEFAULT_VALUE = "n/a";
+            DEFAULT_VALUE = "n/a",
+            DEFAULT_PATH = "[Press to take picture]";
 
 
     // ---------------------------------------------------------------------------------------
@@ -57,7 +58,7 @@ public class Alarm implements FirebaseConnector.FbDataClass {
 
 
     private int requestCode;
-    private String id, desc, userEmail, photoPath;
+    private String id, desc, descImgPath, userEmail, photoPath;
     private Timestamp alarmTime, reminderTime;
     private REMINDER reminderType;
     private int reminderCount;
@@ -69,6 +70,7 @@ public class Alarm implements FirebaseConnector.FbDataClass {
         // populate with default values
         id = Constants.DEFAULT_ALARM_GUID;
         desc = Constants.DEFAULT_ALARM_DESC;
+        descImgPath = "";
         alarmTime = Timestamp.now();
         reminderType = REMINDER.None;
         photoPath = "";
@@ -85,6 +87,7 @@ public class Alarm implements FirebaseConnector.FbDataClass {
         id = document.getId();
         requestCode = document.getLong(FIELD_REQUEST_CODE).intValue();
         desc = document.contains(FIELD_DESC) ? document.get(FIELD_DESC).toString() : DEFAULT_VALUE;
+        descImgPath = document.contains(FIELD_DESC_IMG_PATH) ? document.get(FIELD_DESC_IMG_PATH).toString() : DEFAULT_PATH;
         userEmail = document.contains(FIELD_USER_EMAIL) ? document.get(FIELD_USER_EMAIL).toString() : DEFAULT_VALUE;
 
         alarmTime = document.getTimestamp(FIELD_ALARM_TIME);
@@ -132,6 +135,25 @@ public class Alarm implements FirebaseConnector.FbDataClass {
     public String getDesc() {
         return desc;
     }
+
+
+    // ---------------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------
+
+
+    public void setDescImgPath() {
+        if (descImgPath == null || descImgPath.isEmpty() || descImgPath.equals(DEFAULT_PATH))
+            descImgPath = getTimeStampedPhotoPath(Timestamp.now());
+    }
+
+    public String getDescImgPath() {
+        return descImgPath;
+    }
+
+
+    // ---------------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------
+
 
     public STATUS getStatus() {
         return status;
@@ -315,23 +337,7 @@ public class Alarm implements FirebaseConnector.FbDataClass {
 
     public void setTimeCompleted() {
         timeCompleted = Timestamp.now();
-
-        String timeCompletedString =
-                DateTimeUtil.formatTime(timeCompleted, DateTimeUtil.FORMAT.DateTime);
-        boolean invalidTime = (timeCompletedString == null || timeCompletedString.isEmpty());
-        boolean invalidLabel = (desc == null || desc.isEmpty());
-
-        if (!status.equals(STATUS.Complete) || invalidTime || invalidLabel) {
-            Log.e(Constants.LOG_TAG, "Can't return a photo path for an invalid record!");
-            photoPath = "";
-        }
-
-        String formattedTime = timeCompletedString.replace("-", "")
-                .replace(":", "").replace(" ", "_");
-        String formattedDesc = desc.replace(" ", "");
-
-        // Formatted image string = time_desc.jpg
-        photoPath = (formattedTime + "_" + formattedDesc + ".jpg");
+        photoPath = getTimeStampedPhotoPath(timeCompleted);
     }
 
     public String getCompletionDateTimeString() {
@@ -352,6 +358,29 @@ public class Alarm implements FirebaseConnector.FbDataClass {
                 ? MediaUtil.AUDIO_TYPE.Reminder.toString()
                 : MediaUtil.AUDIO_TYPE.Alarm.toString());
         return intent;
+    }
+
+
+    // --------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------
+
+
+    private String getTimeStampedPhotoPath(Timestamp timestamp) {
+        String timestampString = DateTimeUtil.formatTime(timestamp, DateTimeUtil.FORMAT.DateTime);
+        boolean invalidTime = (timestampString == null || timestampString.isEmpty());
+        boolean invalidLabel = (desc == null || desc.isEmpty());
+
+        if (!status.equals(STATUS.Complete) || invalidTime || invalidLabel) {
+            Log.e(Constants.LOG_TAG, "Can't return a photo path for an invalid record!");
+            photoPath = "";
+        }
+
+        String formattedTime = timestampString.replace("-", "")
+                .replace(":", "").replace(" ", "_");
+        String formattedDesc = desc.replace(" ", "");
+
+        // Formatted image string = time_desc.jpg
+        return (formattedTime + "_" + formattedDesc + ".jpg");
     }
 
 
@@ -405,6 +434,7 @@ public class Alarm implements FirebaseConnector.FbDataClass {
         fbProps.put(FIELD_ALARM_TIME, alarmTime);
         fbProps.put(FIELD_ARCHIVED, archived);
         fbProps.put(FIELD_DESC, desc);
+        fbProps.put(FIELD_DESC_IMG_PATH, descImgPath);
         fbProps.put(FIELD_REMINDER_COUNT, reminderCount);
         fbProps.put(FIELD_REMINDER_TIME, reminderTime);
         fbProps.put(FIELD_REMINDER_TYPE, reminderType);

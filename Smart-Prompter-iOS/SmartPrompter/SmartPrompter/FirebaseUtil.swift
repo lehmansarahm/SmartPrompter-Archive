@@ -48,4 +48,7 @@ class FirebaseUtil {
         //ref.child("Patients").child(userID!).child("Alarms").child("\(firebaseId)").setValue(["active": username])
         
     }
+
+    
 }
+

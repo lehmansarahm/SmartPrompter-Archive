@@ -10,6 +10,9 @@ import UIKit
 import UserNotifications
 import FirebaseStorage
 
+protocol AlarmVCDelegate {
+    func reloadTableDelegate()
+}
 
 class AlarmVC: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -23,6 +26,7 @@ class AlarmVC: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     let instructionLabel = UITextView()
     let dateLabel = UILabel()
     let timeLabel = UILabel()
+    var alarmDelegate:AlarmVCDelegate? = nil
     
     var alarm = Alarm()
     //var firebaseID = String()
@@ -42,8 +46,9 @@ class AlarmVC: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     var notificationTitle:Any?
     let takenImageViewer = UIImageView()
     var alarmIndex = Int()
-    
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -88,15 +93,16 @@ class AlarmVC: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
 
     }
     
-    
+
     func imageViewSetup() {
         view.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        
         imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         //imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 70).isActive = true
+        imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80).isActive = true
         imageView.image = UIImage(named: "alarm")
         
     }
@@ -245,6 +251,8 @@ class AlarmVC: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         backButton.contentMode = .scaleAspectFill
         backButton.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
     }
+    
+
     
     @objc func backButtonClicked() {
         dismiss(animated: true, completion: nil)
@@ -418,7 +426,12 @@ class AlarmVC: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
                 ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("completionMonth").setValue(calendar.component(.month, from: date))
                 ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("completionYear").setValue(calendar.component(.year, from: date))
                 completedTask += 1
-                dismiss(animated: true, completion: nil)
+                dismiss(animated: true, completion: {
+                    
+                    
+                    self.alarmDelegate!.reloadTableDelegate()
+                    //alarmDelegate.
+                    activeAlarm.remove(at: self.alarmIndex)})
                 let vc = RewardVC()
                 vc.modalPresentationStyle = .fullScreen
                 present(vc, animated: true, completion: nil)

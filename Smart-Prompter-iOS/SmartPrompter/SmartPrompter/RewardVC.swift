@@ -41,7 +41,11 @@ class RewardVC: UIViewController {
         
         
     }
+
     
+}
+
+extension RewardVC {
     func imageViewSetup(){
         view.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -122,3 +126,4 @@ class RewardVC: UIViewController {
         textView.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
 }
+
