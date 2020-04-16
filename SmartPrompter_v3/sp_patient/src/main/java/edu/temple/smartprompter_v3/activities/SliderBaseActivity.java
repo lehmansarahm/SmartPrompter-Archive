@@ -13,13 +13,13 @@ import edu.temple.smartprompter_v3.R;
 
 public abstract class SliderBaseActivity extends BaseActivity {
 
-    protected TextView mInstructionText;
+    // protected TextView mInstructionText;
 
     protected SeekBar.OnSeekBarChangeListener changeListener = new SeekBar.OnSeekBarChangeListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int selection, boolean b) {
             Log.i(LOG_TAG, "Acknowledgment SeekBar progress changed: " + selection);
-            updateSliderFlavor(selection);
+            // updateSliderFlavor(selection);
             processSliderSelection(selection);
         }
 
@@ -34,7 +34,7 @@ public abstract class SliderBaseActivity extends BaseActivity {
         }
     };
 
-    protected void updateSliderFlavor(int selection) {
+    /* protected void updateSliderFlavor(int selection) {
         Log.i(LOG_TAG, "Updating flavor for slider selection: " + selection);
         if (mInstructionText == null) mInstructionText = findViewById(R.id.instruction_text);
 
@@ -62,7 +62,7 @@ public abstract class SliderBaseActivity extends BaseActivity {
                 mInstructionText.setTextColor(Color.parseColor("#000000"));
                 break;
         }
-    }
+    } */
 
     abstract String getReminderText();
     abstract String getReadyText();

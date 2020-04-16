@@ -88,7 +88,8 @@ public class Alarm implements FirebaseConnector.FbDataClass {
         requestCode = document.getLong(FIELD_REQUEST_CODE).intValue();
         desc = document.contains(FIELD_DESC) ? document.get(FIELD_DESC).toString() : DEFAULT_VALUE;
         descImgPath = document.contains(FIELD_DESC_IMG_PATH) ? document.get(FIELD_DESC_IMG_PATH).toString() : DEFAULT_PATH;
-        userEmail = document.contains(FIELD_USER_EMAIL) ? document.get(FIELD_USER_EMAIL).toString() : DEFAULT_VALUE;
+        userEmail = document.contains(FIELD_USER_EMAIL)  && document.get(FIELD_USER_EMAIL) != null
+                ? document.get(FIELD_USER_EMAIL).toString() : DEFAULT_VALUE;
 
         alarmTime = document.getTimestamp(FIELD_ALARM_TIME);
         reminderTime = document.getTimestamp(FIELD_REMINDER_TIME);
@@ -141,9 +142,12 @@ public class Alarm implements FirebaseConnector.FbDataClass {
     // ---------------------------------------------------------------------------------------
 
 
+    public void setDescImgPath(String path) {
+        descImgPath = path;
+    }
+
     public void setDescImgPath() {
-        if (descImgPath == null || descImgPath.isEmpty() || descImgPath.equals(DEFAULT_PATH))
-            descImgPath = getTimeStampedPhotoPath(Timestamp.now());
+        descImgPath = getTimeStampedPhotoPath(Timestamp.now());
     }
 
     public String getDescImgPath() {

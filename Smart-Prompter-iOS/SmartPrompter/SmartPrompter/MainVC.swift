@@ -40,6 +40,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let dateFormatter = DateFormatter()
     let logoutButton = UIButton()
     var refreshControl = UIRefreshControl()
+    let summaryLabel = UILabel()
     
     var ref: DatabaseReference!
 
@@ -65,7 +66,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         alarmTableSetup()
         logoutButtonSetup()
         ref = Database.database().reference()
-        
+        summaryLabelSetup()
         
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(reloadTable), for: UIControl.Event.valueChanged)
@@ -95,13 +96,23 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         dateFormatter.dateStyle = .none
-        dateFormatter.timeStyle = .medium
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimeLabel), userInfo: nil, repeats: false)
+        dateFormatter.timeStyle = .short
         
-                
-        
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimeLabel), userInfo: nil, repeats: true)
         
     }
+    
+    @objc func updateTimeLabel() {
+        alarmTable.reloadData()
+        if activeAlarm.count != 0 {
+            summaryLabel.text = "You have \(activeAlarm.count) incomplete task(s)"
+        } else {
+            summaryLabel.text = "You don't have any task today"
+        }
+        
+        clockLabel.text = dateFormatter.string(from: Date())
+    }
+    
     
     @objc func reloadTable() {
         
@@ -110,14 +121,18 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         refreshControl.endRefreshing()
     }
     
-    @objc func updateTimeLabel() {
-        alarmTable.reloadData()
-        clockLabel.text = dateFormatter.string(from: Date())
-        print("xxxxxxxx")
-        //print("")
+    func summaryLabelSetup(){
+        topBar.addSubview(summaryLabel)
+        summaryLabel.translatesAutoresizingMaskIntoConstraints = false
+        summaryLabel.bottomAnchor.constraint(equalTo: topBar.bottomAnchor, constant: -10).isActive = true
+        summaryLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        summaryLabel.leadingAnchor.constraint(equalTo: topBar.leadingAnchor, constant: 20).isActive = true
+        summaryLabel.trailingAnchor.constraint(equalTo: topBar.trailingAnchor, constant: -20).isActive = true
+        summaryLabel.font = UIFont.systemFont(ofSize: 20)
+        summaryLabel.textColor = .white
+        summaryLabel.textAlignment = .center
+        summaryLabel.text = "adasd "
     }
-    
-    
     
     @objc func logoutButtonClicked() {
         print("logout clicked")
@@ -365,7 +380,7 @@ extension MainVC: UNUserNotificationCenterDelegate {
         topBar.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         topBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         topBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        topBar.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        topBar.heightAnchor.constraint(equalToConstant: 220).isActive = true
         topBar.backgroundColor = #colorLiteral(red: 0.1843137255, green: 0.2039215686, blue: 0.5647058824, alpha: 1)
     }
     

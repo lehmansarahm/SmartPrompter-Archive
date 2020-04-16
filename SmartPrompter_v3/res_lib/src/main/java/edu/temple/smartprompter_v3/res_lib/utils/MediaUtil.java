@@ -8,6 +8,8 @@ import android.media.MediaRecorder;
 import android.os.Vibrator;
 import android.util.Log;
 
+import androidx.core.content.FileProvider;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -89,8 +91,8 @@ public class MediaUtil {
     // ========================================================================================
 
 
-    public static boolean doesCustomAudioExist(AUDIO_TYPE audioType) {
-        File audioFile = getAudioFile(audioType);
+    public static boolean doesCustomAudioExist(Context context, AUDIO_TYPE audioType) {
+        File audioFile = getAudioFile(context, audioType);
         boolean fileExists = (audioFile != null && audioFile.exists());
         if (fileExists) Log.i(Constants.LOG_TAG, "Found audio file: " + audioFile.getAbsolutePath());
         return fileExists;
@@ -99,7 +101,7 @@ public class MediaUtil {
     public static void playAudio(Context context, AUDIO_TYPE audioType, final MediaListener listener) {
         // AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
         // am.setStreamVolume(AudioManager.STREAM_MUSIC, 20, 0);
-        File audioFile = getAudioFile(audioType);
+        File audioFile = getAudioFile(context, audioType);
 
         //if (audioFile == null || !audioFile.exists()) {
         //    Log.e(Constants.LOG_TAG, "Can't play non-existent file: "
@@ -137,13 +139,13 @@ public class MediaUtil {
         }
     }
 
-    public static void recordAudio(AUDIO_TYPE audioType) {
+    public static void recordAudio(Context context, AUDIO_TYPE audioType) {
         mediaRecorder = new MediaRecorder();
         mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
         mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT);
 
-        String outputFilePath = getAudioFile(audioType).getAbsolutePath();
+        String outputFilePath = getAudioFile(context, audioType).getAbsolutePath();
         mediaRecorder.setOutputFile(outputFilePath);
 
         try {
@@ -155,12 +157,17 @@ public class MediaUtil {
         }
     }
 
-    public static void stopRecord() {
+    public static void stopRecord() { // Context context) {
         if (mediaRecorder != null) {
             try {
                 mediaRecorder.stop();
                 mediaRecorder.reset();
                 mediaRecorder.release();
+
+                // FileProvider.getUriForFile(context, Constants.AUTHORITY, )
+
+                // todo - call the Patient app content provider ...
+                //  send over the bytes from our media file
             } catch (Exception ex) {
                 Log.e(Constants.LOG_TAG, "Something went wrong when trying to stop the "
                         + "media recorder.", ex);
@@ -168,8 +175,8 @@ public class MediaUtil {
         }
     }
 
-    public static void deleteAudio(AUDIO_TYPE audioType) {
-        File audioFile = getAudioFile(audioType);
+    public static void deleteAudio(Context context, AUDIO_TYPE audioType) {
+        File audioFile = getAudioFile(context, audioType);
         if (audioFile == null || !audioFile.exists()) {
             Log.e(Constants.LOG_TAG, "Can't delete non-existent file: "
                     + audioFile.getAbsolutePath());
@@ -187,7 +194,7 @@ public class MediaUtil {
     // ========================================================================================
 
 
-    private static File getAudioFile(AUDIO_TYPE audioType) {
+    private static File getAudioFile(Context context, AUDIO_TYPE audioType) {
         String audioFilename = "";
         switch (audioType) {
             case Alarm:
@@ -201,7 +208,7 @@ public class MediaUtil {
                 break;
         }
 
-        File audioFile = StorageUtil.getAudioFile(audioFilename);
+        File audioFile = StorageUtil.getAudioFile(context, audioFilename);
         return audioFile;
     }
 

@@ -1,6 +1,8 @@
 package edu.temple.smartprompter_v3.activities;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 

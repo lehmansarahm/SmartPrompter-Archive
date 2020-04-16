@@ -22,7 +22,7 @@ public class ConfigureSettingsActivity extends BaseActivity implements MediaUtil
         initializeControlButtons();
         initializeRadioButtons();
 
-        boolean customAudioExists = MediaUtil.doesCustomAudioExist(selectedType);
+        boolean customAudioExists = MediaUtil.doesCustomAudioExist(this, selectedType);
         deleteButton.setEnabled(customAudioExists);
     }
 
@@ -34,7 +34,7 @@ public class ConfigureSettingsActivity extends BaseActivity implements MediaUtil
             togglePlay();
 
             selectedType = MediaUtil.AUDIO_TYPE.Alarm;
-            boolean customAudioExists = MediaUtil.doesCustomAudioExist(selectedType);
+            boolean customAudioExists = MediaUtil.doesCustomAudioExist(this, selectedType);
             deleteButton.setEnabled(customAudioExists);
         });
 
@@ -45,7 +45,7 @@ public class ConfigureSettingsActivity extends BaseActivity implements MediaUtil
             togglePlay();
 
             selectedType = MediaUtil.AUDIO_TYPE.Reminder;
-            boolean customAudioExists = MediaUtil.doesCustomAudioExist(selectedType);
+            boolean customAudioExists = MediaUtil.doesCustomAudioExist(this, selectedType);
             deleteButton.setEnabled(customAudioExists);
         });
 
@@ -56,7 +56,7 @@ public class ConfigureSettingsActivity extends BaseActivity implements MediaUtil
             togglePlay();
 
             selectedType = MediaUtil.AUDIO_TYPE.Reward;
-            boolean customAudioExists = MediaUtil.doesCustomAudioExist(selectedType);
+            boolean customAudioExists = MediaUtil.doesCustomAudioExist(this, selectedType);
             deleteButton.setEnabled(customAudioExists);
         });
     }
@@ -77,7 +77,7 @@ public class ConfigureSettingsActivity extends BaseActivity implements MediaUtil
         deleteButton = findViewById(R.id.delete_button);
         deleteButton.setOnClickListener(view -> {
             Log.i(LOG_TAG, "User clicked the delete button.");
-            MediaUtil.deleteAudio(selectedType);
+            MediaUtil.deleteAudio(this, selectedType);
             Toast.makeText(ConfigureSettingsActivity.this, "Audio deleted!",
                     Toast.LENGTH_LONG).show();
         });
@@ -85,7 +85,7 @@ public class ConfigureSettingsActivity extends BaseActivity implements MediaUtil
 
     private void toggleRecord() {
         if (record) {
-            MediaUtil.recordAudio(selectedType);
+            MediaUtil.recordAudio(this, selectedType);
             recordButton.setText("Stop");
             record = false;
         } else {

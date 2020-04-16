@@ -15,11 +15,10 @@ class AlarmScheduler {
         if #available(iOS 10.0, *) {
             let content = UNMutableNotificationContent()
             content.title = title
-            //content.subtitle = "Water the dog"
-            //content.body = "Body"
             content.categoryIdentifier = "alarm"
             content.sound = UNNotificationSound.default
             content.badge = 1
+            content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: "recording.m4a"))
             content.userInfo = ["FirebaseID":id,"title":title, "hour":dateComponents.hour, "minute":dateComponents.minute,"day":dateComponents.day,"month":dateComponents.month,"year":dateComponents.year]
             
             UNUserNotificationCenter.current().getDeliveredNotifications { (notifications) in
@@ -45,7 +44,16 @@ class AlarmScheduler {
         
     }
     
-    func scheduleIntervalNotification(title:String, id:String?){
+    public func rescheduleNotification(title:String, id:String?){
+        
+        var x = 0
+        while (x<5){
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(title)\(x)"])
+            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: ["\(title)\(x)"])
+            print("cancelling notification \(title)\(x)")
+            x+=1
+        }
+        
         
         if #available(iOS 10.0, *) {
             let content = UNMutableNotificationContent()
@@ -53,27 +61,39 @@ class AlarmScheduler {
             content.categoryIdentifier = "alarm"
             content.sound = UNNotificationSound.default
             content.badge = 1
-            content.userInfo = ["FirebaseID":id,"title":title]
+            content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: "recording.m4a"))
+
             
-            
-            
-            
-            
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: (5*60), repeats: false)
-            let request = UNNotificationRequest(identifier: "delayedAlarm", content: content, trigger: trigger)
-            
-            //let calendarTrigger2 =
-            //let repeatRequest = UNNotificationRequest(identifier: "\(content.userInfo["title"]!)\(x)", content: content, trigger: calendarTrigger2)
-            
-            UNUserNotificationCenter.current().add(request) { (error) in
-                if(error?.localizedDescription != nil){
-                    print("Pushed notification \(content.title)")
+            var x = 0
+            while(x<5){
+                let time = TimeInterval((5+x)*60)
+                print("time \(time)")
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: time, repeats: false)
+                let request = UNNotificationRequest(identifier: "delayedAlarm\(x)", content: content, trigger: trigger)
+                
+                UNUserNotificationCenter.current().add(request) { (error) in
+                    if(error?.localizedDescription != nil){
+                        print("Pushed notification \(content.title)\(x)")
+                    }
                 }
-                //print("Notification Report \(error?.localizedDescription)")
+                
+                x += 1
             }
+            
+            
             
         }
         
+    }
+    
+    func clearNotifications(title:String){
+        var x = 0
+        while (x<5){
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(title)\(x)"])
+            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: ["\(title)\(x)"])
+            print("cancelling notification \(title)\(x)")
+            x+=1
+        }
     }
 
 }

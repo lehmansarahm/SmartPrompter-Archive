@@ -140,7 +140,7 @@ class UserInfoVC: UIViewController, UITextFieldDelegate {
     @objc func doneButtonClicked() {
         ref.child("Patients").child(userID!).child("PatientData").setValue(["patientFirstName": patientFirstNameTF.text!,"patientLastName":patientLastNameTF.text!,"careTakerFirstName":careTakerFirstNameTF.text!,"careTakerLastName":careTakerLastNameTF.text!])
         
-        let vc = MainVC()
+        let vc = AudioRecordVC()
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)

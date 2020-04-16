@@ -37,6 +37,8 @@ import static edu.temple.smartprompter_v3.res_lib.utils.Constants.LOG_TAG;
 
 public class AlarmDetailsFragment extends Fragment  {
 
+    private static String ALARM_DESC_IMG_PATH = "";
+
     private FirebaseAuth mFbAuth;
     private FbaEventLogger mFbaEventLogger;
     private AlarmDetailsListener mListener;
@@ -73,6 +75,7 @@ public class AlarmDetailsFragment extends Fragment  {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        Log.i(LOG_TAG, "Fragment attached!");
 
         try {
             mListener = (AlarmDetailsFragment.AlarmDetailsListener) context;
@@ -91,6 +94,7 @@ public class AlarmDetailsFragment extends Fragment  {
     @Override
     public void onDetach() {
         super.onDetach();
+        Log.i(LOG_TAG, "Fragment detached!");
         mListener = null;
     }
 
@@ -100,6 +104,7 @@ public class AlarmDetailsFragment extends Fragment  {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i(LOG_TAG, "Fragment created!");
         if (getArguments() != null) {
             mAlarmGUID = getArguments().getString(Constants.BUNDLE_ARG_ALARM_GUID);
         }
@@ -108,9 +113,25 @@ public class AlarmDetailsFragment extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.i(LOG_TAG, "Fragment view created!");
         mRootView = inflater.inflate(R.layout.fragment_alarm_details, container, false);
-        showAlarmDetails();
+        if (mAlarm != null) initialize();
+        else showAlarmDetails();
         return mRootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i(LOG_TAG, "Fragment resumed!");
+
+        /* if (ALARM_DESC_IMG_PATH != null
+                && !ALARM_DESC_IMG_PATH.isEmpty()
+                && !mAlarm.getDescImgPath().equals(ALARM_DESC_IMG_PATH)) {
+            Log.i(LOG_TAG, "Hack to fix the save state of the descriptive image path.");
+            mAlarm.setDescImgPath(ALARM_DESC_IMG_PATH);
+            initDescImg();
+        } */
     }
 
     public void onDatePicked(String alarmGuid, int year, int month, int day) {
@@ -128,13 +149,16 @@ public class AlarmDetailsFragment extends Fragment  {
     }
 
     public void onImageAccepted(String alarmGuid, byte[] bytes) {
+        assert(mAlarm.getGuid().equals(alarmGuid));
+
         mAlarm.setDescImgPath();
+        ALARM_DESC_IMG_PATH = mAlarm.getDescImgPath();
         Log.i(LOG_TAG, "User has successfully taken and approved a task "
                 + "description picture.  Updating alarm and saving image to path: "
-                + mAlarm.getDescImgPath());
+                + ALARM_DESC_IMG_PATH);
 
         Bitmap media = MediaUtil.convertToBitmap(bytes);
-        StorageUtil.writeImageToFile(mAlarm.getDescImgPath(), media);
+        StorageUtil.writeImageToFile(getActivity(), getActivity().getPackageName(), mAlarm.getDescImgPath(), media);
     }
 
 
@@ -244,7 +268,7 @@ public class AlarmDetailsFragment extends Fragment  {
         final TextView imgPath = mRootView.findViewById(R.id.image_path);
         final TextView errorMsg = mRootView.findViewById(R.id.picture_empty_view);
 
-        Bitmap bitmap = StorageUtil.getImageFromFile(mAlarm.getDescImgPath());
+        Bitmap bitmap = StorageUtil.getImageFromFile(getActivity(), getActivity().getPackageName(), mAlarm.getDescImgPath());
         if (bitmap != null) {
             Log.i(Constants.LOG_TAG, "Attempt to retrieve completion image was "
                     + "successful.  Forwarding Bitmap to image viewer.");

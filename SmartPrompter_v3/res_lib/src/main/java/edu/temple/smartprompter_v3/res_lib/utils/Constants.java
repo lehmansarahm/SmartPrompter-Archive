@@ -9,6 +9,9 @@ public class Constants {
 
     public static final String LOG_TAG = "SmartPrompter_v3 ResLib";
 
+    public static final String PACKAGE_NAME_ADMIN = "edu.temple.smartprompter_v3.admin";
+    public static final String PACKAGE_NAME_PATIENT = "edu.temple.smartprompter_v3";
+
     public static final String BUNDLE_ARG_BUTTON_ID = "bundle_button_id";
     public static final String BUNDLE_ARG_FIELD_ID = "bundle_field_id";
     public static final String BUNDLE_ARG_FIELD_OLD_VAL = "bundle_field_old_val";
@@ -47,5 +50,21 @@ public class Constants {
     public static final int REMINDER_DURATION_MIN_EXPL = 15; // minutes
     public static final int REMINDER_DURATION_MIN_IMPL = 5; // minutes
     public static final int REMINDER_COUNT_LIMIT = 2; // zero-based ... actual value = 3
+
+    // -----------------------------------------------------------------------------------------
+
+    public static final String AUTHORITY = "edu.temple.smartprompter_v3.FileProvider";
+    public static final String URI_PREFIX = ("content://" + AUTHORITY + "/");
+
+    public static final String AUDIO_PATH = "sp_audio", PHOTO_PATH = "sp_photos";
+
+    public static final Uri URI_AUDIO = Uri.parse(URI_PREFIX + AUDIO_PATH);
+    public static final Uri URI_PHOTOS = Uri.parse(URI_PREFIX + PHOTO_PATH);
+
+    public static final String VALUE_KEY_FILENAME = "filename";
+    public static final String VALUE_KEY_AUDIO = "audio";
+    public static final String VALUE_KEY_IMAGE = "image";
+
+    // -----------------------------------------------------------------------------------------
 
 }

@@ -46,7 +46,7 @@ class AlarmVC: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     var notificationTitle:Any?
     let takenImageViewer = UIImageView()
     var alarmIndex = Int()
-
+    
     
     
     override func viewDidLoad() {
@@ -75,9 +75,9 @@ class AlarmVC: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         let date = Date()
         let calendar = Calendar.current
         
-
         
-       
+        
+        
         
         ref.child("Patients").child(userID!).child("Alarms").child(alarm.firebaseID!).child("acknowledgeHour").setValue(calendar.component(.hour, from: date))
         ref.child("Patients").child(userID!).child("Alarms").child(alarm.firebaseID!).child("acknowledgeMinute").setValue(calendar.component(.minute, from: date))
@@ -98,14 +98,32 @@ class AlarmVC: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         view.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
-        imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 120).isActive = true
         imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         //imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80).isActive = true
-        imageView.image = UIImage(named: "alarm")
+        imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
         
+        let islandRef = Storage.storage().reference().child("\(userID!)/\(alarm.label!)Icon")
+
+        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+        islandRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+          if let error = error {
+            // Uh-oh, an error occurred!
+            print("downloading image \(error)")
+            self.imageView.image = #imageLiteral(resourceName: "alarm")
+          } else {
+            // Data for "images/island.jpg" is returned
+            let image = UIImage(data: data!)
+            if image != nil {
+                self.imageView.image = image
+            }
+          }
+        }
     }
+    
+    
+    
     
     func showDatePicker(){
         //Formate Date
@@ -172,10 +190,212 @@ class AlarmVC: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     @objc func cancelDatePicker(){
         self.view.endEditing(true)
     }
+    
+    
+    
+    
+    
+    
+    @objc func changeValue(_ sender: UISlider) {
+        print("value is" , Int(sender.value));
+        if(sender.value == 0){
+            instructionLabel.text = "Remind me later"
+            scheduler.rescheduleNotification(title: alarm.label!, id:alarm.firebaseID)
+            
+            let alert = UIAlertController(title: "Task Delayed", message: "Task delayed for 5 minutes", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                switch action.style{
+                case .default:
+                    self.dismiss(animated: true, completion: nil)
+                case .cancel:
+                    print("cancel")
+                    
+                case .destructive:
+                    print("destructive")
+                    
+                    
+                }}))
+            alert.actions
+            self.present(alert, animated: true, completion: {})
 
+        } else if(sender.value == 100){
+            
+            let date = Date()
+            let calendar = Calendar.current
+            
+            alarm.active = false
+            alarm.status = "Incomplete"
+            instructionLabel.text = "On My Way"
+            alarmDetailsLabel.text = "Take a picture to confirm"
+            instructionLabel.text = "Move the slider to the right when you are ready to take a picture, or to the right to set a reminder to take a picture later."
+            imageView.image = #imageLiteral(resourceName: "camera")
+            slider.isHidden = true
+            pictureSliderSetup()
+            //print("data I am looking for \(notificationTitle!)")
+            var x = 0
+            while (x<5){
+                print("removed \(notificationTitle!)")
+                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(notificationTitle!)\(x)"])
+                UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: ["\(notificationTitle!)\(x)"])
+                print("cancelling notification \(notificationTitle!)\(x)")
+                x+=1
+            }
+            
+            
+            
+            ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("status").setValue("Incomplete")
+            ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("acknowledgeHour").setValue(calendar.component(.hour, from: date))
+            ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("acknowledgeMinute").setValue(calendar.component(.minute, from: date))
+            ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("acknowledgeDay").setValue(calendar.component(.day, from: date))
+            ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("acknowledgeMonth").setValue(calendar.component(.month, from: date))
+            ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("acknowledgeYear").setValue(calendar.component(.year, from: date))
+            
+            
+        }
+    }
     
     
     
+    
+    
+    
+    
+    
+    
+    @objc func changeValuePictureSlider(_ sender: UISlider) {
+        //print("value is" , Int(sender.value));
+        if(sender.value == 0){
+            instructionLabel.text = "Remind me later"
+            
+            scheduler.rescheduleNotification(title: alarm.label!, id:alarm.firebaseID)
+            
+            let alert = UIAlertController(title: "Task Delayed", message: "Task delayed for 5 minutes", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                switch action.style{
+                case .default:
+                    self.dismiss(animated: true, completion: nil)
+                    
+                case .cancel:
+                    print("cancel")
+                    
+                case .destructive:
+                    print("destructive")
+                    
+                    
+                }}))
+            alert.actions
+            self.present(alert, animated: true, completion: {})
+            
+            
+            print("scheduled again")
+        } else if(sender.value == 100){
+            
+            
+            var x = 0
+            while (x<5){
+                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(notificationTitle!)\(x)"])
+                UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: ["\(notificationTitle!)\(x)"])
+                print("cancelling notification \(notificationTitle!)\(x)")
+                x+=1
+            }
+            
+            
+            let vc = UIImagePickerController()
+            vc.sourceType = .camera
+            vc.allowsEditing = true
+            vc.delegate = self
+            present(vc, animated: true)
+        }
+    }
+    
+    
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        
+        guard let image = info[.editedImage] as? UIImage else {
+            print("No image found")
+            return
+        }
+        
+        if image != nil {
+            instructionLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            instructionLabel.text = "Completed"
+            instructionLabel.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+            takenImageViewer.image = image
+            pictureSlider.isHidden = true
+            
+            let date = Date()
+            let calendar = Calendar.current
+            slider.isHidden = true
+            ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("status").setValue("Complete")
+            ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("completionHour").setValue(calendar.component(.hour, from: date))
+            ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("completionMinute").setValue(calendar.component(.minute, from: date))
+            ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("completionDay").setValue(calendar.component(.day, from: date))
+            ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("completionMonth").setValue(calendar.component(.month, from: date))
+            ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("completionYear").setValue(calendar.component(.year, from: date))
+            
+            
+            if alarm.year == calendar.component(.year, from: date) && alarm.month == calendar.component(.month, from: date) && alarm.day == calendar.component(.day, from: date) {
+                completedTask += 1
+            }
+            
+            
+            dismiss(animated: true, completion: {
+                
+                
+                self.alarmDelegate!.reloadTableDelegate()
+                //alarmDelegate.
+                activeAlarm.remove(at: self.alarmIndex)})
+            let vc = RewardVC()
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true, completion: nil)
+        }
+        
+        // Data in memory
+        guard let imageData = image.jpegData(compressionQuality: 0.1) else {
+            return
+        }
+        
+        
+        
+        
+        let storageRef = Storage.storage().reference()
+        // Create a reference to the file you want to upload
+        let riversRef = storageRef.child("\(userID!)/\(alarmNameTextField.text!)")
+        // Upload the file to the path "images/rivers.jpg"
+        let uploadTask = riversRef.putData(imageData, metadata: nil) { (metadata, error) in
+            guard let metadata = metadata else {
+                // Uh-oh, an error occurred!
+                return
+            }
+            // Metadata contains file metadata such as size, content-type.
+            let size = metadata.size
+            // You can also access to download URL after upload.
+            riversRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    // Uh-oh, an error occurred!
+                    return
+                }
+            }
+        }
+        
+        
+        // print out the image size as a test
+        print(image.size)
+    }
+}
+
+
+
+
+
+
+
+extension AlarmVC {
+    
+
     func alarmDateTextFieldSetup() {
         let date = Date()
         let format = DateFormatter()
@@ -223,7 +443,7 @@ class AlarmVC: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         alarmDetailsLabel.font = UIFont.systemFont(ofSize: 18)
         
     }
-
+    
     func alarmNameTextFieldSetup() {
         view.addSubview(alarmNameTextField)
         alarmNameTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -252,7 +472,7 @@ class AlarmVC: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         backButton.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
     }
     
-
+    
     
     @objc func backButtonClicked() {
         dismiss(animated: true, completion: nil)
@@ -285,8 +505,8 @@ class AlarmVC: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         slider.heightAnchor.constraint(equalToConstant: 20).isActive = true
         slider.center = self.view.center
         
-        slider.minimumTrackTintColor = .gray
-        slider.maximumTrackTintColor = .gray
+        slider.minimumTrackTintColor = .red
+        slider.maximumTrackTintColor = .green
         slider.thumbTintColor = .purple
         
         slider.maximumValue = 100
@@ -298,180 +518,24 @@ class AlarmVC: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         
     }
     
-    @objc func changeValue(_ sender: UISlider) {
-            print("value is" , Int(sender.value));
-            if(sender.value < 10){
-                instructionLabel.text = "Remind me later"
-                
-                
-                scheduler.scheduleIntervalNotification(title: alarm.label!, id:alarm.firebaseID)
-                
-                print("scheduled again")
-            } else if(sender.value > 90){
-                
-                let date = Date()
-                let calendar = Calendar.current
-                
-                    alarm.active = false
-                    alarm.status = "Incomplete"
-                    instructionLabel.text = "On My Way"
-                    alarmDetailsLabel.text = "Take a picture to confirm"
-                    instructionLabel.text = "Move the slider to the right when you are ready to take a picture, or to the right to set a reminder to take a picture later."
-                    imageView.image = #imageLiteral(resourceName: "camera")
-                    slider.isHidden = true
-                    pictureSliderSetup()
-                    //print("data I am looking for \(notificationTitle!)")
-                    var x = 0
-                    while (x<5){
-                        print("removed \(notificationTitle!)")
-                        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(notificationTitle!)\(x)"])
-                        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: ["\(notificationTitle!)\(x)"])
-                        print("cancelling notification \(notificationTitle!)\(x)")
-                        x+=1
-                    }
-                    
-                    
-                    
-                    ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("status").setValue("Incomplete")
-                    ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("acknowledgeHour").setValue(calendar.component(.hour, from: date))
-                    ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("acknowledgeMinute").setValue(calendar.component(.minute, from: date))
-                    ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("acknowledgeDay").setValue(calendar.component(.day, from: date))
-                    ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("acknowledgeMonth").setValue(calendar.component(.month, from: date))
-                    ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("acknowledgeYear").setValue(calendar.component(.year, from: date))
-                
-                
-            }
-        }
-
-    
-   func pictureSliderSetup() {
-       self.view.addSubview(pictureSlider)
-       //slider.frame = CGRect(x: 0, y: 0, width: 250, height: 35)
-       pictureSlider.translatesAutoresizingMaskIntoConstraints = false
-       pictureSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-       pictureSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-       pictureSlider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
-       pictureSlider.heightAnchor.constraint(equalToConstant: 20).isActive = true
-       pictureSlider.center = self.view.center
-       
-       pictureSlider.minimumTrackTintColor = .gray
-       pictureSlider.maximumTrackTintColor = .gray
-       pictureSlider.thumbTintColor = .purple
-       
-       pictureSlider.maximumValue = 100
-       pictureSlider.minimumValue = 0
-       pictureSlider.setValue(50, animated: false)
-       
-       pictureSlider.addTarget(self, action: #selector(changeValuePictureSlider(_:)), for: .valueChanged)
-   }
-    
-    
-
-    
+    func pictureSliderSetup() {
+        self.view.addSubview(pictureSlider)
+        //slider.frame = CGRect(x: 0, y: 0, width: 250, height: 35)
+        pictureSlider.translatesAutoresizingMaskIntoConstraints = false
+        pictureSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+        pictureSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        pictureSlider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
+        pictureSlider.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        pictureSlider.center = self.view.center
+        pictureSlider.minimumTrackTintColor = .red
+        pictureSlider.maximumTrackTintColor = .green
+        pictureSlider.thumbTintColor = .purple
         
+        pictureSlider.maximumValue = 100
+        pictureSlider.minimumValue = 0
+        pictureSlider.setValue(50, animated: false)
+        
+        pictureSlider.addTarget(self, action: #selector(changeValuePictureSlider(_:)), for: .valueChanged)
+    }
     
-    @objc func changeValuePictureSlider(_ sender: UISlider) {
-            //print("value is" , Int(sender.value));
-            if(sender.value < 10){
-                instructionLabel.text = "Remind me later"
-                
-                scheduler.scheduleIntervalNotification(title: alarm.label!, id:alarm.firebaseID)
-                
-                print("scheduled again")
-            } else if(sender.value == 100){
-                
-                
-                    var x = 0
-                    while (x<5){
-                        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(notificationTitle!)\(x)"])
-                        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: ["\(notificationTitle!)\(x)"])
-                        print("cancelling notification \(notificationTitle!)\(x)")
-                        x+=1
-                    }
-                    
-                    
-                    let vc = UIImagePickerController()
-                    vc.sourceType = .camera
-                    vc.allowsEditing = true
-                    vc.delegate = self
-                    present(vc, animated: true)
-            }
-        }
-    
-    
-
-    
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            picker.dismiss(animated: true)
-
-            guard let image = info[.editedImage] as? UIImage else {
-                print("No image found")
-                return
-            }
-                        
-            if image != nil {
-                instructionLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
-                instructionLabel.text = "Completed"
-                instructionLabel.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
-                takenImageViewer.image = image
-                pictureSlider.isHidden = true
-                
-                let date = Date()
-                let calendar = Calendar.current
-                slider.isHidden = true
-                ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("status").setValue("Complete")
-                ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("completionHour").setValue(calendar.component(.hour, from: date))
-                ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("completionMinute").setValue(calendar.component(.minute, from: date))
-                ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("completionDay").setValue(calendar.component(.day, from: date))
-                ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("completionMonth").setValue(calendar.component(.month, from: date))
-                ref.child("Patients").child(userID!).child("Alarms").child("\(alarm.firebaseID!)").child("completionYear").setValue(calendar.component(.year, from: date))
-                completedTask += 1
-                dismiss(animated: true, completion: {
-                    
-                    
-                    self.alarmDelegate!.reloadTableDelegate()
-                    //alarmDelegate.
-                    activeAlarm.remove(at: self.alarmIndex)})
-                let vc = RewardVC()
-                vc.modalPresentationStyle = .fullScreen
-                present(vc, animated: true, completion: nil)
-            }
-            
-            // Data in memory
-            guard let imageData = image.jpegData(compressionQuality: 0.1) else {
-                return
-            }
-            
-            
-            
-            
-            let storageRef = Storage.storage().reference()
-
-            // Create a reference to the file you want to upload
-            let riversRef = storageRef.child("\(userID!)/\(alarmNameTextField.text!)")
-
-            // Upload the file to the path "images/rivers.jpg"
-            let uploadTask = riversRef.putData(imageData, metadata: nil) { (metadata, error) in
-              guard let metadata = metadata else {
-                // Uh-oh, an error occurred!
-                return
-              }
-              // Metadata contains file metadata such as size, content-type.
-              let size = metadata.size
-              // You can also access to download URL after upload.
-              riversRef.downloadURL { (url, error) in
-                guard let downloadURL = url else {
-                  // Uh-oh, an error occurred!
-                  return
-                }
-              }
-            }
-             
-             
-            // print out the image size as a test
-            print(image.size)
-        }
-
-    
-
 }

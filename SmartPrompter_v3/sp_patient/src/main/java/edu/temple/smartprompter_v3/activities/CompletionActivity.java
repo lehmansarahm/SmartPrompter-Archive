@@ -43,8 +43,8 @@ public class CompletionActivity extends SliderBaseActivity {
                 (error) -> Log.e(BaseActivity.LOG_TAG, "Something went wrong while attempting to "
                         + "retrieve alarms by GUID: " + mAlarmGUID, error));
 
-        mInstructionText = findViewById(R.id.instruction_text);
-        mInstructionText.setTextColor(Color.parseColor("#000000"));
+        // mInstructionText = findViewById(R.id.instruction_text);
+        // mInstructionText.setTextColor(Color.parseColor("#000000"));
 
         Slider selection = findViewById(R.id.selection_seekbar);
         selection.setOnSeekBarChangeListener(changeListener);

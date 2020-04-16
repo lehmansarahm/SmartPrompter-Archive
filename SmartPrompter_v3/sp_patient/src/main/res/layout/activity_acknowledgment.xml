@@ -40,14 +40,38 @@
         android:padding="@dimen/title_padding"
         android:text="@string/whitespace_single" />
 
-    <TextView
-        android:id="@+id/instruction_text"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="@dimen/content_size"
-        android:padding="@dimen/title_padding"
-        android:text="@string/acknowledgment_instruction_text" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/instruction_text_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:layout_margin="10dp"
+            android:gravity="left"
+            android:textStyle="bold"
+            android:textColor="#FF0000"
+            android:textSize="24sp"
+            android:padding="@dimen/title_padding"
+            android:text="DO IT\nLATER" />
+
+        <TextView
+            android:id="@+id/instruction_text_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:layout_margin="10dp"
+            android:gravity="right"
+            android:textStyle="bold"
+            android:textColor="#00FF00"
+            android:textSize="24sp"
+            android:padding="@dimen/title_padding"
+            android:text="DO IT\nNOW" />
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"

@@ -60,7 +60,7 @@ public class AlarmLogActivity extends BaseActivity {
         ImageView imageView = findViewById(R.id.image_view);
         TextView errorMsg = findViewById(R.id.empty_view);
 
-        Bitmap bitmap = StorageUtil.getImageFromFile(mAlarm.getPhotoPath());
+        Bitmap bitmap = StorageUtil.getImageFromFile(this, Constants.PACKAGE_NAME_PATIENT, mAlarm.getPhotoPath());
         if (bitmap != null) {
             Log.i(Constants.LOG_TAG, "Attempt to retrieve completion image was "
                     + "successful.  Forwarding Bitmap to image viewer.");

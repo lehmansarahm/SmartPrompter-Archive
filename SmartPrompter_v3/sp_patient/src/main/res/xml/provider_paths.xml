@@ -1,0 +1,5 @@
+<paths xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource">
+    <files-path path="sp_audio/" name="sp_audio" />
+    <files-path path="sp_photos/" name="sp_photos" />
+</paths>

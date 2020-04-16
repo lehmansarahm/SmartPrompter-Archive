@@ -40,7 +40,9 @@ public class AcknowledgmentActivity extends SliderBaseActivity {
             taskText.setText(mAlarm.getDesc());
 
             ImageView imageView = findViewById(R.id.alarm_desc_img);
-            Bitmap bitmap = StorageUtil.getImageFromFile(mAlarm.getDescImgPath());
+            Bitmap bitmap = StorageUtil.getImageFromFile(this,
+                    Constants.PACKAGE_NAME_ADMIN, mAlarm.getDescImgPath());
+
             if (bitmap != null) {
                 Log.i(Constants.LOG_TAG, "Attempt to retrieve completion image was "
                         + "successful.  Forwarding Bitmap to image viewer.");
@@ -51,7 +53,7 @@ public class AcknowledgmentActivity extends SliderBaseActivity {
                 (error) -> Log.e(BaseActivity.LOG_TAG, "Something went wrong while attempting to "
                         + "retrieve alarms by GUID: " + mAlarmGUID, error));
 
-        mInstructionText = findViewById(R.id.instruction_text);
+        // mInstructionText = findViewById(R.id.instruction_text);
         Slider selection = findViewById(R.id.selection_seekbar);
         selection.setOnSeekBarChangeListener(changeListener);
     }

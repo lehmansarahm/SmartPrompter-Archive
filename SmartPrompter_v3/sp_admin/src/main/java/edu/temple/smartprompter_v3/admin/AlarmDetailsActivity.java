@@ -173,12 +173,13 @@ public class AlarmDetailsActivity extends BaseActivity implements
 
     @Override
     public void onImageAccepted(String alarmGUID, byte[] bytes) {
-        detailsFrag.onImageAccepted(alarmGUID, bytes);
         Log.i(LOG_TAG, "Updates saved to alarm with GUID: " + mAlarmGUID
                 + " \t\t Popping fragment stack.");
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.popBackStack();     // remove camera review fragment
+
+        detailsFrag.onImageAccepted(alarmGUID, bytes);
     }
 
     @Override

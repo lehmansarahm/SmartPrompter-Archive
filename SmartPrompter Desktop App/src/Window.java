@@ -15,7 +15,13 @@ public class Window {
     
     private static final String PATIENT_APK = "apk/sp_patient.apk";
     private static final String PATIENT_PACKAGE_NAME = "edu.temple.smartprompter_v3";
-    
+
+    /*
+    private static final String ANDROID_DATA_DIR = "storage/self/primary/Android/data/";
+    private static final String ADMIN_FILES_DIR = ANDROID_DATA_DIR + ADMIN_PACKAGE_NAME + "/files";
+    private static final String PATIENT_FILES_DIR = ANDROID_DATA_DIR + PATIENT_PACKAGE_NAME + "/files";
+    */
+
     private static final String DOCS_DIRECTORY = "storage/self/primary/Documents";
     private static final String ALARMS_DIRECTORY = DOCS_DIRECTORY + "/sp_alarms";
     private static final String ARCHIVE_DIRECTORY = DOCS_DIRECTORY + "/sp_archive";
@@ -46,7 +52,7 @@ public class Window {
             // ignore the success result of this guy ... if the directory already exists, this command will fail, and we don't
             // want that to influence the rest of the output
             cliRunner.run("Create Documents directory", new String[] {ADB_PATH, "shell", "mkdir", DOCS_DIRECTORY});
-    
+ 
             success &= cliRunner.run("Create sp_alarms directory", new String[] {ADB_PATH, "shell", "mkdir", ALARMS_DIRECTORY});
             success &= cliRunner.run("Create sp_archive directory", new String[] {ADB_PATH, "shell", "mkdir", ARCHIVE_DIRECTORY});
             success &= cliRunner.run("Create sp_audio directory", new String[] {ADB_PATH, "shell", "mkdir", AUDIO_DIRECTORY});
@@ -67,6 +73,14 @@ public class Window {
             boolean success = true;
             success &= cliRunner.run("Uninstall Admin App", new String[] {ADB_PATH, "uninstall", ADMIN_PACKAGE_NAME});
             success &= cliRunner.run("Uninstall Patient App", new String[] {ADB_PATH, "uninstall", PATIENT_PACKAGE_NAME});
+
+/*
+            success &= cliRunner.run("Pull Admin files directory", new String[] {ADB_PATH, "pull", ADMIN_FILES_DIR});
+            success &= cliRunner.run("Remove Admin files directory", new String[] {ADB_PATH, "shell", "rm", "-r", ADMIN_FILES_DIR});
+
+            success &= cliRunner.run("Pull Patient files directory", new String[] {ADB_PATH, "pull", PATIENT_FILES_DIR});
+            success &= cliRunner.run("Remove Patient files directory", new String[] {ADB_PATH, "shell", "rm", "-r", PATIENT_FILES_DIR});
+*/
 
             success &= cliRunner.run("Pull sp_alarm directory", new String[] {ADB_PATH, "pull", ALARMS_DIRECTORY});
             success &= cliRunner.run("Remove sp_alarm directory", new String[] {ADB_PATH, "shell", "rm", "-r", ALARMS_DIRECTORY});

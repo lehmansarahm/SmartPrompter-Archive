@@ -9,6 +9,7 @@ import android.util.Log;
 
 import edu.temple.smartprompter_v3.res_lib.data.Alarm;
 import edu.temple.smartprompter_v3.res_lib.data.FirebaseConnector;
+import edu.temple.smartprompter_v3.res_lib.utils.Constants;
 import edu.temple.smartprompter_v3.res_lib.utils.MediaUtil;
 import edu.temple.smartprompter_v3.res_lib.utils.StorageUtil;
 
@@ -146,7 +147,7 @@ public class SpController {
 
         Log.e(LOG_TAG, "Attempting to save photo to path: " + alarm.getPhotoPath());
         Bitmap media = MediaUtil.convertToBitmap(bytes);
-        StorageUtil.writeImageToFile(alarm.getPhotoPath(), media);
+        StorageUtil.writeImageToFile(context, Constants.PACKAGE_NAME_PATIENT, alarm.getPhotoPath(), media);
 
         FirebaseConnector.saveAlarm(alarm,
                 result -> Log.i(LOG_TAG, "Alarm with GUID: " + alarm.getGuid()
